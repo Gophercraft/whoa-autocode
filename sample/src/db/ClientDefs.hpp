@@ -7,7 +7,7 @@
 
 struct AchievementRec {
 	static constexpr uint32_t NumColumns = 62;
-	static constexpr uint32_t RowSize = 44;
+	static constexpr uint32_t RowSize = 248;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -34,7 +34,7 @@ struct AchievementRec {
 
 struct Achievement_CategoryRec {
 	static constexpr uint32_t NumColumns = 20;
-	static constexpr uint32_t RowSize = 12;
+	static constexpr uint32_t RowSize = 80;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -49,7 +49,7 @@ struct Achievement_CategoryRec {
 
 struct Achievement_CriteriaRec {
 	static constexpr uint32_t NumColumns = 31;
-	static constexpr uint32_t RowSize = 56;
+	static constexpr uint32_t RowSize = 124;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -253,7 +253,7 @@ struct AreaGroupRec {
 
 struct AreaPOIRec {
 	static constexpr uint32_t NumColumns = 54;
-	static constexpr uint32_t RowSize = 80;
+	static constexpr uint32_t RowSize = 216;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -277,7 +277,7 @@ struct AreaPOIRec {
 
 struct AreaTableRec {
 	static constexpr uint32_t NumColumns = 36;
-	static constexpr uint32_t RowSize = 76;
+	static constexpr uint32_t RowSize = 144;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -366,7 +366,7 @@ struct AttackAnimTypesRec {
 
 struct AuctionHouseRec {
 	static constexpr uint32_t NumColumns = 21;
-	static constexpr uint32_t RowSize = 16;
+	static constexpr uint32_t RowSize = 84;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -409,7 +409,7 @@ struct BannedAddonsRec {
 
 struct BarberShopStyleRec {
 	static constexpr uint32_t NumColumns = 40;
-	static constexpr uint32_t RowSize = 24;
+	static constexpr uint32_t RowSize = 160;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -429,7 +429,7 @@ struct BarberShopStyleRec {
 
 struct BattlemasterListRec {
 	static constexpr uint32_t NumColumns = 32;
-	static constexpr uint32_t RowSize = 60;
+	static constexpr uint32_t RowSize = 128;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -490,7 +490,7 @@ struct CameraShakesRec {
 
 struct Cfg_CategoriesRec {
 	static constexpr uint32_t NumColumns = 21;
-	static constexpr uint32_t RowSize = 16;
+	static constexpr uint32_t RowSize = 84;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -602,7 +602,7 @@ struct CharStartOutfitRec {
 
 struct CharTitlesRec {
 	static constexpr uint32_t NumColumns = 37;
-	static constexpr uint32_t RowSize = 12;
+	static constexpr uint32_t RowSize = 148;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -646,7 +646,7 @@ struct CharacterFacialHairStylesRec {
 
 struct ChatChannelsRec {
 	static constexpr uint32_t NumColumns = 37;
-	static constexpr uint32_t RowSize = 12;
+	static constexpr uint32_t RowSize = 148;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -676,7 +676,7 @@ struct ChatProfanityRec {
 
 struct ChrClassesRec {
 	static constexpr uint32_t NumColumns = 60;
-	static constexpr uint32_t RowSize = 36;
+	static constexpr uint32_t RowSize = 240;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -701,7 +701,7 @@ struct ChrClassesRec {
 
 struct ChrRacesRec {
 	static constexpr uint32_t NumColumns = 69;
-	static constexpr uint32_t RowSize = 72;
+	static constexpr uint32_t RowSize = 276;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -807,7 +807,7 @@ struct CreatureDisplayInfoExtraRec {
 
 struct CreatureFamilyRec {
 	static constexpr uint32_t NumColumns = 28;
-	static constexpr uint32_t RowSize = 44;
+	static constexpr uint32_t RowSize = 112;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -933,7 +933,7 @@ struct CreatureSpellDataRec {
 
 struct CreatureTypeRec {
 	static constexpr uint32_t NumColumns = 19;
-	static constexpr uint32_t RowSize = 8;
+	static constexpr uint32_t RowSize = 76;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -947,7 +947,7 @@ struct CreatureTypeRec {
 
 struct CurrencyCategoryRec {
 	static constexpr uint32_t NumColumns = 19;
-	static constexpr uint32_t RowSize = 8;
+	static constexpr uint32_t RowSize = 76;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -975,7 +975,7 @@ struct CurrencyTypesRec {
 
 struct DanceMovesRec {
 	static constexpr uint32_t NumColumns = 24;
-	static constexpr uint32_t RowSize = 28;
+	static constexpr uint32_t RowSize = 96;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -1064,7 +1064,7 @@ struct DestructibleModelDataRec {
 
 struct DungeonEncounterRec {
 	static constexpr uint32_t NumColumns = 23;
-	static constexpr uint32_t RowSize = 24;
+	static constexpr uint32_t RowSize = 92;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -1171,7 +1171,7 @@ struct EmotesTextRec {
 
 struct EmotesTextDataRec {
 	static constexpr uint32_t NumColumns = 18;
-	static constexpr uint32_t RowSize = 4;
+	static constexpr uint32_t RowSize = 72;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -1212,7 +1212,7 @@ struct EnvironmentalDamageRec {
 
 struct ExhaustionRec {
 	static constexpr uint32_t NumColumns = 23;
-	static constexpr uint32_t RowSize = 24;
+	static constexpr uint32_t RowSize = 92;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -1230,7 +1230,7 @@ struct ExhaustionRec {
 
 struct FactionRec {
 	static constexpr uint32_t NumColumns = 57;
-	static constexpr uint32_t RowSize = 92;
+	static constexpr uint32_t RowSize = 228;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -1253,7 +1253,7 @@ struct FactionRec {
 
 struct FactionGroupRec {
 	static constexpr uint32_t NumColumns = 20;
-	static constexpr uint32_t RowSize = 12;
+	static constexpr uint32_t RowSize = 80;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -1326,7 +1326,7 @@ struct FootstepTerrainLookupRec {
 
 struct GMSurveyAnswersRec {
 	static constexpr uint32_t NumColumns = 20;
-	static constexpr uint32_t RowSize = 12;
+	static constexpr uint32_t RowSize = 80;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -1353,7 +1353,7 @@ struct GMSurveyCurrentSurveyRec {
 
 struct GMSurveyQuestionsRec {
 	static constexpr uint32_t NumColumns = 18;
-	static constexpr uint32_t RowSize = 4;
+	static constexpr uint32_t RowSize = 72;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -1378,7 +1378,7 @@ struct GMSurveySurveysRec {
 
 struct GMTicketCategoryRec {
 	static constexpr uint32_t NumColumns = 18;
-	static constexpr uint32_t RowSize = 4;
+	static constexpr uint32_t RowSize = 72;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -1433,7 +1433,7 @@ struct GameTablesRec {
 
 struct GameTipsRec {
 	static constexpr uint32_t NumColumns = 18;
-	static constexpr uint32_t RowSize = 4;
+	static constexpr uint32_t RowSize = 72;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -1559,7 +1559,7 @@ struct HelmetGeosetVisDataRec {
 
 struct HolidayDescriptionsRec {
 	static constexpr uint32_t NumColumns = 18;
-	static constexpr uint32_t RowSize = 4;
+	static constexpr uint32_t RowSize = 72;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -1572,7 +1572,7 @@ struct HolidayDescriptionsRec {
 
 struct HolidayNamesRec {
 	static constexpr uint32_t NumColumns = 18;
-	static constexpr uint32_t RowSize = 4;
+	static constexpr uint32_t RowSize = 72;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -1667,7 +1667,7 @@ struct ItemArmorTotalRec {
 
 struct ItemBagFamilyRec {
 	static constexpr uint32_t NumColumns = 18;
-	static constexpr uint32_t RowSize = 4;
+	static constexpr uint32_t RowSize = 72;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -1680,7 +1680,7 @@ struct ItemBagFamilyRec {
 
 struct ItemClassRec {
 	static constexpr uint32_t NumColumns = 20;
-	static constexpr uint32_t RowSize = 12;
+	static constexpr uint32_t RowSize = 80;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ClassID;
@@ -1865,7 +1865,7 @@ struct ItemGroupSoundsRec {
 
 struct ItemLimitCategoryRec {
 	static constexpr uint32_t NumColumns = 20;
-	static constexpr uint32_t RowSize = 12;
+	static constexpr uint32_t RowSize = 80;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -1880,7 +1880,7 @@ struct ItemLimitCategoryRec {
 
 struct ItemPetFoodRec {
 	static constexpr uint32_t NumColumns = 18;
-	static constexpr uint32_t RowSize = 4;
+	static constexpr uint32_t RowSize = 72;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -1893,7 +1893,7 @@ struct ItemPetFoodRec {
 
 struct ItemPurchaseGroupRec {
 	static constexpr uint32_t NumColumns = 26;
-	static constexpr uint32_t RowSize = 36;
+	static constexpr uint32_t RowSize = 104;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -1907,7 +1907,7 @@ struct ItemPurchaseGroupRec {
 
 struct ItemRandomPropertiesRec {
 	static constexpr uint32_t NumColumns = 24;
-	static constexpr uint32_t RowSize = 28;
+	static constexpr uint32_t RowSize = 96;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -1922,7 +1922,7 @@ struct ItemRandomPropertiesRec {
 
 struct ItemRandomSuffixRec {
 	static constexpr uint32_t NumColumns = 29;
-	static constexpr uint32_t RowSize = 48;
+	static constexpr uint32_t RowSize = 116;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -1953,7 +1953,7 @@ struct ItemReforgeRec {
 
 struct ItemSetRec {
 	static constexpr uint32_t NumColumns = 53;
-	static constexpr uint32_t RowSize = 144;
+	static constexpr uint32_t RowSize = 212;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -1971,7 +1971,7 @@ struct ItemSetRec {
 
 struct ItemSubClassRec {
 	static constexpr uint32_t NumColumns = 44;
-	static constexpr uint32_t RowSize = 40;
+	static constexpr uint32_t RowSize = 176;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ClassID;
@@ -1995,7 +1995,7 @@ struct ItemSubClassRec {
 
 struct ItemSubClassMaskRec {
 	static constexpr uint32_t NumColumns = 19;
-	static constexpr uint32_t RowSize = 8;
+	static constexpr uint32_t RowSize = 76;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ClassID;
@@ -2051,7 +2051,7 @@ struct LFGDungeonExpansionRec {
 
 struct LFGDungeonGroupRec {
 	static constexpr uint32_t NumColumns = 21;
-	static constexpr uint32_t RowSize = 16;
+	static constexpr uint32_t RowSize = 84;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -2067,7 +2067,7 @@ struct LFGDungeonGroupRec {
 
 struct LFGDungeonsRec {
 	static constexpr uint32_t NumColumns = 49;
-	static constexpr uint32_t RowSize = 60;
+	static constexpr uint32_t RowSize = 196;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -2109,7 +2109,7 @@ struct LanguageWordsRec {
 
 struct LanguagesRec {
 	static constexpr uint32_t NumColumns = 18;
-	static constexpr uint32_t RowSize = 4;
+	static constexpr uint32_t RowSize = 72;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -2300,7 +2300,7 @@ struct LockRec {
 
 struct LockTypeRec {
 	static constexpr uint32_t NumColumns = 53;
-	static constexpr uint32_t RowSize = 8;
+	static constexpr uint32_t RowSize = 212;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -2318,7 +2318,7 @@ struct LockTypeRec {
 
 struct MailTemplateRec {
 	static constexpr uint32_t NumColumns = 35;
-	static constexpr uint32_t RowSize = 4;
+	static constexpr uint32_t RowSize = 140;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -2333,7 +2333,7 @@ struct MailTemplateRec {
 
 struct MapRec {
 	static constexpr uint32_t NumColumns = 66;
-	static constexpr uint32_t RowSize = 60;
+	static constexpr uint32_t RowSize = 264;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -2363,7 +2363,7 @@ struct MapRec {
 
 struct MapDifficultyRec {
 	static constexpr uint32_t NumColumns = 23;
-	static constexpr uint32_t RowSize = 24;
+	static constexpr uint32_t RowSize = 92;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -2600,7 +2600,7 @@ struct PVPDifficultyRec {
 
 struct PackageRec {
 	static constexpr uint32_t NumColumns = 20;
-	static constexpr uint32_t RowSize = 12;
+	static constexpr uint32_t RowSize = 80;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -2654,7 +2654,7 @@ struct ParticleColorRec {
 
 struct PetPersonalityRec {
 	static constexpr uint32_t NumColumns = 24;
-	static constexpr uint32_t RowSize = 28;
+	static constexpr uint32_t RowSize = 96;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -2762,7 +2762,7 @@ struct QuestFactionRewardRec {
 
 struct QuestInfoRec {
 	static constexpr uint32_t NumColumns = 18;
-	static constexpr uint32_t RowSize = 4;
+	static constexpr uint32_t RowSize = 72;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -2775,7 +2775,7 @@ struct QuestInfoRec {
 
 struct QuestSortRec {
 	static constexpr uint32_t NumColumns = 18;
-	static constexpr uint32_t RowSize = 4;
+	static constexpr uint32_t RowSize = 72;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -2814,7 +2814,7 @@ struct RandPropPointsRec {
 
 struct ResearchBranchRec {
 	static constexpr uint32_t NumColumns = 22;
-	static constexpr uint32_t RowSize = 20;
+	static constexpr uint32_t RowSize = 88;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -2831,7 +2831,7 @@ struct ResearchBranchRec {
 
 struct ResistancesRec {
 	static constexpr uint32_t NumColumns = 20;
-	static constexpr uint32_t RowSize = 12;
+	static constexpr uint32_t RowSize = 80;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -2911,7 +2911,7 @@ struct ScreenEffectRec {
 
 struct ServerMessagesRec {
 	static constexpr uint32_t NumColumns = 18;
-	static constexpr uint32_t RowSize = 4;
+	static constexpr uint32_t RowSize = 72;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -2954,7 +2954,7 @@ struct SkillCostsDataRec {
 
 struct SkillLineRec {
 	static constexpr uint32_t NumColumns = 56;
-	static constexpr uint32_t RowSize = 20;
+	static constexpr uint32_t RowSize = 224;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -2998,7 +2998,7 @@ struct SkillLineAbilityRec {
 
 struct SkillLineCategoryRec {
 	static constexpr uint32_t NumColumns = 19;
-	static constexpr uint32_t RowSize = 8;
+	static constexpr uint32_t RowSize = 76;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -3241,7 +3241,7 @@ struct SpamMessagesRec {
 
 struct SpellRec {
 	static constexpr uint32_t NumColumns = 234;
-	static constexpr uint32_t RowSize = 664;
+	static constexpr uint32_t RowSize = 936;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -3564,7 +3564,7 @@ struct SpellDifficultyRec {
 
 struct SpellDispelTypeRec {
 	static constexpr uint32_t NumColumns = 21;
-	static constexpr uint32_t RowSize = 16;
+	static constexpr uint32_t RowSize = 84;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -3651,7 +3651,7 @@ struct SpellEquippedItemsRec {
 
 struct SpellFocusObjectRec {
 	static constexpr uint32_t NumColumns = 18;
-	static constexpr uint32_t RowSize = 4;
+	static constexpr uint32_t RowSize = 72;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -3690,7 +3690,7 @@ struct SpellInterruptsRec {
 
 struct SpellItemEnchantmentRec {
 	static constexpr uint32_t NumColumns = 38;
-	static constexpr uint32_t RowSize = 84;
+	static constexpr uint32_t RowSize = 152;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -3746,7 +3746,7 @@ struct SpellLevelsRec {
 
 struct SpellMechanicRec {
 	static constexpr uint32_t NumColumns = 18;
-	static constexpr uint32_t RowSize = 4;
+	static constexpr uint32_t RowSize = 72;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -3829,7 +3829,7 @@ struct SpellRadiusRec {
 
 struct SpellRangeRec {
 	static constexpr uint32_t NumColumns = 40;
-	static constexpr uint32_t RowSize = 24;
+	static constexpr uint32_t RowSize = 160;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -3909,7 +3909,7 @@ struct SpellShapeshiftRec {
 
 struct SpellShapeshiftFormRec {
 	static constexpr uint32_t NumColumns = 35;
-	static constexpr uint32_t RowSize = 72;
+	static constexpr uint32_t RowSize = 140;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -4099,7 +4099,7 @@ struct StableSlotPricesRec {
 
 struct Startup_StringsRec {
 	static constexpr uint32_t NumColumns = 19;
-	static constexpr uint32_t RowSize = 8;
+	static constexpr uint32_t RowSize = 76;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -4175,7 +4175,7 @@ struct TalentRec {
 
 struct TalentTabRec {
 	static constexpr uint32_t NumColumns = 24;
-	static constexpr uint32_t RowSize = 28;
+	static constexpr uint32_t RowSize = 96;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -4194,7 +4194,7 @@ struct TalentTabRec {
 
 struct TaxiNodesRec {
 	static constexpr uint32_t NumColumns = 24;
-	static constexpr uint32_t RowSize = 28;
+	static constexpr uint32_t RowSize = 96;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -4296,7 +4296,7 @@ struct TerrainTypeSoundsRec {
 
 struct TotemCategoryRec {
 	static constexpr uint32_t NumColumns = 20;
-	static constexpr uint32_t RowSize = 12;
+	static constexpr uint32_t RowSize = 80;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -4580,7 +4580,7 @@ struct VocalUISoundsRec {
 
 struct WMOAreaTableRec {
 	static constexpr uint32_t NumColumns = 28;
-	static constexpr uint32_t RowSize = 44;
+	static constexpr uint32_t RowSize = 112;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -4750,7 +4750,7 @@ struct WorldMapTransformsRec {
 
 struct WorldSafeLocsRec {
 	static constexpr uint32_t NumColumns = 22;
-	static constexpr uint32_t RowSize = 20;
+	static constexpr uint32_t RowSize = 88;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -4765,7 +4765,7 @@ struct WorldSafeLocsRec {
 
 struct WorldStateUIRec {
 	static constexpr uint32_t NumColumns = 63;
-	static constexpr uint32_t RowSize = 48;
+	static constexpr uint32_t RowSize = 252;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
@@ -4809,7 +4809,7 @@ struct WorldStateZoneSoundsRec {
 
 struct WowError_StringsRec {
 	static constexpr uint32_t NumColumns = 19;
-	static constexpr uint32_t RowSize = 8;
+	static constexpr uint32_t RowSize = 76;
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;

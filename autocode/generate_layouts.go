@@ -86,7 +86,7 @@ func (g *Generator) writeLayout(file *Printer, target *layoutTarget) error {
 
 		switch columnDef.Type {
 		case dbd.LocString:
-
+			columnSize = locSize * 4
 		case dbd.Int, dbd.Uint:
 			columnSize = (column.Bits / 8) * numColumnElements
 		case dbd.Float:
