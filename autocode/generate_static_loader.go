@@ -1,6 +1,8 @@
 package autocode
 
-import "unicode"
+import (
+	"unicode"
+)
 
 func (g *Generator) globalDBName(name string) string {
 	gname := []rune("g_" + name + "DB")
@@ -56,6 +58,12 @@ func (g *Generator) generateStaticDBLoader() error {
 
 	for _, localimport := range localimports {
 		file.Printf("#include \"%s\"\n", localimport)
+	}
+
+	file.Printf("\n")
+
+	for _, target := range g.layouts {
+		file.Printf("WowClientDB<%sRec> %s;\n", target.Definition.Name, g.globalDBName(target.Definition.Name))
 	}
 
 	file.Printf("\n")
