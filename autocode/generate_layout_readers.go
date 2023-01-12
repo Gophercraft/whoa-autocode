@@ -35,7 +35,7 @@ func (g *Generator) generateLayoutReader(target *layoutTarget) error {
 		}
 		if columnDef.Type == dbd.String || columnDef.Type == dbd.LocString {
 			if columnDef.Type == dbd.LocString {
-				fieldCount *= locSize
+				fieldCount *= (locSize - 1)
 			}
 			file.Printf("\tuint32_t temp%sIndices[%d];\n", columnDef.Name, fieldCount)
 		}
@@ -63,7 +63,13 @@ func (g *Generator) generateLayoutReader(target *layoutTarget) error {
 			for f := 0; f < elementCount; f++ {
 				file.Printf("\t\t")
 
-				file.Printf("SFile::Read(f, &temp%sIndices[%d], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0", columnLayout.Name, f)
+				last := f+1 == elementCount
+
+				if last {
+					file.Printf("SFile::Read(f, &m_%s_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0", columnLayout.Name)
+				} else {
+					file.Printf("SFile::Read(f, &temp%sIndices[%d], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0", columnLayout.Name, f)
+				}
 
 				if !(f+1 == elementCount && i+1 == len(target.Layout.Columns)) {
 					file.Printf(" ||")
@@ -115,7 +121,7 @@ func (g *Generator) generateLayoutReader(target *layoutTarget) error {
 			}
 
 			if columnDef.Type == dbd.LocString {
-				elementCount = locSize * elementCount
+				elementCount = (locSize - 1) * elementCount
 			}
 			isArray := columnLayout.ArraySize > 0 || columnDef.Type == dbd.LocString
 

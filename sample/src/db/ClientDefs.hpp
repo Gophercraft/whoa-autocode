@@ -14,14 +14,17 @@ struct AchievementRec {
 	int32_t m_Faction;
 	int32_t m_Instance_ID;
 	int32_t m_Supercedes;
-	const char* m_Title_lang[17];
-	const char* m_Description_lang[17];
+	const char* m_Title_lang[16];
+	uint32_t m_Title_lang_bitmask;
+	const char* m_Description_lang[16];
+	uint32_t m_Description_lang_bitmask;
 	int32_t m_Category;
 	int32_t m_Points;
 	int32_t m_Ui_order;
 	int32_t m_Flags;
 	int32_t m_IconID;
-	const char* m_Reward_lang[17];
+	const char* m_Reward_lang[16];
+	uint32_t m_Reward_lang_bitmask;
 	int32_t m_Minimum_criteria;
 	int32_t m_Shares_criteria;
 
@@ -36,7 +39,8 @@ struct Achievement_CategoryRec {
 
 	int32_t m_ID;
 	int32_t m_Parent;
-	const char* m_Name_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
 	int32_t m_Ui_order;
 
 	const char * GetFilename();
@@ -57,7 +61,8 @@ struct Achievement_CriteriaRec {
 	int32_t m_Start_asset;
 	int32_t m_Fail_event;
 	int32_t m_Fail_asset;
-	const char* m_Description_lang[17];
+	const char* m_Description_lang[16];
+	uint32_t m_Description_lang_bitmask;
 	int32_t m_Flags;
 	int32_t m_Timer_start_event;
 	int32_t m_Timer_asset_ID;
@@ -259,8 +264,10 @@ struct AreaPOIRec {
 	int32_t m_ContinentID;
 	int32_t m_Flags;
 	int32_t m_AreaID;
-	const char* m_Name_lang[17];
-	const char* m_Description_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
+	const char* m_Description_lang[16];
+	uint32_t m_Description_lang_bitmask;
 	int32_t m_WorldStateID;
 	int32_t m_WorldMapLink;
 
@@ -284,7 +291,8 @@ struct AreaTableRec {
 	int32_t m_ZoneMusic;
 	int32_t m_IntroSound;
 	int32_t m_ExplorationLevel;
-	const char* m_AreaName_lang[17];
+	const char* m_AreaName_lang[16];
+	uint32_t m_AreaName_lang_bitmask;
 	int32_t m_FactionGroupMask;
 	int32_t m_LiquidTypeID[4];
 	float m_MinElevation;
@@ -365,7 +373,8 @@ struct AuctionHouseRec {
 	int32_t m_FactionID;
 	int32_t m_DepositRate;
 	int32_t m_ConsignmentRate;
-	const char* m_Name_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
 
 	const char * GetFilename();
 	bool Read(SFile* f, const char* stringBuffer);
@@ -405,8 +414,10 @@ struct BarberShopStyleRec {
 
 	int32_t m_ID;
 	int32_t m_Type;
-	const char* m_DisplayName_lang[17];
-	const char* m_Description_lang[17];
+	const char* m_DisplayName_lang[16];
+	uint32_t m_DisplayName_lang_bitmask;
+	const char* m_Description_lang[16];
+	uint32_t m_Description_lang_bitmask;
 	float m_Cost_Modifier;
 	int32_t m_Race;
 	int32_t m_Sex;
@@ -425,7 +436,8 @@ struct BattlemasterListRec {
 	int32_t m_MapID[8];
 	int32_t m_InstanceType;
 	int32_t m_GroupsAllowed;
-	const char* m_Name_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
 	int32_t m_MaxGroupSize;
 	int32_t m_HolidayWorldState;
 	int32_t m_MinLevel;
@@ -485,7 +497,8 @@ struct Cfg_CategoriesRec {
 	int32_t m_LocaleMask;
 	int32_t m_Create_charsetMask;
 	int32_t m_Flags;
-	const char* m_Name_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
 
 	const char * GetFilename();
 	bool Read(SFile* f, const char* stringBuffer);
@@ -594,8 +607,10 @@ struct CharTitlesRec {
 
 	int32_t m_ID;
 	int32_t m_Condition_ID;
-	const char* m_Name_lang[17];
-	const char* m_Name1_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
+	const char* m_Name1_lang[16];
+	uint32_t m_Name1_lang_bitmask;
 	int32_t m_Mask_ID;
 
 	const char * GetFilename();
@@ -637,8 +652,10 @@ struct ChatChannelsRec {
 	int32_t m_ID;
 	int32_t m_Flags;
 	int32_t m_FactionGroup;
-	const char* m_Name_lang[17];
-	const char* m_Shortcut_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
+	const char* m_Shortcut_lang[16];
+	uint32_t m_Shortcut_lang_bitmask;
 
 	const char * GetFilename();
 	bool Read(SFile* f, const char* stringBuffer);
@@ -666,9 +683,12 @@ struct ChrClassesRec {
 	int32_t m_DamageBonusStat;
 	int32_t m_DisplayPower;
 	const char* m_PetNameToken;
-	const char* m_Name_lang[17];
-	const char* m_Name_female_lang[17];
-	const char* m_Name_male_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
+	const char* m_Name_female_lang[16];
+	uint32_t m_Name_female_lang_bitmask;
+	const char* m_Name_male_lang[16];
+	uint32_t m_Name_male_lang_bitmask;
 	const char* m_Filename;
 	int32_t m_SpellClassSet;
 	int32_t m_Flags;
@@ -698,9 +718,12 @@ struct ChrRacesRec {
 	const char* m_ClientFileString;
 	int32_t m_CinematicSequenceID;
 	int32_t m_Alliance;
-	const char* m_Name_lang[17];
-	const char* m_Name_female_lang[17];
-	const char* m_Name_male_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
+	const char* m_Name_female_lang[16];
+	uint32_t m_Name_female_lang_bitmask;
+	const char* m_Name_male_lang[16];
+	uint32_t m_Name_male_lang_bitmask;
 	const char* m_FacialHairCustomization[2];
 	const char* m_HairCustomization;
 	int32_t m_Required_expansion;
@@ -796,7 +819,8 @@ struct CreatureFamilyRec {
 	int32_t m_PetFoodMask;
 	int32_t m_PetTalentType;
 	int32_t m_CategoryEnumID;
-	const char* m_Name_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
 	const char* m_IconFile;
 
 	const char * GetFilename();
@@ -913,7 +937,8 @@ struct CreatureTypeRec {
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
-	const char* m_Name_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
 	int32_t m_Flags;
 
 	const char * GetFilename();
@@ -927,7 +952,8 @@ struct CurrencyCategoryRec {
 
 	int32_t m_ID;
 	int32_t m_Flags;
-	const char* m_Name_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
 
 	const char * GetFilename();
 	bool Read(SFile* f, const char* stringBuffer);
@@ -958,7 +984,8 @@ struct DanceMovesRec {
 	int32_t m_Fallback;
 	int32_t m_Racemask;
 	const char* m_Internal_name;
-	const char* m_Name_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
 	int32_t m_LockID;
 
 	const char * GetFilename();
@@ -1045,7 +1072,8 @@ struct DungeonEncounterRec {
 	int32_t m_Difficulty;
 	int32_t m_OrderIndex;
 	int32_t m_Bit;
-	const char* m_Name_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
 	int32_t m_SpellIconID;
 
 	const char * GetFilename();
@@ -1147,7 +1175,8 @@ struct EmotesTextDataRec {
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
-	const char* m_Text_lang[17];
+	const char* m_Text_lang[16];
+	uint32_t m_Text_lang_bitmask;
 
 	const char * GetFilename();
 	bool Read(SFile* f, const char* stringBuffer);
@@ -1191,7 +1220,8 @@ struct ExhaustionRec {
 	float m_Factor;
 	float m_OutdoorHours;
 	float m_InnHours;
-	const char* m_Name_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
 	float m_Threshold;
 
 	const char * GetFilename();
@@ -1212,8 +1242,10 @@ struct FactionRec {
 	int32_t m_ParentFactionID;
 	float m_ParentFactionMod[2];
 	int32_t m_ParentFactionCap[2];
-	const char* m_Name_lang[17];
-	const char* m_Description_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
+	const char* m_Description_lang[16];
+	uint32_t m_Description_lang_bitmask;
 
 	const char * GetFilename();
 	bool Read(SFile* f, const char* stringBuffer);
@@ -1227,7 +1259,8 @@ struct FactionGroupRec {
 	int32_t m_ID;
 	int32_t m_MaskID;
 	const char* m_InternalName;
-	const char* m_Name_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
 
 	const char * GetFilename();
 	bool Read(SFile* f, const char* stringBuffer);
@@ -1299,7 +1332,8 @@ struct GMSurveyAnswersRec {
 	int32_t m_ID;
 	int32_t m_Sort_Index;
 	int32_t m_GMSurveyQuestionID;
-	const char* m_Answer_lang[17];
+	const char* m_Answer_lang[16];
+	uint32_t m_Answer_lang_bitmask;
 
 	const char * GetFilename();
 	bool Read(SFile* f, const char* stringBuffer);
@@ -1323,7 +1357,8 @@ struct GMSurveyQuestionsRec {
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
-	const char* m_Question_lang[17];
+	const char* m_Question_lang[16];
+	uint32_t m_Question_lang_bitmask;
 
 	const char * GetFilename();
 	bool Read(SFile* f, const char* stringBuffer);
@@ -1347,7 +1382,8 @@ struct GMTicketCategoryRec {
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
-	const char* m_Category_lang[17];
+	const char* m_Category_lang[16];
+	uint32_t m_Category_lang_bitmask;
 
 	const char * GetFilename();
 	bool Read(SFile* f, const char* stringBuffer);
@@ -1401,7 +1437,8 @@ struct GameTipsRec {
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
-	const char* m_Text_lang[17];
+	const char* m_Text_lang[16];
+	uint32_t m_Text_lang_bitmask;
 
 	const char * GetFilename();
 	bool Read(SFile* f, const char* stringBuffer);
@@ -1526,7 +1563,8 @@ struct HolidayDescriptionsRec {
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
-	const char* m_Description_lang[17];
+	const char* m_Description_lang[16];
+	uint32_t m_Description_lang_bitmask;
 
 	const char * GetFilename();
 	bool Read(SFile* f, const char* stringBuffer);
@@ -1538,7 +1576,8 @@ struct HolidayNamesRec {
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
-	const char* m_Name_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
 
 	const char * GetFilename();
 	bool Read(SFile* f, const char* stringBuffer);
@@ -1632,7 +1671,8 @@ struct ItemBagFamilyRec {
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
-	const char* m_Name_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
 
 	const char * GetFilename();
 	bool Read(SFile* f, const char* stringBuffer);
@@ -1646,7 +1686,8 @@ struct ItemClassRec {
 	int32_t m_ClassID;
 	int32_t m_SubclassMapID;
 	int32_t m_Flags;
-	const char* m_ClassName_lang[17];
+	const char* m_ClassName_lang[16];
+	uint32_t m_ClassName_lang_bitmask;
 
 	const char * GetFilename();
 	bool Read(SFile* f, const char* stringBuffer);
@@ -1828,7 +1869,8 @@ struct ItemLimitCategoryRec {
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
-	const char* m_Name_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
 	int32_t m_Quantity;
 	int32_t m_Flags;
 
@@ -1842,7 +1884,8 @@ struct ItemPetFoodRec {
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
-	const char* m_Name_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
 
 	const char * GetFilename();
 	bool Read(SFile* f, const char* stringBuffer);
@@ -1855,7 +1898,8 @@ struct ItemPurchaseGroupRec {
 
 	int32_t m_ID;
 	int32_t m_ItemID[8];
-	const char* m_Name_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
 
 	const char * GetFilename();
 	bool Read(SFile* f, const char* stringBuffer);
@@ -1869,7 +1913,8 @@ struct ItemRandomPropertiesRec {
 	int32_t m_ID;
 	const char* m_Name;
 	int32_t m_Enchantment[5];
-	const char* m_Name_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
 
 	const char * GetFilename();
 	bool Read(SFile* f, const char* stringBuffer);
@@ -1881,7 +1926,8 @@ struct ItemRandomSuffixRec {
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
-	const char* m_Name_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
 	const char* m_InternalName;
 	int32_t m_Enchantment[5];
 	int32_t m_AllocationPct[5];
@@ -1911,7 +1957,8 @@ struct ItemSetRec {
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
-	const char* m_Name_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
 	int32_t m_ItemID[17];
 	int32_t m_SetSpellID[8];
 	int32_t m_SetThreshold[8];
@@ -1937,8 +1984,10 @@ struct ItemSubClassRec {
 	int32_t m_WeaponReadySeq;
 	int32_t m_WeaponAttackSeq;
 	int32_t m_WeaponSwingSize;
-	const char* m_DisplayName_lang[17];
-	const char* m_VerboseName_lang[17];
+	const char* m_DisplayName_lang[16];
+	uint32_t m_DisplayName_lang_bitmask;
+	const char* m_VerboseName_lang[16];
+	uint32_t m_VerboseName_lang_bitmask;
 
 	const char * GetFilename();
 	bool Read(SFile* f, const char* stringBuffer);
@@ -1951,7 +2000,8 @@ struct ItemSubClassMaskRec {
 
 	int32_t m_ClassID;
 	int32_t m_Mask;
-	const char* m_Name_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
 
 	const char * GetFilename();
 	bool Read(SFile* f, const char* stringBuffer);
@@ -2005,7 +2055,8 @@ struct LFGDungeonGroupRec {
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
-	const char* m_Name_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
 	int32_t m_Order_index;
 	int32_t m_Parent_group_ID;
 	int32_t m_TypeID;
@@ -2020,7 +2071,8 @@ struct LFGDungeonsRec {
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
-	const char* m_Name_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
 	int32_t m_MinLevel;
 	int32_t m_MaxLevel;
 	int32_t m_Target_level;
@@ -2035,7 +2087,8 @@ struct LFGDungeonsRec {
 	int32_t m_ExpansionLevel;
 	int32_t m_Order_index;
 	int32_t m_Group_ID;
-	const char* m_Description_lang[17];
+	const char* m_Description_lang[16];
+	uint32_t m_Description_lang_bitmask;
 
 	const char * GetFilename();
 	bool Read(SFile* f, const char* stringBuffer);
@@ -2060,7 +2113,8 @@ struct LanguagesRec {
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
-	const char* m_Name_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
 
 	const char * GetFilename();
 	bool Read(SFile* f, const char* stringBuffer);
@@ -2250,9 +2304,12 @@ struct LockTypeRec {
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
-	const char* m_Name_lang[17];
-	const char* m_ResourceName_lang[17];
-	const char* m_Verb_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
+	const char* m_ResourceName_lang[16];
+	uint32_t m_ResourceName_lang_bitmask;
+	const char* m_Verb_lang[16];
+	uint32_t m_Verb_lang_bitmask;
 	const char* m_CursorName;
 
 	const char * GetFilename();
@@ -2265,8 +2322,10 @@ struct MailTemplateRec {
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
-	const char* m_Subject_lang[17];
-	const char* m_Body_lang[17];
+	const char* m_Subject_lang[16];
+	uint32_t m_Subject_lang_bitmask;
+	const char* m_Body_lang[16];
+	uint32_t m_Body_lang_bitmask;
 
 	const char * GetFilename();
 	bool Read(SFile* f, const char* stringBuffer);
@@ -2282,10 +2341,13 @@ struct MapRec {
 	int32_t m_InstanceType;
 	int32_t m_Flags;
 	int32_t m_PVP;
-	const char* m_MapName_lang[17];
+	const char* m_MapName_lang[16];
+	uint32_t m_MapName_lang_bitmask;
 	int32_t m_AreaTableID;
-	const char* m_MapDescription0_lang[17];
-	const char* m_MapDescription1_lang[17];
+	const char* m_MapDescription0_lang[16];
+	uint32_t m_MapDescription0_lang_bitmask;
+	const char* m_MapDescription1_lang[16];
+	uint32_t m_MapDescription1_lang_bitmask;
 	int32_t m_LoadingScreenID;
 	float m_MinimapIconScale;
 	int32_t m_CorpseMapID;
@@ -2307,7 +2369,8 @@ struct MapDifficultyRec {
 	int32_t m_ID;
 	int32_t m_MapID;
 	int32_t m_Difficulty;
-	const char* m_Message_lang[17];
+	const char* m_Message_lang[16];
+	uint32_t m_Message_lang_bitmask;
 	int32_t m_RaidDuration;
 	int32_t m_MaxPlayers;
 	const char* m_Difficultystring;
@@ -2543,7 +2606,8 @@ struct PackageRec {
 	int32_t m_ID;
 	const char* m_Icon;
 	int32_t m_Cost;
-	const char* m_Name_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
 
 	const char * GetFilename();
 	bool Read(SFile* f, const char* stringBuffer);
@@ -2594,7 +2658,8 @@ struct PetPersonalityRec {
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
-	const char* m_Name_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
 	int32_t m_HappinessThreshold[3];
 	float m_HappinessDamage[3];
 
@@ -2701,7 +2766,8 @@ struct QuestInfoRec {
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
-	const char* m_InfoName_lang[17];
+	const char* m_InfoName_lang[16];
+	uint32_t m_InfoName_lang_bitmask;
 
 	const char * GetFilename();
 	bool Read(SFile* f, const char* stringBuffer);
@@ -2713,7 +2779,8 @@ struct QuestSortRec {
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
-	const char* m_SortName_lang[17];
+	const char* m_SortName_lang[16];
+	uint32_t m_SortName_lang_bitmask;
 
 	const char * GetFilename();
 	bool Read(SFile* f, const char* stringBuffer);
@@ -2751,7 +2818,8 @@ struct ResearchBranchRec {
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
-	const char* m_Name_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
 	int32_t m_ResearchFieldID;
 	int32_t m_CurrencyID;
 	const char* m_Texture;
@@ -2769,7 +2837,8 @@ struct ResistancesRec {
 	int32_t m_ID;
 	int32_t m_Flags;
 	int32_t m_FizzleSoundID;
-	const char* m_Name_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
 
 	const char * GetFilename();
 	bool Read(SFile* f, const char* stringBuffer);
@@ -2846,7 +2915,8 @@ struct ServerMessagesRec {
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
-	const char* m_Text_lang[17];
+	const char* m_Text_lang[16];
+	uint32_t m_Text_lang_bitmask;
 
 	const char * GetFilename();
 	bool Read(SFile* f, const char* stringBuffer);
@@ -2890,10 +2960,13 @@ struct SkillLineRec {
 	int32_t m_ID;
 	int32_t m_CategoryID;
 	int32_t m_SkillCostsID;
-	const char* m_DisplayName_lang[17];
-	const char* m_Description_lang[17];
+	const char* m_DisplayName_lang[16];
+	uint32_t m_DisplayName_lang_bitmask;
+	const char* m_Description_lang[16];
+	uint32_t m_Description_lang_bitmask;
 	int32_t m_SpellIconID;
-	const char* m_AlternateVerb_lang[17];
+	const char* m_AlternateVerb_lang[16];
+	uint32_t m_AlternateVerb_lang_bitmask;
 	int32_t m_CanLink;
 
 	const char * GetFilename();
@@ -2929,7 +3002,8 @@ struct SkillLineCategoryRec {
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
-	const char* m_Name_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
 	int32_t m_SortIndex;
 
 	const char * GetFilename();
@@ -3248,10 +3322,14 @@ struct SpellRec {
 	int32_t m_SpellIconID;
 	int32_t m_ActiveIconID;
 	int32_t m_SpellPriority;
-	const char* m_Name_lang[17];
-	const char* m_NameSubtext_lang[17];
-	const char* m_Description_lang[17];
-	const char* m_AuraDescription_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
+	const char* m_NameSubtext_lang[16];
+	uint32_t m_NameSubtext_lang_bitmask;
+	const char* m_Description_lang[16];
+	uint32_t m_Description_lang_bitmask;
+	const char* m_AuraDescription_lang[16];
+	uint32_t m_AuraDescription_lang_bitmask;
 	int32_t m_ManaCostPct;
 	int32_t m_StartRecoveryCategory;
 	int32_t m_StartRecoveryTime;
@@ -3490,7 +3568,8 @@ struct SpellDispelTypeRec {
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
-	const char* m_Name_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
 	int32_t m_Mask;
 	int32_t m_ImmunityPossible;
 	const char* m_InternalName;
@@ -3576,7 +3655,8 @@ struct SpellFocusObjectRec {
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
-	const char* m_Name_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
 
 	const char * GetFilename();
 	bool Read(SFile* f, const char* stringBuffer);
@@ -3619,7 +3699,8 @@ struct SpellItemEnchantmentRec {
 	int32_t m_EffectPointsMin[3];
 	int32_t m_EffectPointsMax[3];
 	int32_t m_EffectArg[3];
-	const char* m_Name_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
 	int32_t m_ItemVisual;
 	int32_t m_Flags;
 	int32_t m_Src_itemID;
@@ -3669,7 +3750,8 @@ struct SpellMechanicRec {
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
-	const char* m_StateName_lang[17];
+	const char* m_StateName_lang[16];
+	uint32_t m_StateName_lang_bitmask;
 
 	const char * GetFilename();
 	bool Read(SFile* f, const char* stringBuffer);
@@ -3754,8 +3836,10 @@ struct SpellRangeRec {
 	float m_RangeMin[2];
 	float m_RangeMax[2];
 	int32_t m_Flags;
-	const char* m_DisplayName_lang[17];
-	const char* m_DisplayNameShort_lang[17];
+	const char* m_DisplayName_lang[16];
+	uint32_t m_DisplayName_lang_bitmask;
+	const char* m_DisplayNameShort_lang[16];
+	uint32_t m_DisplayNameShort_lang_bitmask;
 
 	const char * GetFilename();
 	bool Read(SFile* f, const char* stringBuffer);
@@ -3830,7 +3914,8 @@ struct SpellShapeshiftFormRec {
 
 	int32_t m_ID;
 	int32_t m_BonusActionBar;
-	const char* m_Name_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
 	int32_t m_Flags;
 	int32_t m_CreatureType;
 	int32_t m_AttackIconID;
@@ -4019,7 +4104,8 @@ struct Startup_StringsRec {
 
 	int32_t m_ID;
 	const char* m_Name;
-	const char* m_Message_lang[17];
+	const char* m_Message_lang[16];
+	uint32_t m_Message_lang_bitmask;
 
 	const char * GetFilename();
 	bool Read(SFile* f, const char* stringBuffer);
@@ -4093,7 +4179,8 @@ struct TalentTabRec {
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
-	const char* m_Name_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
 	int32_t m_SpellIconID;
 	int32_t m_RaceMask;
 	int32_t m_ClassMask;
@@ -4113,7 +4200,8 @@ struct TaxiNodesRec {
 	int32_t m_ID;
 	int32_t m_ContinentID;
 	float m_Pos[3];
-	const char* m_Name_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
 	int32_t m_MountCreatureID[2];
 
 	const char * GetFilename();
@@ -4212,7 +4300,8 @@ struct TotemCategoryRec {
 	static constexpr bool IndexIsID = false;
 
 	int32_t m_ID;
-	const char* m_Name_lang[17];
+	const char* m_Name_lang[16];
+	uint32_t m_Name_lang_bitmask;
 	int32_t m_TotemCategoryType;
 	int32_t m_TotemCategoryMask;
 
@@ -4505,7 +4594,8 @@ struct WMOAreaTableRec {
 	int32_t m_IntroSound;
 	int32_t m_Flags;
 	int32_t m_AreaTableID;
-	const char* m_AreaName_lang[17];
+	const char* m_AreaName_lang[16];
+	uint32_t m_AreaName_lang_bitmask;
 
 	const char * GetFilename();
 	bool Read(SFile* f, const char* stringBuffer);
@@ -4666,7 +4756,8 @@ struct WorldSafeLocsRec {
 	int32_t m_ID;
 	int32_t m_Continent;
 	float m_Loc[3];
-	const char* m_AreaName_lang[17];
+	const char* m_AreaName_lang[16];
+	uint32_t m_AreaName_lang_bitmask;
 
 	const char * GetFilename();
 	bool Read(SFile* f, const char* stringBuffer);
@@ -4682,12 +4773,15 @@ struct WorldStateUIRec {
 	int32_t m_AreaID;
 	int32_t m_PhaseShift;
 	const char* m_Icon;
-	const char* m_String_lang[17];
-	const char* m_Tooltip_lang[17];
+	const char* m_String_lang[16];
+	uint32_t m_String_lang_bitmask;
+	const char* m_Tooltip_lang[16];
+	uint32_t m_Tooltip_lang_bitmask;
 	int32_t m_StateVariable;
 	int32_t m_Type;
 	const char* m_DynamicIcon;
-	const char* m_DynamicTooltip_lang[17];
+	const char* m_DynamicTooltip_lang[16];
+	uint32_t m_DynamicTooltip_lang_bitmask;
 	const char* m_ExtendedUI;
 	int32_t m_ExtendedUIStateVariable[3];
 
@@ -4720,7 +4814,8 @@ struct WowError_StringsRec {
 
 	int32_t m_ID;
 	const char* m_Name;
-	const char* m_Description_lang[17];
+	const char* m_Description_lang[16];
+	uint32_t m_Description_lang_bitmask;
 
 	const char * GetFilename();
 	bool Read(SFile* f, const char* stringBuffer);

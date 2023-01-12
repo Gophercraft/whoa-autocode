@@ -130,7 +130,7 @@ func (g *Generator) writeLayout(file *Printer, target *layoutTarget) error {
 		switch columnDef.Type {
 		case dbd.LocString:
 			cppType = "const char*"
-			arraySuffix = fmt.Sprintf("[%d]", locSize)
+			arraySuffix = fmt.Sprintf("[%d]", locSize-1)
 		case dbd.String:
 			cppType = "const char*"
 		case dbd.Uint:
@@ -153,6 +153,10 @@ func (g *Generator) writeLayout(file *Printer, target *layoutTarget) error {
 		}
 
 		file.Printf("\t%s m_%s%s;\n", cppType, memberName, arraySuffix)
+
+		if columnDef.Type == dbd.LocString {
+			file.Printf("\tuint32_t m_%s_bitmask;\n", memberName)
+		}
 	}
 
 	file.Printf("\n")
