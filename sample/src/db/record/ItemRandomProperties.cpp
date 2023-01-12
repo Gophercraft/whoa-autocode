@@ -7,7 +7,7 @@ bool ItemRandomPropertiesRec::Read(SFile* f, const char* stringBuffer) {
 	uint32_t tempName_langIndices[16];
 	if (
 		SFile::Read(f, &m_ID, sizeof(m_ID), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_Name_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempNameIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Enchantment[0], sizeof(m_Enchantment[0]), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Enchantment[1], sizeof(m_Enchantment[0]), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Enchantment[2], sizeof(m_Enchantment[0]), nullptr, nullptr, nullptr) == 0 ||

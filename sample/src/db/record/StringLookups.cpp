@@ -6,7 +6,7 @@ bool StringLookupsRec::Read(SFile* f, const char* stringBuffer) {
 	uint32_t tempStringIndices[1];
 	if (
 		SFile::Read(f, &m_ID, sizeof(m_ID), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_String_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0
+		SFile::Read(f, &tempStringIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0
 	)
 	{
 		ConsoleWrite("Error reading StringLookups", WARNING_COLOR);

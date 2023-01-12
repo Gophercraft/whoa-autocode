@@ -8,7 +8,7 @@ bool WorldMapAreaRec::Read(SFile* f, const char* stringBuffer) {
 		SFile::Read(f, &m_ID, sizeof(m_ID), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_MapID, sizeof(m_MapID), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_AreaID, sizeof(m_AreaID), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_AreaName_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempAreaNameIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_LocLeft, sizeof(m_LocLeft), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_LocRight, sizeof(m_LocRight), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_LocTop, sizeof(m_LocTop), nullptr, nullptr, nullptr) == 0 ||

@@ -9,7 +9,7 @@ bool MapRec::Read(SFile* f, const char* stringBuffer) {
 	uint32_t tempMapDescription1_langIndices[16];
 	if (
 		SFile::Read(f, &m_ID, sizeof(m_ID), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_Directory_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempDirectoryIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_InstanceType, sizeof(m_InstanceType), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Flags, sizeof(m_Flags), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_PVP, sizeof(m_PVP), nullptr, nullptr, nullptr) == 0 ||

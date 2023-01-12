@@ -6,7 +6,7 @@ bool ChatProfanityRec::Read(SFile* f, const char* stringBuffer) {
 	uint32_t tempTextIndices[1];
 	if (
 		SFile::Read(f, &m_ID, sizeof(m_ID), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_Text_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempTextIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Language, sizeof(m_Language), nullptr, nullptr, nullptr) == 0
 	)
 	{

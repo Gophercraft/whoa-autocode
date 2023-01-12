@@ -24,8 +24,8 @@ bool VideoHardwareRec::Read(SFile* f, const char* stringBuffer) {
 		SFile::Read(f, &m_SmallCullDistIdx, sizeof(m_SmallCullDistIdx), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_ResolutionIdx, sizeof(m_ResolutionIdx), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_BaseMipLevel, sizeof(m_BaseMipLevel), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_OglOverrides_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_D3dOverrides_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempOglOverridesIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempD3dOverridesIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_FixLag, sizeof(m_FixLag), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Multisample, sizeof(m_Multisample), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Atlasdisable, sizeof(m_Atlasdisable), nullptr, nullptr, nullptr) == 0

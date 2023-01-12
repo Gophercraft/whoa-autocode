@@ -14,7 +14,7 @@ bool UnitBloodRec::Read(SFile* f, const char* stringBuffer) {
 		SFile::Read(f, &tempGroundBloodIndices[1], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempGroundBloodIndices[2], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempGroundBloodIndices[3], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_GroundBlood_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0
+		SFile::Read(f, &tempGroundBloodIndices[4], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0
 	)
 	{
 		ConsoleWrite("Error reading UnitBlood", WARNING_COLOR);

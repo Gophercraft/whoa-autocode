@@ -12,7 +12,7 @@ bool ChrClassesRec::Read(SFile* f, const char* stringBuffer) {
 		SFile::Read(f, &m_ID, sizeof(m_ID), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_DamageBonusStat, sizeof(m_DamageBonusStat), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_DisplayPower, sizeof(m_DisplayPower), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_PetNameToken_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempPetNameTokenIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempName_langIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempName_langIndices[1], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempName_langIndices[2], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
@@ -64,7 +64,7 @@ bool ChrClassesRec::Read(SFile* f, const char* stringBuffer) {
 		SFile::Read(f, &tempName_male_langIndices[14], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempName_male_langIndices[15], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Name_male_lang_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_Filename_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempFilenameIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_SpellClassSet, sizeof(m_SpellClassSet), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Flags, sizeof(m_Flags), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_CinematicSequenceID, sizeof(m_CinematicSequenceID), nullptr, nullptr, nullptr) == 0 ||

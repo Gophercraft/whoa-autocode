@@ -9,7 +9,7 @@ bool SoundEntriesRec::Read(SFile* f, const char* stringBuffer) {
 	if (
 		SFile::Read(f, &m_ID, sizeof(m_ID), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_SoundType, sizeof(m_SoundType), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_Name_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempNameIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempFileIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempFileIndices[1], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempFileIndices[2], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
@@ -19,7 +19,7 @@ bool SoundEntriesRec::Read(SFile* f, const char* stringBuffer) {
 		SFile::Read(f, &tempFileIndices[6], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempFileIndices[7], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempFileIndices[8], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_File_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempFileIndices[9], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Freq[0], sizeof(m_Freq[0]), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Freq[1], sizeof(m_Freq[0]), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Freq[2], sizeof(m_Freq[0]), nullptr, nullptr, nullptr) == 0 ||
@@ -30,7 +30,7 @@ bool SoundEntriesRec::Read(SFile* f, const char* stringBuffer) {
 		SFile::Read(f, &m_Freq[7], sizeof(m_Freq[0]), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Freq[8], sizeof(m_Freq[0]), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Freq[9], sizeof(m_Freq[0]), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_DirectoryBase_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempDirectoryBaseIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_VolumeFloat, sizeof(m_VolumeFloat), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Flags, sizeof(m_Flags), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_MinDistance, sizeof(m_MinDistance), nullptr, nullptr, nullptr) == 0 ||

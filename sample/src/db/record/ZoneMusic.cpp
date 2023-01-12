@@ -6,7 +6,7 @@ bool ZoneMusicRec::Read(SFile* f, const char* stringBuffer) {
 	uint32_t tempSetNameIndices[1];
 	if (
 		SFile::Read(f, &m_ID, sizeof(m_ID), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_SetName_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempSetNameIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_SilenceIntervalMin[0], sizeof(m_SilenceIntervalMin[0]), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_SilenceIntervalMin[1], sizeof(m_SilenceIntervalMin[0]), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_SilenceIntervalMax[0], sizeof(m_SilenceIntervalMax[0]), nullptr, nullptr, nullptr) == 0 ||

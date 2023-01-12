@@ -7,7 +7,7 @@ bool LiquidTypeRec::Read(SFile* f, const char* stringBuffer) {
 	uint32_t tempTextureIndices[6];
 	if (
 		SFile::Read(f, &m_ID, sizeof(m_ID), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_Name_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempNameIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Flags, sizeof(m_Flags), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_SoundBank, sizeof(m_SoundBank), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_SoundID, sizeof(m_SoundID), nullptr, nullptr, nullptr) == 0 ||
@@ -26,7 +26,7 @@ bool LiquidTypeRec::Read(SFile* f, const char* stringBuffer) {
 		SFile::Read(f, &tempTextureIndices[2], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempTextureIndices[3], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempTextureIndices[4], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_Texture_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempTextureIndices[5], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Color[0], sizeof(m_Color[0]), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Color[1], sizeof(m_Color[0]), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Float[0], sizeof(m_Float[0]), nullptr, nullptr, nullptr) == 0 ||

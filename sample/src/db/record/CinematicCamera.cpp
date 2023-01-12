@@ -6,7 +6,7 @@ bool CinematicCameraRec::Read(SFile* f, const char* stringBuffer) {
 	uint32_t tempModelIndices[1];
 	if (
 		SFile::Read(f, &m_ID, sizeof(m_ID), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_Model_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempModelIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_SoundID, sizeof(m_SoundID), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Origin[0], sizeof(m_Origin[0]), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Origin[1], sizeof(m_Origin[0]), nullptr, nullptr, nullptr) == 0 ||

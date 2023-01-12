@@ -9,11 +9,11 @@ bool GameObjectArtKitRec::Read(SFile* f, const char* stringBuffer) {
 		SFile::Read(f, &m_ID, sizeof(m_ID), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempTextureVariationIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempTextureVariationIndices[1], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_TextureVariation_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempTextureVariationIndices[2], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempAttachModelIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempAttachModelIndices[1], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempAttachModelIndices[2], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_AttachModel_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0
+		SFile::Read(f, &tempAttachModelIndices[3], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0
 	)
 	{
 		ConsoleWrite("Error reading GameObjectArtKit", WARNING_COLOR);

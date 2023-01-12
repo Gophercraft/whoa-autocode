@@ -7,8 +7,8 @@ bool SpellVisualEffectNameRec::Read(SFile* f, const char* stringBuffer) {
 	uint32_t tempFileNameIndices[1];
 	if (
 		SFile::Read(f, &m_ID, sizeof(m_ID), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_Name_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_FileName_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempNameIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempFileNameIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_AreaEffectSize, sizeof(m_AreaEffectSize), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Scale, sizeof(m_Scale), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_MinAllowedScale, sizeof(m_MinAllowedScale), nullptr, nullptr, nullptr) == 0 ||

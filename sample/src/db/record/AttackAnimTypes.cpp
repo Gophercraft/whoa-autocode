@@ -6,7 +6,7 @@ bool AttackAnimTypesRec::Read(SFile* f, const char* stringBuffer) {
 	uint32_t tempAnimNameIndices[1];
 	if (
 		SFile::Read(f, &m_AnimID, sizeof(m_AnimID), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_AnimName_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0
+		SFile::Read(f, &tempAnimNameIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0
 	)
 	{
 		ConsoleWrite("Error reading AttackAnimTypes", WARNING_COLOR);

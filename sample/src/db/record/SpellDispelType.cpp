@@ -26,7 +26,7 @@ bool SpellDispelTypeRec::Read(SFile* f, const char* stringBuffer) {
 		SFile::Read(f, &m_Name_lang_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Mask, sizeof(m_Mask), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_ImmunityPossible, sizeof(m_ImmunityPossible), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_InternalName_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0
+		SFile::Read(f, &tempInternalNameIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0
 	)
 	{
 		ConsoleWrite("Error reading SpellDispelType", WARNING_COLOR);

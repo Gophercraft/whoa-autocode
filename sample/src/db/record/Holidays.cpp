@@ -56,7 +56,7 @@ bool HolidaysRec::Read(SFile* f, const char* stringBuffer) {
 		SFile::Read(f, &m_CalendarFlags[9], sizeof(m_CalendarFlags[0]), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_HolidayNameID, sizeof(m_HolidayNameID), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_HolidayDescriptionID, sizeof(m_HolidayDescriptionID), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_TextureFileName_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempTextureFileNameIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Priority, sizeof(m_Priority), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_CalendarFilterType, sizeof(m_CalendarFilterType), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Flags, sizeof(m_Flags), nullptr, nullptr, nullptr) == 0

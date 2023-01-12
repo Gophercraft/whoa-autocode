@@ -33,7 +33,7 @@ bool CreatureFamilyRec::Read(SFile* f, const char* stringBuffer) {
 		SFile::Read(f, &tempName_langIndices[14], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempName_langIndices[15], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Name_lang_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_IconFile_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0
+		SFile::Read(f, &tempIconFileIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0
 	)
 	{
 		ConsoleWrite("Error reading CreatureFamily", WARNING_COLOR);

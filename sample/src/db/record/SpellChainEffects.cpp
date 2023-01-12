@@ -13,7 +13,7 @@ bool SpellChainEffectsRec::Read(SFile* f, const char* stringBuffer) {
 		SFile::Read(f, &m_TexCoordScale, sizeof(m_TexCoordScale), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_SegDuration, sizeof(m_SegDuration), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_SegDelay, sizeof(m_SegDelay), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_Texture_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempTextureIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Flags, sizeof(m_Flags), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_JointCount, sizeof(m_JointCount), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_JointOffsetRadius, sizeof(m_JointOffsetRadius), nullptr, nullptr, nullptr) == 0 ||
@@ -50,7 +50,7 @@ bool SpellChainEffectsRec::Read(SFile* f, const char* stringBuffer) {
 		SFile::Read(f, &m_Green, sizeof(m_Green), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Blue, sizeof(m_Blue), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_BlendMode, sizeof(m_BlendMode), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_Combo_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempComboIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_RenderLayer, sizeof(m_RenderLayer), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_TextureLength, sizeof(m_TextureLength), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_WavePhase, sizeof(m_WavePhase), nullptr, nullptr, nullptr) == 0

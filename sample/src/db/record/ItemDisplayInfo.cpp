@@ -10,11 +10,11 @@ bool ItemDisplayInfoRec::Read(SFile* f, const char* stringBuffer) {
 	if (
 		SFile::Read(f, &m_ID, sizeof(m_ID), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempModelNameIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_ModelName_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempModelNameIndices[1], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempModelTextureIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_ModelTexture_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempModelTextureIndices[1], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempInventoryIconIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_InventoryIcon_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempInventoryIconIndices[1], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_GeosetGroup[0], sizeof(m_GeosetGroup[0]), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_GeosetGroup[1], sizeof(m_GeosetGroup[0]), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_GeosetGroup[2], sizeof(m_GeosetGroup[0]), nullptr, nullptr, nullptr) == 0 ||
@@ -30,7 +30,7 @@ bool ItemDisplayInfoRec::Read(SFile* f, const char* stringBuffer) {
 		SFile::Read(f, &tempTextureIndices[4], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempTextureIndices[5], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempTextureIndices[6], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_Texture_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempTextureIndices[7], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_ItemVisual, sizeof(m_ItemVisual), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_ParticleColorID, sizeof(m_ParticleColorID), nullptr, nullptr, nullptr) == 0
 	)

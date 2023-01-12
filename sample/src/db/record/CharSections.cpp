@@ -11,7 +11,7 @@ bool CharSectionsRec::Read(SFile* f, const char* stringBuffer) {
 		SFile::Read(f, &m_BaseSection, sizeof(m_BaseSection), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempTextureNameIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempTextureNameIndices[1], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_TextureName_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempTextureNameIndices[2], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Flags, sizeof(m_Flags), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_VariationIndex, sizeof(m_VariationIndex), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_ColorIndex, sizeof(m_ColorIndex), nullptr, nullptr, nullptr) == 0

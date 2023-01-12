@@ -26,7 +26,7 @@ bool ResearchBranchRec::Read(SFile* f, const char* stringBuffer) {
 		SFile::Read(f, &m_Name_lang_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_ResearchFieldID, sizeof(m_ResearchFieldID), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_CurrencyID, sizeof(m_CurrencyID), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_Texture_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempTextureIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_ItemID, sizeof(m_ItemID), nullptr, nullptr, nullptr) == 0
 	)
 	{

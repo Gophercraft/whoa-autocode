@@ -11,7 +11,7 @@ bool DanceMovesRec::Read(SFile* f, const char* stringBuffer) {
 		SFile::Read(f, &m_Param, sizeof(m_Param), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Fallback, sizeof(m_Fallback), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Racemask, sizeof(m_Racemask), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_Internal_name_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempInternal_nameIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempName_langIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempName_langIndices[1], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempName_langIndices[2], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||

@@ -6,8 +6,8 @@ bool PaperDollItemFrameRec::Read(SFile* f, const char* stringBuffer) {
 	uint32_t tempItemButtonNameIndices[1];
 	uint32_t tempSlotIconIndices[1];
 	if (
-		SFile::Read(f, &m_ItemButtonName_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_SlotIcon_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempItemButtonNameIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempSlotIconIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_SlotNumber, sizeof(m_SlotNumber), nullptr, nullptr, nullptr) == 0
 	)
 	{

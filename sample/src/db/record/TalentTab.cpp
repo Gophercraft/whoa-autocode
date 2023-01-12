@@ -29,7 +29,7 @@ bool TalentTabRec::Read(SFile* f, const char* stringBuffer) {
 		SFile::Read(f, &m_ClassMask, sizeof(m_ClassMask), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_CategoryEnumID, sizeof(m_CategoryEnumID), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_OrderIndex, sizeof(m_OrderIndex), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_BackgroundFile_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0
+		SFile::Read(f, &tempBackgroundFileIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0
 	)
 	{
 		ConsoleWrite("Error reading TalentTab", WARNING_COLOR);

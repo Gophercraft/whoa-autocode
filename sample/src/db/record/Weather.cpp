@@ -12,7 +12,7 @@ bool WeatherRec::Read(SFile* f, const char* stringBuffer) {
 		SFile::Read(f, &m_EffectColor[0], sizeof(m_EffectColor[0]), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_EffectColor[1], sizeof(m_EffectColor[0]), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_EffectColor[2], sizeof(m_EffectColor[0]), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_EffectTexture_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0
+		SFile::Read(f, &tempEffectTextureIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0
 	)
 	{
 		ConsoleWrite("Error reading Weather", WARNING_COLOR);

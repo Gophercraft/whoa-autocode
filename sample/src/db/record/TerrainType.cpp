@@ -6,7 +6,7 @@ bool TerrainTypeRec::Read(SFile* f, const char* stringBuffer) {
 	uint32_t tempTerrainDescIndices[1];
 	if (
 		SFile::Read(f, &m_TerrainID, sizeof(m_TerrainID), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_TerrainDesc_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempTerrainDescIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_FootstepSprayRun, sizeof(m_FootstepSprayRun), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_FootstepSprayWalk, sizeof(m_FootstepSprayWalk), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_SoundID, sizeof(m_SoundID), nullptr, nullptr, nullptr) == 0 ||

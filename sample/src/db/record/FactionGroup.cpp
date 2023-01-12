@@ -8,7 +8,7 @@ bool FactionGroupRec::Read(SFile* f, const char* stringBuffer) {
 	if (
 		SFile::Read(f, &m_ID, sizeof(m_ID), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_MaskID, sizeof(m_MaskID), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_InternalName_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempInternalNameIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempName_langIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempName_langIndices[1], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempName_langIndices[2], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||

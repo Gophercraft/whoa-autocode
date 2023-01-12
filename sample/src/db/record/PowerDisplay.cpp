@@ -7,7 +7,7 @@ bool PowerDisplayRec::Read(SFile* f, const char* stringBuffer) {
 	if (
 		SFile::Read(f, &m_ID, sizeof(m_ID), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_ActualType, sizeof(m_ActualType), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_GlobalStringBaseTag_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempGlobalStringBaseTagIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Red, sizeof(m_Red), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Green, sizeof(m_Green), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Blue, sizeof(m_Blue), nullptr, nullptr, nullptr) == 0

@@ -14,7 +14,7 @@ bool SoundEmittersRec::Read(SFile* f, const char* stringBuffer) {
 		SFile::Read(f, &m_Direction[2], sizeof(m_Direction[0]), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_SoundEntryAdvancedID, sizeof(m_SoundEntryAdvancedID), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_MapID, sizeof(m_MapID), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_Name_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0
+		SFile::Read(f, &tempNameIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0
 	)
 	{
 		ConsoleWrite("Error reading SoundEmitters", WARNING_COLOR);

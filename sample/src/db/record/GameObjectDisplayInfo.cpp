@@ -6,7 +6,7 @@ bool GameObjectDisplayInfoRec::Read(SFile* f, const char* stringBuffer) {
 	uint32_t tempModelNameIndices[1];
 	if (
 		SFile::Read(f, &m_ID, sizeof(m_ID), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_ModelName_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempModelNameIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Sound[0], sizeof(m_Sound[0]), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Sound[1], sizeof(m_Sound[0]), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Sound[2], sizeof(m_Sound[0]), nullptr, nullptr, nullptr) == 0 ||

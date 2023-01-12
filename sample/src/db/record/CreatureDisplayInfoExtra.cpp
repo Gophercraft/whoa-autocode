@@ -25,7 +25,7 @@ bool CreatureDisplayInfoExtraRec::Read(SFile* f, const char* stringBuffer) {
 		SFile::Read(f, &m_NPCItemDisplay[9], sizeof(m_NPCItemDisplay[0]), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_NPCItemDisplay[10], sizeof(m_NPCItemDisplay[0]), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Flags, sizeof(m_Flags), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_BakeName_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0
+		SFile::Read(f, &tempBakeNameIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0
 	)
 	{
 		ConsoleWrite("Error reading CreatureDisplayInfoExtra", WARNING_COLOR);

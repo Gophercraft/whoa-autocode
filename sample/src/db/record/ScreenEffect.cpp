@@ -6,7 +6,7 @@ bool ScreenEffectRec::Read(SFile* f, const char* stringBuffer) {
 	uint32_t tempNameIndices[1];
 	if (
 		SFile::Read(f, &m_ID, sizeof(m_ID), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_Name_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempNameIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Effect, sizeof(m_Effect), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Param[0], sizeof(m_Param[0]), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Param[1], sizeof(m_Param[0]), nullptr, nullptr, nullptr) == 0 ||

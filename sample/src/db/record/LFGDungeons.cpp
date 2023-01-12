@@ -35,7 +35,7 @@ bool LFGDungeonsRec::Read(SFile* f, const char* stringBuffer) {
 		SFile::Read(f, &m_Flags, sizeof(m_Flags), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_TypeID, sizeof(m_TypeID), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Faction, sizeof(m_Faction), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_TextureFilename_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempTextureFilenameIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_ExpansionLevel, sizeof(m_ExpansionLevel), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Order_index, sizeof(m_Order_index), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Group_ID, sizeof(m_Group_ID), nullptr, nullptr, nullptr) == 0 ||

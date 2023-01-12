@@ -9,7 +9,7 @@ bool PhaseRec::Read(SFile* f, const char* stringBuffer) {
 		SFile::Read(f, &m_MapID, sizeof(m_MapID), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_ParentMapID[0], sizeof(m_ParentMapID[0]), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_ParentMapID[1], sizeof(m_ParentMapID[0]), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_Name_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempNameIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Flags, sizeof(m_Flags), nullptr, nullptr, nullptr) == 0
 	)
 	{

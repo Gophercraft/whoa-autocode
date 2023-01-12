@@ -14,8 +14,8 @@ bool CreatureDisplayInfoRec::Read(SFile* f, const char* stringBuffer) {
 		SFile::Read(f, &m_CreatureModelAlpha, sizeof(m_CreatureModelAlpha), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempTextureVariationIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempTextureVariationIndices[1], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_TextureVariation_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_PortraitTextureName_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempTextureVariationIndices[2], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempPortraitTextureNameIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_SizeClass, sizeof(m_SizeClass), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_BloodID, sizeof(m_BloodID), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_NPCSoundID, sizeof(m_NPCSoundID), nullptr, nullptr, nullptr) == 0 ||

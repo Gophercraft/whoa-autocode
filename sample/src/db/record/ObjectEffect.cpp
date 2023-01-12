@@ -6,7 +6,7 @@ bool ObjectEffectRec::Read(SFile* f, const char* stringBuffer) {
 	uint32_t tempNameIndices[1];
 	if (
 		SFile::Read(f, &m_ID, sizeof(m_ID), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_Name_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempNameIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_ObjectEffectGroupID, sizeof(m_ObjectEffectGroupID), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_TriggerType, sizeof(m_TriggerType), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_EventType, sizeof(m_EventType), nullptr, nullptr, nullptr) == 0 ||

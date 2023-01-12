@@ -7,7 +7,7 @@ bool LanguageWordsRec::Read(SFile* f, const char* stringBuffer) {
 	if (
 		SFile::Read(f, &m_ID, sizeof(m_ID), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_LanguageID, sizeof(m_LanguageID), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_Word_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0
+		SFile::Read(f, &tempWordIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0
 	)
 	{
 		ConsoleWrite("Error reading LanguageWords", WARNING_COLOR);

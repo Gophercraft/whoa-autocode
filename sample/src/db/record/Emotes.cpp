@@ -6,7 +6,7 @@ bool EmotesRec::Read(SFile* f, const char* stringBuffer) {
 	uint32_t tempEmoteSlashCommandIndices[1];
 	if (
 		SFile::Read(f, &m_ID, sizeof(m_ID), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_EmoteSlashCommand_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempEmoteSlashCommandIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_AnimID, sizeof(m_AnimID), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_EmoteFlags, sizeof(m_EmoteFlags), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_EmoteSpecProc, sizeof(m_EmoteSpecProc), nullptr, nullptr, nullptr) == 0 ||

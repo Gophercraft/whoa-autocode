@@ -13,7 +13,7 @@ bool WorldMapOverlayRec::Read(SFile* f, const char* stringBuffer) {
 		SFile::Read(f, &m_AreaID[3], sizeof(m_AreaID[0]), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_MapPointX, sizeof(m_MapPointX), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_MapPointY, sizeof(m_MapPointY), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_TextureName_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempTextureNameIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_TextureWidth, sizeof(m_TextureWidth), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_TextureHeight, sizeof(m_TextureHeight), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_OffsetX, sizeof(m_OffsetX), nullptr, nullptr, nullptr) == 0 ||

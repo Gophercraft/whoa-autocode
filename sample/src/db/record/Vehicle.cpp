@@ -36,10 +36,10 @@ bool VehicleRec::Read(SFile* f, const char* stringBuffer) {
 		SFile::Read(f, &m_MsslTrgtArcWidth, sizeof(m_MsslTrgtArcWidth), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_MsslTrgtImpactRadius[0], sizeof(m_MsslTrgtImpactRadius[0]), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_MsslTrgtImpactRadius[1], sizeof(m_MsslTrgtImpactRadius[0]), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_MsslTrgtArcTexture_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_MsslTrgtImpactTexture_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempMsslTrgtArcTextureIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempMsslTrgtImpactTextureIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempMsslTrgtImpactModelIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_MsslTrgtImpactModel_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempMsslTrgtImpactModelIndices[1], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_CameraYawOffset, sizeof(m_CameraYawOffset), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_UiLocomotionType, sizeof(m_UiLocomotionType), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_MsslTrgtImpactTexRadius, sizeof(m_MsslTrgtImpactTexRadius), nullptr, nullptr, nullptr) == 0 ||

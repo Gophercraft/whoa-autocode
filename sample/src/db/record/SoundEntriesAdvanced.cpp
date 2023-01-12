@@ -28,7 +28,7 @@ bool SoundEntriesAdvancedRec::Read(SFile* f, const char* stringBuffer) {
 		SFile::Read(f, &m_OutsideAngle, sizeof(m_OutsideAngle), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_OutsideVolume, sizeof(m_OutsideVolume), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_OuterRadius2D, sizeof(m_OuterRadius2D), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_Name_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0
+		SFile::Read(f, &tempNameIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0
 	)
 	{
 		ConsoleWrite("Error reading SoundEntriesAdvanced", WARNING_COLOR);

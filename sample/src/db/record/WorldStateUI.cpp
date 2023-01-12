@@ -14,7 +14,7 @@ bool WorldStateUIRec::Read(SFile* f, const char* stringBuffer) {
 		SFile::Read(f, &m_MapID, sizeof(m_MapID), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_AreaID, sizeof(m_AreaID), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_PhaseShift, sizeof(m_PhaseShift), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_Icon_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempIconIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempString_langIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempString_langIndices[1], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempString_langIndices[2], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
@@ -51,7 +51,7 @@ bool WorldStateUIRec::Read(SFile* f, const char* stringBuffer) {
 		SFile::Read(f, &m_Tooltip_lang_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_StateVariable, sizeof(m_StateVariable), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Type, sizeof(m_Type), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_DynamicIcon_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempDynamicIconIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempDynamicTooltip_langIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempDynamicTooltip_langIndices[1], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempDynamicTooltip_langIndices[2], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
@@ -69,7 +69,7 @@ bool WorldStateUIRec::Read(SFile* f, const char* stringBuffer) {
 		SFile::Read(f, &tempDynamicTooltip_langIndices[14], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempDynamicTooltip_langIndices[15], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_DynamicTooltip_lang_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_ExtendedUI_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempExtendedUIIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_ExtendedUIStateVariable[0], sizeof(m_ExtendedUIStateVariable[0]), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_ExtendedUIStateVariable[1], sizeof(m_ExtendedUIStateVariable[0]), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_ExtendedUIStateVariable[2], sizeof(m_ExtendedUIStateVariable[0]), nullptr, nullptr, nullptr) == 0

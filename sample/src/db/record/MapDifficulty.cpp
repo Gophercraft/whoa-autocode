@@ -28,7 +28,7 @@ bool MapDifficultyRec::Read(SFile* f, const char* stringBuffer) {
 		SFile::Read(f, &m_Message_lang_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_RaidDuration, sizeof(m_RaidDuration), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_MaxPlayers, sizeof(m_MaxPlayers), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_Difficultystring_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0
+		SFile::Read(f, &tempDifficultystringIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0
 	)
 	{
 		ConsoleWrite("Error reading MapDifficulty", WARNING_COLOR);

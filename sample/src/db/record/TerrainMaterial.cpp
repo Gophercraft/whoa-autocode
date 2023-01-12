@@ -7,9 +7,9 @@ bool TerrainMaterialRec::Read(SFile* f, const char* stringBuffer) {
 	uint32_t tempEnvMapPathIndices[1];
 	if (
 		SFile::Read(f, &m_ID, sizeof(m_ID), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_Name_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempNameIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Shader, sizeof(m_Shader), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_EnvMapPath_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0
+		SFile::Read(f, &tempEnvMapPathIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0
 	)
 	{
 		ConsoleWrite("Error reading TerrainMaterial", WARNING_COLOR);

@@ -17,12 +17,12 @@ bool ChrRacesRec::Read(SFile* f, const char* stringBuffer) {
 		SFile::Read(f, &m_ExplorationSoundID, sizeof(m_ExplorationSoundID), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_MaleDisplayID, sizeof(m_MaleDisplayID), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_FemaleDisplayID, sizeof(m_FemaleDisplayID), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_ClientPrefix_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempClientPrefixIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_BaseLanguage, sizeof(m_BaseLanguage), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_CreatureType, sizeof(m_CreatureType), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_ResSicknessSpellID, sizeof(m_ResSicknessSpellID), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_SplashSoundID, sizeof(m_SplashSoundID), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_ClientFileString_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempClientFileStringIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_CinematicSequenceID, sizeof(m_CinematicSequenceID), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Alliance, sizeof(m_Alliance), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempName_langIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
@@ -77,8 +77,8 @@ bool ChrRacesRec::Read(SFile* f, const char* stringBuffer) {
 		SFile::Read(f, &tempName_male_langIndices[15], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Name_male_lang_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &tempFacialHairCustomizationIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_FacialHairCustomization_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_HairCustomization_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempFacialHairCustomizationIndices[1], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempHairCustomizationIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_Required_expansion, sizeof(m_Required_expansion), nullptr, nullptr, nullptr) == 0
 	)
 	{

@@ -65,7 +65,7 @@ func (g *Generator) generateLayoutReader(target *layoutTarget) error {
 
 				last := f+1 == elementCount
 
-				if last {
+				if last && columnDef.Type == dbd.LocString {
 					file.Printf("SFile::Read(f, &m_%s_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0", columnLayout.Name)
 				} else {
 					file.Printf("SFile::Read(f, &temp%sIndices[%d], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0", columnLayout.Name, f)

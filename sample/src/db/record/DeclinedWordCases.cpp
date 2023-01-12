@@ -8,7 +8,7 @@ bool DeclinedWordCasesRec::Read(SFile* f, const char* stringBuffer) {
 		SFile::Read(f, &m_ID, sizeof(m_ID), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_DeclinedWordID, sizeof(m_DeclinedWordID), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_CaseIndex, sizeof(m_CaseIndex), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_DeclinedWord_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0
+		SFile::Read(f, &tempDeclinedWordIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0
 	)
 	{
 		ConsoleWrite("Error reading DeclinedWordCases", WARNING_COLOR);

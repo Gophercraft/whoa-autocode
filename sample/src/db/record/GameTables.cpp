@@ -5,7 +5,7 @@
 bool GameTablesRec::Read(SFile* f, const char* stringBuffer) {
 	uint32_t tempNameIndices[1];
 	if (
-		SFile::Read(f, &m_Name_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
+		SFile::Read(f, &tempNameIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_NumRows, sizeof(m_NumRows), nullptr, nullptr, nullptr) == 0 ||
 		SFile::Read(f, &m_NumColumns, sizeof(m_NumColumns), nullptr, nullptr, nullptr) == 0
 	)

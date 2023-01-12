@@ -6,7 +6,7 @@ bool SpellDescriptionVariablesRec::Read(SFile* f, const char* stringBuffer) {
 	uint32_t tempVariablesIndices[1];
 	if (
 		SFile::Read(f, &m_ID, sizeof(m_ID), nullptr, nullptr, nullptr) == 0 ||
-		SFile::Read(f, &m_Variables_bitmask, sizeof(uint32_t), nullptr, nullptr, nullptr) == 0
+		SFile::Read(f, &tempVariablesIndices[0], sizeof(uint32_t), nullptr, nullptr, nullptr) == 0
 	)
 	{
 		ConsoleWrite("Error reading SpellDescriptionVariables", WARNING_COLOR);
