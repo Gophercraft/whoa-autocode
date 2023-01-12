@@ -20,6 +20,7 @@ bool PowerDisplayRec::Read(SFile* f, const char* stringBuffer) {
 		m_GlobalStringBaseTag = &stringBuffer[tempGlobalStringBaseTagIndices[0]];
 		return true;
 	}
+	m_GlobalStringBaseTag = "";
 	return true;
 }
 

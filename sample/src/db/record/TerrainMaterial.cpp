@@ -20,6 +20,8 @@ bool TerrainMaterialRec::Read(SFile* f, const char* stringBuffer) {
 		m_EnvMapPath = &stringBuffer[tempEnvMapPathIndices[0]];
 		return true;
 	}
+	m_Name = "";
+	m_EnvMapPath = "";
 	return true;
 }
 

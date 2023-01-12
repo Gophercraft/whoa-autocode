@@ -16,6 +16,7 @@ bool SpamMessagesRec::Read(SFile* f, const char* stringBuffer) {
 		m_Text = &stringBuffer[tempTextIndices[0]];
 		return true;
 	}
+	m_Text = "";
 	return true;
 }
 

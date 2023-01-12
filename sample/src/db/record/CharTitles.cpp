@@ -83,6 +83,38 @@ bool CharTitlesRec::Read(SFile* f, const char* stringBuffer) {
 		m_Name1_lang[15] = &stringBuffer[tempName1_langIndices[15]];
 		return true;
 	}
+	m_Name_lang[0] = "";
+	m_Name_lang[1] = "";
+	m_Name_lang[2] = "";
+	m_Name_lang[3] = "";
+	m_Name_lang[4] = "";
+	m_Name_lang[5] = "";
+	m_Name_lang[6] = "";
+	m_Name_lang[7] = "";
+	m_Name_lang[8] = "";
+	m_Name_lang[9] = "";
+	m_Name_lang[10] = "";
+	m_Name_lang[11] = "";
+	m_Name_lang[12] = "";
+	m_Name_lang[13] = "";
+	m_Name_lang[14] = "";
+	m_Name_lang[15] = "";
+	m_Name1_lang[0] = "";
+	m_Name1_lang[1] = "";
+	m_Name1_lang[2] = "";
+	m_Name1_lang[3] = "";
+	m_Name1_lang[4] = "";
+	m_Name1_lang[5] = "";
+	m_Name1_lang[6] = "";
+	m_Name1_lang[7] = "";
+	m_Name1_lang[8] = "";
+	m_Name1_lang[9] = "";
+	m_Name1_lang[10] = "";
+	m_Name1_lang[11] = "";
+	m_Name1_lang[12] = "";
+	m_Name1_lang[13] = "";
+	m_Name1_lang[14] = "";
+	m_Name1_lang[15] = "";
 	return true;
 }
 

@@ -47,6 +47,22 @@ bool QuestInfoRec::Read(SFile* f, const char* stringBuffer) {
 		m_InfoName_lang[15] = &stringBuffer[tempInfoName_langIndices[15]];
 		return true;
 	}
+	m_InfoName_lang[0] = "";
+	m_InfoName_lang[1] = "";
+	m_InfoName_lang[2] = "";
+	m_InfoName_lang[3] = "";
+	m_InfoName_lang[4] = "";
+	m_InfoName_lang[5] = "";
+	m_InfoName_lang[6] = "";
+	m_InfoName_lang[7] = "";
+	m_InfoName_lang[8] = "";
+	m_InfoName_lang[9] = "";
+	m_InfoName_lang[10] = "";
+	m_InfoName_lang[11] = "";
+	m_InfoName_lang[12] = "";
+	m_InfoName_lang[13] = "";
+	m_InfoName_lang[14] = "";
+	m_InfoName_lang[15] = "";
 	return true;
 }
 

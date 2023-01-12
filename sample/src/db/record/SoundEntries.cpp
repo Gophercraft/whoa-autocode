@@ -57,16 +57,18 @@ bool SoundEntriesRec::Read(SFile* f, const char* stringBuffer) {
 		m_DirectoryBase = &stringBuffer[tempDirectoryBaseIndices[0]];
 		return true;
 	}
-		m_File[0] = "";
-		m_File[1] = "";
-		m_File[2] = "";
-		m_File[3] = "";
-		m_File[4] = "";
-		m_File[5] = "";
-		m_File[6] = "";
-		m_File[7] = "";
-		m_File[8] = "";
-		m_File[9] = "";
+	m_Name = "";
+	m_File[0] = "";
+	m_File[1] = "";
+	m_File[2] = "";
+	m_File[3] = "";
+	m_File[4] = "";
+	m_File[5] = "";
+	m_File[6] = "";
+	m_File[7] = "";
+	m_File[8] = "";
+	m_File[9] = "";
+	m_DirectoryBase = "";
 	return true;
 }
 

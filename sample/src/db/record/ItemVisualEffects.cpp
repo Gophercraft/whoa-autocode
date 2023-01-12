@@ -16,6 +16,7 @@ bool ItemVisualEffectsRec::Read(SFile* f, const char* stringBuffer) {
 		m_Model = &stringBuffer[tempModelIndices[0]];
 		return true;
 	}
+	m_Model = "";
 	return true;
 }
 

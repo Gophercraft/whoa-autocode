@@ -86,6 +86,38 @@ bool SpellRangeRec::Read(SFile* f, const char* stringBuffer) {
 		m_DisplayNameShort_lang[15] = &stringBuffer[tempDisplayNameShort_langIndices[15]];
 		return true;
 	}
+	m_DisplayName_lang[0] = "";
+	m_DisplayName_lang[1] = "";
+	m_DisplayName_lang[2] = "";
+	m_DisplayName_lang[3] = "";
+	m_DisplayName_lang[4] = "";
+	m_DisplayName_lang[5] = "";
+	m_DisplayName_lang[6] = "";
+	m_DisplayName_lang[7] = "";
+	m_DisplayName_lang[8] = "";
+	m_DisplayName_lang[9] = "";
+	m_DisplayName_lang[10] = "";
+	m_DisplayName_lang[11] = "";
+	m_DisplayName_lang[12] = "";
+	m_DisplayName_lang[13] = "";
+	m_DisplayName_lang[14] = "";
+	m_DisplayName_lang[15] = "";
+	m_DisplayNameShort_lang[0] = "";
+	m_DisplayNameShort_lang[1] = "";
+	m_DisplayNameShort_lang[2] = "";
+	m_DisplayNameShort_lang[3] = "";
+	m_DisplayNameShort_lang[4] = "";
+	m_DisplayNameShort_lang[5] = "";
+	m_DisplayNameShort_lang[6] = "";
+	m_DisplayNameShort_lang[7] = "";
+	m_DisplayNameShort_lang[8] = "";
+	m_DisplayNameShort_lang[9] = "";
+	m_DisplayNameShort_lang[10] = "";
+	m_DisplayNameShort_lang[11] = "";
+	m_DisplayNameShort_lang[12] = "";
+	m_DisplayNameShort_lang[13] = "";
+	m_DisplayNameShort_lang[14] = "";
+	m_DisplayNameShort_lang[15] = "";
 	return true;
 }
 

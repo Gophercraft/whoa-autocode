@@ -22,6 +22,7 @@ bool ZoneMusicRec::Read(SFile* f, const char* stringBuffer) {
 		m_SetName = &stringBuffer[tempSetNameIndices[0]];
 		return true;
 	}
+	m_SetName = "";
 	return true;
 }
 

@@ -66,12 +66,13 @@ bool LiquidTypeRec::Read(SFile* f, const char* stringBuffer) {
 		m_Texture[5] = &stringBuffer[tempTextureIndices[5]];
 		return true;
 	}
-		m_Texture[0] = "";
-		m_Texture[1] = "";
-		m_Texture[2] = "";
-		m_Texture[3] = "";
-		m_Texture[4] = "";
-		m_Texture[5] = "";
+	m_Name = "";
+	m_Texture[0] = "";
+	m_Texture[1] = "";
+	m_Texture[2] = "";
+	m_Texture[3] = "";
+	m_Texture[4] = "";
+	m_Texture[5] = "";
 	return true;
 }
 

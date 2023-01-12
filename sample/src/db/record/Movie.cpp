@@ -17,6 +17,7 @@ bool MovieRec::Read(SFile* f, const char* stringBuffer) {
 		m_Filename = &stringBuffer[tempFilenameIndices[0]];
 		return true;
 	}
+	m_Filename = "";
 	return true;
 }
 

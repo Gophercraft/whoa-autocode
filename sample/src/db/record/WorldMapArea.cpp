@@ -25,6 +25,7 @@ bool WorldMapAreaRec::Read(SFile* f, const char* stringBuffer) {
 		m_AreaName = &stringBuffer[tempAreaNameIndices[0]];
 		return true;
 	}
+	m_AreaName = "";
 	return true;
 }
 

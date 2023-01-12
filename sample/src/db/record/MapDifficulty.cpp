@@ -54,6 +54,23 @@ bool MapDifficultyRec::Read(SFile* f, const char* stringBuffer) {
 		m_Difficultystring = &stringBuffer[tempDifficultystringIndices[0]];
 		return true;
 	}
+	m_Message_lang[0] = "";
+	m_Message_lang[1] = "";
+	m_Message_lang[2] = "";
+	m_Message_lang[3] = "";
+	m_Message_lang[4] = "";
+	m_Message_lang[5] = "";
+	m_Message_lang[6] = "";
+	m_Message_lang[7] = "";
+	m_Message_lang[8] = "";
+	m_Message_lang[9] = "";
+	m_Message_lang[10] = "";
+	m_Message_lang[11] = "";
+	m_Message_lang[12] = "";
+	m_Message_lang[13] = "";
+	m_Message_lang[14] = "";
+	m_Message_lang[15] = "";
+	m_Difficultystring = "";
 	return true;
 }
 

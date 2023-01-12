@@ -34,9 +34,10 @@ bool CreatureDisplayInfoRec::Read(SFile* f, const char* stringBuffer) {
 		m_PortraitTextureName = &stringBuffer[tempPortraitTextureNameIndices[0]];
 		return true;
 	}
-		m_TextureVariation[0] = "";
-		m_TextureVariation[1] = "";
-		m_TextureVariation[2] = "";
+	m_TextureVariation[0] = "";
+	m_TextureVariation[1] = "";
+	m_TextureVariation[2] = "";
+	m_PortraitTextureName = "";
 	return true;
 }
 

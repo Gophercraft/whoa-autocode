@@ -22,6 +22,7 @@ bool WeatherRec::Read(SFile* f, const char* stringBuffer) {
 		m_EffectTexture = &stringBuffer[tempEffectTextureIndices[0]];
 		return true;
 	}
+	m_EffectTexture = "";
 	return true;
 }
 

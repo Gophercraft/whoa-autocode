@@ -21,6 +21,7 @@ bool EmotesRec::Read(SFile* f, const char* stringBuffer) {
 		m_EmoteSlashCommand = &stringBuffer[tempEmoteSlashCommandIndices[0]];
 		return true;
 	}
+	m_EmoteSlashCommand = "";
 	return true;
 }
 

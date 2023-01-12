@@ -16,6 +16,7 @@ bool SpellIconRec::Read(SFile* f, const char* stringBuffer) {
 		m_TextureFilename = &stringBuffer[tempTextureFilenameIndices[0]];
 		return true;
 	}
+	m_TextureFilename = "";
 	return true;
 }
 

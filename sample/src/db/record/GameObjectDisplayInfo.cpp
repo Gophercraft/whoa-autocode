@@ -33,6 +33,7 @@ bool GameObjectDisplayInfoRec::Read(SFile* f, const char* stringBuffer) {
 		m_ModelName = &stringBuffer[tempModelNameIndices[0]];
 		return true;
 	}
+	m_ModelName = "";
 	return true;
 }
 

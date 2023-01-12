@@ -19,6 +19,8 @@ bool PaperDollItemFrameRec::Read(SFile* f, const char* stringBuffer) {
 		m_SlotIcon = &stringBuffer[tempSlotIconIndices[0]];
 		return true;
 	}
+	m_ItemButtonName = "";
+	m_SlotIcon = "";
 	return true;
 }
 

@@ -16,6 +16,7 @@ bool DeclinedWordRec::Read(SFile* f, const char* stringBuffer) {
 		m_Word = &stringBuffer[tempWordIndices[0]];
 		return true;
 	}
+	m_Word = "";
 	return true;
 }
 

@@ -51,6 +51,22 @@ bool WorldSafeLocsRec::Read(SFile* f, const char* stringBuffer) {
 		m_AreaName_lang[15] = &stringBuffer[tempAreaName_langIndices[15]];
 		return true;
 	}
+	m_AreaName_lang[0] = "";
+	m_AreaName_lang[1] = "";
+	m_AreaName_lang[2] = "";
+	m_AreaName_lang[3] = "";
+	m_AreaName_lang[4] = "";
+	m_AreaName_lang[5] = "";
+	m_AreaName_lang[6] = "";
+	m_AreaName_lang[7] = "";
+	m_AreaName_lang[8] = "";
+	m_AreaName_lang[9] = "";
+	m_AreaName_lang[10] = "";
+	m_AreaName_lang[11] = "";
+	m_AreaName_lang[12] = "";
+	m_AreaName_lang[13] = "";
+	m_AreaName_lang[14] = "";
+	m_AreaName_lang[15] = "";
 	return true;
 }
 

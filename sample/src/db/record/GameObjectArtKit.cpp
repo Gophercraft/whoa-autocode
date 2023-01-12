@@ -29,13 +29,13 @@ bool GameObjectArtKitRec::Read(SFile* f, const char* stringBuffer) {
 		m_AttachModel[3] = &stringBuffer[tempAttachModelIndices[3]];
 		return true;
 	}
-		m_TextureVariation[0] = "";
-		m_TextureVariation[1] = "";
-		m_TextureVariation[2] = "";
-		m_AttachModel[0] = "";
-		m_AttachModel[1] = "";
-		m_AttachModel[2] = "";
-		m_AttachModel[3] = "";
+	m_TextureVariation[0] = "";
+	m_TextureVariation[1] = "";
+	m_TextureVariation[2] = "";
+	m_AttachModel[0] = "";
+	m_AttachModel[1] = "";
+	m_AttachModel[2] = "";
+	m_AttachModel[3] = "";
 	return true;
 }
 

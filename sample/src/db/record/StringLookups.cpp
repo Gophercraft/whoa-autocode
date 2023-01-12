@@ -16,6 +16,7 @@ bool StringLookupsRec::Read(SFile* f, const char* stringBuffer) {
 		m_String = &stringBuffer[tempStringIndices[0]];
 		return true;
 	}
+	m_String = "";
 	return true;
 }
 

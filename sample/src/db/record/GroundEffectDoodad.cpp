@@ -17,6 +17,7 @@ bool GroundEffectDoodadRec::Read(SFile* f, const char* stringBuffer) {
 		m_Doodadpath = &stringBuffer[tempDoodadpathIndices[0]];
 		return true;
 	}
+	m_Doodadpath = "";
 	return true;
 }
 

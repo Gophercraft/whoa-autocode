@@ -69,6 +69,7 @@ bool HolidaysRec::Read(SFile* f, const char* stringBuffer) {
 		m_TextureFileName = &stringBuffer[tempTextureFileNameIndices[0]];
 		return true;
 	}
+	m_TextureFileName = "";
 	return true;
 }
 

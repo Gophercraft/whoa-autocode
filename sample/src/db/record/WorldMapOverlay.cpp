@@ -31,6 +31,7 @@ bool WorldMapOverlayRec::Read(SFile* f, const char* stringBuffer) {
 		m_TextureName = &stringBuffer[tempTextureNameIndices[0]];
 		return true;
 	}
+	m_TextureName = "";
 	return true;
 }
 

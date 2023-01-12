@@ -47,6 +47,22 @@ bool GMSurveyQuestionsRec::Read(SFile* f, const char* stringBuffer) {
 		m_Question_lang[15] = &stringBuffer[tempQuestion_langIndices[15]];
 		return true;
 	}
+	m_Question_lang[0] = "";
+	m_Question_lang[1] = "";
+	m_Question_lang[2] = "";
+	m_Question_lang[3] = "";
+	m_Question_lang[4] = "";
+	m_Question_lang[5] = "";
+	m_Question_lang[6] = "";
+	m_Question_lang[7] = "";
+	m_Question_lang[8] = "";
+	m_Question_lang[9] = "";
+	m_Question_lang[10] = "";
+	m_Question_lang[11] = "";
+	m_Question_lang[12] = "";
+	m_Question_lang[13] = "";
+	m_Question_lang[14] = "";
+	m_Question_lang[15] = "";
 	return true;
 }
 

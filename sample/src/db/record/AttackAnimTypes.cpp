@@ -16,6 +16,7 @@ bool AttackAnimTypesRec::Read(SFile* f, const char* stringBuffer) {
 		m_AnimName = &stringBuffer[tempAnimNameIndices[0]];
 		return true;
 	}
+	m_AnimName = "";
 	return true;
 }
 

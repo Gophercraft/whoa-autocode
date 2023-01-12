@@ -16,6 +16,7 @@ bool VehicleUIIndicatorRec::Read(SFile* f, const char* stringBuffer) {
 		m_BackgroundTexture = &stringBuffer[tempBackgroundTextureIndices[0]];
 		return true;
 	}
+	m_BackgroundTexture = "";
 	return true;
 }
 

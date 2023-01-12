@@ -19,6 +19,8 @@ bool SpellVisualPrecastTransitionsRec::Read(SFile* f, const char* stringBuffer) 
 		m_PrecastHoldAnimName = &stringBuffer[tempPrecastHoldAnimNameIndices[0]];
 		return true;
 	}
+	m_PrecastLoadAnimName = "";
+	m_PrecastHoldAnimName = "";
 	return true;
 }
 

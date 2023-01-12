@@ -20,6 +20,8 @@ bool LoadingScreensRec::Read(SFile* f, const char* stringBuffer) {
 		m_FileName = &stringBuffer[tempFileNameIndices[0]];
 		return true;
 	}
+	m_Name = "";
+	m_FileName = "";
 	return true;
 }
 

@@ -26,9 +26,9 @@ bool CharSectionsRec::Read(SFile* f, const char* stringBuffer) {
 		m_TextureName[2] = &stringBuffer[tempTextureNameIndices[2]];
 		return true;
 	}
-		m_TextureName[0] = "";
-		m_TextureName[1] = "";
-		m_TextureName[2] = "";
+	m_TextureName[0] = "";
+	m_TextureName[1] = "";
+	m_TextureName[2] = "";
 	return true;
 }
 

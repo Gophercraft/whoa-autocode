@@ -64,6 +64,8 @@ bool SpellChainEffectsRec::Read(SFile* f, const char* stringBuffer) {
 		m_Combo = &stringBuffer[tempComboIndices[0]];
 		return true;
 	}
+	m_Texture = "";
+	m_Combo = "";
 	return true;
 }
 

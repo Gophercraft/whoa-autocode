@@ -18,6 +18,7 @@ bool StationeryRec::Read(SFile* f, const char* stringBuffer) {
 		m_Texture = &stringBuffer[tempTextureIndices[0]];
 		return true;
 	}
+	m_Texture = "";
 	return true;
 }
 

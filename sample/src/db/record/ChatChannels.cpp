@@ -83,6 +83,38 @@ bool ChatChannelsRec::Read(SFile* f, const char* stringBuffer) {
 		m_Shortcut_lang[15] = &stringBuffer[tempShortcut_langIndices[15]];
 		return true;
 	}
+	m_Name_lang[0] = "";
+	m_Name_lang[1] = "";
+	m_Name_lang[2] = "";
+	m_Name_lang[3] = "";
+	m_Name_lang[4] = "";
+	m_Name_lang[5] = "";
+	m_Name_lang[6] = "";
+	m_Name_lang[7] = "";
+	m_Name_lang[8] = "";
+	m_Name_lang[9] = "";
+	m_Name_lang[10] = "";
+	m_Name_lang[11] = "";
+	m_Name_lang[12] = "";
+	m_Name_lang[13] = "";
+	m_Name_lang[14] = "";
+	m_Name_lang[15] = "";
+	m_Shortcut_lang[0] = "";
+	m_Shortcut_lang[1] = "";
+	m_Shortcut_lang[2] = "";
+	m_Shortcut_lang[3] = "";
+	m_Shortcut_lang[4] = "";
+	m_Shortcut_lang[5] = "";
+	m_Shortcut_lang[6] = "";
+	m_Shortcut_lang[7] = "";
+	m_Shortcut_lang[8] = "";
+	m_Shortcut_lang[9] = "";
+	m_Shortcut_lang[10] = "";
+	m_Shortcut_lang[11] = "";
+	m_Shortcut_lang[12] = "";
+	m_Shortcut_lang[13] = "";
+	m_Shortcut_lang[14] = "";
+	m_Shortcut_lang[15] = "";
 	return true;
 }
 

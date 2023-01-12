@@ -35,6 +35,7 @@ bool CreatureDisplayInfoExtraRec::Read(SFile* f, const char* stringBuffer) {
 		m_BakeName = &stringBuffer[tempBakeNameIndices[0]];
 		return true;
 	}
+	m_BakeName = "";
 	return true;
 }
 

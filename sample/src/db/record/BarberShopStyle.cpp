@@ -86,6 +86,38 @@ bool BarberShopStyleRec::Read(SFile* f, const char* stringBuffer) {
 		m_Description_lang[15] = &stringBuffer[tempDescription_langIndices[15]];
 		return true;
 	}
+	m_DisplayName_lang[0] = "";
+	m_DisplayName_lang[1] = "";
+	m_DisplayName_lang[2] = "";
+	m_DisplayName_lang[3] = "";
+	m_DisplayName_lang[4] = "";
+	m_DisplayName_lang[5] = "";
+	m_DisplayName_lang[6] = "";
+	m_DisplayName_lang[7] = "";
+	m_DisplayName_lang[8] = "";
+	m_DisplayName_lang[9] = "";
+	m_DisplayName_lang[10] = "";
+	m_DisplayName_lang[11] = "";
+	m_DisplayName_lang[12] = "";
+	m_DisplayName_lang[13] = "";
+	m_DisplayName_lang[14] = "";
+	m_DisplayName_lang[15] = "";
+	m_Description_lang[0] = "";
+	m_Description_lang[1] = "";
+	m_Description_lang[2] = "";
+	m_Description_lang[3] = "";
+	m_Description_lang[4] = "";
+	m_Description_lang[5] = "";
+	m_Description_lang[6] = "";
+	m_Description_lang[7] = "";
+	m_Description_lang[8] = "";
+	m_Description_lang[9] = "";
+	m_Description_lang[10] = "";
+	m_Description_lang[11] = "";
+	m_Description_lang[12] = "";
+	m_Description_lang[13] = "";
+	m_Description_lang[14] = "";
+	m_Description_lang[15] = "";
 	return true;
 }
 

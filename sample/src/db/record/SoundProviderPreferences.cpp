@@ -38,6 +38,7 @@ bool SoundProviderPreferencesRec::Read(SFile* f, const char* stringBuffer) {
 		m_Description = &stringBuffer[tempDescriptionIndices[0]];
 		return true;
 	}
+	m_Description = "";
 	return true;
 }
 

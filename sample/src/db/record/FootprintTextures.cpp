@@ -16,6 +16,7 @@ bool FootprintTexturesRec::Read(SFile* f, const char* stringBuffer) {
 		m_FootstepFilename = &stringBuffer[tempFootstepFilenameIndices[0]];
 		return true;
 	}
+	m_FootstepFilename = "";
 	return true;
 }
 

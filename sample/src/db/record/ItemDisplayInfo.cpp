@@ -55,20 +55,20 @@ bool ItemDisplayInfoRec::Read(SFile* f, const char* stringBuffer) {
 		m_Texture[7] = &stringBuffer[tempTextureIndices[7]];
 		return true;
 	}
-		m_ModelName[0] = "";
-		m_ModelName[1] = "";
-		m_ModelTexture[0] = "";
-		m_ModelTexture[1] = "";
-		m_InventoryIcon[0] = "";
-		m_InventoryIcon[1] = "";
-		m_Texture[0] = "";
-		m_Texture[1] = "";
-		m_Texture[2] = "";
-		m_Texture[3] = "";
-		m_Texture[4] = "";
-		m_Texture[5] = "";
-		m_Texture[6] = "";
-		m_Texture[7] = "";
+	m_ModelName[0] = "";
+	m_ModelName[1] = "";
+	m_ModelTexture[0] = "";
+	m_ModelTexture[1] = "";
+	m_InventoryIcon[0] = "";
+	m_InventoryIcon[1] = "";
+	m_Texture[0] = "";
+	m_Texture[1] = "";
+	m_Texture[2] = "";
+	m_Texture[3] = "";
+	m_Texture[4] = "";
+	m_Texture[5] = "";
+	m_Texture[6] = "";
+	m_Texture[7] = "";
 	return true;
 }
 

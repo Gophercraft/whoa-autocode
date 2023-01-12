@@ -17,6 +17,7 @@ bool UISoundLookupsRec::Read(SFile* f, const char* stringBuffer) {
 		m_SoundName = &stringBuffer[tempSoundNameIndices[0]];
 		return true;
 	}
+	m_SoundName = "";
 	return true;
 }
 

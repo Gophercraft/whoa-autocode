@@ -81,6 +81,38 @@ bool MailTemplateRec::Read(SFile* f, const char* stringBuffer) {
 		m_Body_lang[15] = &stringBuffer[tempBody_langIndices[15]];
 		return true;
 	}
+	m_Subject_lang[0] = "";
+	m_Subject_lang[1] = "";
+	m_Subject_lang[2] = "";
+	m_Subject_lang[3] = "";
+	m_Subject_lang[4] = "";
+	m_Subject_lang[5] = "";
+	m_Subject_lang[6] = "";
+	m_Subject_lang[7] = "";
+	m_Subject_lang[8] = "";
+	m_Subject_lang[9] = "";
+	m_Subject_lang[10] = "";
+	m_Subject_lang[11] = "";
+	m_Subject_lang[12] = "";
+	m_Subject_lang[13] = "";
+	m_Subject_lang[14] = "";
+	m_Subject_lang[15] = "";
+	m_Body_lang[0] = "";
+	m_Body_lang[1] = "";
+	m_Body_lang[2] = "";
+	m_Body_lang[3] = "";
+	m_Body_lang[4] = "";
+	m_Body_lang[5] = "";
+	m_Body_lang[6] = "";
+	m_Body_lang[7] = "";
+	m_Body_lang[8] = "";
+	m_Body_lang[9] = "";
+	m_Body_lang[10] = "";
+	m_Body_lang[11] = "";
+	m_Body_lang[12] = "";
+	m_Body_lang[13] = "";
+	m_Body_lang[14] = "";
+	m_Body_lang[15] = "";
 	return true;
 }
 

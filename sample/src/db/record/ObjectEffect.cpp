@@ -26,6 +26,7 @@ bool ObjectEffectRec::Read(SFile* f, const char* stringBuffer) {
 		m_Name = &stringBuffer[tempNameIndices[0]];
 		return true;
 	}
+	m_Name = "";
 	return true;
 }
 

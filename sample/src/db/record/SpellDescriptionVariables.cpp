@@ -16,6 +16,7 @@ bool SpellDescriptionVariablesRec::Read(SFile* f, const char* stringBuffer) {
 		m_Variables = &stringBuffer[tempVariablesIndices[0]];
 		return true;
 	}
+	m_Variables = "";
 	return true;
 }
 

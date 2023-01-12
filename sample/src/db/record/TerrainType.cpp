@@ -20,6 +20,7 @@ bool TerrainTypeRec::Read(SFile* f, const char* stringBuffer) {
 		m_TerrainDesc = &stringBuffer[tempTerrainDescIndices[0]];
 		return true;
 	}
+	m_TerrainDesc = "";
 	return true;
 }
 

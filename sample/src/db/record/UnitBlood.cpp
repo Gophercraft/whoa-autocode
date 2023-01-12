@@ -28,11 +28,11 @@ bool UnitBloodRec::Read(SFile* f, const char* stringBuffer) {
 		m_GroundBlood[4] = &stringBuffer[tempGroundBloodIndices[4]];
 		return true;
 	}
-		m_GroundBlood[0] = "";
-		m_GroundBlood[1] = "";
-		m_GroundBlood[2] = "";
-		m_GroundBlood[3] = "";
-		m_GroundBlood[4] = "";
+	m_GroundBlood[0] = "";
+	m_GroundBlood[1] = "";
+	m_GroundBlood[2] = "";
+	m_GroundBlood[3] = "";
+	m_GroundBlood[4] = "";
 	return true;
 }
 

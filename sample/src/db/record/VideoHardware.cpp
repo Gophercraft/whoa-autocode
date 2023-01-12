@@ -39,6 +39,8 @@ bool VideoHardwareRec::Read(SFile* f, const char* stringBuffer) {
 		m_D3dOverrides = &stringBuffer[tempD3dOverridesIndices[0]];
 		return true;
 	}
+	m_OglOverrides = "";
+	m_D3dOverrides = "";
 	return true;
 }
 

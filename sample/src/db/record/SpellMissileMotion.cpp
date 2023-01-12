@@ -21,6 +21,8 @@ bool SpellMissileMotionRec::Read(SFile* f, const char* stringBuffer) {
 		m_ScriptBody = &stringBuffer[tempScriptBodyIndices[0]];
 		return true;
 	}
+	m_Name = "";
+	m_ScriptBody = "";
 	return true;
 }
 

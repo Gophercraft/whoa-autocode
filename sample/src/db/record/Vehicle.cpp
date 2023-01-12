@@ -59,8 +59,10 @@ bool VehicleRec::Read(SFile* f, const char* stringBuffer) {
 		m_MsslTrgtImpactModel[1] = &stringBuffer[tempMsslTrgtImpactModelIndices[1]];
 		return true;
 	}
-		m_MsslTrgtImpactModel[0] = "";
-		m_MsslTrgtImpactModel[1] = "";
+	m_MsslTrgtArcTexture = "";
+	m_MsslTrgtImpactTexture = "";
+	m_MsslTrgtImpactModel[0] = "";
+	m_MsslTrgtImpactModel[1] = "";
 	return true;
 }
 

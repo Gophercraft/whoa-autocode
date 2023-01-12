@@ -148,20 +148,20 @@ func (g *Generator) generateLayoutReader(target *layoutTarget) error {
 		columnDef := target.Definition.Column(columnLayout.Name)
 		if columnDef.Type == dbd.String || columnDef.Type == dbd.LocString {
 			elementCount := columnLayout.ArraySize
-			if elementCount == 0 {
+			if elementCount <= 0 {
 				elementCount = 1
 			}
 
 			if columnDef.Type == dbd.LocString {
-				elementCount = locSize * elementCount
+				elementCount = (locSize - 1) * elementCount
 			}
 			isArray := columnLayout.ArraySize > 0 || columnDef.Type == dbd.LocString
 
 			for f := 0; f < elementCount; f++ {
 				if isArray {
-					file.Printf("\t\tm_%s[%d] = \"\";\n", columnLayout.Name, f)
+					file.Printf("\tm_%s[%d] = \"\";\n", columnLayout.Name, f)
 				} else {
-					file.Printf("\t\tm_%s = \"\";\n", columnLayout.Name)
+					file.Printf("\tm_%s = \"\";\n", columnLayout.Name)
 				}
 			}
 		}

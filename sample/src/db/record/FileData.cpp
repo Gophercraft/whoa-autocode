@@ -19,6 +19,8 @@ bool FileDataRec::Read(SFile* f, const char* stringBuffer) {
 		m_Filepath = &stringBuffer[tempFilepathIndices[0]];
 		return true;
 	}
+	m_Filename = "";
+	m_Filepath = "";
 	return true;
 }
 
