@@ -69,7 +69,7 @@ func (g *Generator) writeLayout(file *Printer, target *layoutTarget) error {
 
 	numColumns := 0
 	rowSize := 0
-	indexIsID := target.Definition.Column("ID") == nil
+	indexIsID := target.Layout.Column("ID") == nil
 
 	// Calculate number of columns and size of row
 
@@ -136,7 +136,11 @@ func (g *Generator) writeLayout(file *Printer, target *layoutTarget) error {
 		case dbd.Uint:
 			cppType = fmt.Sprintf("uint%d_t", column.Bits)
 		case dbd.Int:
-			cppType = fmt.Sprintf("int%d_t", column.Bits)
+			if column.Signed {
+				cppType = fmt.Sprintf("int%d_t", column.Bits)
+			} else {
+				cppType = fmt.Sprintf("uint%d_t", column.Bits)
+			}
 		case dbd.Float:
 			switch column.Bits {
 			case 32:

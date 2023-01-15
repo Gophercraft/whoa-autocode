@@ -521,7 +521,7 @@ struct Cfg_ConfigsRec {
 struct CharBaseInfoRec {
 	static constexpr uint32_t NumColumns = 2;
 	static constexpr uint32_t RowSize = 2;
-	static constexpr bool IndexIsID = false;
+	static constexpr bool IndexIsID = true;
 
 	int8_t m_RaceID;
 	int8_t m_ClassID;
@@ -633,7 +633,7 @@ struct CharVariationsRec {
 struct CharacterFacialHairStylesRec {
 	static constexpr uint32_t NumColumns = 8;
 	static constexpr uint32_t RowSize = 32;
-	static constexpr bool IndexIsID = false;
+	static constexpr bool IndexIsID = true;
 
 	int32_t m_RaceID;
 	int32_t m_SexID;
@@ -1342,7 +1342,7 @@ struct GMSurveyAnswersRec {
 struct GMSurveyCurrentSurveyRec {
 	static constexpr uint32_t NumColumns = 2;
 	static constexpr uint32_t RowSize = 8;
-	static constexpr bool IndexIsID = false;
+	static constexpr bool IndexIsID = true;
 
 	int32_t m_LANGID;
 	int32_t m_GMSURVEY_ID;
@@ -1421,7 +1421,7 @@ struct GameObjectDisplayInfoRec {
 struct GameTablesRec {
 	static constexpr uint32_t NumColumns = 3;
 	static constexpr uint32_t RowSize = 12;
-	static constexpr bool IndexIsID = false;
+	static constexpr bool IndexIsID = true;
 
 	const char* m_Name;
 	int32_t m_NumRows;
@@ -1681,7 +1681,7 @@ struct ItemBagFamilyRec {
 struct ItemClassRec {
 	static constexpr uint32_t NumColumns = 20;
 	static constexpr uint32_t RowSize = 80;
-	static constexpr bool IndexIsID = false;
+	static constexpr bool IndexIsID = true;
 
 	int32_t m_ClassID;
 	int32_t m_SubclassMapID;
@@ -1972,7 +1972,7 @@ struct ItemSetRec {
 struct ItemSubClassRec {
 	static constexpr uint32_t NumColumns = 44;
 	static constexpr uint32_t RowSize = 176;
-	static constexpr bool IndexIsID = false;
+	static constexpr bool IndexIsID = true;
 
 	int32_t m_ClassID;
 	int32_t m_SubClassID;
@@ -1996,7 +1996,7 @@ struct ItemSubClassRec {
 struct ItemSubClassMaskRec {
 	static constexpr uint32_t NumColumns = 19;
 	static constexpr uint32_t RowSize = 76;
-	static constexpr bool IndexIsID = false;
+	static constexpr bool IndexIsID = true;
 
 	int32_t m_ClassID;
 	int32_t m_Mask;
@@ -2422,7 +2422,7 @@ struct MovieRec {
 struct MovieFileDataRec {
 	static constexpr uint32_t NumColumns = 2;
 	static constexpr uint32_t RowSize = 8;
-	static constexpr bool IndexIsID = false;
+	static constexpr bool IndexIsID = true;
 
 	int32_t m_FileDataID;
 	int32_t m_Resolution;
@@ -2628,7 +2628,7 @@ struct PageTextMaterialRec {
 struct PaperDollItemFrameRec {
 	static constexpr uint32_t NumColumns = 3;
 	static constexpr uint32_t RowSize = 12;
-	static constexpr bool IndexIsID = false;
+	static constexpr bool IndexIsID = true;
 
 	const char* m_ItemButtonName;
 	const char* m_SlotIcon;
@@ -4270,7 +4270,7 @@ struct TerrainMaterialRec {
 struct TerrainTypeRec {
 	static constexpr uint32_t NumColumns = 6;
 	static constexpr uint32_t RowSize = 24;
-	static constexpr bool IndexIsID = false;
+	static constexpr bool IndexIsID = true;
 
 	int32_t m_TerrainID;
 	const char* m_TerrainDesc;
@@ -4792,7 +4792,7 @@ struct WorldStateUIRec {
 struct WorldStateZoneSoundsRec {
 	static constexpr uint32_t NumColumns = 8;
 	static constexpr uint32_t RowSize = 32;
-	static constexpr bool IndexIsID = false;
+	static constexpr bool IndexIsID = true;
 
 	int32_t m_WorldStateID;
 	int32_t m_WorldStateValue;
@@ -4882,7 +4882,7 @@ struct ZoneMusicRec {
 struct gtBarberShopCostBaseRec {
 	static constexpr uint32_t NumColumns = 1;
 	static constexpr uint32_t RowSize = 4;
-	static constexpr bool IndexIsID = false;
+	static constexpr bool IndexIsID = true;
 
 	float m_Data;
 
@@ -4893,7 +4893,7 @@ struct gtBarberShopCostBaseRec {
 struct gtChanceToMeleeCritRec {
 	static constexpr uint32_t NumColumns = 1;
 	static constexpr uint32_t RowSize = 4;
-	static constexpr bool IndexIsID = false;
+	static constexpr bool IndexIsID = true;
 
 	float m_Data;
 
@@ -4904,7 +4904,7 @@ struct gtChanceToMeleeCritRec {
 struct gtChanceToMeleeCritBaseRec {
 	static constexpr uint32_t NumColumns = 1;
 	static constexpr uint32_t RowSize = 4;
-	static constexpr bool IndexIsID = false;
+	static constexpr bool IndexIsID = true;
 
 	float m_Data;
 
@@ -4915,7 +4915,7 @@ struct gtChanceToMeleeCritBaseRec {
 struct gtChanceToSpellCritRec {
 	static constexpr uint32_t NumColumns = 1;
 	static constexpr uint32_t RowSize = 4;
-	static constexpr bool IndexIsID = false;
+	static constexpr bool IndexIsID = true;
 
 	float m_Data;
 
@@ -4926,7 +4926,7 @@ struct gtChanceToSpellCritRec {
 struct gtChanceToSpellCritBaseRec {
 	static constexpr uint32_t NumColumns = 1;
 	static constexpr uint32_t RowSize = 4;
-	static constexpr bool IndexIsID = false;
+	static constexpr bool IndexIsID = true;
 
 	float m_Data;
 
@@ -4937,7 +4937,7 @@ struct gtChanceToSpellCritBaseRec {
 struct gtCombatRatingsRec {
 	static constexpr uint32_t NumColumns = 1;
 	static constexpr uint32_t RowSize = 4;
-	static constexpr bool IndexIsID = false;
+	static constexpr bool IndexIsID = true;
 
 	float m_Data;
 
@@ -4948,7 +4948,7 @@ struct gtCombatRatingsRec {
 struct gtNPCManaCostScalerRec {
 	static constexpr uint32_t NumColumns = 1;
 	static constexpr uint32_t RowSize = 4;
-	static constexpr bool IndexIsID = false;
+	static constexpr bool IndexIsID = true;
 
 	float m_Data;
 
@@ -4971,7 +4971,7 @@ struct gtOCTClassCombatRatingScalarRec {
 struct gtOCTRegenHPRec {
 	static constexpr uint32_t NumColumns = 1;
 	static constexpr uint32_t RowSize = 4;
-	static constexpr bool IndexIsID = false;
+	static constexpr bool IndexIsID = true;
 
 	float m_Data;
 
@@ -4982,7 +4982,7 @@ struct gtOCTRegenHPRec {
 struct gtOCTRegenMPRec {
 	static constexpr uint32_t NumColumns = 1;
 	static constexpr uint32_t RowSize = 4;
-	static constexpr bool IndexIsID = false;
+	static constexpr bool IndexIsID = true;
 
 	float m_Data;
 
@@ -4993,7 +4993,7 @@ struct gtOCTRegenMPRec {
 struct gtRegenHPPerSptRec {
 	static constexpr uint32_t NumColumns = 1;
 	static constexpr uint32_t RowSize = 4;
-	static constexpr bool IndexIsID = false;
+	static constexpr bool IndexIsID = true;
 
 	float m_Data;
 
@@ -5004,7 +5004,7 @@ struct gtRegenHPPerSptRec {
 struct gtRegenMPPerSptRec {
 	static constexpr uint32_t NumColumns = 1;
 	static constexpr uint32_t RowSize = 4;
-	static constexpr bool IndexIsID = false;
+	static constexpr bool IndexIsID = true;
 
 	float m_Data;
 
