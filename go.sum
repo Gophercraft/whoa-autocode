@@ -1,5 +1,7 @@
 github.com/Gophercraft/core v0.0.0-20230112042748-b246bd0f6c48 h1:+6KS571Dw6kfftEb3Rr44HtqfwUKH10hiV1cViYZO3M=
 github.com/Gophercraft/core v0.0.0-20230112042748-b246bd0f6c48/go.mod h1:oUGwM9zwRQ3kyHi2Z/7ak1KBs8jc/H2qreck47r1mk8=
+github.com/Gophercraft/core v0.5.1 h1:CH/YdgVjqBqtci8HMsLXXtSbNMlmhr4q1HfLnANBiMU=
+github.com/Gophercraft/core v0.5.1/go.mod h1:oUGwM9zwRQ3kyHi2Z/7ak1KBs8jc/H2qreck47r1mk8=
 github.com/Gophercraft/log v0.0.0-20221113041919-c5b5a57db4d4 h1:naDXti1JjwekZNCKxwqsHw7eRYnNja9WAeSHFbyDTSM=
 github.com/Gophercraft/log v0.0.0-20221113041919-c5b5a57db4d4/go.mod h1:bV1wexm5pskv5bwe8/jmT5QREty0hVPndCkyTBGHpFA=
 github.com/Velocidex/binparsergen v0.1.0 h1:1G3N7me7mSjSc/iGNbgC3v3uxKukUfR1GpzxNcmc2CM=

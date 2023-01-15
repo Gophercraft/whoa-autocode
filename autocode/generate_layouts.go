@@ -67,45 +67,51 @@ func (g *Generator) writeLayout(file *Printer, target *layoutTarget) error {
 		return err
 	}
 
-	numColumns := 0
-	rowSize := 0
+	// numColumns := 0
+	// rowSize := 0
 	indexIsID := target.Layout.Column("ID") == nil
 
-	// Calculate number of columns and size of row
-
-	for _, column := range target.Layout.Columns {
-		columnDef := target.Definition.Column(column.Name)
-
-		numColumnElements := 1
-
-		if column.ArraySize > 0 {
-			numColumnElements = column.ArraySize
-		}
-
-		columnSize := 0
-
-		switch columnDef.Type {
-		case dbd.LocString:
-			columnSize = locSize * 4
-		case dbd.Int, dbd.Uint:
-			columnSize = (column.Bits / 8) * numColumnElements
-		case dbd.Float:
-			columnSize = (column.Bits / 8) * numColumnElements
-		case dbd.String:
-			columnSize = numColumnElements * 4
-		default:
-			panic("unknown type")
-		}
-
-		rowSize += columnSize
-
-		if columnDef.Type == dbd.LocString {
-			numColumns += locSize
-			continue
-		}
-
-		numColumns += numColumnElements
+	rowSize, numColumns, err := calcLayoutSize(g.Build, target)
+	if err != nil {
+		return err
 	}
+	// }
+
+	// // Calculate number of columns and size of row
+
+	// for _, column := range target.Layout.Columns {
+	// 	columnDef := target.Definition.Column(column.Name)
+
+	// 	numColumnElements := 1
+
+	// 	if column.ArraySize > 0 {
+	// 		numColumnElements = column.ArraySize
+	// 	}
+
+	// 	columnSize := 0
+
+	// 	switch columnDef.Type {
+	// 	case dbd.LocString:
+	// 		columnSize = locSize * 4
+	// 	case dbd.Int, dbd.Uint:
+	// 		columnSize = (column.Bits / 8) * numColumnElements
+	// 	case dbd.Float:
+	// 		columnSize = (column.Bits / 8) * numColumnElements
+	// 	case dbd.String:
+	// 		columnSize = numColumnElements * 4
+	// 	default:
+	// 		panic("unknown type")
+	// 	}
+
+	// 	rowSize += columnSize
+
+	// 	if columnDef.Type == dbd.LocString {
+	// 		numColumns += locSize
+	// 		continue
+	// 	}
+
+	// 	numColumns += numColumnElements
+	// }
 
 	// Begin writing record definition
 

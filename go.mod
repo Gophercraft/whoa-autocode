@@ -3,7 +3,7 @@ module github.com/Gophercraft/whoa-autocode
 go 1.19
 
 require (
-	github.com/Gophercraft/core v0.0.0-20230112042748-b246bd0f6c48
+	github.com/Gophercraft/core v0.5.1
 	github.com/spf13/cobra v1.6.1
 )
 
