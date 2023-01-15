@@ -18,7 +18,7 @@ func (g *Generator) NewPrinter(path string) (p *Printer, err error) {
 	}
 
 	p.File, err = os.OpenFile(
-		filepath.Join(g.Dir, path),
+		filepath.Join(g.OutputDirectory, path),
 		os.O_CREATE|os.O_RDWR|os.O_TRUNC,
 		0700,
 	)

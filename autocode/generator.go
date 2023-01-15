@@ -8,21 +8,21 @@ import (
 )
 
 type Generator struct {
-	Build vsn.Build
-	Dir   string
+	Build           vsn.Build
+	OutputDirectory string
+	DefsDirectory   string
 
 	layouts []*layoutTarget
 }
 
-func NewGenerator(build vsn.Build, path string) *Generator {
+func NewGenerator(build vsn.Build) *Generator {
 	g := new(Generator)
 	g.Build = build
-	g.Dir = path
 	return g
 }
 
 func (g *Generator) path(path string) string {
-	return filepath.Join(g.Dir, path)
+	return filepath.Join(g.OutputDirectory, path)
 }
 
 func (g *Generator) ensurePath(relpath string) error {
@@ -38,6 +38,10 @@ func (g *Generator) ensurePath(relpath string) error {
 }
 
 func (g *Generator) Generate() error {
+	if err := g.loadAlternativeDefs(); err != nil {
+		return err
+	}
+
 	if err := g.generateLayouts(); err != nil {
 		return err
 	}

@@ -26,9 +26,15 @@ var rootCmd = &cobra.Command{
 			log.Fatal(err)
 			return
 		}
+		defs, err := cmd.Flags().GetString("definitions")
+		if err != nil {
+			log.Fatal(err)
+			return
+		}
 		runMain(
 			vsn.Build(build),
 			loc,
+			defs,
 		)
 	},
 }
@@ -44,6 +50,7 @@ func init() {
 	// when this action is called directly.
 	rootCmd.Flags().StringP("location", "l", "", "The Whoa code directory")
 	rootCmd.Flags().Uint32P("build", "b", 12340, "The dbc format build")
+	rootCmd.Flags().StringP("definitions", "d", "", "Optional: supply a definitions directory")
 }
 
 func Run() {
