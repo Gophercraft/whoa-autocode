@@ -164,7 +164,7 @@ func (g *Generator) writeLayout(file *Printer, target *layoutTarget) error {
 	}
 
 	file.Printf("\n")
-	file.Printf("\tconst char * GetFilename();\n")
+	file.Printf("\tconst char* GetFilename();\n")
 	file.Printf("\tbool Read(SFile* f, const char* stringBuffer);\n")
 	file.Printf("};\n\n")
 
