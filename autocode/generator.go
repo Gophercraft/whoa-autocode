@@ -5,12 +5,14 @@ import (
 	"path/filepath"
 
 	"github.com/Gophercraft/core/vsn"
+	"github.com/spf13/cobra"
 )
 
 type Generator struct {
 	Build           vsn.Build
 	OutputDirectory string
 	DefsDirectory   string
+	Cmd             *cobra.Command
 
 	layouts []*layoutTarget
 }
