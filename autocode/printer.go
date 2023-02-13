@@ -1,7 +1,9 @@
 package autocode
 
 import (
+	"bytes"
 	"fmt"
+	"log"
 	"os"
 	"path/filepath"
 )
@@ -11,6 +13,8 @@ type Printer struct {
 }
 
 func (g *Generator) NewPrinter(path string) (p *Printer, err error) {
+	log.Println("opening", path)
+
 	p = new(Printer)
 
 	if err = g.ensurePath(path); err != nil {
@@ -31,8 +35,15 @@ func (g *Generator) NewPrinter(path string) (p *Printer, err error) {
 	return
 }
 
+func (p *Printer) Write(b []byte) (int, error) {
+	z := bytes.ReplaceAll(b, []byte("\t"), []byte("    "))
+
+	_, err := p.File.Write(z)
+	return len(b), err
+}
+
 func (p *Printer) Printf(format string, args ...any) {
-	fmt.Fprintf(p.File, format, args...)
+	fmt.Fprintf(p, format, args...)
 }
 
 func (p *Printer) Close() error {
