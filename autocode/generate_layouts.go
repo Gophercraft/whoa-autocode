@@ -70,13 +70,13 @@ func (g *Generator) findLayoutTargets() error {
 	return nil
 }
 
-func (g *Generator) writeLayout(target *layoutTarget) error {
+func (g *Generator) writeLayoutHeader(target *layoutTarget) error {
 	file, err := g.NewPrinter(fmt.Sprintf("src/db/rec/%sRec.hpp", target.Definition.Name))
 	if err != nil {
 		return err
 	}
 
-	importGuardToken := fmt.Sprintf("DB_%s_REC_HPP", strings.ToUpper(target.Definition.Name))
+	importGuardToken := fmt.Sprintf("DB_REC_%s_REC_HPP", convertToScreamCase(target.Definition.Name))
 
 	file.Printf("#ifndef %s\n", importGuardToken)
 	file.Printf("#define %s\n", importGuardToken)
@@ -90,6 +90,32 @@ func (g *Generator) writeLayout(target *layoutTarget) error {
 		"cstdint",
 	}
 
+	overrideLocal, err := g.Cmd.Flags().GetString("layout-header-localimports")
+	if err != nil {
+		return err
+	}
+	if overrideLocal != "" {
+		if overrideLocal == "nil" {
+			localimports = nil
+		} else {
+			localimports = strings.Split(overrideLocal, ",")
+		}
+	}
+
+	overrideStd, err := g.Cmd.Flags().GetString("layout-header-stdimports")
+	if err != nil {
+		return err
+	}
+	if overrideStd != "" {
+		if overrideStd == "nil" {
+			stdimports = nil
+		} else {
+			stdimports = strings.Split(overrideStd, ",")
+		}
+	}
+
+	indentImport := len(localimports) > 0 || len(stdimports) > 0
+
 	for _, localimport := range localimports {
 		file.Printf("#include \"%s\"\n", localimport)
 	}
@@ -98,7 +124,9 @@ func (g *Generator) writeLayout(target *layoutTarget) error {
 		file.Printf("#include <%s>\n", stdimport)
 	}
 
-	file.Printf("\n")
+	if indentImport {
+		file.Printf("\n")
+	}
 
 	// for _, layout := range g.layouts {
 	// 	if err := g.writeLayout(file, layout); err != nil {
@@ -108,11 +136,6 @@ func (g *Generator) writeLayout(target *layoutTarget) error {
 
 	// file.Printf("\n")
 	// file.Printf("#endif")
-
-	locSize, err := dbc.LocStringSize(g.Build)
-	if err != nil {
-		return err
-	}
 
 	// numColumns := 0
 	// rowSize := 0
@@ -162,15 +185,14 @@ func (g *Generator) writeLayout(target *layoutTarget) error {
 
 	// Begin writing record definition
 
-	file.Printf("struct %sRec {\n", target.Definition.Name)
+	file.Printf("class %sRec {\n", target.Definition.Name)
+	file.Printf("\tpublic:\n")
 
 	file.Printf("\tstatic constexpr uint32_t columnCount = %d;\n", numColumns)
 	file.Printf("\tstatic constexpr uint32_t rowSize = %d;\n", rowSize)
 	file.Printf("\tstatic constexpr bool indexIsID = %t;\n", indexIsID)
 
 	file.Printf("\n")
-
-	var anyStrings bool
 
 	for _, column := range target.Layout.Columns {
 		var (
@@ -184,10 +206,8 @@ func (g *Generator) writeLayout(target *layoutTarget) error {
 
 		switch columnDef.Type {
 		case dbd.LocString:
-			anyStrings = true
 			cppType = "const char*"
 		case dbd.String:
-			anyStrings = true
 			cppType = "const char*"
 		case dbd.Uint:
 			cppType = fmt.Sprintf("uint%d_t", column.Bits)
@@ -220,15 +240,47 @@ func (g *Generator) writeLayout(target *layoutTarget) error {
 	}
 
 	file.Printf("\n")
-	file.Printf("\tstatic const char* GetFilename() {\n")
-	file.Printf("\t\treturn \"DBFilesClient\\\\%s.dbc\";\n", target.Definition.Name)
-	file.Printf("\t}")
+	file.Printf("\tstatic const char* GetFilename();\n")
+	file.Printf("\tbool Read(SFile* f, const char* stringBuffer);\n")
+
+	file.Printf("};\n")
 	file.Printf("\n")
+	file.Printf("#endif")
+
+	return file.Close()
+}
+
+func (g *Generator) writeLayoutSource(target *layoutTarget) error {
+	locSize, err := dbc.LocStringSize(g.Build)
+	if err != nil {
+		return err
+	}
+
+	file, err := g.NewPrinter(fmt.Sprintf("src/db/rec/%sRec.cpp", target.Definition.Name))
+	if err != nil {
+		return err
+	}
+
+	localimports := []string{
+		fmt.Sprintf("db/rec/%sRec.hpp", target.Definition.Name),
+	}
+
+	for _, localimport := range localimports {
+		file.Printf("#include \"%s\"\n", localimport)
+	}
+
+	if len(localimports) > 0 {
+		file.Printf("\n")
+	}
+
+	file.Printf("const char* %sRec::GetFilename() {\n", target.Definition.Name)
+	file.Printf("\treturn \"DBFilesClient\\\\%s.dbc\";\n", target.Definition.Name)
+	file.Printf("}\n")
 	file.Printf("\n")
 
-	file.Printf("\tbool Read(SFile* f, const char* stringBuffer) {\n")
+	file.Printf("bool %sRec::Read(SFile* f, const char* stringBuffer) {\n", target.Definition.Name)
 
-	ofsany := false
+	anyStrings := false
 
 	// Create string index arrays
 	for _, columnLayout := range target.Layout.Columns {
@@ -236,41 +288,40 @@ func (g *Generator) writeLayout(target *layoutTarget) error {
 
 		switch columnDef.Type {
 		case dbd.String:
-			ofsany = true
+			anyStrings = true
 			isStringArray := columnLayout.ArraySize > -1
 			if isStringArray {
 				arrayCount := columnLayout.ArraySize
 
-				file.Printf("\t\tuint32_t %sOfs[%d];\n", columnDef.Name, arrayCount)
+				file.Printf("\tuint32_t %sOfs[%d];\n", columnDef.Name, arrayCount)
 			} else {
-				file.Printf("\t\tuint32_t %sOfs;\n", columnDef.Name)
+				file.Printf("\tuint32_t %sOfs;\n", columnDef.Name)
 			}
 		case dbd.LocString:
-			ofsany = true
+			anyStrings = true
 			isLocArray := columnLayout.ArraySize > -1
 			if isLocArray {
 				arrayCount := columnLayout.ArraySize
 
 				for e := 0; e < arrayCount; e++ {
-					file.Printf("\t\tuint32_t %sOfs%d[%d];\n", columnDef.Name, e, locSize-1)
+					file.Printf("\tuint32_t %sOfs%d[%d];\n", columnDef.Name, e, locSize-1)
 					file.Printf("\t\tuint32_t %sMask%d;\n", columnDef.Name, e)
 				}
 			} else {
-				file.Printf("\t\tuint32_t %sOfs[%d];\n", columnDef.Name, locSize-1)
-				file.Printf("\t\tuint32_t %sMask;\n", columnDef.Name)
+				file.Printf("\tuint32_t %sOfs[%d];\n", columnDef.Name, locSize-1)
+				file.Printf("\tuint32_t %sMask;\n", columnDef.Name)
 			}
 		}
 	}
 
-	if ofsany {
+	if anyStrings {
 		file.Printf("\n")
-
 	}
 
-	file.Printf("\t\tif (\n")
+	file.Printf("\tif (\n")
 
 	sfileRead := func(x int, f string, args ...any) {
-		file.Printf("\t\t\t")
+		file.Printf("\t\t")
 
 		if x > 0 {
 			file.Printf("|| ")
@@ -333,10 +384,10 @@ func (g *Generator) writeLayout(target *layoutTarget) error {
 		}
 	}
 
-	file.Printf("\t\t) {\n")
+	file.Printf("\t) {\n")
 	// file.Printf("\t\tConsoleWrite(\"Error reading %s\", WARNING_COLOR);\n", target.Definition.Name)
-	file.Printf("\t\t\treturn false;\n")
-	file.Printf("\t\t}\n")
+	file.Printf("\t\treturn false;\n")
+	file.Printf("\t}\n")
 	file.Printf("\n")
 
 	// optimization
@@ -345,7 +396,7 @@ func (g *Generator) writeLayout(target *layoutTarget) error {
 		goto done
 	}
 
-	file.Printf("\t\tif (stringBuffer) {\n")
+	file.Printf("\tif (stringBuffer) {\n")
 	// file.Printf("\t\tresult = true;\n")
 
 	// Assign values from string buffer (if present)
@@ -358,25 +409,25 @@ func (g *Generator) writeLayout(target *layoutTarget) error {
 
 			if isStringArray {
 				for e := 0; e < columnLayout.ArraySize; e++ {
-					file.Printf("\t\t\tthis->m_%s[%d] = &stringBuffer[%sOfs[%d]];\n", columnLayout.Name, e, columnLayout.Name, e)
+					file.Printf("\t\tthis->m_%s[%d] = &stringBuffer[%sOfs[%d]];\n", columnLayout.Name, e, columnLayout.Name, e)
 				}
 			} else {
-				file.Printf("\t\t\tthis->m_%s = &stringBuffer[%sOfs];\n", columnLayout.Name, columnLayout.Name)
+				file.Printf("\t\tthis->m_%s = &stringBuffer[%sOfs];\n", columnLayout.Name, columnLayout.Name)
 			}
 		case dbd.LocString:
 			isLocArray := columnLayout.ArraySize > -1
 
 			if isLocArray {
 				for e := 0; e < columnLayout.ArraySize; e++ {
-					file.Printf("\t\t\tthis->m_%s[%d] = &stringBuffer[%sOfs%d[CURRENT_LANGUAGE]];\n", columnLayout.Name, e, columnLayout.Name, e)
+					file.Printf("\t\tthis->m_%s[%d] = &stringBuffer[%sOfs%d[CURRENT_LANGUAGE]];\n", columnLayout.Name, e, columnLayout.Name, e)
 				}
 			} else {
-				file.Printf("\t\t\tthis->m_%s = &stringBuffer[%sOfs[CURRENT_LANGUAGE]];\n", columnLayout.Name, columnLayout.Name)
+				file.Printf("\t\tthis->m_%s = &stringBuffer[%sOfs[CURRENT_LANGUAGE]];\n", columnLayout.Name, columnLayout.Name)
 			}
 		}
 	}
 
-	file.Printf("\t\t} else {\n")
+	file.Printf("\t} else {\n")
 
 	// \telse\n\t{\n")
 	// file.Printf("\t\tresult = true;\n")
@@ -391,43 +442,41 @@ func (g *Generator) writeLayout(target *layoutTarget) error {
 
 			if isStringArray {
 				for e := 0; e < columnLayout.ArraySize; e++ {
-					file.Printf("\t\t\tthis->m_%s[%d] = \"\";\n", columnLayout.Name, e)
+					file.Printf("\t\tthis->m_%s[%d] = \"\";\n", columnLayout.Name, e)
 				}
 			} else {
-				file.Printf("\t\t\tthis->m_%s = \"\";\n", columnLayout.Name)
+				file.Printf("\t\tthis->m_%s = \"\";\n", columnLayout.Name)
 			}
 		case dbd.LocString:
 			isLocArray := columnLayout.ArraySize > -1
 
 			if isLocArray {
 				for e := 0; e < columnLayout.ArraySize; e++ {
-					file.Printf("\t\t\tthis->m_%s[%d] = \"\";\n", columnLayout.Name, e)
+					file.Printf("\t\tthis->m_%s[%d] = \"\";\n", columnLayout.Name, e)
 				}
 			} else {
-				file.Printf("\t\t\tthis->m_%s = \"\";\n", columnLayout.Name)
+				file.Printf("\t\tthis->m_%s = \"\";\n", columnLayout.Name)
 			}
 		}
 	}
 
-	file.Printf("\t\t}\n")
+	file.Printf("\t}\n")
 	file.Printf("\n")
 
 done:
-	file.Printf("\t\treturn true;\n")
-	file.Printf("\t}\n")
-
-	file.Printf("};\n")
-	file.Printf("\n")
-	file.Printf("#endif")
+	file.Printf("\treturn true;\n")
+	file.Printf("}\n")
 
 	return file.Close()
-
-	return nil
 }
 
 func (g *Generator) writeLayouts() error {
 	for _, layout := range g.layouts {
-		if err := g.writeLayout(layout); err != nil {
+		if err := g.writeLayoutHeader(layout); err != nil {
+			return err
+		}
+
+		if err := g.writeLayoutSource(layout); err != nil {
 			return err
 		}
 	}
