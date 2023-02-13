@@ -46,9 +46,9 @@ func (g *Generator) Generate() error {
 		return err
 	}
 
-	if err := g.generateLayoutReaders(); err != nil {
-		return err
-	}
+	// if err := g.generateLayoutReaders(); err != nil {
+	// 	return err
+	// }
 
 	if err := g.generateStaticLoader(); err != nil {
 		return err

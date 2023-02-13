@@ -1,6 +1,7 @@
 package autocode
 
 import (
+	"fmt"
 	"unicode"
 )
 
@@ -11,17 +12,24 @@ func (g *Generator) globalDBName(name string) string {
 }
 
 func (g *Generator) generateStaticDBHeader() error {
-	file, err := g.NewPrinter("src/db/ClientDatabases.hpp")
+	file, err := g.NewPrinter("src/db/StaticDB.hpp")
 	if err != nil {
 		return err
 	}
 
-	file.Printf("#ifndef DB_CLIENT_DATABASES_HPP\n")
-	file.Printf("#define DB_CLIENT_DATABASES_HPP\n")
+	file.Printf("#ifndef DB_STATIC_DB_HPP\n")
+	file.Printf("#define DB_STATIC_DB_HPP\n")
 	file.Printf("\n")
 
 	localimports := []string{
-		"db/ClientDefs.hpp",
+		"db/WowClientDB_Base.hpp",
+		"db/WowClientDB.hpp",
+	}
+
+	for _, item := range g.layouts {
+		if g.isLayoutStatic(item) {
+			localimports = append(localimports, fmt.Sprintf("db/rec/%sRec.hpp", item.Definition.Name))
+		}
 	}
 
 	for _, localimport := range localimports {
@@ -36,7 +44,7 @@ func (g *Generator) generateStaticDBHeader() error {
 
 	file.Printf("\n")
 
-	file.Printf("void StaticDBLoadAll();\n")
+	file.Printf("void StaticDBLoadAll(void (*loadFn)(WowClientDB_Base*, const char*, int32_t));\n")
 
 	file.Printf("\n")
 
@@ -46,14 +54,13 @@ func (g *Generator) generateStaticDBHeader() error {
 }
 
 func (g *Generator) generateStaticDBLoader() error {
-	file, err := g.NewPrinter("src/db/ClientDatabases.cpp")
+	file, err := g.NewPrinter("src/db/StaticDB.cpp")
 	if err != nil {
 		return err
 	}
 
 	localimports := []string{
-		"db/ClientDatabases.hpp",
-		// "db/ClientDefs.hpp",
+		"db/StaticDB.hpp",
 	}
 
 	for _, localimport := range localimports {
@@ -68,10 +75,12 @@ func (g *Generator) generateStaticDBLoader() error {
 
 	file.Printf("\n")
 
-	file.Printf("void StaticDBLoadAll() {\n")
+	file.Printf("void StaticDBLoadAll(void (*loadFn)(WowClientDB_Base*, const char*, int32_t)) {\n")
 
 	for _, target := range g.layouts {
-		file.Printf("\t%s.Load();\n", g.globalDBName(target.Definition.Name))
+		if g.isLayoutStatic(target) {
+			file.Printf("\tloadFn(&%s, __FILE__, __LINE__);\n", g.globalDBName(target.Definition.Name))
+		}
 	}
 
 	file.Printf("}\n")
