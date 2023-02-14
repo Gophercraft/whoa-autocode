@@ -232,7 +232,13 @@ func (g *Generator) writeLayoutHeader(target *layoutTarget) error {
 			arraySuffix = fmt.Sprintf("[%d]", column.ArraySize) + arraySuffix
 		}
 
-		file.Printf("\t%s m_%s%s;\n", cppType, memberName, arraySuffix)
+		file.Printf("\t%s m_%s%s;", cppType, memberName, arraySuffix)
+
+		if !columnDef.Verified {
+			file.Printf(" // unconfirmed")
+		}
+
+		file.Printf("\n")
 
 		// if columnDef.Type == dbd.LocString {
 		// 	file.Printf("\tuint32_t m_%s_bitmask;\n", memberName)

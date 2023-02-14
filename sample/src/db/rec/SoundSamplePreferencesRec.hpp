@@ -12,22 +12,22 @@ class SoundSamplePreferencesRec {
     static constexpr bool indexIsID = false;
 
     int32_t m_ID;
-    int32_t m_Field_0_6_0_3592_001;
-    int32_t m_Field_0_6_0_3592_002;
+    int32_t m_Field_0_6_0_3592_001; // unconfirmed
+    int32_t m_Field_0_6_0_3592_002; // unconfirmed
     int32_t m_EAX2SampleRoom;
-    int32_t m_Field_0_6_0_3592_004;
-    int32_t m_Field_0_6_0_3592_005;
-    float m_Field_0_6_0_3592_006;
-    int32_t m_Field_0_6_0_3592_007;
+    int32_t m_Field_0_6_0_3592_004; // unconfirmed
+    int32_t m_Field_0_6_0_3592_005; // unconfirmed
+    float m_Field_0_6_0_3592_006; // unconfirmed
+    int32_t m_Field_0_6_0_3592_007; // unconfirmed
     float m_EAX2SampleOcclusionLFRatio;
     float m_EAX2SampleOcclusionRoomRatio;
-    int32_t m_Field_0_6_0_3592_010;
+    int32_t m_Field_0_6_0_3592_010; // unconfirmed
     float m_EAX1EffectLevel;
-    int32_t m_Field_0_6_0_3592_012;
-    float m_Field_0_6_0_3592_013;
+    int32_t m_Field_0_6_0_3592_012; // unconfirmed
+    float m_Field_0_6_0_3592_013; // unconfirmed
     float m_EAX3SampleExclusion;
-    float m_Field_0_6_0_3592_015;
-    int32_t m_Field_0_6_0_3592_016;
+    float m_Field_0_6_0_3592_015; // unconfirmed
+    int32_t m_Field_0_6_0_3592_016; // unconfirmed
 
     static const char* GetFilename();
     bool Read(SFile* f, const char* stringBuffer);

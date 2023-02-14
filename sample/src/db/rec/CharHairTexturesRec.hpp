@@ -12,13 +12,13 @@ class CharHairTexturesRec {
     static constexpr bool indexIsID = false;
 
     int32_t m_ID;
-    int32_t m_Field_0_5_3_3368_001_race;
-    int32_t m_Field_0_5_3_3368_002_gender;
-    int32_t m_Field_0_5_3_3368_003;
-    int32_t m_Field_0_5_3_3368_004_mayberacemask;
-    int32_t m_Field_0_5_3_3368_005_the_x_in_hair_xy_blp;
-    int32_t m_Field_0_5_3_3368_006;
-    int32_t m_Field_0_5_3_3368_007;
+    int32_t m_Field_0_5_3_3368_001_race; // unconfirmed
+    int32_t m_Field_0_5_3_3368_002_gender; // unconfirmed
+    int32_t m_Field_0_5_3_3368_003; // unconfirmed
+    int32_t m_Field_0_5_3_3368_004_mayberacemask; // unconfirmed
+    int32_t m_Field_0_5_3_3368_005_the_x_in_hair_xy_blp; // unconfirmed
+    int32_t m_Field_0_5_3_3368_006; // unconfirmed
+    int32_t m_Field_0_5_3_3368_007; // unconfirmed
 
     static const char* GetFilename();
     bool Read(SFile* f, const char* stringBuffer);

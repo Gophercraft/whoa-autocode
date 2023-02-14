@@ -12,7 +12,7 @@ class WowError_StringsRec {
     static constexpr bool indexIsID = false;
 
     int32_t m_ID;
-    const char* m_Name;
+    const char* m_Name; // unconfirmed
     const char* m_Description_lang;
 
     static const char* GetFilename();

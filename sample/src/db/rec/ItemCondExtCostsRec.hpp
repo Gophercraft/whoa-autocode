@@ -12,9 +12,9 @@ class ItemCondExtCostsRec {
     static constexpr bool indexIsID = false;
 
     int32_t m_ID;
-    int32_t m_CondExtendedCost;
+    int32_t m_CondExtendedCost; // unconfirmed
     int32_t m_ItemExtendedCostEntry;
-    int32_t m_ArenaSeason;
+    int32_t m_ArenaSeason; // unconfirmed
 
     static const char* GetFilename();
     bool Read(SFile* f, const char* stringBuffer);

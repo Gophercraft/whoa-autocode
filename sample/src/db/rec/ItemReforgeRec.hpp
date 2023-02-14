@@ -11,11 +11,11 @@ class ItemReforgeRec {
     static constexpr uint32_t rowSize = 20;
     static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_Source_stat;
-    float m_Source_multiplier;
-    int32_t m_Target_stat;
-    float m_Target_multiplier;
+    int32_t m_ID; // unconfirmed
+    int32_t m_Source_stat; // unconfirmed
+    float m_Source_multiplier; // unconfirmed
+    int32_t m_Target_stat; // unconfirmed
+    float m_Target_multiplier; // unconfirmed
 
     static const char* GetFilename();
     bool Read(SFile* f, const char* stringBuffer);

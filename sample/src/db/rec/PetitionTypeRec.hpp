@@ -11,9 +11,9 @@ class PetitionTypeRec {
     static constexpr uint32_t rowSize = 12;
     static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    const char* m_Name;
-    int32_t m_Type;
+    int32_t m_ID; // unconfirmed
+    const char* m_Name; // unconfirmed
+    int32_t m_Type; // unconfirmed
 
     static const char* GetFilename();
     bool Read(SFile* f, const char* stringBuffer);

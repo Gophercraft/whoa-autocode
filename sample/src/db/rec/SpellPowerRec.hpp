@@ -14,7 +14,7 @@ class SpellPowerRec {
     int32_t m_ID;
     int32_t m_ManaCost;
     int32_t m_ManaCostPerLevel;
-    int32_t m_PowerCost;
+    int32_t m_PowerCost; // unconfirmed
     int32_t m_ManaPerSecond;
     int32_t m_PowerDisplayID;
 

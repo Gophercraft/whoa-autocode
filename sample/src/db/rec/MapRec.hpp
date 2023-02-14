@@ -14,7 +14,7 @@ class MapRec {
     int32_t m_ID;
     const char* m_Directory;
     int32_t m_InstanceType;
-    int32_t m_Flags;
+    int32_t m_Flags; // unconfirmed
     int32_t m_PVP;
     const char* m_MapName_lang;
     int32_t m_AreaTableID;

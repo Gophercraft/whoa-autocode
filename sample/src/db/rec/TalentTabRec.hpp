@@ -16,7 +16,7 @@ class TalentTabRec {
     int32_t m_SpellIconID;
     int32_t m_RaceMask;
     int32_t m_ClassMask;
-    int32_t m_CategoryEnumID;
+    int32_t m_CategoryEnumID; // unconfirmed
     int32_t m_OrderIndex;
     const char* m_BackgroundFile;
 

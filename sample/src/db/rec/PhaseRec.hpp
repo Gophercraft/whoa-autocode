@@ -13,7 +13,7 @@ class PhaseRec {
 
     int32_t m_ID;
     int32_t m_MapID;
-    int32_t m_ParentMapID[2];
+    int32_t m_ParentMapID[2]; // unconfirmed
     const char* m_Name;
     int32_t m_Flags;
 

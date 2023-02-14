@@ -12,10 +12,10 @@ class VehicleSeatRec {
     static constexpr bool indexIsID = false;
 
     int32_t m_ID;
-    float m_Field_3_3_5_12213_001;
+    float m_Field_3_3_5_12213_001; // unconfirmed
     int32_t m_AttachmentID;
     float m_AttachmentOffset[3];
-    float m_Field_3_3_5_12213_004;
+    float m_Field_3_3_5_12213_004; // unconfirmed
     float m_EnterSpeed;
     float m_EnterGravity;
     float m_EnterMinDuration;
@@ -28,7 +28,7 @@ class VehicleSeatRec {
     int32_t m_RideAnimLoop;
     int32_t m_RideUpperAnimStart;
     int32_t m_RideUpperAnimLoop;
-    float m_Field_3_3_5_12213_017;
+    float m_Field_3_3_5_12213_017; // unconfirmed
     float m_ExitSpeed;
     float m_ExitGravity;
     float m_ExitMinDuration;
@@ -38,35 +38,35 @@ class VehicleSeatRec {
     int32_t m_ExitAnimStart;
     int32_t m_ExitAnimLoop;
     int32_t m_ExitAnimEnd;
-    float m_Field_3_3_5_12213_027;
+    float m_Field_3_3_5_12213_027; // unconfirmed
     float m_PassengerPitch;
-    float m_Field_3_3_5_12213_029;
+    float m_Field_3_3_5_12213_029; // unconfirmed
     int32_t m_PassengerAttachmentID;
     int32_t m_VehicleEnterAnim;
     int32_t m_VehicleExitAnim;
     int32_t m_VehicleRideAnimLoop;
-    int32_t m_Field_3_3_5_12213_034;
+    int32_t m_Field_3_3_5_12213_034; // unconfirmed
     int32_t m_VehicleExitAnimBone;
     int32_t m_VehicleEnterAnimBone;
-    float m_Field_3_3_5_12213_037;
-    float m_Field_3_3_5_12213_038;
+    float m_Field_3_3_5_12213_037; // unconfirmed
+    float m_Field_3_3_5_12213_038; // unconfirmed
     int32_t m_VehicleAbilityDisplay;
     int32_t m_EnterUISoundID;
-    int32_t m_Field_3_3_5_12213_041;
+    int32_t m_Field_3_3_5_12213_041; // unconfirmed
     int32_t m_UiSkin;
-    float m_Field_3_3_5_12213_043;
-    float m_Field_3_3_5_12213_044;
-    float m_Field_3_3_5_12213_045;
-    int32_t m_Field_3_3_5_12213_046;
-    float m_Field_3_3_5_12213_047;
-    float m_Field_3_3_5_12213_048;
-    float m_Field_3_3_5_12213_049;
-    float m_Field_3_3_5_12213_050;
-    float m_Field_3_3_5_12213_051;
-    float m_Field_3_3_5_12213_052;
-    float m_Field_3_3_5_12213_053;
-    float m_Field_3_3_5_12213_054;
-    float m_Field_3_3_5_12213_055;
+    float m_Field_3_3_5_12213_043; // unconfirmed
+    float m_Field_3_3_5_12213_044; // unconfirmed
+    float m_Field_3_3_5_12213_045; // unconfirmed
+    int32_t m_Field_3_3_5_12213_046; // unconfirmed
+    float m_Field_3_3_5_12213_047; // unconfirmed
+    float m_Field_3_3_5_12213_048; // unconfirmed
+    float m_Field_3_3_5_12213_049; // unconfirmed
+    float m_Field_3_3_5_12213_050; // unconfirmed
+    float m_Field_3_3_5_12213_051; // unconfirmed
+    float m_Field_3_3_5_12213_052; // unconfirmed
+    float m_Field_3_3_5_12213_053; // unconfirmed
+    float m_Field_3_3_5_12213_054; // unconfirmed
+    float m_Field_3_3_5_12213_055; // unconfirmed
 
     static const char* GetFilename();
     bool Read(SFile* f, const char* stringBuffer);
