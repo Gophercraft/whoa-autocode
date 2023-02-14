@@ -7,19 +7,19 @@
 
 class ArmorLocationRec {
     public:
-    static constexpr uint32_t columnCount = 6;
-    static constexpr uint32_t rowSize = 24;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 6;
+        static constexpr uint32_t rowSize = 24;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    float m_Clothmodifier;
-    float m_Leathermodifier;
-    float m_Chainmodifier;
-    float m_Platemodifier;
-    float m_Modifier;
+        int32_t m_ID;
+        float m_Clothmodifier;
+        float m_Leathermodifier;
+        float m_Chainmodifier;
+        float m_Platemodifier;
+        float m_Modifier;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

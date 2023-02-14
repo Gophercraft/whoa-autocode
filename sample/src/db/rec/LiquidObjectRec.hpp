@@ -7,19 +7,19 @@
 
 class LiquidObjectRec {
     public:
-    static constexpr uint32_t columnCount = 6;
-    static constexpr uint32_t rowSize = 24;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 6;
+        static constexpr uint32_t rowSize = 24;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    float m_FlowDirection;
-    float m_FlowSpeed;
-    int32_t m_LiquidTypeID;
-    int32_t m_Fishable;
-    int32_t m_Reflection;
+        int32_t m_ID;
+        float m_FlowDirection;
+        float m_FlowSpeed;
+        int32_t m_LiquidTypeID;
+        int32_t m_Fishable;
+        int32_t m_Reflection;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

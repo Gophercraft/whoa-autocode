@@ -7,14 +7,14 @@
 
 class TerrainTypeSoundsRec {
     public:
-    static constexpr uint32_t columnCount = 1;
-    static constexpr uint32_t rowSize = 4;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 1;
+        static constexpr uint32_t rowSize = 4;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
+        int32_t m_ID;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

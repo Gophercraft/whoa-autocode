@@ -7,19 +7,19 @@
 
 class GameObjectDisplayInfoRec {
     public:
-    static constexpr uint32_t columnCount = 19;
-    static constexpr uint32_t rowSize = 76;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 19;
+        static constexpr uint32_t rowSize = 76;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    const char* m_ModelName;
-    int32_t m_Sound[10];
-    float m_GeoBoxMin[3];
-    float m_GeoBoxMax[3];
-    int32_t m_ObjectEffectPackageID;
+        int32_t m_ID;
+        const char* m_ModelName;
+        int32_t m_Sound[10];
+        float m_GeoBoxMin[3];
+        float m_GeoBoxMax[3];
+        int32_t m_ObjectEffectPackageID;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

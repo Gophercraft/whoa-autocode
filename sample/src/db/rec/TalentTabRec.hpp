@@ -7,21 +7,21 @@
 
 class TalentTabRec {
     public:
-    static constexpr uint32_t columnCount = 24;
-    static constexpr uint32_t rowSize = 96;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 24;
+        static constexpr uint32_t rowSize = 96;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    const char* m_Name_lang;
-    int32_t m_SpellIconID;
-    int32_t m_RaceMask;
-    int32_t m_ClassMask;
-    int32_t m_CategoryEnumID; // unconfirmed
-    int32_t m_OrderIndex;
-    const char* m_BackgroundFile;
+        int32_t m_ID;
+        const char* m_Name_lang;
+        int32_t m_SpellIconID;
+        int32_t m_RaceMask;
+        int32_t m_ClassMask;
+        int32_t m_CategoryEnumID; // unconfirmed
+        int32_t m_OrderIndex;
+        const char* m_BackgroundFile;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

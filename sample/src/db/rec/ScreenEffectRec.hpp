@@ -7,20 +7,20 @@
 
 class ScreenEffectRec {
     public:
-    static constexpr uint32_t columnCount = 10;
-    static constexpr uint32_t rowSize = 40;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 10;
+        static constexpr uint32_t rowSize = 40;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    const char* m_Name;
-    int32_t m_Effect;
-    int32_t m_Param[4];
-    int32_t m_LightParamsID;
-    int32_t m_SoundAmbienceID;
-    int32_t m_ZoneMusicID;
+        int32_t m_ID;
+        const char* m_Name;
+        int32_t m_Effect;
+        int32_t m_Param[4];
+        int32_t m_LightParamsID;
+        int32_t m_SoundAmbienceID;
+        int32_t m_ZoneMusicID;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

@@ -7,18 +7,18 @@
 
 class SpellTargetRestrictionsRec {
     public:
-    static constexpr uint32_t columnCount = 5;
-    static constexpr uint32_t rowSize = 20;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 5;
+        static constexpr uint32_t rowSize = 20;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_MaxTargets;
-    int32_t m_MaxTargetLevel;
-    int32_t m_TargetCreatureType;
-    int32_t m_Targets;
+        int32_t m_ID;
+        int32_t m_MaxTargets;
+        int32_t m_MaxTargetLevel;
+        int32_t m_TargetCreatureType;
+        int32_t m_Targets;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

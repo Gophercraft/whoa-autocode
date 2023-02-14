@@ -7,26 +7,26 @@
 
 class SkillLineAbilityRec {
     public:
-    static constexpr uint32_t columnCount = 14;
-    static constexpr uint32_t rowSize = 56;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 14;
+        static constexpr uint32_t rowSize = 56;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_SkillLine;
-    int32_t m_Spell;
-    int32_t m_RaceMask;
-    int32_t m_ClassMask;
-    int32_t m_ExcludeRace;
-    int32_t m_ExcludeClass;
-    int32_t m_MinSkillLineRank;
-    int32_t m_SupercededBySpell;
-    int32_t m_AcquireMethod;
-    int32_t m_TrivialSkillLineRankHigh;
-    int32_t m_TrivialSkillLineRankLow;
-    int32_t m_CharacterPoints[2];
+        int32_t m_ID;
+        int32_t m_SkillLine;
+        int32_t m_Spell;
+        int32_t m_RaceMask;
+        int32_t m_ClassMask;
+        int32_t m_ExcludeRace;
+        int32_t m_ExcludeClass;
+        int32_t m_MinSkillLineRank;
+        int32_t m_SupercededBySpell;
+        int32_t m_AcquireMethod;
+        int32_t m_TrivialSkillLineRankHigh;
+        int32_t m_TrivialSkillLineRankLow;
+        int32_t m_CharacterPoints[2];
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

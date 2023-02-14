@@ -7,14 +7,14 @@
 
 class gtChanceToSpellCritBaseRec {
     public:
-    static constexpr uint32_t columnCount = 1;
-    static constexpr uint32_t rowSize = 4;
-    static constexpr bool indexIsID = true;
+        static constexpr uint32_t columnCount = 1;
+        static constexpr uint32_t rowSize = 4;
+        static constexpr bool indexIsID = true;
 
-    float m_Data;
+        float m_Data;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

@@ -7,15 +7,15 @@
 
 class SpellEffectCameraShakesRec {
     public:
-    static constexpr uint32_t columnCount = 4;
-    static constexpr uint32_t rowSize = 16;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 4;
+        static constexpr uint32_t rowSize = 16;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_CameraShake[3];
+        int32_t m_ID;
+        int32_t m_CameraShake[3];
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

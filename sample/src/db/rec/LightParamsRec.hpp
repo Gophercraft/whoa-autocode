@@ -7,22 +7,22 @@
 
 class LightParamsRec {
     public:
-    static constexpr uint32_t columnCount = 9;
-    static constexpr uint32_t rowSize = 36;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 9;
+        static constexpr uint32_t rowSize = 36;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_HighlightSky;
-    int32_t m_LightSkyboxID;
-    float m_Glow;
-    float m_WaterShallowAlpha;
-    float m_WaterDeepAlpha;
-    float m_OceanShallowAlpha;
-    float m_OceanDeepAlpha;
-    int32_t m_Flags;
+        int32_t m_ID;
+        int32_t m_HighlightSky;
+        int32_t m_LightSkyboxID;
+        float m_Glow;
+        float m_WaterShallowAlpha;
+        float m_WaterDeepAlpha;
+        float m_OceanShallowAlpha;
+        float m_OceanDeepAlpha;
+        int32_t m_Flags;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

@@ -7,16 +7,16 @@
 
 class DurabilityCostsRec {
     public:
-    static constexpr uint32_t columnCount = 30;
-    static constexpr uint32_t rowSize = 120;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 30;
+        static constexpr uint32_t rowSize = 120;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_WeaponSubClassCost[21];
-    int32_t m_ArmorSubClassCost[8];
+        int32_t m_ID;
+        int32_t m_WeaponSubClassCost[21];
+        int32_t m_ArmorSubClassCost[8];
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

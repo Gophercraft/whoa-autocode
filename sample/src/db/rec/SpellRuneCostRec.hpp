@@ -7,18 +7,18 @@
 
 class SpellRuneCostRec {
     public:
-    static constexpr uint32_t columnCount = 5;
-    static constexpr uint32_t rowSize = 20;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 5;
+        static constexpr uint32_t rowSize = 20;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_Blood;
-    int32_t m_Unholy;
-    int32_t m_Frost;
-    int32_t m_RunicPower;
+        int32_t m_ID;
+        int32_t m_Blood;
+        int32_t m_Unholy;
+        int32_t m_Frost;
+        int32_t m_RunicPower;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

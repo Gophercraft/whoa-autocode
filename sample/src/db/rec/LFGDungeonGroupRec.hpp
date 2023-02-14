@@ -7,18 +7,18 @@
 
 class LFGDungeonGroupRec {
     public:
-    static constexpr uint32_t columnCount = 21;
-    static constexpr uint32_t rowSize = 84;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 21;
+        static constexpr uint32_t rowSize = 84;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    const char* m_Name_lang;
-    int32_t m_Order_index;
-    int32_t m_Parent_group_ID;
-    int32_t m_TypeID;
+        int32_t m_ID;
+        const char* m_Name_lang;
+        int32_t m_Order_index;
+        int32_t m_Parent_group_ID;
+        int32_t m_TypeID;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

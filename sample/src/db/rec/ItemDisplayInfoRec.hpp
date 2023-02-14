@@ -7,25 +7,25 @@
 
 class ItemDisplayInfoRec {
     public:
-    static constexpr uint32_t columnCount = 25;
-    static constexpr uint32_t rowSize = 100;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 25;
+        static constexpr uint32_t rowSize = 100;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    const char* m_ModelName[2];
-    const char* m_ModelTexture[2];
-    const char* m_InventoryIcon[2];
-    int32_t m_GeosetGroup[3];
-    int32_t m_Flags;
-    int32_t m_SpellVisualID;
-    int32_t m_GroupSoundIndex;
-    int32_t m_HelmetGeosetVisID[2];
-    const char* m_Texture[8];
-    int32_t m_ItemVisual;
-    int32_t m_ParticleColorID;
+        int32_t m_ID;
+        const char* m_ModelName[2];
+        const char* m_ModelTexture[2];
+        const char* m_InventoryIcon[2];
+        int32_t m_GeosetGroup[3];
+        int32_t m_Flags;
+        int32_t m_SpellVisualID;
+        int32_t m_GroupSoundIndex;
+        int32_t m_HelmetGeosetVisID[2];
+        const char* m_Texture[8];
+        int32_t m_ItemVisual;
+        int32_t m_ParticleColorID;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

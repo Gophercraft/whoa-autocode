@@ -7,20 +7,20 @@
 
 class ItemSetRec {
     public:
-    static constexpr uint32_t columnCount = 53;
-    static constexpr uint32_t rowSize = 212;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 53;
+        static constexpr uint32_t rowSize = 212;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    const char* m_Name_lang;
-    int32_t m_ItemID[17];
-    int32_t m_SetSpellID[8];
-    int32_t m_SetThreshold[8];
-    int32_t m_RequiredSkill;
-    int32_t m_RequiredSkillRank;
+        int32_t m_ID;
+        const char* m_Name_lang;
+        int32_t m_ItemID[17];
+        int32_t m_SetSpellID[8];
+        int32_t m_SetThreshold[8];
+        int32_t m_RequiredSkill;
+        int32_t m_RequiredSkillRank;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

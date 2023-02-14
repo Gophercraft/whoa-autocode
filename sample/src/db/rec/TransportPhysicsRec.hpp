@@ -7,24 +7,24 @@
 
 class TransportPhysicsRec {
     public:
-    static constexpr uint32_t columnCount = 11;
-    static constexpr uint32_t rowSize = 44;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 11;
+        static constexpr uint32_t rowSize = 44;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    float m_WaveAmp;
-    float m_WaveTimeScale;
-    float m_RollAmp;
-    float m_RollTimeScale;
-    float m_PitchAmp;
-    float m_PitchTimeScale;
-    float m_MaxBank;
-    float m_MaxBankTurnSpeed;
-    float m_SpeedDampThresh;
-    float m_SpeedDamp;
+        int32_t m_ID;
+        float m_WaveAmp;
+        float m_WaveTimeScale;
+        float m_RollAmp;
+        float m_RollTimeScale;
+        float m_PitchAmp;
+        float m_PitchTimeScale;
+        float m_MaxBank;
+        float m_MaxBankTurnSpeed;
+        float m_SpeedDampThresh;
+        float m_SpeedDamp;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

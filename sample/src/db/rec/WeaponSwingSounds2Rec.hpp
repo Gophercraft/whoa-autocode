@@ -7,17 +7,17 @@
 
 class WeaponSwingSounds2Rec {
     public:
-    static constexpr uint32_t columnCount = 4;
-    static constexpr uint32_t rowSize = 16;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 4;
+        static constexpr uint32_t rowSize = 16;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_SwingType;
-    int32_t m_Crit;
-    int32_t m_SoundID;
+        int32_t m_ID;
+        int32_t m_SwingType;
+        int32_t m_Crit;
+        int32_t m_SoundID;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

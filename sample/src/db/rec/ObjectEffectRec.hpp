@@ -7,23 +7,23 @@
 
 class ObjectEffectRec {
     public:
-    static constexpr uint32_t columnCount = 12;
-    static constexpr uint32_t rowSize = 48;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 12;
+        static constexpr uint32_t rowSize = 48;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    const char* m_Name;
-    int32_t m_ObjectEffectGroupID;
-    int32_t m_TriggerType;
-    int32_t m_EventType;
-    int32_t m_EffectRecType;
-    int32_t m_EffectRecID;
-    int32_t m_Attachment;
-    float m_Offset[3];
-    int32_t m_ObjectEffectModifierID;
+        int32_t m_ID;
+        const char* m_Name;
+        int32_t m_ObjectEffectGroupID;
+        int32_t m_TriggerType;
+        int32_t m_EventType;
+        int32_t m_EffectRecType;
+        int32_t m_EffectRecID;
+        int32_t m_Attachment;
+        float m_Offset[3];
+        int32_t m_ObjectEffectModifierID;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

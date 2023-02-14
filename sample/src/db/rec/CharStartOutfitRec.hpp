@@ -7,21 +7,21 @@
 
 class CharStartOutfitRec {
     public:
-    static constexpr uint32_t columnCount = 77;
-    static constexpr uint32_t rowSize = 296;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 77;
+        static constexpr uint32_t rowSize = 296;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int8_t m_RaceID;
-    int8_t m_ClassID;
-    int8_t m_SexID;
-    int8_t m_OutfitID;
-    int32_t m_ItemID[24];
-    int32_t m_DisplayItemID[24];
-    int32_t m_InventoryType[24];
+        int32_t m_ID;
+        int8_t m_RaceID;
+        int8_t m_ClassID;
+        int8_t m_SexID;
+        int8_t m_OutfitID;
+        int32_t m_ItemID[24];
+        int32_t m_DisplayItemID[24];
+        int32_t m_InventoryType[24];
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

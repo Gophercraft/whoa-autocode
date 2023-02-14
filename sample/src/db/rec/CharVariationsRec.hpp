@@ -7,16 +7,16 @@
 
 class CharVariationsRec {
     public:
-    static constexpr uint32_t columnCount = 6;
-    static constexpr uint32_t rowSize = 24;
-    static constexpr bool indexIsID = true;
+        static constexpr uint32_t columnCount = 6;
+        static constexpr uint32_t rowSize = 24;
+        static constexpr bool indexIsID = true;
 
-    int32_t m_RaceID;
-    int32_t m_SexID;
-    int32_t m_TextureHoldLayer[4];
+        int32_t m_RaceID;
+        int32_t m_SexID;
+        int32_t m_TextureHoldLayer[4];
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

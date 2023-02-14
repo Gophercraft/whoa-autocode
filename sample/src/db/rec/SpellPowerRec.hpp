@@ -7,19 +7,19 @@
 
 class SpellPowerRec {
     public:
-    static constexpr uint32_t columnCount = 6;
-    static constexpr uint32_t rowSize = 24;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 6;
+        static constexpr uint32_t rowSize = 24;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_ManaCost;
-    int32_t m_ManaCostPerLevel;
-    int32_t m_PowerCost; // unconfirmed
-    int32_t m_ManaPerSecond;
-    int32_t m_PowerDisplayID;
+        int32_t m_ID;
+        int32_t m_ManaCost;
+        int32_t m_ManaCostPerLevel;
+        int32_t m_PowerCost; // unconfirmed
+        int32_t m_ManaPerSecond;
+        int32_t m_PowerDisplayID;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

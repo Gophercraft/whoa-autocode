@@ -7,16 +7,16 @@
 
 class GameObjectArtKitRec {
     public:
-    static constexpr uint32_t columnCount = 8;
-    static constexpr uint32_t rowSize = 32;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 8;
+        static constexpr uint32_t rowSize = 32;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    const char* m_TextureVariation[3];
-    const char* m_AttachModel[4];
+        int32_t m_ID;
+        const char* m_TextureVariation[3];
+        const char* m_AttachModel[4];
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

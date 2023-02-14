@@ -7,21 +7,21 @@
 
 class SpellVisualKitModelAttachRec {
     public:
-    static constexpr uint32_t columnCount = 10;
-    static constexpr uint32_t rowSize = 40;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 10;
+        static constexpr uint32_t rowSize = 40;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_ParentSpellVisualKitID;
-    int32_t m_SpellVisualEffectNameID;
-    int32_t m_AttachmentID;
-    float m_Offset[3];
-    float m_Yaw;
-    float m_Pitch;
-    float m_Roll;
+        int32_t m_ID;
+        int32_t m_ParentSpellVisualKitID;
+        int32_t m_SpellVisualEffectNameID;
+        int32_t m_AttachmentID;
+        float m_Offset[3];
+        float m_Yaw;
+        float m_Pitch;
+        float m_Roll;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

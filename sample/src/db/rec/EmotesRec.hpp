@@ -7,20 +7,20 @@
 
 class EmotesRec {
     public:
-    static constexpr uint32_t columnCount = 7;
-    static constexpr uint32_t rowSize = 28;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 7;
+        static constexpr uint32_t rowSize = 28;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    const char* m_EmoteSlashCommand;
-    int32_t m_AnimID;
-    int32_t m_EmoteFlags;
-    int32_t m_EmoteSpecProc;
-    int32_t m_EmoteSpecProcParam;
-    int32_t m_EventSoundID;
+        int32_t m_ID;
+        const char* m_EmoteSlashCommand;
+        int32_t m_AnimID;
+        int32_t m_EmoteFlags;
+        int32_t m_EmoteSpecProc;
+        int32_t m_EmoteSpecProcParam;
+        int32_t m_EventSoundID;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

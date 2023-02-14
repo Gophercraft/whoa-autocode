@@ -7,23 +7,23 @@
 
 class SpellScalingRec {
     public:
-    static constexpr uint32_t columnCount = 16;
-    static constexpr uint32_t rowSize = 64;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 16;
+        static constexpr uint32_t rowSize = 64;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_CastTimeMin;
-    int32_t m_CastTimeMax;
-    int32_t m_CastTimeMaxLevel;
-    int32_t m_Class;
-    float m_Coefficient[3];
-    float m_Variance[3];
-    float m_ComboPointsCoefficient[3];
-    float m_NerfFactor;
-    int32_t m_NerfMaxLevel;
+        int32_t m_ID;
+        int32_t m_CastTimeMin;
+        int32_t m_CastTimeMax;
+        int32_t m_CastTimeMaxLevel;
+        int32_t m_Class;
+        float m_Coefficient[3];
+        float m_Variance[3];
+        float m_ComboPointsCoefficient[3];
+        float m_NerfFactor;
+        int32_t m_NerfMaxLevel;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

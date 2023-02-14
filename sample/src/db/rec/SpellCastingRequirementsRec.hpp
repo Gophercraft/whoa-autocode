@@ -7,20 +7,20 @@
 
 class SpellCastingRequirementsRec {
     public:
-    static constexpr uint32_t columnCount = 7;
-    static constexpr uint32_t rowSize = 28;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 7;
+        static constexpr uint32_t rowSize = 28;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_FacingCasterFlags;
-    int32_t m_MinFactionID;
-    int32_t m_MinReputation;
-    int32_t m_RequiredAreasID;
-    int32_t m_RequiredAuraVision;
-    int32_t m_RequiresSpellFocus;
+        int32_t m_ID;
+        int32_t m_FacingCasterFlags;
+        int32_t m_MinFactionID;
+        int32_t m_MinReputation;
+        int32_t m_RequiredAreasID;
+        int32_t m_RequiredAuraVision;
+        int32_t m_RequiresSpellFocus;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

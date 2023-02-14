@@ -7,21 +7,21 @@
 
 class CameraShakesRec {
     public:
-    static constexpr uint32_t columnCount = 8;
-    static constexpr uint32_t rowSize = 32;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 8;
+        static constexpr uint32_t rowSize = 32;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_ShakeType;
-    int32_t m_Direction;
-    float m_Amplitude;
-    float m_Frequency;
-    float m_Duration;
-    float m_Phase;
-    float m_Coefficient;
+        int32_t m_ID;
+        int32_t m_ShakeType;
+        int32_t m_Direction;
+        float m_Amplitude;
+        float m_Frequency;
+        float m_Duration;
+        float m_Phase;
+        float m_Coefficient;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

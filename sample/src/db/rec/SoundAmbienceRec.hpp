@@ -7,15 +7,15 @@
 
 class SoundAmbienceRec {
     public:
-    static constexpr uint32_t columnCount = 3;
-    static constexpr uint32_t rowSize = 12;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 3;
+        static constexpr uint32_t rowSize = 12;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_AmbienceID[2];
+        int32_t m_ID;
+        int32_t m_AmbienceID[2];
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

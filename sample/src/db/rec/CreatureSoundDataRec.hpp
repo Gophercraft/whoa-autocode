@@ -7,44 +7,44 @@
 
 class CreatureSoundDataRec {
     public:
-    static constexpr uint32_t columnCount = 38;
-    static constexpr uint32_t rowSize = 152;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 38;
+        static constexpr uint32_t rowSize = 152;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_SoundExertionID;
-    int32_t m_SoundExertionCriticalID;
-    int32_t m_SoundInjuryID;
-    int32_t m_SoundInjuryCriticalID;
-    int32_t m_SoundInjuryCrushingBlowID;
-    int32_t m_SoundDeathID;
-    int32_t m_SoundStunID;
-    int32_t m_SoundStandID;
-    int32_t m_SoundFootstepID;
-    int32_t m_SoundAggroID;
-    int32_t m_SoundWingFlapID;
-    int32_t m_SoundWingGlideID;
-    int32_t m_SoundAlertID;
-    int32_t m_SoundFidget[5];
-    int32_t m_CustomAttack[4];
-    int32_t m_NPCSoundID;
-    int32_t m_LoopSoundID;
-    int32_t m_CreatureImpactType;
-    int32_t m_SoundJumpStartID;
-    int32_t m_SoundJumpEndID;
-    int32_t m_SoundPetAttackID;
-    int32_t m_SoundPetOrderID;
-    int32_t m_SoundPetDismissID;
-    float m_FidgetDelaySecondsMin;
-    float m_FidgetDelaySecondsMax;
-    int32_t m_BirthSoundID;
-    int32_t m_SpellCastDirectedSoundID;
-    int32_t m_SubmergeSoundID;
-    int32_t m_SubmergedSoundID;
-    int32_t m_CreatureSoundDataIDPet;
+        int32_t m_ID;
+        int32_t m_SoundExertionID;
+        int32_t m_SoundExertionCriticalID;
+        int32_t m_SoundInjuryID;
+        int32_t m_SoundInjuryCriticalID;
+        int32_t m_SoundInjuryCrushingBlowID;
+        int32_t m_SoundDeathID;
+        int32_t m_SoundStunID;
+        int32_t m_SoundStandID;
+        int32_t m_SoundFootstepID;
+        int32_t m_SoundAggroID;
+        int32_t m_SoundWingFlapID;
+        int32_t m_SoundWingGlideID;
+        int32_t m_SoundAlertID;
+        int32_t m_SoundFidget[5];
+        int32_t m_CustomAttack[4];
+        int32_t m_NPCSoundID;
+        int32_t m_LoopSoundID;
+        int32_t m_CreatureImpactType;
+        int32_t m_SoundJumpStartID;
+        int32_t m_SoundJumpEndID;
+        int32_t m_SoundPetAttackID;
+        int32_t m_SoundPetOrderID;
+        int32_t m_SoundPetDismissID;
+        float m_FidgetDelaySecondsMin;
+        float m_FidgetDelaySecondsMax;
+        int32_t m_BirthSoundID;
+        int32_t m_SpellCastDirectedSoundID;
+        int32_t m_SubmergeSoundID;
+        int32_t m_SubmergedSoundID;
+        int32_t m_CreatureSoundDataIDPet;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

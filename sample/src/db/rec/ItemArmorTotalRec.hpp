@@ -7,19 +7,19 @@
 
 class ItemArmorTotalRec {
     public:
-    static constexpr uint32_t columnCount = 6;
-    static constexpr uint32_t rowSize = 24;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 6;
+        static constexpr uint32_t rowSize = 24;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_ItemLevel;
-    float m_Cloth;
-    float m_Leather;
-    float m_Mail;
-    float m_Plate;
+        int32_t m_ID;
+        int32_t m_ItemLevel;
+        float m_Cloth;
+        float m_Leather;
+        float m_Mail;
+        float m_Plate;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

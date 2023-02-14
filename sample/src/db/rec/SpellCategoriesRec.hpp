@@ -7,20 +7,20 @@
 
 class SpellCategoriesRec {
     public:
-    static constexpr uint32_t columnCount = 7;
-    static constexpr uint32_t rowSize = 28;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 7;
+        static constexpr uint32_t rowSize = 28;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_Category;
-    int32_t m_DefenseType;
-    int32_t m_DispelType;
-    int32_t m_Mechanic;
-    int32_t m_PreventionType;
-    int32_t m_StartRecoveryCategory;
+        int32_t m_ID;
+        int32_t m_Category;
+        int32_t m_DefenseType;
+        int32_t m_DispelType;
+        int32_t m_Mechanic;
+        int32_t m_PreventionType;
+        int32_t m_StartRecoveryCategory;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

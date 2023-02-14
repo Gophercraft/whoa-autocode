@@ -7,15 +7,15 @@
 
 class MountTypeRec {
     public:
-    static constexpr uint32_t columnCount = 9;
-    static constexpr uint32_t rowSize = 36;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 9;
+        static constexpr uint32_t rowSize = 36;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_Capability[8];
+        int32_t m_ID;
+        int32_t m_Capability[8];
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

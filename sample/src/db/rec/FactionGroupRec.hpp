@@ -7,17 +7,17 @@
 
 class FactionGroupRec {
     public:
-    static constexpr uint32_t columnCount = 20;
-    static constexpr uint32_t rowSize = 80;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 20;
+        static constexpr uint32_t rowSize = 80;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_MaskID;
-    const char* m_InternalName;
-    const char* m_Name_lang;
+        int32_t m_ID;
+        int32_t m_MaskID;
+        const char* m_InternalName;
+        const char* m_Name_lang;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

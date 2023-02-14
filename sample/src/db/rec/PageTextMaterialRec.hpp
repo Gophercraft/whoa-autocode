@@ -7,15 +7,15 @@
 
 class PageTextMaterialRec {
     public:
-    static constexpr uint32_t columnCount = 2;
-    static constexpr uint32_t rowSize = 8;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 2;
+        static constexpr uint32_t rowSize = 8;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    const char* m_Name;
+        int32_t m_ID;
+        const char* m_Name;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

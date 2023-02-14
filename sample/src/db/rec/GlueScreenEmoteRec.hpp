@@ -7,21 +7,21 @@
 
 class GlueScreenEmoteRec {
     public:
-    static constexpr uint32_t columnCount = 8;
-    static constexpr uint32_t rowSize = 32;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 8;
+        static constexpr uint32_t rowSize = 32;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_ClassID;
-    int32_t m_RaceID;
-    int32_t m_SexID;
-    int32_t m_LeftHandItemType;
-    int32_t m_RightHandItemType;
-    int32_t m_AnimKitID;
-    int32_t m_SpellVisualKitID;
+        int32_t m_ID;
+        int32_t m_ClassID;
+        int32_t m_RaceID;
+        int32_t m_SexID;
+        int32_t m_LeftHandItemType;
+        int32_t m_RightHandItemType;
+        int32_t m_AnimKitID;
+        int32_t m_SpellVisualKitID;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

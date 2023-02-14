@@ -7,18 +7,18 @@
 
 class LoadingScreenTaxiSplinesRec {
     public:
-    static constexpr uint32_t columnCount = 19;
-    static constexpr uint32_t rowSize = 76;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 19;
+        static constexpr uint32_t rowSize = 76;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_PathID;
-    float m_Locx[8];
-    float m_Locy[8];
-    int32_t m_LegIndex;
+        int32_t m_ID;
+        int32_t m_PathID;
+        float m_Locx[8];
+        float m_Locy[8];
+        int32_t m_LegIndex;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

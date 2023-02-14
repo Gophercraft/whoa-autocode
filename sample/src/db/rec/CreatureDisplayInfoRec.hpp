@@ -7,27 +7,27 @@
 
 class CreatureDisplayInfoRec {
     public:
-    static constexpr uint32_t columnCount = 16;
-    static constexpr uint32_t rowSize = 64;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 16;
+        static constexpr uint32_t rowSize = 64;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_ModelID;
-    int32_t m_SoundID;
-    int32_t m_ExtendedDisplayInfoID;
-    float m_CreatureModelScale;
-    int32_t m_CreatureModelAlpha;
-    const char* m_TextureVariation[3];
-    const char* m_PortraitTextureName;
-    int32_t m_SizeClass;
-    int32_t m_BloodID;
-    int32_t m_NPCSoundID;
-    int32_t m_ParticleColorID;
-    int32_t m_CreatureGeosetData;
-    int32_t m_ObjectEffectPackageID;
+        int32_t m_ID;
+        int32_t m_ModelID;
+        int32_t m_SoundID;
+        int32_t m_ExtendedDisplayInfoID;
+        float m_CreatureModelScale;
+        int32_t m_CreatureModelAlpha;
+        const char* m_TextureVariation[3];
+        const char* m_PortraitTextureName;
+        int32_t m_SizeClass;
+        int32_t m_BloodID;
+        int32_t m_NPCSoundID;
+        int32_t m_ParticleColorID;
+        int32_t m_CreatureGeosetData;
+        int32_t m_ObjectEffectPackageID;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

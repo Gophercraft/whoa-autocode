@@ -7,15 +7,15 @@
 
 class AttackAnimTypesRec {
     public:
-    static constexpr uint32_t columnCount = 2;
-    static constexpr uint32_t rowSize = 8;
-    static constexpr bool indexIsID = true;
+        static constexpr uint32_t columnCount = 2;
+        static constexpr uint32_t rowSize = 8;
+        static constexpr bool indexIsID = true;
 
-    int32_t m_AnimID;
-    const char* m_AnimName;
+        int32_t m_AnimID;
+        const char* m_AnimName;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

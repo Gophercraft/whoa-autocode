@@ -7,21 +7,21 @@
 
 class FactionTemplateRec {
     public:
-    static constexpr uint32_t columnCount = 14;
-    static constexpr uint32_t rowSize = 56;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 14;
+        static constexpr uint32_t rowSize = 56;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_Faction;
-    int32_t m_Flags;
-    int32_t m_FactionGroup;
-    int32_t m_FriendGroup;
-    int32_t m_EnemyGroup;
-    int32_t m_Enemies[4];
-    int32_t m_Friend[4];
+        int32_t m_ID;
+        int32_t m_Faction;
+        int32_t m_Flags;
+        int32_t m_FactionGroup;
+        int32_t m_FriendGroup;
+        int32_t m_EnemyGroup;
+        int32_t m_Enemies[4];
+        int32_t m_Friend[4];
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

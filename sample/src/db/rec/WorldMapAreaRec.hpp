@@ -7,24 +7,24 @@
 
 class WorldMapAreaRec {
     public:
-    static constexpr uint32_t columnCount = 11;
-    static constexpr uint32_t rowSize = 44;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 11;
+        static constexpr uint32_t rowSize = 44;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_MapID;
-    int32_t m_AreaID;
-    const char* m_AreaName;
-    float m_LocLeft;
-    float m_LocRight;
-    float m_LocTop;
-    float m_LocBottom;
-    int32_t m_DisplayMapID;
-    int32_t m_DefaultDungeonFloor;
-    int32_t m_ParentWorldMapID;
+        int32_t m_ID;
+        int32_t m_MapID;
+        int32_t m_AreaID;
+        const char* m_AreaName;
+        float m_LocLeft;
+        float m_LocRight;
+        float m_LocTop;
+        float m_LocBottom;
+        int32_t m_DisplayMapID;
+        int32_t m_DefaultDungeonFloor;
+        int32_t m_ParentWorldMapID;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

@@ -7,15 +7,15 @@
 
 class GMSurveyCurrentSurveyRec {
     public:
-    static constexpr uint32_t columnCount = 2;
-    static constexpr uint32_t rowSize = 8;
-    static constexpr bool indexIsID = true;
+        static constexpr uint32_t columnCount = 2;
+        static constexpr uint32_t rowSize = 8;
+        static constexpr bool indexIsID = true;
 
-    int32_t m_LANGID;
-    int32_t m_GMSURVEY_ID;
+        int32_t m_LANGID;
+        int32_t m_GMSURVEY_ID;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

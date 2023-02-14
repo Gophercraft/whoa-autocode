@@ -7,21 +7,21 @@
 
 class ItemExtendedCostRec {
     public:
-    static constexpr uint32_t columnCount = 16;
-    static constexpr uint32_t rowSize = 64;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 16;
+        static constexpr uint32_t rowSize = 64;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_HonorPoints;
-    int32_t m_ArenaPoints;
-    int32_t m_ArenaBracket;
-    int32_t m_ItemID[5];
-    int32_t m_ItemCount[5];
-    int32_t m_RequiredArenaRating;
-    int32_t m_ItemPurchaseGroup;
+        int32_t m_ID;
+        int32_t m_HonorPoints;
+        int32_t m_ArenaPoints;
+        int32_t m_ArenaBracket;
+        int32_t m_ItemID[5];
+        int32_t m_ItemCount[5];
+        int32_t m_RequiredArenaRating;
+        int32_t m_ItemPurchaseGroup;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

@@ -7,23 +7,23 @@
 
 class TalentRec {
     public:
-    static constexpr uint32_t columnCount = 23;
-    static constexpr uint32_t rowSize = 92;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 23;
+        static constexpr uint32_t rowSize = 92;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_TabID;
-    int32_t m_TierID;
-    int32_t m_ColumnIndex;
-    int32_t m_SpellRank[9];
-    int32_t m_PrereqTalent[3];
-    int32_t m_PrereqRank[3];
-    int32_t m_Flags;
-    int32_t m_RequiredSpellID;
-    int32_t m_CategoryMask[2];
+        int32_t m_ID;
+        int32_t m_TabID;
+        int32_t m_TierID;
+        int32_t m_ColumnIndex;
+        int32_t m_SpellRank[9];
+        int32_t m_PrereqTalent[3];
+        int32_t m_PrereqRank[3];
+        int32_t m_Flags;
+        int32_t m_RequiredSpellID;
+        int32_t m_CategoryMask[2];
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

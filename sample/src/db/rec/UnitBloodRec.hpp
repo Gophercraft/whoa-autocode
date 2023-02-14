@@ -7,17 +7,17 @@
 
 class UnitBloodRec {
     public:
-    static constexpr uint32_t columnCount = 10;
-    static constexpr uint32_t rowSize = 40;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 10;
+        static constexpr uint32_t rowSize = 40;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_CombatBloodSpurtFront[2];
-    int32_t m_CombatBloodSpurtBack[2];
-    const char* m_GroundBlood[5];
+        int32_t m_ID;
+        int32_t m_CombatBloodSpurtFront[2];
+        int32_t m_CombatBloodSpurtBack[2];
+        const char* m_GroundBlood[5];
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

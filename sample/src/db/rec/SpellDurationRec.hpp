@@ -7,17 +7,17 @@
 
 class SpellDurationRec {
     public:
-    static constexpr uint32_t columnCount = 4;
-    static constexpr uint32_t rowSize = 16;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 4;
+        static constexpr uint32_t rowSize = 16;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_Duration;
-    int32_t m_DurationPerLevel;
-    int32_t m_MaxDuration;
+        int32_t m_ID;
+        int32_t m_Duration;
+        int32_t m_DurationPerLevel;
+        int32_t m_MaxDuration;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

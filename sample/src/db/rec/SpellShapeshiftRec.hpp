@@ -7,17 +7,17 @@
 
 class SpellShapeshiftRec {
     public:
-    static constexpr uint32_t columnCount = 6;
-    static constexpr uint32_t rowSize = 24;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 6;
+        static constexpr uint32_t rowSize = 24;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_ShapeshiftExclude[2];
-    int32_t m_ShapeshiftMask[2];
-    int32_t m_StanceBarOrder;
+        int32_t m_ID;
+        int32_t m_ShapeshiftExclude[2];
+        int32_t m_ShapeshiftMask[2];
+        int32_t m_StanceBarOrder;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

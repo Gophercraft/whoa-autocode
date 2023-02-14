@@ -7,17 +7,17 @@
 
 class RandPropPointsRec {
     public:
-    static constexpr uint32_t columnCount = 16;
-    static constexpr uint32_t rowSize = 64;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 16;
+        static constexpr uint32_t rowSize = 64;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_Epic[5];
-    int32_t m_Superior[5];
-    int32_t m_Good[5];
+        int32_t m_ID;
+        int32_t m_Epic[5];
+        int32_t m_Superior[5];
+        int32_t m_Good[5];
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

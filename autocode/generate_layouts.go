@@ -188,9 +188,9 @@ func (g *Generator) writeLayoutHeader(target *layoutTarget) error {
 	file.Printf("class %sRec {\n", target.Definition.Name)
 	file.Printf("\tpublic:\n")
 
-	file.Printf("\tstatic constexpr uint32_t columnCount = %d;\n", numColumns)
-	file.Printf("\tstatic constexpr uint32_t rowSize = %d;\n", rowSize)
-	file.Printf("\tstatic constexpr bool indexIsID = %t;\n", indexIsID)
+	file.Printf("\t\tstatic constexpr uint32_t columnCount = %d;\n", numColumns)
+	file.Printf("\t\tstatic constexpr uint32_t rowSize = %d;\n", rowSize)
+	file.Printf("\t\tstatic constexpr bool indexIsID = %t;\n", indexIsID)
 
 	file.Printf("\n")
 
@@ -232,7 +232,7 @@ func (g *Generator) writeLayoutHeader(target *layoutTarget) error {
 			arraySuffix = fmt.Sprintf("[%d]", column.ArraySize) + arraySuffix
 		}
 
-		file.Printf("\t%s m_%s%s;", cppType, memberName, arraySuffix)
+		file.Printf("\t\t%s m_%s%s;", cppType, memberName, arraySuffix)
 
 		if !columnDef.Verified {
 			file.Printf(" // unconfirmed")
@@ -246,8 +246,8 @@ func (g *Generator) writeLayoutHeader(target *layoutTarget) error {
 	}
 
 	file.Printf("\n")
-	file.Printf("\tstatic const char* GetFilename();\n")
-	file.Printf("\tbool Read(SFile* f, const char* stringBuffer);\n")
+	file.Printf("\t\tstatic const char* GetFilename();\n")
+	file.Printf("\t\tbool Read(SFile* f, const char* stringBuffer);\n")
 
 	file.Printf("};\n")
 	file.Printf("\n")

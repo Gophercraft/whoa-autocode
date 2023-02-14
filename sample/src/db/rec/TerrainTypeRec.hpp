@@ -7,19 +7,19 @@
 
 class TerrainTypeRec {
     public:
-    static constexpr uint32_t columnCount = 6;
-    static constexpr uint32_t rowSize = 24;
-    static constexpr bool indexIsID = true;
+        static constexpr uint32_t columnCount = 6;
+        static constexpr uint32_t rowSize = 24;
+        static constexpr bool indexIsID = true;
 
-    int32_t m_TerrainID;
-    const char* m_TerrainDesc;
-    int32_t m_FootstepSprayRun;
-    int32_t m_FootstepSprayWalk;
-    int32_t m_SoundID;
-    int32_t m_Flags;
+        int32_t m_TerrainID;
+        const char* m_TerrainDesc;
+        int32_t m_FootstepSprayRun;
+        int32_t m_FootstepSprayWalk;
+        int32_t m_SoundID;
+        int32_t m_Flags;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

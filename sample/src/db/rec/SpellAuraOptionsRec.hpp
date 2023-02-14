@@ -7,18 +7,18 @@
 
 class SpellAuraOptionsRec {
     public:
-    static constexpr uint32_t columnCount = 5;
-    static constexpr uint32_t rowSize = 20;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 5;
+        static constexpr uint32_t rowSize = 20;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_CumulativeAura;
-    int32_t m_ProcChance;
-    int32_t m_ProcCharges;
-    int32_t m_ProcTypeMask;
+        int32_t m_ID;
+        int32_t m_CumulativeAura;
+        int32_t m_ProcChance;
+        int32_t m_ProcCharges;
+        int32_t m_ProcTypeMask;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

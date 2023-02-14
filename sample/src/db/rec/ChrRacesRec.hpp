@@ -7,33 +7,33 @@
 
 class ChrRacesRec {
     public:
-    static constexpr uint32_t columnCount = 69;
-    static constexpr uint32_t rowSize = 276;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 69;
+        static constexpr uint32_t rowSize = 276;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_Flags;
-    int32_t m_FactionID;
-    int32_t m_ExplorationSoundID;
-    int32_t m_MaleDisplayID;
-    int32_t m_FemaleDisplayID;
-    const char* m_ClientPrefix;
-    int32_t m_BaseLanguage;
-    int32_t m_CreatureType;
-    int32_t m_ResSicknessSpellID;
-    int32_t m_SplashSoundID;
-    const char* m_ClientFileString;
-    int32_t m_CinematicSequenceID;
-    int32_t m_Alliance;
-    const char* m_Name_lang;
-    const char* m_Name_female_lang;
-    const char* m_Name_male_lang;
-    const char* m_FacialHairCustomization[2];
-    const char* m_HairCustomization;
-    int32_t m_Required_expansion;
+        int32_t m_ID;
+        int32_t m_Flags;
+        int32_t m_FactionID;
+        int32_t m_ExplorationSoundID;
+        int32_t m_MaleDisplayID;
+        int32_t m_FemaleDisplayID;
+        const char* m_ClientPrefix;
+        int32_t m_BaseLanguage;
+        int32_t m_CreatureType;
+        int32_t m_ResSicknessSpellID;
+        int32_t m_SplashSoundID;
+        const char* m_ClientFileString;
+        int32_t m_CinematicSequenceID;
+        int32_t m_Alliance;
+        const char* m_Name_lang;
+        const char* m_Name_female_lang;
+        const char* m_Name_male_lang;
+        const char* m_FacialHairCustomization[2];
+        const char* m_HairCustomization;
+        int32_t m_Required_expansion;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

@@ -7,15 +7,15 @@
 
 class MovieFileDataRec {
     public:
-    static constexpr uint32_t columnCount = 2;
-    static constexpr uint32_t rowSize = 8;
-    static constexpr bool indexIsID = true;
+        static constexpr uint32_t columnCount = 2;
+        static constexpr uint32_t rowSize = 8;
+        static constexpr bool indexIsID = true;
 
-    int32_t m_FileDataID;
-    int32_t m_Resolution;
+        int32_t m_FileDataID;
+        int32_t m_Resolution;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

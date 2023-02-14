@@ -7,19 +7,19 @@
 
 class PVPDifficultyRec {
     public:
-    static constexpr uint32_t columnCount = 6;
-    static constexpr uint32_t rowSize = 24;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 6;
+        static constexpr uint32_t rowSize = 24;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_MapID;
-    int32_t m_RangeIndex;
-    int32_t m_MinLevel;
-    int32_t m_MaxLevel;
-    int32_t m_Difficulty;
+        int32_t m_ID;
+        int32_t m_MapID;
+        int32_t m_RangeIndex;
+        int32_t m_MinLevel;
+        int32_t m_MaxLevel;
+        int32_t m_Difficulty;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

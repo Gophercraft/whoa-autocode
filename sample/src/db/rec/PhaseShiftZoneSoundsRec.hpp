@@ -7,27 +7,27 @@
 
 class PhaseShiftZoneSoundsRec {
     public:
-    static constexpr uint32_t columnCount = 14;
-    static constexpr uint32_t rowSize = 56;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 14;
+        static constexpr uint32_t rowSize = 56;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_AreaID;
-    int32_t m_WMOAreaID;
-    int32_t m_PhaseID;
-    int32_t m_PhaseGroupID;
-    int32_t m_PhaseUseFlags;
-    int32_t m_ZoneIntroMusicID;
-    int32_t m_ZoneMusicID;
-    int32_t m_SoundAmbienceID;
-    int32_t m_SoundProviderPreferencesID;
-    int32_t m_UWZoneIntroMusicID;
-    int32_t m_UWZoneMusicID;
-    int32_t m_UWSoundAmbienceID;
-    int32_t m_UWSoundProviderPreferencesID;
+        int32_t m_ID;
+        int32_t m_AreaID;
+        int32_t m_WMOAreaID;
+        int32_t m_PhaseID;
+        int32_t m_PhaseGroupID;
+        int32_t m_PhaseUseFlags;
+        int32_t m_ZoneIntroMusicID;
+        int32_t m_ZoneMusicID;
+        int32_t m_SoundAmbienceID;
+        int32_t m_SoundProviderPreferencesID;
+        int32_t m_UWZoneIntroMusicID;
+        int32_t m_UWZoneMusicID;
+        int32_t m_UWSoundAmbienceID;
+        int32_t m_UWSoundProviderPreferencesID;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

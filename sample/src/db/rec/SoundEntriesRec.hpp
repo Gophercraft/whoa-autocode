@@ -7,25 +7,25 @@
 
 class SoundEntriesRec {
     public:
-    static constexpr uint32_t columnCount = 30;
-    static constexpr uint32_t rowSize = 120;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 30;
+        static constexpr uint32_t rowSize = 120;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_SoundType;
-    const char* m_Name;
-    const char* m_File[10];
-    int32_t m_Freq[10];
-    const char* m_DirectoryBase;
-    float m_VolumeFloat;
-    int32_t m_Flags;
-    float m_MinDistance;
-    float m_DistanceCutoff;
-    int32_t m_EAXDef;
-    int32_t m_SoundEntriesAdvancedID;
+        int32_t m_ID;
+        int32_t m_SoundType;
+        const char* m_Name;
+        const char* m_File[10];
+        int32_t m_Freq[10];
+        const char* m_DirectoryBase;
+        float m_VolumeFloat;
+        int32_t m_Flags;
+        float m_MinDistance;
+        float m_DistanceCutoff;
+        int32_t m_EAXDef;
+        int32_t m_SoundEntriesAdvancedID;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

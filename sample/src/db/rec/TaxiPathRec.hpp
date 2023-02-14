@@ -7,17 +7,17 @@
 
 class TaxiPathRec {
     public:
-    static constexpr uint32_t columnCount = 4;
-    static constexpr uint32_t rowSize = 16;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 4;
+        static constexpr uint32_t rowSize = 16;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_FromTaxiNode;
-    int32_t m_ToTaxiNode;
-    int32_t m_Cost;
+        int32_t m_ID;
+        int32_t m_FromTaxiNode;
+        int32_t m_ToTaxiNode;
+        int32_t m_Cost;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

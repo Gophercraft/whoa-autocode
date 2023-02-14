@@ -7,22 +7,22 @@
 
 class BattlemasterListRec {
     public:
-    static constexpr uint32_t columnCount = 32;
-    static constexpr uint32_t rowSize = 128;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 32;
+        static constexpr uint32_t rowSize = 128;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_MapID[8];
-    int32_t m_InstanceType;
-    int32_t m_GroupsAllowed;
-    const char* m_Name_lang;
-    int32_t m_MaxGroupSize;
-    int32_t m_HolidayWorldState;
-    int32_t m_MinLevel;
-    int32_t m_MaxLevel;
+        int32_t m_ID;
+        int32_t m_MapID[8];
+        int32_t m_InstanceType;
+        int32_t m_GroupsAllowed;
+        const char* m_Name_lang;
+        int32_t m_MaxGroupSize;
+        int32_t m_HolidayWorldState;
+        int32_t m_MinLevel;
+        int32_t m_MaxLevel;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

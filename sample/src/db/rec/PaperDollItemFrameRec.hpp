@@ -7,16 +7,16 @@
 
 class PaperDollItemFrameRec {
     public:
-    static constexpr uint32_t columnCount = 3;
-    static constexpr uint32_t rowSize = 12;
-    static constexpr bool indexIsID = true;
+        static constexpr uint32_t columnCount = 3;
+        static constexpr uint32_t rowSize = 12;
+        static constexpr bool indexIsID = true;
 
-    const char* m_ItemButtonName;
-    const char* m_SlotIcon;
-    int32_t m_SlotNumber;
+        const char* m_ItemButtonName;
+        const char* m_SlotIcon;
+        int32_t m_SlotNumber;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

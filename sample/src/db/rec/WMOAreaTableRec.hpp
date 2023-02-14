@@ -7,25 +7,25 @@
 
 class WMOAreaTableRec {
     public:
-    static constexpr uint32_t columnCount = 28;
-    static constexpr uint32_t rowSize = 112;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 28;
+        static constexpr uint32_t rowSize = 112;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_WMOID;
-    int32_t m_NameSetID;
-    int32_t m_WMOGroupID;
-    int32_t m_SoundProviderPref;
-    int32_t m_SoundProviderPrefUnderwater;
-    int32_t m_AmbienceID;
-    int32_t m_ZoneMusic;
-    int32_t m_IntroSound;
-    int32_t m_Flags;
-    int32_t m_AreaTableID;
-    const char* m_AreaName_lang;
+        int32_t m_ID;
+        int32_t m_WMOID;
+        int32_t m_NameSetID;
+        int32_t m_WMOGroupID;
+        int32_t m_SoundProviderPref;
+        int32_t m_SoundProviderPrefUnderwater;
+        int32_t m_AmbienceID;
+        int32_t m_ZoneMusic;
+        int32_t m_IntroSound;
+        int32_t m_Flags;
+        int32_t m_AreaTableID;
+        const char* m_AreaName_lang;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

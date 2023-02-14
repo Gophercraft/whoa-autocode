@@ -7,18 +7,18 @@
 
 class TransportAnimationRec {
     public:
-    static constexpr uint32_t columnCount = 7;
-    static constexpr uint32_t rowSize = 28;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 7;
+        static constexpr uint32_t rowSize = 28;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_TransportID;
-    int32_t m_TimeIndex;
-    float m_Pos[3];
-    int32_t m_SequenceID;
+        int32_t m_ID;
+        int32_t m_TransportID;
+        int32_t m_TimeIndex;
+        float m_Pos[3];
+        int32_t m_SequenceID;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

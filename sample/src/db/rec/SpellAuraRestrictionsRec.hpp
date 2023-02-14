@@ -7,22 +7,22 @@
 
 class SpellAuraRestrictionsRec {
     public:
-    static constexpr uint32_t columnCount = 9;
-    static constexpr uint32_t rowSize = 36;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 9;
+        static constexpr uint32_t rowSize = 36;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_CasterAuraState;
-    int32_t m_TargetAuraState;
-    int32_t m_ExcludeCasterAuraState;
-    int32_t m_ExcludeTargetAuraState;
-    int32_t m_CasterAuraSpell;
-    int32_t m_TargetAuraSpell;
-    int32_t m_ExcludeCasterAuraSpell;
-    int32_t m_ExcludeTargetAuraSpell;
+        int32_t m_ID;
+        int32_t m_CasterAuraState;
+        int32_t m_TargetAuraState;
+        int32_t m_ExcludeCasterAuraState;
+        int32_t m_ExcludeTargetAuraState;
+        int32_t m_CasterAuraSpell;
+        int32_t m_TargetAuraSpell;
+        int32_t m_ExcludeCasterAuraSpell;
+        int32_t m_ExcludeTargetAuraSpell;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

@@ -7,34 +7,34 @@
 
 class SpellEffectRec {
     public:
-    static constexpr uint32_t columnCount = 26;
-    static constexpr uint32_t rowSize = 104;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 26;
+        static constexpr uint32_t rowSize = 104;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_Effect;
-    float m_EffectAmplitude;
-    int32_t m_EffectAura;
-    int32_t m_EffectAuraPeriod;
-    int32_t m_EffectBasePoints;
-    float m_EffectBonusCoefficient;
-    float m_EffectChainAmplitude;
-    int32_t m_EffectChainTargets;
-    int32_t m_EffectDieSides;
-    int32_t m_EffectItemType;
-    int32_t m_EffectMechanic;
-    int32_t m_EffectMiscValue[2];
-    float m_EffectPointsPerResource;
-    int32_t m_EffectRadiusIndex[2];
-    float m_EffectRealPointsPerLevel;
-    int32_t m_EffectSpellClassMask[3];
-    int32_t m_EffectTriggerSpell;
-    int32_t m_ImplicitTarget[2];
-    int32_t m_SpellID;
-    int32_t m_EffectIndex;
+        int32_t m_ID;
+        int32_t m_Effect;
+        float m_EffectAmplitude;
+        int32_t m_EffectAura;
+        int32_t m_EffectAuraPeriod;
+        int32_t m_EffectBasePoints;
+        float m_EffectBonusCoefficient;
+        float m_EffectChainAmplitude;
+        int32_t m_EffectChainTargets;
+        int32_t m_EffectDieSides;
+        int32_t m_EffectItemType;
+        int32_t m_EffectMechanic;
+        int32_t m_EffectMiscValue[2];
+        float m_EffectPointsPerResource;
+        int32_t m_EffectRadiusIndex[2];
+        float m_EffectRealPointsPerLevel;
+        int32_t m_EffectSpellClassMask[3];
+        int32_t m_EffectTriggerSpell;
+        int32_t m_ImplicitTarget[2];
+        int32_t m_SpellID;
+        int32_t m_EffectIndex;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

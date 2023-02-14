@@ -7,20 +7,20 @@
 
 class DungeonEncounterRec {
     public:
-    static constexpr uint32_t columnCount = 23;
-    static constexpr uint32_t rowSize = 92;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 23;
+        static constexpr uint32_t rowSize = 92;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_MapID;
-    int32_t m_Difficulty;
-    int32_t m_OrderIndex;
-    int32_t m_Bit;
-    const char* m_Name_lang;
-    int32_t m_SpellIconID;
+        int32_t m_ID;
+        int32_t m_MapID;
+        int32_t m_Difficulty;
+        int32_t m_OrderIndex;
+        int32_t m_Bit;
+        const char* m_Name_lang;
+        int32_t m_SpellIconID;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

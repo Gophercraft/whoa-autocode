@@ -7,36 +7,36 @@
 
 class VideoHardwareRec {
     public:
-    static constexpr uint32_t columnCount = 23;
-    static constexpr uint32_t rowSize = 92;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 23;
+        static constexpr uint32_t rowSize = 92;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_VendorID;
-    int32_t m_DeviceID;
-    int32_t m_FarclipIdx;
-    int32_t m_TerrainLODDistIdx;
-    int32_t m_TerrainShadowLOD;
-    int32_t m_DetailDoodadDensityIdx;
-    int32_t m_DetailDoodadAlpha;
-    int32_t m_AnimatingDoodadIdx;
-    int32_t m_Trilinear;
-    int32_t m_NumLights;
-    int32_t m_Specularity;
-    int32_t m_WaterLODIdx;
-    int32_t m_ParticleDensityIdx;
-    int32_t m_UnitDrawDistIdx;
-    int32_t m_SmallCullDistIdx;
-    int32_t m_ResolutionIdx;
-    int32_t m_BaseMipLevel;
-    const char* m_OglOverrides;
-    const char* m_D3dOverrides;
-    int32_t m_FixLag;
-    int32_t m_Multisample;
-    int32_t m_Atlasdisable;
+        int32_t m_ID;
+        int32_t m_VendorID;
+        int32_t m_DeviceID;
+        int32_t m_FarclipIdx;
+        int32_t m_TerrainLODDistIdx;
+        int32_t m_TerrainShadowLOD;
+        int32_t m_DetailDoodadDensityIdx;
+        int32_t m_DetailDoodadAlpha;
+        int32_t m_AnimatingDoodadIdx;
+        int32_t m_Trilinear;
+        int32_t m_NumLights;
+        int32_t m_Specularity;
+        int32_t m_WaterLODIdx;
+        int32_t m_ParticleDensityIdx;
+        int32_t m_UnitDrawDistIdx;
+        int32_t m_SmallCullDistIdx;
+        int32_t m_ResolutionIdx;
+        int32_t m_BaseMipLevel;
+        const char* m_OglOverrides;
+        const char* m_D3dOverrides;
+        int32_t m_FixLag;
+        int32_t m_Multisample;
+        int32_t m_Atlasdisable;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

@@ -7,21 +7,21 @@
 
 class BarberShopStyleRec {
     public:
-    static constexpr uint32_t columnCount = 40;
-    static constexpr uint32_t rowSize = 160;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 40;
+        static constexpr uint32_t rowSize = 160;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_Type;
-    const char* m_DisplayName_lang;
-    const char* m_Description_lang;
-    float m_Cost_Modifier;
-    int32_t m_Race;
-    int32_t m_Sex;
-    int32_t m_Data;
+        int32_t m_ID;
+        int32_t m_Type;
+        const char* m_DisplayName_lang;
+        const char* m_Description_lang;
+        float m_Cost_Modifier;
+        int32_t m_Race;
+        int32_t m_Sex;
+        int32_t m_Data;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

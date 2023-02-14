@@ -7,22 +7,22 @@
 
 class SpellShapeshiftFormRec {
     public:
-    static constexpr uint32_t columnCount = 35;
-    static constexpr uint32_t rowSize = 140;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 35;
+        static constexpr uint32_t rowSize = 140;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_BonusActionBar;
-    const char* m_Name_lang;
-    int32_t m_Flags;
-    int32_t m_CreatureType;
-    int32_t m_AttackIconID;
-    int32_t m_CombatRoundTime;
-    int32_t m_CreatureDisplayID[4];
-    int32_t m_PresetSpellID[8];
+        int32_t m_ID;
+        int32_t m_BonusActionBar;
+        const char* m_Name_lang;
+        int32_t m_Flags;
+        int32_t m_CreatureType;
+        int32_t m_AttackIconID;
+        int32_t m_CombatRoundTime;
+        int32_t m_CreatureDisplayID[4];
+        int32_t m_PresetSpellID[8];
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

@@ -7,18 +7,18 @@
 
 class DungeonMapChunkRec {
     public:
-    static constexpr uint32_t columnCount = 5;
-    static constexpr uint32_t rowSize = 20;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 5;
+        static constexpr uint32_t rowSize = 20;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_MapID;
-    int32_t m_WMOGroupID;
-    int32_t m_DungeonMapID;
-    float m_MinZ;
+        int32_t m_ID;
+        int32_t m_MapID;
+        int32_t m_WMOGroupID;
+        int32_t m_DungeonMapID;
+        float m_MinZ;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

@@ -7,18 +7,18 @@
 
 class GroundEffectTextureRec {
     public:
-    static constexpr uint32_t columnCount = 11;
-    static constexpr uint32_t rowSize = 44;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 11;
+        static constexpr uint32_t rowSize = 44;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_DoodadID[4];
-    int32_t m_DoodadWeight[4];
-    int32_t m_Density;
-    int32_t m_Sound;
+        int32_t m_ID;
+        int32_t m_DoodadID[4];
+        int32_t m_DoodadWeight[4];
+        int32_t m_Density;
+        int32_t m_Sound;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

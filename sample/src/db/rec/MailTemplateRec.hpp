@@ -7,16 +7,16 @@
 
 class MailTemplateRec {
     public:
-    static constexpr uint32_t columnCount = 35;
-    static constexpr uint32_t rowSize = 140;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 35;
+        static constexpr uint32_t rowSize = 140;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    const char* m_Subject_lang;
-    const char* m_Body_lang;
+        int32_t m_ID;
+        const char* m_Subject_lang;
+        const char* m_Body_lang;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

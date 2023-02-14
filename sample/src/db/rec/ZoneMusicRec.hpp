@@ -7,18 +7,18 @@
 
 class ZoneMusicRec {
     public:
-    static constexpr uint32_t columnCount = 8;
-    static constexpr uint32_t rowSize = 32;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 8;
+        static constexpr uint32_t rowSize = 32;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    const char* m_SetName;
-    int32_t m_SilenceIntervalMin[2];
-    int32_t m_SilenceIntervalMax[2];
-    int32_t m_Sounds[2];
+        int32_t m_ID;
+        const char* m_SetName;
+        int32_t m_SilenceIntervalMin[2];
+        int32_t m_SilenceIntervalMax[2];
+        int32_t m_Sounds[2];
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

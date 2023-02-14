@@ -7,21 +7,21 @@
 
 class DungeonMapRec {
     public:
-    static constexpr uint32_t columnCount = 8;
-    static constexpr uint32_t rowSize = 32;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 8;
+        static constexpr uint32_t rowSize = 32;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_MapID;
-    int32_t m_FloorIndex;
-    float m_MinX;
-    float m_MaxX;
-    float m_MinY;
-    float m_MaxY;
-    int32_t m_ParentWorldMapID;
+        int32_t m_ID;
+        int32_t m_MapID;
+        int32_t m_FloorIndex;
+        float m_MinX;
+        float m_MaxX;
+        float m_MinY;
+        float m_MaxY;
+        int32_t m_ParentWorldMapID;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

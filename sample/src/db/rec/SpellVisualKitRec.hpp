@@ -7,34 +7,34 @@
 
 class SpellVisualKitRec {
     public:
-    static constexpr uint32_t columnCount = 38;
-    static constexpr uint32_t rowSize = 152;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 38;
+        static constexpr uint32_t rowSize = 152;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_StartAnimID;
-    int32_t m_AnimID;
-    int32_t m_HeadEffect;
-    int32_t m_ChestEffect;
-    int32_t m_BaseEffect;
-    int32_t m_LeftHandEffect;
-    int32_t m_RightHandEffect;
-    int32_t m_BreathEffect;
-    int32_t m_LeftWeaponEffect;
-    int32_t m_RightWeaponEffect;
-    int32_t m_SpecialEffect[3];
-    int32_t m_WorldEffect;
-    int32_t m_SoundID;
-    int32_t m_ShakeID;
-    int32_t m_CharProc[4];
-    float m_CharParamZero[4];
-    float m_CharParamOne[4];
-    float m_CharParamTwo[4];
-    float m_CharParamThree[4];
-    int32_t m_Flags;
+        int32_t m_ID;
+        int32_t m_StartAnimID;
+        int32_t m_AnimID;
+        int32_t m_HeadEffect;
+        int32_t m_ChestEffect;
+        int32_t m_BaseEffect;
+        int32_t m_LeftHandEffect;
+        int32_t m_RightHandEffect;
+        int32_t m_BreathEffect;
+        int32_t m_LeftWeaponEffect;
+        int32_t m_RightWeaponEffect;
+        int32_t m_SpecialEffect[3];
+        int32_t m_WorldEffect;
+        int32_t m_SoundID;
+        int32_t m_ShakeID;
+        int32_t m_CharProc[4];
+        float m_CharParamZero[4];
+        float m_CharParamOne[4];
+        float m_CharParamTwo[4];
+        float m_CharParamThree[4];
+        int32_t m_Flags;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

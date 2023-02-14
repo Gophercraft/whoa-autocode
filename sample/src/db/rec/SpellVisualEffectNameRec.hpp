@@ -7,20 +7,20 @@
 
 class SpellVisualEffectNameRec {
     public:
-    static constexpr uint32_t columnCount = 7;
-    static constexpr uint32_t rowSize = 28;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 7;
+        static constexpr uint32_t rowSize = 28;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    const char* m_Name;
-    const char* m_FileName;
-    float m_AreaEffectSize;
-    float m_Scale;
-    float m_MinAllowedScale;
-    float m_MaxAllowedScale;
+        int32_t m_ID;
+        const char* m_Name;
+        const char* m_FileName;
+        float m_AreaEffectSize;
+        float m_Scale;
+        float m_MinAllowedScale;
+        float m_MaxAllowedScale;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

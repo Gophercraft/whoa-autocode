@@ -7,28 +7,28 @@
 
 class Achievement_CriteriaRec {
     public:
-    static constexpr uint32_t columnCount = 31;
-    static constexpr uint32_t rowSize = 124;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 31;
+        static constexpr uint32_t rowSize = 124;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_Achievement_ID;
-    int32_t m_Type;
-    int32_t m_Asset_ID;
-    int32_t m_Quantity;
-    int32_t m_Start_event;
-    int32_t m_Start_asset;
-    int32_t m_Fail_event;
-    int32_t m_Fail_asset;
-    const char* m_Description_lang;
-    int32_t m_Flags;
-    int32_t m_Timer_start_event;
-    int32_t m_Timer_asset_ID;
-    int32_t m_Timer_time;
-    int32_t m_Ui_order;
+        int32_t m_ID;
+        int32_t m_Achievement_ID;
+        int32_t m_Type;
+        int32_t m_Asset_ID;
+        int32_t m_Quantity;
+        int32_t m_Start_event;
+        int32_t m_Start_asset;
+        int32_t m_Fail_event;
+        int32_t m_Fail_asset;
+        const char* m_Description_lang;
+        int32_t m_Flags;
+        int32_t m_Timer_start_event;
+        int32_t m_Timer_asset_ID;
+        int32_t m_Timer_time;
+        int32_t m_Ui_order;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

@@ -7,30 +7,30 @@
 
 class MapRec {
     public:
-    static constexpr uint32_t columnCount = 66;
-    static constexpr uint32_t rowSize = 264;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 66;
+        static constexpr uint32_t rowSize = 264;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    const char* m_Directory;
-    int32_t m_InstanceType;
-    int32_t m_Flags; // unconfirmed
-    int32_t m_PVP;
-    const char* m_MapName_lang;
-    int32_t m_AreaTableID;
-    const char* m_MapDescription0_lang;
-    const char* m_MapDescription1_lang;
-    int32_t m_LoadingScreenID;
-    float m_MinimapIconScale;
-    int32_t m_CorpseMapID;
-    float m_Corpse[2];
-    int32_t m_TimeOfDayOverride;
-    int32_t m_ExpansionID;
-    int32_t m_RaidOffset;
-    int32_t m_MaxPlayers;
+        int32_t m_ID;
+        const char* m_Directory;
+        int32_t m_InstanceType;
+        int32_t m_Flags; // unconfirmed
+        int32_t m_PVP;
+        const char* m_MapName_lang;
+        int32_t m_AreaTableID;
+        const char* m_MapDescription0_lang;
+        const char* m_MapDescription1_lang;
+        int32_t m_LoadingScreenID;
+        float m_MinimapIconScale;
+        int32_t m_CorpseMapID;
+        float m_Corpse[2];
+        int32_t m_TimeOfDayOverride;
+        int32_t m_ExpansionID;
+        int32_t m_RaidOffset;
+        int32_t m_MaxPlayers;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

@@ -7,25 +7,25 @@
 
 class HolidaysRec {
     public:
-    static constexpr uint32_t columnCount = 55;
-    static constexpr uint32_t rowSize = 220;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 55;
+        static constexpr uint32_t rowSize = 220;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_Duration[10];
-    int32_t m_Date[26];
-    int32_t m_Region;
-    int32_t m_Looping;
-    int32_t m_CalendarFlags[10];
-    int32_t m_HolidayNameID;
-    int32_t m_HolidayDescriptionID;
-    const char* m_TextureFileName;
-    int32_t m_Priority;
-    int32_t m_CalendarFilterType;
-    int32_t m_Flags;
+        int32_t m_ID;
+        int32_t m_Duration[10];
+        int32_t m_Date[26];
+        int32_t m_Region;
+        int32_t m_Looping;
+        int32_t m_CalendarFlags[10];
+        int32_t m_HolidayNameID;
+        int32_t m_HolidayDescriptionID;
+        const char* m_TextureFileName;
+        int32_t m_Priority;
+        int32_t m_CalendarFilterType;
+        int32_t m_Flags;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

@@ -7,17 +7,17 @@
 
 class LightFloatBandRec {
     public:
-    static constexpr uint32_t columnCount = 34;
-    static constexpr uint32_t rowSize = 136;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 34;
+        static constexpr uint32_t rowSize = 136;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_Num;
-    int32_t m_Time[16];
-    float m_Data[16];
+        int32_t m_ID;
+        int32_t m_Num;
+        int32_t m_Time[16];
+        float m_Data[16];
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

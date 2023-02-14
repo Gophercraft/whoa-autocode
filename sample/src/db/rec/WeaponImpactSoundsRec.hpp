@@ -7,18 +7,18 @@
 
 class WeaponImpactSoundsRec {
     public:
-    static constexpr uint32_t columnCount = 23;
-    static constexpr uint32_t rowSize = 92;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 23;
+        static constexpr uint32_t rowSize = 92;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_WeaponSubClassID;
-    int32_t m_ParrySoundType;
-    int32_t m_ImpactSoundID[10];
-    int32_t m_CritImpactSoundID[10];
+        int32_t m_ID;
+        int32_t m_WeaponSubClassID;
+        int32_t m_ParrySoundType;
+        int32_t m_ImpactSoundID[10];
+        int32_t m_CritImpactSoundID[10];
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

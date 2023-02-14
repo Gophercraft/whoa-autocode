@@ -7,18 +7,18 @@
 
 class BannedAddonsRec {
     public:
-    static constexpr uint32_t columnCount = 11;
-    static constexpr uint32_t rowSize = 44;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 11;
+        static constexpr uint32_t rowSize = 44;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_NameMD5[4];
-    int32_t m_VersionMD5[4];
-    int32_t m_LastModified;
-    int32_t m_Flags;
+        int32_t m_ID;
+        int32_t m_NameMD5[4];
+        int32_t m_VersionMD5[4];
+        int32_t m_LastModified;
+        int32_t m_Flags;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

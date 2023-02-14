@@ -7,21 +7,21 @@
 
 class SkillLineRec {
     public:
-    static constexpr uint32_t columnCount = 56;
-    static constexpr uint32_t rowSize = 224;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 56;
+        static constexpr uint32_t rowSize = 224;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_CategoryID;
-    int32_t m_SkillCostsID;
-    const char* m_DisplayName_lang;
-    const char* m_Description_lang;
-    int32_t m_SpellIconID;
-    const char* m_AlternateVerb_lang;
-    int32_t m_CanLink;
+        int32_t m_ID;
+        int32_t m_CategoryID;
+        int32_t m_SkillCostsID;
+        const char* m_DisplayName_lang;
+        const char* m_Description_lang;
+        int32_t m_SpellIconID;
+        const char* m_AlternateVerb_lang;
+        int32_t m_CanLink;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

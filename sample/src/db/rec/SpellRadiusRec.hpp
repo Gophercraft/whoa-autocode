@@ -7,17 +7,17 @@
 
 class SpellRadiusRec {
     public:
-    static constexpr uint32_t columnCount = 4;
-    static constexpr uint32_t rowSize = 16;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 4;
+        static constexpr uint32_t rowSize = 16;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    float m_Radius;
-    float m_RadiusPerLevel;
-    float m_RadiusMax;
+        int32_t m_ID;
+        float m_Radius;
+        float m_RadiusPerLevel;
+        float m_RadiusMax;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

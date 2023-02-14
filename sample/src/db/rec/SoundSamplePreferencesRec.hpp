@@ -7,30 +7,30 @@
 
 class SoundSamplePreferencesRec {
     public:
-    static constexpr uint32_t columnCount = 17;
-    static constexpr uint32_t rowSize = 68;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 17;
+        static constexpr uint32_t rowSize = 68;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_Field_0_6_0_3592_001; // unconfirmed
-    int32_t m_Field_0_6_0_3592_002; // unconfirmed
-    int32_t m_EAX2SampleRoom;
-    int32_t m_Field_0_6_0_3592_004; // unconfirmed
-    int32_t m_Field_0_6_0_3592_005; // unconfirmed
-    float m_Field_0_6_0_3592_006; // unconfirmed
-    int32_t m_Field_0_6_0_3592_007; // unconfirmed
-    float m_EAX2SampleOcclusionLFRatio;
-    float m_EAX2SampleOcclusionRoomRatio;
-    int32_t m_Field_0_6_0_3592_010; // unconfirmed
-    float m_EAX1EffectLevel;
-    int32_t m_Field_0_6_0_3592_012; // unconfirmed
-    float m_Field_0_6_0_3592_013; // unconfirmed
-    float m_EAX3SampleExclusion;
-    float m_Field_0_6_0_3592_015; // unconfirmed
-    int32_t m_Field_0_6_0_3592_016; // unconfirmed
+        int32_t m_ID;
+        int32_t m_Field_0_6_0_3592_001; // unconfirmed
+        int32_t m_Field_0_6_0_3592_002; // unconfirmed
+        int32_t m_EAX2SampleRoom;
+        int32_t m_Field_0_6_0_3592_004; // unconfirmed
+        int32_t m_Field_0_6_0_3592_005; // unconfirmed
+        float m_Field_0_6_0_3592_006; // unconfirmed
+        int32_t m_Field_0_6_0_3592_007; // unconfirmed
+        float m_EAX2SampleOcclusionLFRatio;
+        float m_EAX2SampleOcclusionRoomRatio;
+        int32_t m_Field_0_6_0_3592_010; // unconfirmed
+        float m_EAX1EffectLevel;
+        int32_t m_Field_0_6_0_3592_012; // unconfirmed
+        float m_Field_0_6_0_3592_013; // unconfirmed
+        float m_EAX3SampleExclusion;
+        float m_Field_0_6_0_3592_015; // unconfirmed
+        int32_t m_Field_0_6_0_3592_016; // unconfirmed
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

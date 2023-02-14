@@ -7,42 +7,42 @@
 
 class VehicleRec {
     public:
-    static constexpr uint32_t columnCount = 40;
-    static constexpr uint32_t rowSize = 160;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 40;
+        static constexpr uint32_t rowSize = 160;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_Flags;
-    float m_TurnSpeed;
-    float m_PitchSpeed;
-    float m_PitchMin;
-    float m_PitchMax;
-    int32_t m_SeatID[8];
-    float m_MouseLookOffsetPitch;
-    float m_CameraFadeDistScalarMin;
-    float m_CameraFadeDistScalarMax;
-    float m_CameraPitchOffset;
-    float m_FacingLimitRight;
-    float m_FacingLimitLeft;
-    float m_MsslTrgtTurnLingering;
-    float m_MsslTrgtPitchLingering;
-    float m_MsslTrgtMouseLingering;
-    float m_MsslTrgtEndOpacity;
-    float m_MsslTrgtArcSpeed;
-    float m_MsslTrgtArcRepeat;
-    float m_MsslTrgtArcWidth;
-    float m_MsslTrgtImpactRadius[2];
-    const char* m_MsslTrgtArcTexture;
-    const char* m_MsslTrgtImpactTexture;
-    const char* m_MsslTrgtImpactModel[2];
-    float m_CameraYawOffset;
-    int32_t m_UiLocomotionType;
-    float m_MsslTrgtImpactTexRadius;
-    int32_t m_VehicleUIIndicatorID;
-    int32_t m_PowerDisplayID[3];
+        int32_t m_ID;
+        int32_t m_Flags;
+        float m_TurnSpeed;
+        float m_PitchSpeed;
+        float m_PitchMin;
+        float m_PitchMax;
+        int32_t m_SeatID[8];
+        float m_MouseLookOffsetPitch;
+        float m_CameraFadeDistScalarMin;
+        float m_CameraFadeDistScalarMax;
+        float m_CameraPitchOffset;
+        float m_FacingLimitRight;
+        float m_FacingLimitLeft;
+        float m_MsslTrgtTurnLingering;
+        float m_MsslTrgtPitchLingering;
+        float m_MsslTrgtMouseLingering;
+        float m_MsslTrgtEndOpacity;
+        float m_MsslTrgtArcSpeed;
+        float m_MsslTrgtArcRepeat;
+        float m_MsslTrgtArcWidth;
+        float m_MsslTrgtImpactRadius[2];
+        const char* m_MsslTrgtArcTexture;
+        const char* m_MsslTrgtImpactTexture;
+        const char* m_MsslTrgtImpactModel[2];
+        float m_CameraYawOffset;
+        int32_t m_UiLocomotionType;
+        float m_MsslTrgtImpactTexRadius;
+        int32_t m_VehicleUIIndicatorID;
+        int32_t m_PowerDisplayID[3];
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

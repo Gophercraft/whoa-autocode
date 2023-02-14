@@ -7,21 +7,21 @@
 
 class LFGDungeonExpansionRec {
     public:
-    static constexpr uint32_t columnCount = 8;
-    static constexpr uint32_t rowSize = 32;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 8;
+        static constexpr uint32_t rowSize = 32;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_Lfg_ID;
-    int32_t m_Expansion_level;
-    int32_t m_Random_ID;
-    int32_t m_Hard_level_min;
-    int32_t m_Hard_level_max;
-    int32_t m_Target_level_min;
-    int32_t m_Target_level_max;
+        int32_t m_ID;
+        int32_t m_Lfg_ID;
+        int32_t m_Expansion_level;
+        int32_t m_Random_ID;
+        int32_t m_Hard_level_min;
+        int32_t m_Hard_level_max;
+        int32_t m_Target_level_min;
+        int32_t m_Target_level_max;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

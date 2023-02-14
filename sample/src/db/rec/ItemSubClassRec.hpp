@@ -7,25 +7,25 @@
 
 class ItemSubClassRec {
     public:
-    static constexpr uint32_t columnCount = 44;
-    static constexpr uint32_t rowSize = 176;
-    static constexpr bool indexIsID = true;
+        static constexpr uint32_t columnCount = 44;
+        static constexpr uint32_t rowSize = 176;
+        static constexpr bool indexIsID = true;
 
-    int32_t m_ClassID;
-    int32_t m_SubClassID;
-    int32_t m_PrerequisiteProficiency;
-    int32_t m_PostrequisiteProficiency;
-    int32_t m_Flags;
-    int32_t m_DisplayFlags;
-    int32_t m_WeaponParrySeq;
-    int32_t m_WeaponReadySeq;
-    int32_t m_WeaponAttackSeq;
-    int32_t m_WeaponSwingSize;
-    const char* m_DisplayName_lang;
-    const char* m_VerboseName_lang;
+        int32_t m_ClassID;
+        int32_t m_SubClassID;
+        int32_t m_PrerequisiteProficiency;
+        int32_t m_PostrequisiteProficiency;
+        int32_t m_Flags;
+        int32_t m_DisplayFlags;
+        int32_t m_WeaponParrySeq;
+        int32_t m_WeaponReadySeq;
+        int32_t m_WeaponAttackSeq;
+        int32_t m_WeaponSwingSize;
+        const char* m_DisplayName_lang;
+        const char* m_VerboseName_lang;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

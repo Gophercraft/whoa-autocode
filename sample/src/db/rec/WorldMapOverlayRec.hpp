@@ -7,27 +7,27 @@
 
 class WorldMapOverlayRec {
     public:
-    static constexpr uint32_t columnCount = 17;
-    static constexpr uint32_t rowSize = 68;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 17;
+        static constexpr uint32_t rowSize = 68;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_MapAreaID;
-    int32_t m_AreaID[4];
-    int32_t m_MapPointX;
-    int32_t m_MapPointY;
-    const char* m_TextureName;
-    int32_t m_TextureWidth;
-    int32_t m_TextureHeight;
-    int32_t m_OffsetX;
-    int32_t m_OffsetY;
-    int32_t m_HitRectTop;
-    int32_t m_HitRectLeft;
-    int32_t m_HitRectBottom;
-    int32_t m_HitRectRight;
+        int32_t m_ID;
+        int32_t m_MapAreaID;
+        int32_t m_AreaID[4];
+        int32_t m_MapPointX;
+        int32_t m_MapPointY;
+        const char* m_TextureName;
+        int32_t m_TextureWidth;
+        int32_t m_TextureHeight;
+        int32_t m_OffsetX;
+        int32_t m_OffsetY;
+        int32_t m_HitRectTop;
+        int32_t m_HitRectLeft;
+        int32_t m_HitRectBottom;
+        int32_t m_HitRectRight;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

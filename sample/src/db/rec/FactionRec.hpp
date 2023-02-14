@@ -7,24 +7,24 @@
 
 class FactionRec {
     public:
-    static constexpr uint32_t columnCount = 57;
-    static constexpr uint32_t rowSize = 228;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 57;
+        static constexpr uint32_t rowSize = 228;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_ReputationIndex;
-    int32_t m_ReputationRaceMask[4];
-    int32_t m_ReputationClassMask[4];
-    int32_t m_ReputationBase[4];
-    int32_t m_ReputationFlags[4];
-    int32_t m_ParentFactionID;
-    float m_ParentFactionMod[2];
-    int32_t m_ParentFactionCap[2];
-    const char* m_Name_lang;
-    const char* m_Description_lang;
+        int32_t m_ID;
+        int32_t m_ReputationIndex;
+        int32_t m_ReputationRaceMask[4];
+        int32_t m_ReputationClassMask[4];
+        int32_t m_ReputationBase[4];
+        int32_t m_ReputationFlags[4];
+        int32_t m_ParentFactionID;
+        float m_ParentFactionMod[2];
+        int32_t m_ParentFactionCap[2];
+        const char* m_Name_lang;
+        const char* m_Description_lang;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

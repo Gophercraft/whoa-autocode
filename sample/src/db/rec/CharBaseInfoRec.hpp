@@ -7,15 +7,15 @@
 
 class CharBaseInfoRec {
     public:
-    static constexpr uint32_t columnCount = 2;
-    static constexpr uint32_t rowSize = 2;
-    static constexpr bool indexIsID = true;
+        static constexpr uint32_t columnCount = 2;
+        static constexpr uint32_t rowSize = 2;
+        static constexpr bool indexIsID = true;
 
-    int8_t m_RaceID;
-    int8_t m_ClassID;
+        int8_t m_RaceID;
+        int8_t m_ClassID;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

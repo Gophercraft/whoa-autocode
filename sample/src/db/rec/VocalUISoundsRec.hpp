@@ -7,18 +7,18 @@
 
 class VocalUISoundsRec {
     public:
-    static constexpr uint32_t columnCount = 7;
-    static constexpr uint32_t rowSize = 28;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 7;
+        static constexpr uint32_t rowSize = 28;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_VocalUIEnum;
-    int32_t m_RaceID;
-    int32_t m_NormalSoundID[2];
-    int32_t m_PissedSoundID[2];
+        int32_t m_ID;
+        int32_t m_VocalUIEnum;
+        int32_t m_RaceID;
+        int32_t m_NormalSoundID[2];
+        int32_t m_PissedSoundID[2];
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

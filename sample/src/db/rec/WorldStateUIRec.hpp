@@ -7,26 +7,26 @@
 
 class WorldStateUIRec {
     public:
-    static constexpr uint32_t columnCount = 63;
-    static constexpr uint32_t rowSize = 252;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 63;
+        static constexpr uint32_t rowSize = 252;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_MapID;
-    int32_t m_AreaID;
-    int32_t m_PhaseShift;
-    const char* m_Icon;
-    const char* m_String_lang;
-    const char* m_Tooltip_lang;
-    int32_t m_StateVariable;
-    int32_t m_Type;
-    const char* m_DynamicIcon;
-    const char* m_DynamicTooltip_lang;
-    const char* m_ExtendedUI;
-    int32_t m_ExtendedUIStateVariable[3];
+        int32_t m_ID;
+        int32_t m_MapID;
+        int32_t m_AreaID;
+        int32_t m_PhaseShift;
+        const char* m_Icon;
+        const char* m_String_lang;
+        const char* m_Tooltip_lang;
+        int32_t m_StateVariable;
+        int32_t m_Type;
+        const char* m_DynamicIcon;
+        const char* m_DynamicTooltip_lang;
+        const char* m_ExtendedUI;
+        int32_t m_ExtendedUIStateVariable[3];
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

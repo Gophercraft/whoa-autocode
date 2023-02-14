@@ -7,24 +7,24 @@
 
 class CreatureFamilyRec {
     public:
-    static constexpr uint32_t columnCount = 28;
-    static constexpr uint32_t rowSize = 112;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 28;
+        static constexpr uint32_t rowSize = 112;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    float m_MinScale;
-    int32_t m_MinScaleLevel;
-    float m_MaxScale;
-    int32_t m_MaxScaleLevel;
-    int32_t m_SkillLine[2];
-    int32_t m_PetFoodMask;
-    int32_t m_PetTalentType;
-    int32_t m_CategoryEnumID;
-    const char* m_Name_lang;
-    const char* m_IconFile;
+        int32_t m_ID;
+        float m_MinScale;
+        int32_t m_MinScaleLevel;
+        float m_MaxScale;
+        int32_t m_MaxScaleLevel;
+        int32_t m_SkillLine[2];
+        int32_t m_PetFoodMask;
+        int32_t m_PetTalentType;
+        int32_t m_CategoryEnumID;
+        const char* m_Name_lang;
+        const char* m_IconFile;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

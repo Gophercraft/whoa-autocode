@@ -7,18 +7,18 @@
 
 class SoundFilterElemRec {
     public:
-    static constexpr uint32_t columnCount = 13;
-    static constexpr uint32_t rowSize = 52;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 13;
+        static constexpr uint32_t rowSize = 52;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_SoundFilterID;
-    int32_t m_OrderIndex;
-    int32_t m_FilterType;
-    float m_Params[9];
+        int32_t m_ID;
+        int32_t m_SoundFilterID;
+        int32_t m_OrderIndex;
+        int32_t m_FilterType;
+        float m_Params[9];
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

@@ -7,24 +7,24 @@
 
 class CreatureDisplayInfoExtraRec {
     public:
-    static constexpr uint32_t columnCount = 21;
-    static constexpr uint32_t rowSize = 84;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 21;
+        static constexpr uint32_t rowSize = 84;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_DisplayRaceID;
-    int32_t m_DisplaySexID;
-    int32_t m_SkinID;
-    int32_t m_FaceID;
-    int32_t m_HairStyleID;
-    int32_t m_HairColorID;
-    int32_t m_FacialHairID;
-    int32_t m_NPCItemDisplay[11];
-    int32_t m_Flags;
-    const char* m_BakeName;
+        int32_t m_ID;
+        int32_t m_DisplayRaceID;
+        int32_t m_DisplaySexID;
+        int32_t m_SkinID;
+        int32_t m_FaceID;
+        int32_t m_HairStyleID;
+        int32_t m_HairColorID;
+        int32_t m_FacialHairID;
+        int32_t m_NPCItemDisplay[11];
+        int32_t m_Flags;
+        const char* m_BakeName;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

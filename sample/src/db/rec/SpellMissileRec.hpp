@@ -7,28 +7,28 @@
 
 class SpellMissileRec {
     public:
-    static constexpr uint32_t columnCount = 15;
-    static constexpr uint32_t rowSize = 60;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 15;
+        static constexpr uint32_t rowSize = 60;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_Flags;
-    float m_DefaultPitchMin;
-    float m_DefaultPitchMax;
-    float m_DefaultSpeedMin;
-    float m_DefaultSpeedMax;
-    float m_RandomizeFacingMin;
-    float m_RandomizeFacingMax;
-    float m_RandomizePitchMin;
-    float m_RandomizePitchMax;
-    float m_RandomizeSpeedMin;
-    float m_RandomizeSpeedMax;
-    float m_Gravity;
-    float m_MaxDuration;
-    float m_CollisionRadius;
+        int32_t m_ID;
+        int32_t m_Flags;
+        float m_DefaultPitchMin;
+        float m_DefaultPitchMax;
+        float m_DefaultSpeedMin;
+        float m_DefaultSpeedMax;
+        float m_RandomizeFacingMin;
+        float m_RandomizeFacingMax;
+        float m_RandomizePitchMin;
+        float m_RandomizePitchMax;
+        float m_RandomizeSpeedMin;
+        float m_RandomizeSpeedMax;
+        float m_Gravity;
+        float m_MaxDuration;
+        float m_CollisionRadius;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

@@ -7,21 +7,21 @@
 
 class AnimationDataRec {
     public:
-    static constexpr uint32_t columnCount = 8;
-    static constexpr uint32_t rowSize = 32;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 8;
+        static constexpr uint32_t rowSize = 32;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    const char* m_Name;
-    int32_t m_Weaponflags;
-    int32_t m_Bodyflags;
-    int32_t m_Flags;
-    int32_t m_Fallback;
-    int32_t m_BehaviorID;
-    int32_t m_BehaviorTier;
+        int32_t m_ID;
+        const char* m_Name;
+        int32_t m_Weaponflags;
+        int32_t m_Bodyflags;
+        int32_t m_Flags;
+        int32_t m_Fallback;
+        int32_t m_BehaviorID;
+        int32_t m_BehaviorTier;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

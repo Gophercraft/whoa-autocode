@@ -7,21 +7,21 @@
 
 class SkillRaceClassInfoRec {
     public:
-    static constexpr uint32_t columnCount = 8;
-    static constexpr uint32_t rowSize = 32;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 8;
+        static constexpr uint32_t rowSize = 32;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_SkillID;
-    int32_t m_RaceMask;
-    int32_t m_ClassMask;
-    int32_t m_Flags;
-    int32_t m_MinLevel;
-    int32_t m_SkillTierID;
-    int32_t m_SkillCostIndex;
+        int32_t m_ID;
+        int32_t m_SkillID;
+        int32_t m_RaceMask;
+        int32_t m_ClassMask;
+        int32_t m_Flags;
+        int32_t m_MinLevel;
+        int32_t m_SkillTierID;
+        int32_t m_SkillCostIndex;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

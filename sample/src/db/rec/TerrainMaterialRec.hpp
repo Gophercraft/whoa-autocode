@@ -7,17 +7,17 @@
 
 class TerrainMaterialRec {
     public:
-    static constexpr uint32_t columnCount = 4;
-    static constexpr uint32_t rowSize = 16;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 4;
+        static constexpr uint32_t rowSize = 16;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    const char* m_Name;
-    int32_t m_Shader;
-    const char* m_EnvMapPath;
+        int32_t m_ID;
+        const char* m_Name;
+        int32_t m_Shader;
+        const char* m_EnvMapPath;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

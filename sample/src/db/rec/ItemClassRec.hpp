@@ -7,17 +7,17 @@
 
 class ItemClassRec {
     public:
-    static constexpr uint32_t columnCount = 20;
-    static constexpr uint32_t rowSize = 80;
-    static constexpr bool indexIsID = true;
+        static constexpr uint32_t columnCount = 20;
+        static constexpr uint32_t rowSize = 80;
+        static constexpr bool indexIsID = true;
 
-    int32_t m_ClassID;
-    int32_t m_SubclassMapID;
-    int32_t m_Flags;
-    const char* m_ClassName_lang;
+        int32_t m_ClassID;
+        int32_t m_SubclassMapID;
+        int32_t m_Flags;
+        const char* m_ClassName_lang;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

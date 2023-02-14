@@ -7,18 +7,18 @@
 
 class ItemRandomSuffixRec {
     public:
-    static constexpr uint32_t columnCount = 29;
-    static constexpr uint32_t rowSize = 116;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 29;
+        static constexpr uint32_t rowSize = 116;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    const char* m_Name_lang;
-    const char* m_InternalName;
-    int32_t m_Enchantment[5];
-    int32_t m_AllocationPct[5];
+        int32_t m_ID;
+        const char* m_Name_lang;
+        const char* m_InternalName;
+        int32_t m_Enchantment[5];
+        int32_t m_AllocationPct[5];
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

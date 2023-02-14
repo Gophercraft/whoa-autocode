@@ -7,25 +7,25 @@
 
 class ChrClassesRec {
     public:
-    static constexpr uint32_t columnCount = 60;
-    static constexpr uint32_t rowSize = 240;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 60;
+        static constexpr uint32_t rowSize = 240;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_DamageBonusStat;
-    int32_t m_DisplayPower;
-    const char* m_PetNameToken;
-    const char* m_Name_lang;
-    const char* m_Name_female_lang;
-    const char* m_Name_male_lang;
-    const char* m_Filename;
-    int32_t m_SpellClassSet;
-    int32_t m_Flags;
-    int32_t m_CinematicSequenceID;
-    int32_t m_Required_expansion;
+        int32_t m_ID;
+        int32_t m_DamageBonusStat;
+        int32_t m_DisplayPower;
+        const char* m_PetNameToken;
+        const char* m_Name_lang;
+        const char* m_Name_female_lang;
+        const char* m_Name_male_lang;
+        const char* m_Filename;
+        int32_t m_SpellClassSet;
+        int32_t m_Flags;
+        int32_t m_CinematicSequenceID;
+        int32_t m_Required_expansion;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

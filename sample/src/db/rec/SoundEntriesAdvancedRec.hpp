@@ -7,37 +7,37 @@
 
 class SoundEntriesAdvancedRec {
     public:
-    static constexpr uint32_t columnCount = 24;
-    static constexpr uint32_t rowSize = 96;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 24;
+        static constexpr uint32_t rowSize = 96;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_SoundEntryID;
-    float m_InnerRadius2D;
-    int32_t m_TimeA;
-    int32_t m_TimeB;
-    int32_t m_TimeC;
-    int32_t m_TimeD;
-    int32_t m_RandomOffsetRange;
-    int32_t m_Usage;
-    int32_t m_TimeIntervalMin;
-    int32_t m_TimeIntervalMax;
-    int32_t m_VolumeSliderCategory;
-    float m_DuckToSFX;
-    float m_DuckToMusic;
-    float m_DuckToAmbience;
-    float m_InnerRadiusOfInfluence;
-    float m_OuterRadiusOfInfluence;
-    int32_t m_TimeToDuck;
-    int32_t m_TimeToUnduck;
-    float m_InsideAngle;
-    float m_OutsideAngle;
-    float m_OutsideVolume;
-    float m_OuterRadius2D;
-    const char* m_Name;
+        int32_t m_ID;
+        int32_t m_SoundEntryID;
+        float m_InnerRadius2D;
+        int32_t m_TimeA;
+        int32_t m_TimeB;
+        int32_t m_TimeC;
+        int32_t m_TimeD;
+        int32_t m_RandomOffsetRange;
+        int32_t m_Usage;
+        int32_t m_TimeIntervalMin;
+        int32_t m_TimeIntervalMax;
+        int32_t m_VolumeSliderCategory;
+        float m_DuckToSFX;
+        float m_DuckToMusic;
+        float m_DuckToAmbience;
+        float m_InnerRadiusOfInfluence;
+        float m_OuterRadiusOfInfluence;
+        int32_t m_TimeToDuck;
+        int32_t m_TimeToUnduck;
+        float m_InsideAngle;
+        float m_OutsideAngle;
+        float m_OutsideVolume;
+        float m_OuterRadius2D;
+        const char* m_Name;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

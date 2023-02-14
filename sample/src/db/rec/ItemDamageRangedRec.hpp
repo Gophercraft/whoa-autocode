@@ -7,16 +7,16 @@
 
 class ItemDamageRangedRec {
     public:
-    static constexpr uint32_t columnCount = 9;
-    static constexpr uint32_t rowSize = 36;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 9;
+        static constexpr uint32_t rowSize = 36;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    float m_Quality[7];
-    int32_t m_ItemLevel;
+        int32_t m_ID;
+        float m_Quality[7];
+        int32_t m_ItemLevel;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

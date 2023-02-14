@@ -7,21 +7,21 @@
 
 class WorldStateZoneSoundsRec {
     public:
-    static constexpr uint32_t columnCount = 8;
-    static constexpr uint32_t rowSize = 32;
-    static constexpr bool indexIsID = true;
+        static constexpr uint32_t columnCount = 8;
+        static constexpr uint32_t rowSize = 32;
+        static constexpr bool indexIsID = true;
 
-    int32_t m_WorldStateID;
-    int32_t m_WorldStateValue;
-    int32_t m_AreaID;
-    int32_t m_WMOAreaID;
-    int32_t m_ZoneIntroMusicID;
-    int32_t m_ZoneMusicID;
-    int32_t m_SoundAmbienceID;
-    int32_t m_SoundProviderPreferencesID;
+        int32_t m_WorldStateID;
+        int32_t m_WorldStateValue;
+        int32_t m_AreaID;
+        int32_t m_WMOAreaID;
+        int32_t m_ZoneIntroMusicID;
+        int32_t m_ZoneMusicID;
+        int32_t m_SoundAmbienceID;
+        int32_t m_SoundProviderPreferencesID;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

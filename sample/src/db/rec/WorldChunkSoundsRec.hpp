@@ -7,22 +7,22 @@
 
 class WorldChunkSoundsRec {
     public:
-    static constexpr uint32_t columnCount = 9;
-    static constexpr uint32_t rowSize = 36;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 9;
+        static constexpr uint32_t rowSize = 36;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_ChunkX;
-    int32_t m_ChunkY;
-    int32_t m_SubchunkX;
-    int32_t m_SubchunkY;
-    int32_t m_ZoneIntroMusicID;
-    int32_t m_ZoneMusicID;
-    int32_t m_SoundAmbienceID;
-    int32_t m_SoundProviderPreferencesID;
+        int32_t m_ID;
+        int32_t m_ChunkX;
+        int32_t m_ChunkY;
+        int32_t m_SubchunkX;
+        int32_t m_SubchunkY;
+        int32_t m_ZoneIntroMusicID;
+        int32_t m_ZoneMusicID;
+        int32_t m_SoundAmbienceID;
+        int32_t m_SoundProviderPreferencesID;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

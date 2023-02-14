@@ -7,17 +7,17 @@
 
 class ScalingStatDistributionRec {
     public:
-    static constexpr uint32_t columnCount = 22;
-    static constexpr uint32_t rowSize = 88;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 22;
+        static constexpr uint32_t rowSize = 88;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_StatID[10];
-    int32_t m_Bonus[10];
-    int32_t m_Maxlevel;
+        int32_t m_ID;
+        int32_t m_StatID[10];
+        int32_t m_Bonus[10];
+        int32_t m_Maxlevel;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

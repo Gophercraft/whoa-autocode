@@ -7,37 +7,37 @@
 
 class ScalingStatValuesRec {
     public:
-    static constexpr uint32_t columnCount = 24;
-    static constexpr uint32_t rowSize = 96;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 24;
+        static constexpr uint32_t rowSize = 96;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_Charlevel;
-    int32_t m_ShoulderBudget;
-    int32_t m_TrinketBudget;
-    int32_t m_WeaponBudget1H;
-    int32_t m_RangedBudget;
-    int32_t m_ClothShoulderArmor;
-    int32_t m_LeatherShoulderArmor;
-    int32_t m_MailShoulderArmor;
-    int32_t m_PlateShoulderArmor;
-    int32_t m_WeaponDPS1H;
-    int32_t m_WeaponDPS2H;
-    int32_t m_SpellcasterDPS1H;
-    int32_t m_SpellcasterDPS2H;
-    int32_t m_RangedDPS;
-    int32_t m_WandDPS;
-    int32_t m_SpellPower;
-    int32_t m_PrimaryBudget;
-    int32_t m_TertiaryBudget;
-    int32_t m_ClothCloakArmor;
-    int32_t m_ClothChestArmor;
-    int32_t m_LeatherChestArmor;
-    int32_t m_MailChestArmor;
-    int32_t m_PlateChestArmor;
+        int32_t m_ID;
+        int32_t m_Charlevel;
+        int32_t m_ShoulderBudget;
+        int32_t m_TrinketBudget;
+        int32_t m_WeaponBudget1H;
+        int32_t m_RangedBudget;
+        int32_t m_ClothShoulderArmor;
+        int32_t m_LeatherShoulderArmor;
+        int32_t m_MailShoulderArmor;
+        int32_t m_PlateShoulderArmor;
+        int32_t m_WeaponDPS1H;
+        int32_t m_WeaponDPS2H;
+        int32_t m_SpellcasterDPS1H;
+        int32_t m_SpellcasterDPS2H;
+        int32_t m_RangedDPS;
+        int32_t m_WandDPS;
+        int32_t m_SpellPower;
+        int32_t m_PrimaryBudget;
+        int32_t m_TertiaryBudget;
+        int32_t m_ClothCloakArmor;
+        int32_t m_ClothChestArmor;
+        int32_t m_LeatherChestArmor;
+        int32_t m_MailChestArmor;
+        int32_t m_PlateChestArmor;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

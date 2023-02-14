@@ -7,21 +7,21 @@
 
 class AreaTriggerRec {
     public:
-    static constexpr uint32_t columnCount = 10;
-    static constexpr uint32_t rowSize = 40;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 10;
+        static constexpr uint32_t rowSize = 40;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_ContinentID;
-    float m_Pos[3];
-    float m_Radius;
-    float m_Box_length;
-    float m_Box_width;
-    float m_Box_height;
-    float m_Box_yaw;
+        int32_t m_ID;
+        int32_t m_ContinentID;
+        float m_Pos[3];
+        float m_Radius;
+        float m_Box_length;
+        float m_Box_width;
+        float m_Box_height;
+        float m_Box_yaw;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

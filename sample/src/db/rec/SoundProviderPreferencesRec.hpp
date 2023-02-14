@@ -7,37 +7,37 @@
 
 class SoundProviderPreferencesRec {
     public:
-    static constexpr uint32_t columnCount = 24;
-    static constexpr uint32_t rowSize = 96;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 24;
+        static constexpr uint32_t rowSize = 96;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    const char* m_Description;
-    int32_t m_Flags;
-    int32_t m_EAXEnvironmentSelection;
-    float m_EAXDecayTime;
-    float m_EAX2EnvironmentSize;
-    float m_EAX2EnvironmentDiffusion;
-    int32_t m_EAX2Room;
-    int32_t m_EAX2RoomHF;
-    float m_EAX2DecayHFRatio;
-    int32_t m_EAX2Reflections;
-    float m_EAX2ReflectionsDelay;
-    int32_t m_EAX2Reverb;
-    float m_EAX2ReverbDelay;
-    float m_EAX2RoomRolloff;
-    float m_EAX2AirAbsorption;
-    int32_t m_EAX3RoomLF;
-    float m_EAX3DecayLFRatio;
-    float m_EAX3EchoTime;
-    float m_EAX3EchoDepth;
-    float m_EAX3ModulationTime;
-    float m_EAX3ModulationDepth;
-    float m_EAX3HFReference;
-    float m_EAX3LFReference;
+        int32_t m_ID;
+        const char* m_Description;
+        int32_t m_Flags;
+        int32_t m_EAXEnvironmentSelection;
+        float m_EAXDecayTime;
+        float m_EAX2EnvironmentSize;
+        float m_EAX2EnvironmentDiffusion;
+        int32_t m_EAX2Room;
+        int32_t m_EAX2RoomHF;
+        float m_EAX2DecayHFRatio;
+        int32_t m_EAX2Reflections;
+        float m_EAX2ReflectionsDelay;
+        int32_t m_EAX2Reverb;
+        float m_EAX2ReverbDelay;
+        float m_EAX2RoomRolloff;
+        float m_EAX2AirAbsorption;
+        int32_t m_EAX3RoomLF;
+        float m_EAX3DecayLFRatio;
+        float m_EAX3EchoTime;
+        float m_EAX3EchoDepth;
+        float m_EAX3ModulationTime;
+        float m_EAX3ModulationDepth;
+        float m_EAX3HFReference;
+        float m_EAX3LFReference;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

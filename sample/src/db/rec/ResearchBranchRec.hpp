@@ -7,19 +7,19 @@
 
 class ResearchBranchRec {
     public:
-    static constexpr uint32_t columnCount = 22;
-    static constexpr uint32_t rowSize = 88;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 22;
+        static constexpr uint32_t rowSize = 88;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    const char* m_Name_lang;
-    int32_t m_ResearchFieldID;
-    int32_t m_CurrencyID;
-    const char* m_Texture;
-    int32_t m_ItemID;
+        int32_t m_ID;
+        const char* m_Name_lang;
+        int32_t m_ResearchFieldID;
+        int32_t m_CurrencyID;
+        const char* m_Texture;
+        int32_t m_ItemID;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

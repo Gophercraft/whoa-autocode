@@ -7,32 +7,32 @@
 
 class DestructibleModelDataRec {
     public:
-    static constexpr uint32_t columnCount = 19;
-    static constexpr uint32_t rowSize = 76;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 19;
+        static constexpr uint32_t rowSize = 76;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_State0ImpactEffectDoodadSet;
-    int32_t m_State0AmbientDoodadSet;
-    int32_t m_State1WMO;
-    int32_t m_State1DestructionDoodadSet;
-    int32_t m_State1ImpactEffectDoodadSet;
-    int32_t m_State1AmbientDoodadSet;
-    int32_t m_State2WMO;
-    int32_t m_State2DestructionDoodadSet;
-    int32_t m_State2ImpactEffectDoodadSet;
-    int32_t m_State2AmbientDoodadSet;
-    int32_t m_State3WMO;
-    int32_t m_State3InitDoodadSet;
-    int32_t m_State3AmbientDoodadSet;
-    int32_t m_EjectDirection;
-    int32_t m_RepairGroundFx;
-    int32_t m_DoNotHighlight;
-    int32_t m_HealEffect;
-    int32_t m_HealEffectSpeed;
+        int32_t m_ID;
+        int32_t m_State0ImpactEffectDoodadSet;
+        int32_t m_State0AmbientDoodadSet;
+        int32_t m_State1WMO;
+        int32_t m_State1DestructionDoodadSet;
+        int32_t m_State1ImpactEffectDoodadSet;
+        int32_t m_State1AmbientDoodadSet;
+        int32_t m_State2WMO;
+        int32_t m_State2DestructionDoodadSet;
+        int32_t m_State2ImpactEffectDoodadSet;
+        int32_t m_State2AmbientDoodadSet;
+        int32_t m_State3WMO;
+        int32_t m_State3InitDoodadSet;
+        int32_t m_State3AmbientDoodadSet;
+        int32_t m_EjectDirection;
+        int32_t m_RepairGroundFx;
+        int32_t m_DoNotHighlight;
+        int32_t m_HealEffect;
+        int32_t m_HealEffectSpeed;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

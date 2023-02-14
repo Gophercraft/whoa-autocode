@@ -7,17 +7,17 @@
 
 class CharacterFacialHairStylesRec {
     public:
-    static constexpr uint32_t columnCount = 8;
-    static constexpr uint32_t rowSize = 32;
-    static constexpr bool indexIsID = true;
+        static constexpr uint32_t columnCount = 8;
+        static constexpr uint32_t rowSize = 32;
+        static constexpr bool indexIsID = true;
 
-    int32_t m_RaceID;
-    int32_t m_SexID;
-    int32_t m_VariationID;
-    int32_t m_Geoset[5];
+        int32_t m_RaceID;
+        int32_t m_SexID;
+        int32_t m_VariationID;
+        int32_t m_Geoset[5];
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

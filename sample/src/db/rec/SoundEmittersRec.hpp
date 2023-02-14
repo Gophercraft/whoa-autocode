@@ -7,19 +7,19 @@
 
 class SoundEmittersRec {
     public:
-    static constexpr uint32_t columnCount = 10;
-    static constexpr uint32_t rowSize = 40;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 10;
+        static constexpr uint32_t rowSize = 40;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    float m_Position[3];
-    float m_Direction[3];
-    int32_t m_SoundEntryAdvancedID;
-    int32_t m_MapID;
-    const char* m_Name;
+        int32_t m_ID;
+        float m_Position[3];
+        float m_Direction[3];
+        int32_t m_SoundEntryAdvancedID;
+        int32_t m_MapID;
+        const char* m_Name;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

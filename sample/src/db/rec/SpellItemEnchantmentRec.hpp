@@ -7,27 +7,27 @@
 
 class SpellItemEnchantmentRec {
     public:
-    static constexpr uint32_t columnCount = 38;
-    static constexpr uint32_t rowSize = 152;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 38;
+        static constexpr uint32_t rowSize = 152;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_Charges;
-    int32_t m_Effect[3];
-    int32_t m_EffectPointsMin[3];
-    int32_t m_EffectPointsMax[3];
-    int32_t m_EffectArg[3];
-    const char* m_Name_lang;
-    int32_t m_ItemVisual;
-    int32_t m_Flags;
-    int32_t m_Src_itemID;
-    int32_t m_Condition_ID;
-    int32_t m_RequiredSkillID;
-    int32_t m_RequiredSkillRank;
-    int32_t m_MinLevel;
+        int32_t m_ID;
+        int32_t m_Charges;
+        int32_t m_Effect[3];
+        int32_t m_EffectPointsMin[3];
+        int32_t m_EffectPointsMax[3];
+        int32_t m_EffectArg[3];
+        const char* m_Name_lang;
+        int32_t m_ItemVisual;
+        int32_t m_Flags;
+        int32_t m_Src_itemID;
+        int32_t m_Condition_ID;
+        int32_t m_RequiredSkillID;
+        int32_t m_RequiredSkillRank;
+        int32_t m_MinLevel;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

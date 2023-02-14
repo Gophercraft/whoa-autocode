@@ -7,19 +7,19 @@
 
 class AnimKitBoneSetRec {
     public:
-    static constexpr uint32_t columnCount = 6;
-    static constexpr uint32_t rowSize = 24;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 6;
+        static constexpr uint32_t rowSize = 24;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    const char* m_Name;
-    int32_t m_BoneDataID;
-    int32_t m_ParentAnimKitBoneSetID;
-    int32_t m_ExtraBoneCount;
-    int32_t m_AltAnimKitBoneSetID;
+        int32_t m_ID;
+        const char* m_Name;
+        int32_t m_BoneDataID;
+        int32_t m_ParentAnimKitBoneSetID;
+        int32_t m_ExtraBoneCount;
+        int32_t m_AltAnimKitBoneSetID;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

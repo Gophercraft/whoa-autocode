@@ -7,16 +7,16 @@
 
 class LiquidMaterialRec {
     public:
-    static constexpr uint32_t columnCount = 3;
-    static constexpr uint32_t rowSize = 12;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 3;
+        static constexpr uint32_t rowSize = 12;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_LVF;
-    int32_t m_Flags;
+        int32_t m_ID;
+        int32_t m_LVF;
+        int32_t m_Flags;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

@@ -7,24 +7,24 @@
 
 class WorldMapContinentRec {
     public:
-    static constexpr uint32_t columnCount = 14;
-    static constexpr uint32_t rowSize = 56;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 14;
+        static constexpr uint32_t rowSize = 56;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_MapID;
-    int32_t m_LeftBoundary;
-    int32_t m_RightBoundary;
-    int32_t m_TopBoundary;
-    int32_t m_BottomBoundary;
-    float m_ContinentOffset[2];
-    float m_Scale;
-    float m_TaxiMin[2];
-    float m_TaxiMax[2];
-    int32_t m_WorldMapID;
+        int32_t m_ID;
+        int32_t m_MapID;
+        int32_t m_LeftBoundary;
+        int32_t m_RightBoundary;
+        int32_t m_TopBoundary;
+        int32_t m_BottomBoundary;
+        float m_ContinentOffset[2];
+        float m_Scale;
+        float m_TaxiMin[2];
+        float m_TaxiMax[2];
+        int32_t m_WorldMapID;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

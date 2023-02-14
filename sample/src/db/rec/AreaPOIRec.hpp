@@ -7,25 +7,25 @@
 
 class AreaPOIRec {
     public:
-    static constexpr uint32_t columnCount = 54;
-    static constexpr uint32_t rowSize = 216;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 54;
+        static constexpr uint32_t rowSize = 216;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_Importance;
-    int32_t m_Icon[9];
-    int32_t m_FactionID;
-    float m_Pos[3];
-    int32_t m_ContinentID;
-    int32_t m_Flags;
-    int32_t m_AreaID;
-    const char* m_Name_lang;
-    const char* m_Description_lang;
-    int32_t m_WorldStateID;
-    int32_t m_WorldMapLink;
+        int32_t m_ID;
+        int32_t m_Importance;
+        int32_t m_Icon[9];
+        int32_t m_FactionID;
+        float m_Pos[3];
+        int32_t m_ContinentID;
+        int32_t m_Flags;
+        int32_t m_AreaID;
+        const char* m_Name_lang;
+        const char* m_Description_lang;
+        int32_t m_WorldStateID;
+        int32_t m_WorldMapLink;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

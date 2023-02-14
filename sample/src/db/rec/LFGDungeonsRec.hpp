@@ -7,30 +7,30 @@
 
 class LFGDungeonsRec {
     public:
-    static constexpr uint32_t columnCount = 49;
-    static constexpr uint32_t rowSize = 196;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 49;
+        static constexpr uint32_t rowSize = 196;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    const char* m_Name_lang;
-    int32_t m_MinLevel;
-    int32_t m_MaxLevel;
-    int32_t m_Target_level;
-    int32_t m_Target_level_min;
-    int32_t m_Target_level_max;
-    int32_t m_MapID;
-    int32_t m_Difficulty;
-    int32_t m_Flags;
-    int32_t m_TypeID;
-    int32_t m_Faction;
-    const char* m_TextureFilename;
-    int32_t m_ExpansionLevel;
-    int32_t m_Order_index;
-    int32_t m_Group_ID;
-    const char* m_Description_lang;
+        int32_t m_ID;
+        const char* m_Name_lang;
+        int32_t m_MinLevel;
+        int32_t m_MaxLevel;
+        int32_t m_Target_level;
+        int32_t m_Target_level_min;
+        int32_t m_Target_level_max;
+        int32_t m_MapID;
+        int32_t m_Difficulty;
+        int32_t m_Flags;
+        int32_t m_TypeID;
+        int32_t m_Faction;
+        const char* m_TextureFilename;
+        int32_t m_ExpansionLevel;
+        int32_t m_Order_index;
+        int32_t m_Group_ID;
+        const char* m_Description_lang;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

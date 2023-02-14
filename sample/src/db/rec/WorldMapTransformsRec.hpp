@@ -7,20 +7,20 @@
 
 class WorldMapTransformsRec {
     public:
-    static constexpr uint32_t columnCount = 10;
-    static constexpr uint32_t rowSize = 40;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 10;
+        static constexpr uint32_t rowSize = 40;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_MapID;
-    float m_RegionMin[2];
-    float m_RegionMax[2];
-    int32_t m_NewMapID;
-    float m_RegionOffset[2];
-    int32_t m_NewDungeonMapID;
+        int32_t m_ID;
+        int32_t m_MapID;
+        float m_RegionMin[2];
+        float m_RegionMax[2];
+        int32_t m_NewMapID;
+        float m_RegionOffset[2];
+        int32_t m_NewDungeonMapID;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

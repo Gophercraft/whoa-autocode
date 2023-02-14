@@ -7,32 +7,32 @@
 
 class LiquidTypeRec {
     public:
-    static constexpr uint32_t columnCount = 45;
-    static constexpr uint32_t rowSize = 180;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 45;
+        static constexpr uint32_t rowSize = 180;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    const char* m_Name;
-    int32_t m_Flags;
-    int32_t m_SoundBank;
-    int32_t m_SoundID;
-    int32_t m_SpellID;
-    float m_MaxDarkenDepth;
-    float m_FogDarkenIntensity;
-    float m_AmbDarkenIntensity;
-    float m_DirDarkenIntensity;
-    int32_t m_LightID;
-    float m_ParticleScale;
-    int32_t m_ParticleMovement;
-    int32_t m_ParticleTexSlots;
-    int32_t m_MaterialID;
-    const char* m_Texture[6];
-    int32_t m_Color[2];
-    float m_Float[18];
-    int32_t m_Int[4];
+        int32_t m_ID;
+        const char* m_Name;
+        int32_t m_Flags;
+        int32_t m_SoundBank;
+        int32_t m_SoundID;
+        int32_t m_SpellID;
+        float m_MaxDarkenDepth;
+        float m_FogDarkenIntensity;
+        float m_AmbDarkenIntensity;
+        float m_DirDarkenIntensity;
+        int32_t m_LightID;
+        float m_ParticleScale;
+        int32_t m_ParticleMovement;
+        int32_t m_ParticleTexSlots;
+        int32_t m_MaterialID;
+        const char* m_Texture[6];
+        int32_t m_Color[2];
+        float m_Float[18];
+        int32_t m_Int[4];
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

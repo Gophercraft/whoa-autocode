@@ -7,17 +7,17 @@
 
 class ParticleColorRec {
     public:
-    static constexpr uint32_t columnCount = 10;
-    static constexpr uint32_t rowSize = 40;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 10;
+        static constexpr uint32_t rowSize = 40;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_Start[3];
-    int32_t m_MID[3];
-    int32_t m_End[3];
+        int32_t m_ID;
+        int32_t m_Start[3];
+        int32_t m_MID[3];
+        int32_t m_End[3];
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

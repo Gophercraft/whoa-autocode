@@ -7,18 +7,18 @@
 
 class DeathThudLookupsRec {
     public:
-    static constexpr uint32_t columnCount = 5;
-    static constexpr uint32_t rowSize = 20;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 5;
+        static constexpr uint32_t rowSize = 20;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_SizeClass;
-    int32_t m_TerrainTypeSoundID;
-    int32_t m_SoundEntryID;
-    int32_t m_SoundEntryIDWater;
+        int32_t m_ID;
+        int32_t m_SizeClass;
+        int32_t m_TerrainTypeSoundID;
+        int32_t m_SoundEntryID;
+        int32_t m_SoundEntryIDWater;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

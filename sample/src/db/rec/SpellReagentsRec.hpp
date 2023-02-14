@@ -7,16 +7,16 @@
 
 class SpellReagentsRec {
     public:
-    static constexpr uint32_t columnCount = 17;
-    static constexpr uint32_t rowSize = 68;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 17;
+        static constexpr uint32_t rowSize = 68;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_Reagent[8];
-    int32_t m_ReagentCount[8];
+        int32_t m_ID;
+        int32_t m_Reagent[8];
+        int32_t m_ReagentCount[8];
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

@@ -7,26 +7,26 @@
 
 class CameraModeRec {
     public:
-    static constexpr uint32_t columnCount = 17;
-    static constexpr uint32_t rowSize = 68;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 17;
+        static constexpr uint32_t rowSize = 68;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    const char* m_Name;
-    int32_t m_Type;
-    int32_t m_Flags;
-    float m_PositionOffset[3];
-    float m_TargetOffset[3];
-    float m_PositionSmoothing;
-    float m_RotationSmoothing;
-    float m_FieldOfView;
-    int32_t m_LockedPositionOffsetBase;
-    int32_t m_LockedPositionOffsetDirection;
-    int32_t m_LockedTargetOffsetBase;
-    int32_t m_LockedTargetOffsetDirection;
+        int32_t m_ID;
+        const char* m_Name;
+        int32_t m_Type;
+        int32_t m_Flags;
+        float m_PositionOffset[3];
+        float m_TargetOffset[3];
+        float m_PositionSmoothing;
+        float m_RotationSmoothing;
+        float m_FieldOfView;
+        int32_t m_LockedPositionOffsetBase;
+        int32_t m_LockedPositionOffsetDirection;
+        int32_t m_LockedTargetOffsetBase;
+        int32_t m_LockedTargetOffsetDirection;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

@@ -7,30 +7,30 @@
 
 class AreaTableRec {
     public:
-    static constexpr uint32_t columnCount = 36;
-    static constexpr uint32_t rowSize = 144;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 36;
+        static constexpr uint32_t rowSize = 144;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_ContinentID;
-    int32_t m_ParentAreaID;
-    int32_t m_AreaBit;
-    int32_t m_Flags;
-    int32_t m_SoundProviderPref;
-    int32_t m_SoundProviderPrefUnderwater;
-    int32_t m_AmbienceID;
-    int32_t m_ZoneMusic;
-    int32_t m_IntroSound;
-    int32_t m_ExplorationLevel;
-    const char* m_AreaName_lang;
-    int32_t m_FactionGroupMask;
-    int32_t m_LiquidTypeID[4];
-    float m_MinElevation;
-    float m_Ambient_multiplier;
-    int32_t m_LightID;
+        int32_t m_ID;
+        int32_t m_ContinentID;
+        int32_t m_ParentAreaID;
+        int32_t m_AreaBit;
+        int32_t m_Flags;
+        int32_t m_SoundProviderPref;
+        int32_t m_SoundProviderPrefUnderwater;
+        int32_t m_AmbienceID;
+        int32_t m_ZoneMusic;
+        int32_t m_IntroSound;
+        int32_t m_ExplorationLevel;
+        const char* m_AreaName_lang;
+        int32_t m_FactionGroupMask;
+        int32_t m_LiquidTypeID[4];
+        float m_MinElevation;
+        float m_Ambient_multiplier;
+        int32_t m_LightID;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

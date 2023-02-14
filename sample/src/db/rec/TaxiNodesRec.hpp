@@ -7,18 +7,18 @@
 
 class TaxiNodesRec {
     public:
-    static constexpr uint32_t columnCount = 24;
-    static constexpr uint32_t rowSize = 96;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 24;
+        static constexpr uint32_t rowSize = 96;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_ContinentID;
-    float m_Pos[3];
-    const char* m_Name_lang;
-    int32_t m_MountCreatureID[2];
+        int32_t m_ID;
+        int32_t m_ContinentID;
+        float m_Pos[3];
+        const char* m_Name_lang;
+        int32_t m_MountCreatureID[2];
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

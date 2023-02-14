@@ -7,18 +7,18 @@
 
 class CinematicCameraRec {
     public:
-    static constexpr uint32_t columnCount = 7;
-    static constexpr uint32_t rowSize = 28;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 7;
+        static constexpr uint32_t rowSize = 28;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    const char* m_Model;
-    int32_t m_SoundID;
-    float m_Origin[3];
-    float m_OriginFacing;
+        int32_t m_ID;
+        const char* m_Model;
+        int32_t m_SoundID;
+        float m_Origin[3];
+        float m_OriginFacing;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

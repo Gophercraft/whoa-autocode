@@ -7,19 +7,19 @@
 
 class PowerDisplayRec {
     public:
-    static constexpr uint32_t columnCount = 6;
-    static constexpr uint32_t rowSize = 15;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 6;
+        static constexpr uint32_t rowSize = 15;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_ActualType;
-    const char* m_GlobalStringBaseTag;
-    int8_t m_Red;
-    int8_t m_Green;
-    int8_t m_Blue;
+        int32_t m_ID;
+        int32_t m_ActualType;
+        const char* m_GlobalStringBaseTag;
+        int8_t m_Red;
+        int8_t m_Green;
+        int8_t m_Blue;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

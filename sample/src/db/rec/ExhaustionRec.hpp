@@ -7,20 +7,20 @@
 
 class ExhaustionRec {
     public:
-    static constexpr uint32_t columnCount = 23;
-    static constexpr uint32_t rowSize = 92;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 23;
+        static constexpr uint32_t rowSize = 92;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_Xp;
-    float m_Factor;
-    float m_OutdoorHours;
-    float m_InnHours;
-    const char* m_Name_lang;
-    float m_Threshold;
+        int32_t m_ID;
+        int32_t m_Xp;
+        float m_Factor;
+        float m_OutdoorHours;
+        float m_InnHours;
+        const char* m_Name_lang;
+        float m_Threshold;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

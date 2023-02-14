@@ -7,29 +7,29 @@
 
 class AnimKitSegmentRec {
     public:
-    static constexpr uint32_t columnCount = 16;
-    static constexpr uint32_t rowSize = 64;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 16;
+        static constexpr uint32_t rowSize = 64;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_ParentAnimKitID;
-    int32_t m_AnimID;
-    int32_t m_AnimStartTime;
-    int32_t m_AnimKitConfigID;
-    int32_t m_StartCondition;
-    int32_t m_StartConditionParam;
-    int32_t m_StartConditionDelay;
-    int32_t m_EndCondition;
-    int32_t m_EndConditionParam;
-    int32_t m_EndConditionDelay;
-    float m_Speed;
-    int32_t m_SegmentFlags;
-    int32_t m_ForcedVariation;
-    int32_t m_OverrideConfigFlags;
-    int32_t m_LoopToSegmentIndex;
+        int32_t m_ID;
+        int32_t m_ParentAnimKitID;
+        int32_t m_AnimID;
+        int32_t m_AnimStartTime;
+        int32_t m_AnimKitConfigID;
+        int32_t m_StartCondition;
+        int32_t m_StartConditionParam;
+        int32_t m_StartConditionDelay;
+        int32_t m_EndCondition;
+        int32_t m_EndConditionParam;
+        int32_t m_EndConditionDelay;
+        float m_Speed;
+        int32_t m_SegmentFlags;
+        int32_t m_ForcedVariation;
+        int32_t m_OverrideConfigFlags;
+        int32_t m_LoopToSegmentIndex;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

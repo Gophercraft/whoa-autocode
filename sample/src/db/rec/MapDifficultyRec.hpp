@@ -7,20 +7,20 @@
 
 class MapDifficultyRec {
     public:
-    static constexpr uint32_t columnCount = 23;
-    static constexpr uint32_t rowSize = 92;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 23;
+        static constexpr uint32_t rowSize = 92;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_MapID;
-    int32_t m_Difficulty;
-    const char* m_Message_lang;
-    int32_t m_RaidDuration;
-    int32_t m_MaxPlayers;
-    const char* m_Difficultystring;
+        int32_t m_ID;
+        int32_t m_MapID;
+        int32_t m_Difficulty;
+        const char* m_Message_lang;
+        int32_t m_RaidDuration;
+        int32_t m_MaxPlayers;
+        const char* m_Difficultystring;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif

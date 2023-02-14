@@ -7,19 +7,19 @@
 
 class WeatherRec {
     public:
-    static constexpr uint32_t columnCount = 8;
-    static constexpr uint32_t rowSize = 32;
-    static constexpr bool indexIsID = false;
+        static constexpr uint32_t columnCount = 8;
+        static constexpr uint32_t rowSize = 32;
+        static constexpr bool indexIsID = false;
 
-    int32_t m_ID;
-    int32_t m_AmbienceID;
-    int32_t m_EffectType;
-    float m_TransitionSkyBox;
-    float m_EffectColor[3];
-    const char* m_EffectTexture;
+        int32_t m_ID;
+        int32_t m_AmbienceID;
+        int32_t m_EffectType;
+        float m_TransitionSkyBox;
+        float m_EffectColor[3];
+        const char* m_EffectTexture;
 
-    static const char* GetFilename();
-    bool Read(SFile* f, const char* stringBuffer);
+        static const char* GetFilename();
+        bool Read(SFile* f, const char* stringBuffer);
 };
 
 #endif
