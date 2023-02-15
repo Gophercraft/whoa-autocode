@@ -16,7 +16,7 @@ func splitByCaseChange(tok string) (elements []string) {
 
 		tmp += string(unicode.ToLower(first))
 
-		if unicode.IsUpper(second) && unicode.IsLower(first) {
+		if unicode.IsUpper(second) && unicode.IsLower(first) || first >= '0' && first <= '9' {
 			elements = append(elements, tmp)
 			tmp = ""
 		}
@@ -43,6 +43,7 @@ func splitByCaseChange(tok string) (elements []string) {
 	return
 }
 
+// Example: SomeInput_LikeThis -> SOME_INPUT_LIKE_THIS
 func convertToScreamCase(definitionName string) string {
 	var underscoreSplit []string
 
@@ -58,11 +59,33 @@ func convertToScreamCase(definitionName string) string {
 	}
 
 	var trimElements []string
-	for _, element := range trimElements {
+	for _, element := range elements {
 		if element != "" {
 			trimElements = append(trimElements, element)
 		}
 	}
 
 	return strings.Join(elements, "_")
+}
+
+func shouldAlwaysUppercase(str string) bool {
+	check := strings.ToUpper(str)
+
+	alwaysUppercaseList := []string{
+		"DB",
+		"ID",
+		"WMO",
+	}
+
+	for _, c := range alwaysUppercaseList {
+		if c == check {
+			return true
+		}
+	}
+
+	return false
+}
+
+func normalizeFieldName(fieldName string) string {
+	return fieldName
 }
