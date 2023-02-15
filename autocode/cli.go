@@ -52,8 +52,8 @@ func init() {
 	rootCmd.Flags().StringP("location", "l", "", "The Whoa code directory")
 	rootCmd.Flags().Uint32P("build", "b", 12340, "The dbc format build")
 	rootCmd.Flags().StringP("definitions", "d", "", "Optional: supply a definitions directory")
-	rootCmd.Flags().StringP("layout-header-localimports", "p", "", "Optional: inside record layout headers, replace local #include directives with comma separated list e.g. whoa-autocode -p \"util/SFile.hpp,client/Console.hpp\"")
-	rootCmd.Flags().StringP("layout-header-stdimports", "c", "", "Optional: inside record layout headers, replace standard library #include directives with comma separated list e.g. whoa-autocode -c \"cstdint,storm/File.hpp\"")
+	rootCmd.Flags().StringP("layout-header-localimports", "p", "", "Optional: inside record layout headers, replace local #include directives with comma separated list e.g. whoa-autocode --layout-header-localimports \"util/SFile.hpp,client/Console.hpp\"")
+	rootCmd.Flags().StringP("layout-header-stdimports", "c", "", "Optional: inside record layout headers, replace standard library #include directives with comma separated list e.g. whoa-autocode --layout-header-stdimports \"cstdint,storm/File.hpp\"")
 }
 
 func Run() {

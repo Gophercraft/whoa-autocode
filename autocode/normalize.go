@@ -86,6 +86,57 @@ func shouldAlwaysUppercase(str string) bool {
 	return false
 }
 
+// Examples: SomeInput_LikeThis -> someInputLikeThis
+//           ID -> ID
+//           Thingamajig_ID -> thingamajigID
+
 func normalizeFieldName(fieldName string) string {
-	return fieldName
+	if strings.HasPrefix(fieldName, "Field_") {
+		return "f" + fieldName[1:]
+	}
+
+	langEnd := strings.LastIndex(fieldName, "_lang")
+	if langEnd > -1 {
+		fieldName = fieldName[:langEnd]
+	}
+
+	underscoreSplit := strings.Split(fieldName, "_")
+
+	var elements []string
+
+	for _, underscoreElement := range underscoreSplit {
+		caseSplit := splitByCaseChange(underscoreElement)
+		for _, caseElement := range caseSplit {
+			elements = append(elements, caseElement)
+		}
+	}
+
+	var trimElements []string
+	for _, element := range elements {
+		if element != "" {
+			trimElements = append(trimElements, element)
+		}
+	}
+
+	caseElements := make([]string, len(trimElements))
+
+	for i := range caseElements {
+		if i == 0 {
+			if shouldAlwaysUppercase(trimElements[i]) {
+				caseElements[i] = strings.ToUpper(trimElements[i])
+			} else {
+				caseElements[i] = strings.ToLower(trimElements[i])
+			}
+		} else {
+			if shouldAlwaysUppercase(trimElements[i]) {
+				caseElements[i] = strings.ToUpper(trimElements[i])
+			} else {
+				str := []rune(trimElements[i])
+				str[0] = unicode.ToUpper(str[0])
+				caseElements[i] = string(str)
+			}
+		}
+	}
+
+	return strings.Join(caseElements, "")
 }
