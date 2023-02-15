@@ -5,80 +5,84 @@ const char* FactionRec::GetFilename() {
     return "DBFilesClient\\Faction.dbc";
 }
 
+int32_t FactionRec::GetID() {
+    return this->m_ID;
+}
+
 bool FactionRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t Name_langOfs[16];
-    uint32_t Name_langMask;
-    uint32_t Description_langOfs[16];
-    uint32_t Description_langMask;
+    uint32_t nameOfs[16];
+    uint32_t nameMask;
+    uint32_t descriptionOfs[16];
+    uint32_t descriptionMask;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ReputationIndex, sizeof(this->m_ReputationIndex), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ReputationRaceMask[0], sizeof(m_ReputationRaceMask[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ReputationRaceMask[1], sizeof(m_ReputationRaceMask[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ReputationRaceMask[2], sizeof(m_ReputationRaceMask[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ReputationRaceMask[3], sizeof(m_ReputationRaceMask[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ReputationClassMask[0], sizeof(m_ReputationClassMask[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ReputationClassMask[1], sizeof(m_ReputationClassMask[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ReputationClassMask[2], sizeof(m_ReputationClassMask[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ReputationClassMask[3], sizeof(m_ReputationClassMask[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ReputationBase[0], sizeof(m_ReputationBase[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ReputationBase[1], sizeof(m_ReputationBase[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ReputationBase[2], sizeof(m_ReputationBase[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ReputationBase[3], sizeof(m_ReputationBase[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ReputationFlags[0], sizeof(m_ReputationFlags[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ReputationFlags[1], sizeof(m_ReputationFlags[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ReputationFlags[2], sizeof(m_ReputationFlags[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ReputationFlags[3], sizeof(m_ReputationFlags[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ParentFactionID, sizeof(this->m_ParentFactionID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ParentFactionMod[0], sizeof(m_ParentFactionMod[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ParentFactionMod[1], sizeof(m_ParentFactionMod[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ParentFactionCap[0], sizeof(m_ParentFactionCap[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ParentFactionCap[1], sizeof(m_ParentFactionCap[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[6], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[7], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[8], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[9], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[10], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[11], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[12], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[13], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[14], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[15], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langMask, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Description_langOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Description_langOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Description_langOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Description_langOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Description_langOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Description_langOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Description_langOfs[6], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Description_langOfs[7], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Description_langOfs[8], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Description_langOfs[9], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Description_langOfs[10], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Description_langOfs[11], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Description_langOfs[12], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Description_langOfs[13], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Description_langOfs[14], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Description_langOfs[15], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Description_langMask, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_reputationIndex, sizeof(this->m_reputationIndex), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_reputationRaceMask[0], sizeof(m_reputationRaceMask[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_reputationRaceMask[1], sizeof(m_reputationRaceMask[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_reputationRaceMask[2], sizeof(m_reputationRaceMask[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_reputationRaceMask[3], sizeof(m_reputationRaceMask[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_reputationClassMask[0], sizeof(m_reputationClassMask[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_reputationClassMask[1], sizeof(m_reputationClassMask[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_reputationClassMask[2], sizeof(m_reputationClassMask[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_reputationClassMask[3], sizeof(m_reputationClassMask[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_reputationBase[0], sizeof(m_reputationBase[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_reputationBase[1], sizeof(m_reputationBase[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_reputationBase[2], sizeof(m_reputationBase[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_reputationBase[3], sizeof(m_reputationBase[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_reputationFlags[0], sizeof(m_reputationFlags[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_reputationFlags[1], sizeof(m_reputationFlags[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_reputationFlags[2], sizeof(m_reputationFlags[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_reputationFlags[3], sizeof(m_reputationFlags[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_parentFactionID, sizeof(this->m_parentFactionID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_parentFactionMod[0], sizeof(m_parentFactionMod[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_parentFactionMod[1], sizeof(m_parentFactionMod[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_parentFactionCap[0], sizeof(m_parentFactionCap[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_parentFactionCap[1], sizeof(m_parentFactionCap[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[6], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[7], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[8], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[9], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[10], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[11], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[12], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[13], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[14], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[15], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameMask, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &descriptionOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &descriptionOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &descriptionOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &descriptionOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &descriptionOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &descriptionOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &descriptionOfs[6], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &descriptionOfs[7], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &descriptionOfs[8], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &descriptionOfs[9], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &descriptionOfs[10], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &descriptionOfs[11], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &descriptionOfs[12], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &descriptionOfs[13], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &descriptionOfs[14], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &descriptionOfs[15], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &descriptionMask, sizeof(uint32_t), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_Name_lang = &stringBuffer[Name_langOfs[CURRENT_LANGUAGE]];
-        this->m_Description_lang = &stringBuffer[Description_langOfs[CURRENT_LANGUAGE]];
+        this->m_name = &stringBuffer[nameOfs[CURRENT_LANGUAGE]];
+        this->m_description = &stringBuffer[descriptionOfs[CURRENT_LANGUAGE]];
     } else {
-        this->m_Name_lang = "";
-        this->m_Description_lang = "";
+        this->m_name = "";
+        this->m_description = "";
     }
 
     return true;

@@ -5,10 +5,14 @@ const char* GMSurveyCurrentSurveyRec::GetFilename() {
     return "DBFilesClient\\GMSurveyCurrentSurvey.dbc";
 }
 
+int32_t GMSurveyCurrentSurveyRec::GetID() {
+    return this->m_generatedID;
+}
+
 bool GMSurveyCurrentSurveyRec::Read(SFile* f, const char* stringBuffer) {
     if (
-        !SFile::Read(f, &this->m_LANGID, sizeof(this->m_LANGID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_GMSURVEY_ID, sizeof(this->m_GMSURVEY_ID), nullptr, nullptr, nullptr)
+        !SFile::Read(f, &this->m_langid, sizeof(this->m_langid), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_gmsurveyID, sizeof(this->m_gmsurveyID), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

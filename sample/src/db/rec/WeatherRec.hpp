@@ -2,8 +2,8 @@
 #ifndef DB_REC_WEATHER_REC_HPP
 #define DB_REC_WEATHER_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class WeatherRec {
     public:
@@ -12,13 +12,14 @@ class WeatherRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_AmbienceID;
-        int32_t m_EffectType;
-        float m_TransitionSkyBox;
-        float m_EffectColor[3];
-        const char* m_EffectTexture;
+        int32_t m_ambienceID;
+        int32_t m_effectType;
+        float m_transitionSkyBox;
+        float m_effectColor[3];
+        const char* m_effectTexture;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

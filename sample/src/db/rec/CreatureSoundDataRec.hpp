@@ -2,8 +2,8 @@
 #ifndef DB_REC_CREATURE_SOUND_DATA_REC_HPP
 #define DB_REC_CREATURE_SOUND_DATA_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class CreatureSoundDataRec {
     public:
@@ -12,38 +12,39 @@ class CreatureSoundDataRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_SoundExertionID;
-        int32_t m_SoundExertionCriticalID;
-        int32_t m_SoundInjuryID;
-        int32_t m_SoundInjuryCriticalID;
-        int32_t m_SoundInjuryCrushingBlowID;
-        int32_t m_SoundDeathID;
-        int32_t m_SoundStunID;
-        int32_t m_SoundStandID;
-        int32_t m_SoundFootstepID;
-        int32_t m_SoundAggroID;
-        int32_t m_SoundWingFlapID;
-        int32_t m_SoundWingGlideID;
-        int32_t m_SoundAlertID;
-        int32_t m_SoundFidget[5];
-        int32_t m_CustomAttack[4];
-        int32_t m_NPCSoundID;
-        int32_t m_LoopSoundID;
-        int32_t m_CreatureImpactType;
-        int32_t m_SoundJumpStartID;
-        int32_t m_SoundJumpEndID;
-        int32_t m_SoundPetAttackID;
-        int32_t m_SoundPetOrderID;
-        int32_t m_SoundPetDismissID;
-        float m_FidgetDelaySecondsMin;
-        float m_FidgetDelaySecondsMax;
-        int32_t m_BirthSoundID;
-        int32_t m_SpellCastDirectedSoundID;
-        int32_t m_SubmergeSoundID;
-        int32_t m_SubmergedSoundID;
-        int32_t m_CreatureSoundDataIDPet;
+        int32_t m_soundExertionID;
+        int32_t m_soundExertionCriticalID;
+        int32_t m_soundInjuryID;
+        int32_t m_soundInjuryCriticalID;
+        int32_t m_soundInjuryCrushingBlowID;
+        int32_t m_soundDeathID;
+        int32_t m_soundStunID;
+        int32_t m_soundStandID;
+        int32_t m_soundFootstepID;
+        int32_t m_soundAggroID;
+        int32_t m_soundWingFlapID;
+        int32_t m_soundWingGlideID;
+        int32_t m_soundAlertID;
+        int32_t m_soundFidget[5];
+        int32_t m_customAttack[4];
+        int32_t m_npcsoundID;
+        int32_t m_loopSoundID;
+        int32_t m_creatureImpactType;
+        int32_t m_soundJumpStartID;
+        int32_t m_soundJumpEndID;
+        int32_t m_soundPetAttackID;
+        int32_t m_soundPetOrderID;
+        int32_t m_soundPetDismissID;
+        float m_fidgetDelaySecondsMin;
+        float m_fidgetDelaySecondsMax;
+        int32_t m_birthSoundID;
+        int32_t m_spellCastDirectedSoundID;
+        int32_t m_submergeSoundID;
+        int32_t m_submergedSoundID;
+        int32_t m_creatureSoundDataIdpet;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

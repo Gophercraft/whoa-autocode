@@ -5,13 +5,17 @@ const char* SpellTargetRestrictionsRec::GetFilename() {
     return "DBFilesClient\\SpellTargetRestrictions.dbc";
 }
 
+int32_t SpellTargetRestrictionsRec::GetID() {
+    return this->m_ID;
+}
+
 bool SpellTargetRestrictionsRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MaxTargets, sizeof(this->m_MaxTargets), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MaxTargetLevel, sizeof(this->m_MaxTargetLevel), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TargetCreatureType, sizeof(this->m_TargetCreatureType), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Targets, sizeof(this->m_Targets), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_maxTargets, sizeof(this->m_maxTargets), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_maxTargetLevel, sizeof(this->m_maxTargetLevel), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_targetCreatureType, sizeof(this->m_targetCreatureType), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_targets, sizeof(this->m_targets), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

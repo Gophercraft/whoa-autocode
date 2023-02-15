@@ -2,8 +2,8 @@
 #ifndef DB_REC_TERRAIN_TYPE_REC_HPP
 #define DB_REC_TERRAIN_TYPE_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class TerrainTypeRec {
     public:
@@ -11,14 +11,16 @@ class TerrainTypeRec {
         static constexpr uint32_t rowSize = 24;
         static constexpr bool indexIsID = true;
 
-        int32_t m_TerrainID;
-        const char* m_TerrainDesc;
-        int32_t m_FootstepSprayRun;
-        int32_t m_FootstepSprayWalk;
-        int32_t m_SoundID;
-        int32_t m_Flags;
+        int32_t m_terrainID;
+        const char* m_terrainDesc;
+        int32_t m_footstepSprayRun;
+        int32_t m_footstepSprayWalk;
+        int32_t m_soundID;
+        int32_t m_flags;
+        int32_t m_generatedID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

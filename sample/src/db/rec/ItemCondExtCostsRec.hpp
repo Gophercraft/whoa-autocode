@@ -2,8 +2,8 @@
 #ifndef DB_REC_ITEM_COND_EXT_COSTS_REC_HPP
 #define DB_REC_ITEM_COND_EXT_COSTS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class ItemCondExtCostsRec {
     public:
@@ -12,11 +12,12 @@ class ItemCondExtCostsRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_CondExtendedCost; // unconfirmed
-        int32_t m_ItemExtendedCostEntry;
-        int32_t m_ArenaSeason; // unconfirmed
+        int32_t m_condExtendedCost; // unconfirmed
+        int32_t m_itemExtendedCostEntry;
+        int32_t m_arenaSeason; // unconfirmed
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

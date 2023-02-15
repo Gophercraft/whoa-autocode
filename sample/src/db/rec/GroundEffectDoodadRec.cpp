@@ -5,21 +5,25 @@ const char* GroundEffectDoodadRec::GetFilename() {
     return "DBFilesClient\\GroundEffectDoodad.dbc";
 }
 
+int32_t GroundEffectDoodadRec::GetID() {
+    return this->m_ID;
+}
+
 bool GroundEffectDoodadRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t DoodadpathOfs;
+    uint32_t doodadpathOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &DoodadpathOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Flags, sizeof(this->m_Flags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &doodadpathOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_flags, sizeof(this->m_flags), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_Doodadpath = &stringBuffer[DoodadpathOfs];
+        this->m_doodadpath = &stringBuffer[doodadpathOfs];
     } else {
-        this->m_Doodadpath = "";
+        this->m_doodadpath = "";
     }
 
     return true;

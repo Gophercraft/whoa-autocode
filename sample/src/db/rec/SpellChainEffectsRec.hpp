@@ -2,8 +2,8 @@
 #ifndef DB_REC_SPELL_CHAIN_EFFECTS_REC_HPP
 #define DB_REC_SPELL_CHAIN_EFFECTS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SpellChainEffectsRec {
     public:
@@ -12,55 +12,56 @@ class SpellChainEffectsRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        float m_AvgSegLen;
-        float m_Width;
-        float m_NoiseScale;
-        float m_TexCoordScale;
-        int32_t m_SegDuration;
-        int32_t m_SegDelay;
-        const char* m_Texture;
-        int32_t m_Flags;
-        int32_t m_JointCount;
-        float m_JointOffsetRadius;
-        int32_t m_JointsPerMinorJoint;
-        int32_t m_MinorJointsPerMajorJoint;
-        float m_MinorJointScale;
-        float m_MajorJointScale;
-        float m_JointMoveSpeed;
-        float m_JointSmoothness;
-        float m_MinDurationBetweenJointJumps;
-        float m_MaxDurationBetweenJointJumps;
-        float m_WaveHeight;
-        float m_WaveFreq;
-        float m_WaveSpeed;
-        float m_MinWaveAngle;
-        float m_MaxWaveAngle;
-        float m_MinWaveSpin;
-        float m_MaxWaveSpin;
-        float m_ArcHeight;
-        float m_MinArcAngle;
-        float m_MaxArcAngle;
-        float m_MinArcSpin;
-        float m_MaxArcSpin;
-        float m_DelayBetweenEffects;
-        float m_MinFlickerOnDuration;
-        float m_MaxFlickerOnDuration;
-        float m_MinFlickerOffDuration;
-        float m_MaxFlickerOffDuration;
-        float m_PulseSpeed;
-        float m_PulseOnLength;
-        float m_PulseFadeLength;
-        int8_t m_Alpha;
-        int8_t m_Red;
-        int8_t m_Green;
-        int8_t m_Blue;
-        int8_t m_BlendMode;
-        const char* m_Combo;
-        int32_t m_RenderLayer;
-        float m_TextureLength;
-        float m_WavePhase;
+        float m_avgSegLen;
+        float m_width;
+        float m_noiseScale;
+        float m_texCoordScale;
+        int32_t m_segDuration;
+        int32_t m_segDelay;
+        const char* m_texture;
+        int32_t m_flags;
+        int32_t m_jointCount;
+        float m_jointOffsetRadius;
+        int32_t m_jointsPerMinorJoint;
+        int32_t m_minorJointsPerMajorJoint;
+        float m_minorJointScale;
+        float m_majorJointScale;
+        float m_jointMoveSpeed;
+        float m_jointSmoothness;
+        float m_minDurationBetweenJointJumps;
+        float m_maxDurationBetweenJointJumps;
+        float m_waveHeight;
+        float m_waveFreq;
+        float m_waveSpeed;
+        float m_minWaveAngle;
+        float m_maxWaveAngle;
+        float m_minWaveSpin;
+        float m_maxWaveSpin;
+        float m_arcHeight;
+        float m_minArcAngle;
+        float m_maxArcAngle;
+        float m_minArcSpin;
+        float m_maxArcSpin;
+        float m_delayBetweenEffects;
+        float m_minFlickerOnDuration;
+        float m_maxFlickerOnDuration;
+        float m_minFlickerOffDuration;
+        float m_maxFlickerOffDuration;
+        float m_pulseSpeed;
+        float m_pulseOnLength;
+        float m_pulseFadeLength;
+        int8_t m_alpha;
+        int8_t m_red;
+        int8_t m_green;
+        int8_t m_blue;
+        int8_t m_blendMode;
+        const char* m_combo;
+        int32_t m_renderLayer;
+        float m_textureLength;
+        float m_wavePhase;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

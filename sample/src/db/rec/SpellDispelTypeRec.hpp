@@ -2,8 +2,8 @@
 #ifndef DB_REC_SPELL_DISPEL_TYPE_REC_HPP
 #define DB_REC_SPELL_DISPEL_TYPE_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SpellDispelTypeRec {
     public:
@@ -12,12 +12,13 @@ class SpellDispelTypeRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        const char* m_Name_lang;
-        int32_t m_Mask;
-        int32_t m_ImmunityPossible;
-        const char* m_InternalName;
+        const char* m_name;
+        int32_t m_mask;
+        int32_t m_immunityPossible;
+        const char* m_internalName;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

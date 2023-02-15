@@ -2,8 +2,8 @@
 #ifndef DB_REC_ARMOR_LOCATION_REC_HPP
 #define DB_REC_ARMOR_LOCATION_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class ArmorLocationRec {
     public:
@@ -12,13 +12,14 @@ class ArmorLocationRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        float m_Clothmodifier;
-        float m_Leathermodifier;
-        float m_Chainmodifier;
-        float m_Platemodifier;
-        float m_Modifier;
+        float m_clothmodifier;
+        float m_leathermodifier;
+        float m_chainmodifier;
+        float m_platemodifier;
+        float m_modifier;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

@@ -2,8 +2,8 @@
 #ifndef DB_REC_FACTION_GROUP_REC_HPP
 #define DB_REC_FACTION_GROUP_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class FactionGroupRec {
     public:
@@ -12,11 +12,12 @@ class FactionGroupRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_MaskID;
-        const char* m_InternalName;
-        const char* m_Name_lang;
+        int32_t m_maskID;
+        const char* m_internalName;
+        const char* m_name;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

@@ -5,19 +5,23 @@ const char* TransportPhysicsRec::GetFilename() {
     return "DBFilesClient\\TransportPhysics.dbc";
 }
 
+int32_t TransportPhysicsRec::GetID() {
+    return this->m_ID;
+}
+
 bool TransportPhysicsRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_WaveAmp, sizeof(this->m_WaveAmp), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_WaveTimeScale, sizeof(this->m_WaveTimeScale), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RollAmp, sizeof(this->m_RollAmp), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RollTimeScale, sizeof(this->m_RollTimeScale), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PitchAmp, sizeof(this->m_PitchAmp), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PitchTimeScale, sizeof(this->m_PitchTimeScale), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MaxBank, sizeof(this->m_MaxBank), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MaxBankTurnSpeed, sizeof(this->m_MaxBankTurnSpeed), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SpeedDampThresh, sizeof(this->m_SpeedDampThresh), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SpeedDamp, sizeof(this->m_SpeedDamp), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_waveAmp, sizeof(this->m_waveAmp), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_waveTimeScale, sizeof(this->m_waveTimeScale), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_rollAmp, sizeof(this->m_rollAmp), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_rollTimeScale, sizeof(this->m_rollTimeScale), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_pitchAmp, sizeof(this->m_pitchAmp), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_pitchTimeScale, sizeof(this->m_pitchTimeScale), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_maxBank, sizeof(this->m_maxBank), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_maxBankTurnSpeed, sizeof(this->m_maxBankTurnSpeed), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_speedDampThresh, sizeof(this->m_speedDampThresh), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_speedDamp, sizeof(this->m_speedDamp), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

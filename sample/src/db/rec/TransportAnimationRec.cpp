@@ -5,15 +5,19 @@ const char* TransportAnimationRec::GetFilename() {
     return "DBFilesClient\\TransportAnimation.dbc";
 }
 
+int32_t TransportAnimationRec::GetID() {
+    return this->m_ID;
+}
+
 bool TransportAnimationRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TransportID, sizeof(this->m_TransportID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TimeIndex, sizeof(this->m_TimeIndex), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Pos[0], sizeof(m_Pos[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Pos[1], sizeof(m_Pos[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Pos[2], sizeof(m_Pos[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SequenceID, sizeof(this->m_SequenceID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_transportID, sizeof(this->m_transportID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_timeIndex, sizeof(this->m_timeIndex), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_pos[0], sizeof(m_pos[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_pos[1], sizeof(m_pos[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_pos[2], sizeof(m_pos[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_sequenceID, sizeof(this->m_sequenceID), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

@@ -5,17 +5,21 @@ const char* LightParamsRec::GetFilename() {
     return "DBFilesClient\\LightParams.dbc";
 }
 
+int32_t LightParamsRec::GetID() {
+    return this->m_ID;
+}
+
 bool LightParamsRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_HighlightSky, sizeof(this->m_HighlightSky), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_LightSkyboxID, sizeof(this->m_LightSkyboxID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Glow, sizeof(this->m_Glow), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_WaterShallowAlpha, sizeof(this->m_WaterShallowAlpha), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_WaterDeepAlpha, sizeof(this->m_WaterDeepAlpha), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_OceanShallowAlpha, sizeof(this->m_OceanShallowAlpha), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_OceanDeepAlpha, sizeof(this->m_OceanDeepAlpha), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Flags, sizeof(this->m_Flags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_highlightSky, sizeof(this->m_highlightSky), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_lightSkyboxID, sizeof(this->m_lightSkyboxID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_glow, sizeof(this->m_glow), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_waterShallowAlpha, sizeof(this->m_waterShallowAlpha), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_waterDeepAlpha, sizeof(this->m_waterDeepAlpha), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_oceanShallowAlpha, sizeof(this->m_oceanShallowAlpha), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_oceanDeepAlpha, sizeof(this->m_oceanDeepAlpha), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_flags, sizeof(this->m_flags), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

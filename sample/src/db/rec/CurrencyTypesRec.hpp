@@ -2,8 +2,8 @@
 #ifndef DB_REC_CURRENCY_TYPES_REC_HPP
 #define DB_REC_CURRENCY_TYPES_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class CurrencyTypesRec {
     public:
@@ -12,11 +12,12 @@ class CurrencyTypesRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_ItemID;
-        int32_t m_CategoryID;
-        int32_t m_BitIndex;
+        int32_t m_itemID;
+        int32_t m_categoryID;
+        int32_t m_bitIndex;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

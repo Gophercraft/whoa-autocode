@@ -5,19 +5,23 @@ const char* BannedAddonsRec::GetFilename() {
     return "DBFilesClient\\BannedAddons.dbc";
 }
 
+int32_t BannedAddonsRec::GetID() {
+    return this->m_ID;
+}
+
 bool BannedAddonsRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_NameMD5[0], sizeof(m_NameMD5[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_NameMD5[1], sizeof(m_NameMD5[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_NameMD5[2], sizeof(m_NameMD5[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_NameMD5[3], sizeof(m_NameMD5[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_VersionMD5[0], sizeof(m_VersionMD5[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_VersionMD5[1], sizeof(m_VersionMD5[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_VersionMD5[2], sizeof(m_VersionMD5[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_VersionMD5[3], sizeof(m_VersionMD5[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_LastModified, sizeof(this->m_LastModified), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Flags, sizeof(this->m_Flags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_nameMd5[0], sizeof(m_nameMd5[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_nameMd5[1], sizeof(m_nameMd5[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_nameMd5[2], sizeof(m_nameMd5[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_nameMd5[3], sizeof(m_nameMd5[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_versionMd5[0], sizeof(m_versionMd5[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_versionMd5[1], sizeof(m_versionMd5[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_versionMd5[2], sizeof(m_versionMd5[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_versionMd5[3], sizeof(m_versionMd5[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_lastModified, sizeof(this->m_lastModified), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_flags, sizeof(this->m_flags), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

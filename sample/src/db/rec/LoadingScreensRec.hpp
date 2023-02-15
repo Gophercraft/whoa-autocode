@@ -2,8 +2,8 @@
 #ifndef DB_REC_LOADING_SCREENS_REC_HPP
 #define DB_REC_LOADING_SCREENS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class LoadingScreensRec {
     public:
@@ -12,11 +12,12 @@ class LoadingScreensRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        const char* m_Name;
-        const char* m_FileName;
-        int32_t m_HasWideScreen;
+        const char* m_name;
+        const char* m_fileName;
+        int32_t m_hasWideScreen;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

@@ -5,36 +5,40 @@ const char* UnitBloodRec::GetFilename() {
     return "DBFilesClient\\UnitBlood.dbc";
 }
 
+int32_t UnitBloodRec::GetID() {
+    return this->m_ID;
+}
+
 bool UnitBloodRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t GroundBloodOfs[5];
+    uint32_t groundBloodOfs[5];
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_CombatBloodSpurtFront[0], sizeof(m_CombatBloodSpurtFront[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_CombatBloodSpurtFront[1], sizeof(m_CombatBloodSpurtFront[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_CombatBloodSpurtBack[0], sizeof(m_CombatBloodSpurtBack[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_CombatBloodSpurtBack[1], sizeof(m_CombatBloodSpurtBack[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &GroundBloodOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &GroundBloodOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &GroundBloodOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &GroundBloodOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &GroundBloodOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_combatBloodSpurtFront[0], sizeof(m_combatBloodSpurtFront[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_combatBloodSpurtFront[1], sizeof(m_combatBloodSpurtFront[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_combatBloodSpurtBack[0], sizeof(m_combatBloodSpurtBack[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_combatBloodSpurtBack[1], sizeof(m_combatBloodSpurtBack[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &groundBloodOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &groundBloodOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &groundBloodOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &groundBloodOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &groundBloodOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_GroundBlood[0] = &stringBuffer[GroundBloodOfs[0]];
-        this->m_GroundBlood[1] = &stringBuffer[GroundBloodOfs[1]];
-        this->m_GroundBlood[2] = &stringBuffer[GroundBloodOfs[2]];
-        this->m_GroundBlood[3] = &stringBuffer[GroundBloodOfs[3]];
-        this->m_GroundBlood[4] = &stringBuffer[GroundBloodOfs[4]];
+        this->m_groundBlood[0] = &stringBuffer[groundBloodOfs[0]];
+        this->m_groundBlood[1] = &stringBuffer[groundBloodOfs[1]];
+        this->m_groundBlood[2] = &stringBuffer[groundBloodOfs[2]];
+        this->m_groundBlood[3] = &stringBuffer[groundBloodOfs[3]];
+        this->m_groundBlood[4] = &stringBuffer[groundBloodOfs[4]];
     } else {
-        this->m_GroundBlood[0] = "";
-        this->m_GroundBlood[1] = "";
-        this->m_GroundBlood[2] = "";
-        this->m_GroundBlood[3] = "";
-        this->m_GroundBlood[4] = "";
+        this->m_groundBlood[0] = "";
+        this->m_groundBlood[1] = "";
+        this->m_groundBlood[2] = "";
+        this->m_groundBlood[3] = "";
+        this->m_groundBlood[4] = "";
     }
 
     return true;

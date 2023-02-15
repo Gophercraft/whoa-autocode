@@ -2,8 +2,8 @@
 #ifndef DB_REC_EMOTES_TEXT_SOUND_REC_HPP
 #define DB_REC_EMOTES_TEXT_SOUND_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class EmotesTextSoundRec {
     public:
@@ -12,12 +12,13 @@ class EmotesTextSoundRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_EmotesTextID;
-        int32_t m_RaceID;
-        int32_t m_SexID;
-        int32_t m_SoundID;
+        int32_t m_emotesTextID;
+        int32_t m_raceID;
+        int32_t m_sexID;
+        int32_t m_soundID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

@@ -5,26 +5,30 @@ const char* ZoneMusicRec::GetFilename() {
     return "DBFilesClient\\ZoneMusic.dbc";
 }
 
+int32_t ZoneMusicRec::GetID() {
+    return this->m_ID;
+}
+
 bool ZoneMusicRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t SetNameOfs;
+    uint32_t setNameOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &SetNameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SilenceIntervalMin[0], sizeof(m_SilenceIntervalMin[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SilenceIntervalMin[1], sizeof(m_SilenceIntervalMin[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SilenceIntervalMax[0], sizeof(m_SilenceIntervalMax[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SilenceIntervalMax[1], sizeof(m_SilenceIntervalMax[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Sounds[0], sizeof(m_Sounds[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Sounds[1], sizeof(m_Sounds[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &setNameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_silenceIntervalMin[0], sizeof(m_silenceIntervalMin[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_silenceIntervalMin[1], sizeof(m_silenceIntervalMin[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_silenceIntervalMax[0], sizeof(m_silenceIntervalMax[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_silenceIntervalMax[1], sizeof(m_silenceIntervalMax[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_sounds[0], sizeof(m_sounds[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_sounds[1], sizeof(m_sounds[0]), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_SetName = &stringBuffer[SetNameOfs];
+        this->m_setName = &stringBuffer[setNameOfs];
     } else {
-        this->m_SetName = "";
+        this->m_setName = "";
     }
 
     return true;

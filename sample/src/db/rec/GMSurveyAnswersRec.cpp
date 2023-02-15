@@ -5,39 +5,43 @@ const char* GMSurveyAnswersRec::GetFilename() {
     return "DBFilesClient\\GMSurveyAnswers.dbc";
 }
 
+int32_t GMSurveyAnswersRec::GetID() {
+    return this->m_ID;
+}
+
 bool GMSurveyAnswersRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t Answer_langOfs[16];
-    uint32_t Answer_langMask;
+    uint32_t answerOfs[16];
+    uint32_t answerMask;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Sort_Index, sizeof(this->m_Sort_Index), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_GMSurveyQuestionID, sizeof(this->m_GMSurveyQuestionID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Answer_langOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Answer_langOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Answer_langOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Answer_langOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Answer_langOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Answer_langOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Answer_langOfs[6], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Answer_langOfs[7], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Answer_langOfs[8], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Answer_langOfs[9], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Answer_langOfs[10], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Answer_langOfs[11], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Answer_langOfs[12], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Answer_langOfs[13], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Answer_langOfs[14], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Answer_langOfs[15], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Answer_langMask, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_sortIndex, sizeof(this->m_sortIndex), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_gmsurveyQuestionID, sizeof(this->m_gmsurveyQuestionID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &answerOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &answerOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &answerOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &answerOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &answerOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &answerOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &answerOfs[6], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &answerOfs[7], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &answerOfs[8], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &answerOfs[9], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &answerOfs[10], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &answerOfs[11], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &answerOfs[12], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &answerOfs[13], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &answerOfs[14], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &answerOfs[15], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &answerMask, sizeof(uint32_t), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_Answer_lang = &stringBuffer[Answer_langOfs[CURRENT_LANGUAGE]];
+        this->m_answer = &stringBuffer[answerOfs[CURRENT_LANGUAGE]];
     } else {
-        this->m_Answer_lang = "";
+        this->m_answer = "";
     }
 
     return true;

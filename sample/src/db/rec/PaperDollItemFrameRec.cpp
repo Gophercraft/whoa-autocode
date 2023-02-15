@@ -5,24 +5,28 @@ const char* PaperDollItemFrameRec::GetFilename() {
     return "DBFilesClient\\PaperDollItemFrame.dbc";
 }
 
+int32_t PaperDollItemFrameRec::GetID() {
+    return this->m_generatedID;
+}
+
 bool PaperDollItemFrameRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t ItemButtonNameOfs;
-    uint32_t SlotIconOfs;
+    uint32_t itemButtonNameOfs;
+    uint32_t slotIconOfs;
 
     if (
-        !SFile::Read(f, &ItemButtonNameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &SlotIconOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SlotNumber, sizeof(this->m_SlotNumber), nullptr, nullptr, nullptr)
+        !SFile::Read(f, &itemButtonNameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &slotIconOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_slotNumber, sizeof(this->m_slotNumber), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_ItemButtonName = &stringBuffer[ItemButtonNameOfs];
-        this->m_SlotIcon = &stringBuffer[SlotIconOfs];
+        this->m_itemButtonName = &stringBuffer[itemButtonNameOfs];
+        this->m_slotIcon = &stringBuffer[slotIconOfs];
     } else {
-        this->m_ItemButtonName = "";
-        this->m_SlotIcon = "";
+        this->m_itemButtonName = "";
+        this->m_slotIcon = "";
     }
 
     return true;

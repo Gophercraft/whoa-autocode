@@ -2,8 +2,8 @@
 #ifndef DB_REC_TAXI_PATH_REC_HPP
 #define DB_REC_TAXI_PATH_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class TaxiPathRec {
     public:
@@ -12,11 +12,12 @@ class TaxiPathRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_FromTaxiNode;
-        int32_t m_ToTaxiNode;
-        int32_t m_Cost;
+        int32_t m_fromTaxiNode;
+        int32_t m_toTaxiNode;
+        int32_t m_cost;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

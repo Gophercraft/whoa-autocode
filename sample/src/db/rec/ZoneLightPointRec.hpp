@@ -2,8 +2,8 @@
 #ifndef DB_REC_ZONE_LIGHT_POINT_REC_HPP
 #define DB_REC_ZONE_LIGHT_POINT_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class ZoneLightPointRec {
     public:
@@ -12,11 +12,12 @@ class ZoneLightPointRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_ZoneLightID;
-        float m_Pos[2];
-        int32_t m_PointOrder;
+        int32_t m_zoneLightID;
+        float m_pos[2];
+        int32_t m_pointOrder;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

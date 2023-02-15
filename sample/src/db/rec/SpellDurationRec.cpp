@@ -5,12 +5,16 @@ const char* SpellDurationRec::GetFilename() {
     return "DBFilesClient\\SpellDuration.dbc";
 }
 
+int32_t SpellDurationRec::GetID() {
+    return this->m_ID;
+}
+
 bool SpellDurationRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Duration, sizeof(this->m_Duration), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_DurationPerLevel, sizeof(this->m_DurationPerLevel), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MaxDuration, sizeof(this->m_MaxDuration), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_duration, sizeof(this->m_duration), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_durationPerLevel, sizeof(this->m_durationPerLevel), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_maxDuration, sizeof(this->m_maxDuration), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

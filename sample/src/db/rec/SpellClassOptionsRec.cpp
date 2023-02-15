@@ -5,14 +5,18 @@ const char* SpellClassOptionsRec::GetFilename() {
     return "DBFilesClient\\SpellClassOptions.dbc";
 }
 
+int32_t SpellClassOptionsRec::GetID() {
+    return this->m_ID;
+}
+
 bool SpellClassOptionsRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ModalNextSpell, sizeof(this->m_ModalNextSpell), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SpellClassMask[0], sizeof(m_SpellClassMask[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SpellClassMask[1], sizeof(m_SpellClassMask[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SpellClassMask[2], sizeof(m_SpellClassMask[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SpellClassSet, sizeof(this->m_SpellClassSet), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_modalNextSpell, sizeof(this->m_modalNextSpell), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spellClassMask[0], sizeof(m_spellClassMask[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spellClassMask[1], sizeof(m_spellClassMask[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spellClassMask[2], sizeof(m_spellClassMask[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spellClassSet, sizeof(this->m_spellClassSet), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

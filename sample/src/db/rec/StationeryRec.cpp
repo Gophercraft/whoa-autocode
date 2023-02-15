@@ -5,22 +5,26 @@ const char* StationeryRec::GetFilename() {
     return "DBFilesClient\\Stationery.dbc";
 }
 
+int32_t StationeryRec::GetID() {
+    return this->m_ID;
+}
+
 bool StationeryRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t TextureOfs;
+    uint32_t textureOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ItemID, sizeof(this->m_ItemID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &TextureOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Flags, sizeof(this->m_Flags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_itemID, sizeof(this->m_itemID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &textureOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_flags, sizeof(this->m_flags), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_Texture = &stringBuffer[TextureOfs];
+        this->m_texture = &stringBuffer[textureOfs];
     } else {
-        this->m_Texture = "";
+        this->m_texture = "";
     }
 
     return true;

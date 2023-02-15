@@ -5,11 +5,15 @@ const char* AnimKitBoneSetAliasRec::GetFilename() {
     return "DBFilesClient\\AnimKitBoneSetAlias.dbc";
 }
 
+int32_t AnimKitBoneSetAliasRec::GetID() {
+    return this->m_ID;
+}
+
 bool AnimKitBoneSetAliasRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_BoneDataID, sizeof(this->m_BoneDataID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AnimKitBoneSetID, sizeof(this->m_AnimKitBoneSetID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_boneDataID, sizeof(this->m_boneDataID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_animKitBoneSetID, sizeof(this->m_animKitBoneSetID), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

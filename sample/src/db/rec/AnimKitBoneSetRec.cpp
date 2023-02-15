@@ -5,24 +5,28 @@ const char* AnimKitBoneSetRec::GetFilename() {
     return "DBFilesClient\\AnimKitBoneSet.dbc";
 }
 
+int32_t AnimKitBoneSetRec::GetID() {
+    return this->m_ID;
+}
+
 bool AnimKitBoneSetRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t NameOfs;
+    uint32_t nameOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &NameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_BoneDataID, sizeof(this->m_BoneDataID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ParentAnimKitBoneSetID, sizeof(this->m_ParentAnimKitBoneSetID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ExtraBoneCount, sizeof(this->m_ExtraBoneCount), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AltAnimKitBoneSetID, sizeof(this->m_AltAnimKitBoneSetID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_boneDataID, sizeof(this->m_boneDataID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_parentAnimKitBoneSetID, sizeof(this->m_parentAnimKitBoneSetID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_extraBoneCount, sizeof(this->m_extraBoneCount), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_altAnimKitBoneSetID, sizeof(this->m_altAnimKitBoneSetID), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_Name = &stringBuffer[NameOfs];
+        this->m_name = &stringBuffer[nameOfs];
     } else {
-        this->m_Name = "";
+        this->m_name = "";
     }
 
     return true;

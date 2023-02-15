@@ -2,8 +2,8 @@
 #ifndef DB_REC_TOTEM_CATEGORY_REC_HPP
 #define DB_REC_TOTEM_CATEGORY_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class TotemCategoryRec {
     public:
@@ -12,11 +12,12 @@ class TotemCategoryRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        const char* m_Name_lang;
-        int32_t m_TotemCategoryType;
-        int32_t m_TotemCategoryMask;
+        const char* m_name;
+        int32_t m_totemCategoryType;
+        int32_t m_totemCategoryMask;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

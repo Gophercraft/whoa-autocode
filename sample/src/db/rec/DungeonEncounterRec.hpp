@@ -2,8 +2,8 @@
 #ifndef DB_REC_DUNGEON_ENCOUNTER_REC_HPP
 #define DB_REC_DUNGEON_ENCOUNTER_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class DungeonEncounterRec {
     public:
@@ -12,14 +12,15 @@ class DungeonEncounterRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_MapID;
-        int32_t m_Difficulty;
-        int32_t m_OrderIndex;
-        int32_t m_Bit;
-        const char* m_Name_lang;
-        int32_t m_SpellIconID;
+        int32_t m_mapID;
+        int32_t m_difficulty;
+        int32_t m_orderIndex;
+        int32_t m_bit;
+        const char* m_name;
+        int32_t m_spellIconID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

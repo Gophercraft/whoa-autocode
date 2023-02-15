@@ -2,8 +2,8 @@
 #ifndef DB_REC_POWER_DISPLAY_REC_HPP
 #define DB_REC_POWER_DISPLAY_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class PowerDisplayRec {
     public:
@@ -12,13 +12,14 @@ class PowerDisplayRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_ActualType;
-        const char* m_GlobalStringBaseTag;
-        int8_t m_Red;
-        int8_t m_Green;
-        int8_t m_Blue;
+        int32_t m_actualType;
+        const char* m_globalStringBaseTag;
+        int8_t m_red;
+        int8_t m_green;
+        int8_t m_blue;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

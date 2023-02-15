@@ -5,99 +5,103 @@ const char* WorldStateUIRec::GetFilename() {
     return "DBFilesClient\\WorldStateUI.dbc";
 }
 
+int32_t WorldStateUIRec::GetID() {
+    return this->m_ID;
+}
+
 bool WorldStateUIRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t IconOfs;
-    uint32_t String_langOfs[16];
-    uint32_t String_langMask;
-    uint32_t Tooltip_langOfs[16];
-    uint32_t Tooltip_langMask;
-    uint32_t DynamicIconOfs;
-    uint32_t DynamicTooltip_langOfs[16];
-    uint32_t DynamicTooltip_langMask;
-    uint32_t ExtendedUIOfs;
+    uint32_t iconOfs;
+    uint32_t stringOfs[16];
+    uint32_t stringMask;
+    uint32_t tooltipOfs[16];
+    uint32_t tooltipMask;
+    uint32_t dynamicIconOfs;
+    uint32_t dynamicTooltipOfs[16];
+    uint32_t dynamicTooltipMask;
+    uint32_t extendedUiOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MapID, sizeof(this->m_MapID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AreaID, sizeof(this->m_AreaID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PhaseShift, sizeof(this->m_PhaseShift), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &IconOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &String_langOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &String_langOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &String_langOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &String_langOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &String_langOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &String_langOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &String_langOfs[6], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &String_langOfs[7], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &String_langOfs[8], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &String_langOfs[9], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &String_langOfs[10], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &String_langOfs[11], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &String_langOfs[12], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &String_langOfs[13], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &String_langOfs[14], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &String_langOfs[15], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &String_langMask, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Tooltip_langOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Tooltip_langOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Tooltip_langOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Tooltip_langOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Tooltip_langOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Tooltip_langOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Tooltip_langOfs[6], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Tooltip_langOfs[7], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Tooltip_langOfs[8], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Tooltip_langOfs[9], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Tooltip_langOfs[10], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Tooltip_langOfs[11], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Tooltip_langOfs[12], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Tooltip_langOfs[13], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Tooltip_langOfs[14], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Tooltip_langOfs[15], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Tooltip_langMask, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_StateVariable, sizeof(this->m_StateVariable), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Type, sizeof(this->m_Type), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &DynamicIconOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &DynamicTooltip_langOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &DynamicTooltip_langOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &DynamicTooltip_langOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &DynamicTooltip_langOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &DynamicTooltip_langOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &DynamicTooltip_langOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &DynamicTooltip_langOfs[6], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &DynamicTooltip_langOfs[7], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &DynamicTooltip_langOfs[8], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &DynamicTooltip_langOfs[9], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &DynamicTooltip_langOfs[10], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &DynamicTooltip_langOfs[11], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &DynamicTooltip_langOfs[12], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &DynamicTooltip_langOfs[13], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &DynamicTooltip_langOfs[14], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &DynamicTooltip_langOfs[15], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &DynamicTooltip_langMask, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &ExtendedUIOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ExtendedUIStateVariable[0], sizeof(m_ExtendedUIStateVariable[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ExtendedUIStateVariable[1], sizeof(m_ExtendedUIStateVariable[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ExtendedUIStateVariable[2], sizeof(m_ExtendedUIStateVariable[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_mapID, sizeof(this->m_mapID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_areaID, sizeof(this->m_areaID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_phaseShift, sizeof(this->m_phaseShift), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &iconOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &stringOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &stringOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &stringOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &stringOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &stringOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &stringOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &stringOfs[6], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &stringOfs[7], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &stringOfs[8], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &stringOfs[9], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &stringOfs[10], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &stringOfs[11], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &stringOfs[12], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &stringOfs[13], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &stringOfs[14], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &stringOfs[15], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &stringMask, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &tooltipOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &tooltipOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &tooltipOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &tooltipOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &tooltipOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &tooltipOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &tooltipOfs[6], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &tooltipOfs[7], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &tooltipOfs[8], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &tooltipOfs[9], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &tooltipOfs[10], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &tooltipOfs[11], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &tooltipOfs[12], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &tooltipOfs[13], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &tooltipOfs[14], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &tooltipOfs[15], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &tooltipMask, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_stateVariable, sizeof(this->m_stateVariable), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_type, sizeof(this->m_type), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &dynamicIconOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &dynamicTooltipOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &dynamicTooltipOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &dynamicTooltipOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &dynamicTooltipOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &dynamicTooltipOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &dynamicTooltipOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &dynamicTooltipOfs[6], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &dynamicTooltipOfs[7], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &dynamicTooltipOfs[8], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &dynamicTooltipOfs[9], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &dynamicTooltipOfs[10], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &dynamicTooltipOfs[11], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &dynamicTooltipOfs[12], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &dynamicTooltipOfs[13], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &dynamicTooltipOfs[14], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &dynamicTooltipOfs[15], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &dynamicTooltipMask, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &extendedUiOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_extendedUistateVariable[0], sizeof(m_extendedUistateVariable[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_extendedUistateVariable[1], sizeof(m_extendedUistateVariable[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_extendedUistateVariable[2], sizeof(m_extendedUistateVariable[0]), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_Icon = &stringBuffer[IconOfs];
-        this->m_String_lang = &stringBuffer[String_langOfs[CURRENT_LANGUAGE]];
-        this->m_Tooltip_lang = &stringBuffer[Tooltip_langOfs[CURRENT_LANGUAGE]];
-        this->m_DynamicIcon = &stringBuffer[DynamicIconOfs];
-        this->m_DynamicTooltip_lang = &stringBuffer[DynamicTooltip_langOfs[CURRENT_LANGUAGE]];
-        this->m_ExtendedUI = &stringBuffer[ExtendedUIOfs];
+        this->m_icon = &stringBuffer[iconOfs];
+        this->m_string = &stringBuffer[stringOfs[CURRENT_LANGUAGE]];
+        this->m_tooltip = &stringBuffer[tooltipOfs[CURRENT_LANGUAGE]];
+        this->m_dynamicIcon = &stringBuffer[dynamicIconOfs];
+        this->m_dynamicTooltip = &stringBuffer[dynamicTooltipOfs[CURRENT_LANGUAGE]];
+        this->m_extendedUi = &stringBuffer[extendedUiOfs];
     } else {
-        this->m_Icon = "";
-        this->m_String_lang = "";
-        this->m_Tooltip_lang = "";
-        this->m_DynamicIcon = "";
-        this->m_DynamicTooltip_lang = "";
-        this->m_ExtendedUI = "";
+        this->m_icon = "";
+        this->m_string = "";
+        this->m_tooltip = "";
+        this->m_dynamicIcon = "";
+        this->m_dynamicTooltip = "";
+        this->m_extendedUi = "";
     }
 
     return true;

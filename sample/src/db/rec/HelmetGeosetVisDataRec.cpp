@@ -5,16 +5,20 @@ const char* HelmetGeosetVisDataRec::GetFilename() {
     return "DBFilesClient\\HelmetGeosetVisData.dbc";
 }
 
+int32_t HelmetGeosetVisDataRec::GetID() {
+    return this->m_ID;
+}
+
 bool HelmetGeosetVisDataRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_HideGeoset[0], sizeof(m_HideGeoset[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_HideGeoset[1], sizeof(m_HideGeoset[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_HideGeoset[2], sizeof(m_HideGeoset[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_HideGeoset[3], sizeof(m_HideGeoset[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_HideGeoset[4], sizeof(m_HideGeoset[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_HideGeoset[5], sizeof(m_HideGeoset[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_HideGeoset[6], sizeof(m_HideGeoset[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_hideGeoset[0], sizeof(m_hideGeoset[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_hideGeoset[1], sizeof(m_hideGeoset[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_hideGeoset[2], sizeof(m_hideGeoset[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_hideGeoset[3], sizeof(m_hideGeoset[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_hideGeoset[4], sizeof(m_hideGeoset[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_hideGeoset[5], sizeof(m_hideGeoset[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_hideGeoset[6], sizeof(m_hideGeoset[0]), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

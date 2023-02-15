@@ -2,8 +2,8 @@
 #ifndef DB_REC_NPCSOUNDS_REC_HPP
 #define DB_REC_NPCSOUNDS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class NPCSoundsRec {
     public:
@@ -12,9 +12,10 @@ class NPCSoundsRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_SoundID[4];
+        int32_t m_soundID[4];
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

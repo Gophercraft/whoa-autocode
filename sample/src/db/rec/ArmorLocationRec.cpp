@@ -5,14 +5,18 @@ const char* ArmorLocationRec::GetFilename() {
     return "DBFilesClient\\ArmorLocation.dbc";
 }
 
+int32_t ArmorLocationRec::GetID() {
+    return this->m_ID;
+}
+
 bool ArmorLocationRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Clothmodifier, sizeof(this->m_Clothmodifier), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Leathermodifier, sizeof(this->m_Leathermodifier), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Chainmodifier, sizeof(this->m_Chainmodifier), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Platemodifier, sizeof(this->m_Platemodifier), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Modifier, sizeof(this->m_Modifier), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_clothmodifier, sizeof(this->m_clothmodifier), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_leathermodifier, sizeof(this->m_leathermodifier), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_chainmodifier, sizeof(this->m_chainmodifier), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_platemodifier, sizeof(this->m_platemodifier), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_modifier, sizeof(this->m_modifier), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

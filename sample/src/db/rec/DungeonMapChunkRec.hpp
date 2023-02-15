@@ -2,8 +2,8 @@
 #ifndef DB_REC_DUNGEON_MAP_CHUNK_REC_HPP
 #define DB_REC_DUNGEON_MAP_CHUNK_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class DungeonMapChunkRec {
     public:
@@ -12,12 +12,13 @@ class DungeonMapChunkRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_MapID;
-        int32_t m_WMOGroupID;
-        int32_t m_DungeonMapID;
-        float m_MinZ;
+        int32_t m_mapID;
+        int32_t m_wmogroupID;
+        int32_t m_dungeonMapID;
+        float m_minZ;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

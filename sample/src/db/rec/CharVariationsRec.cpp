@@ -5,14 +5,18 @@ const char* CharVariationsRec::GetFilename() {
     return "DBFilesClient\\CharVariations.dbc";
 }
 
+int32_t CharVariationsRec::GetID() {
+    return this->m_generatedID;
+}
+
 bool CharVariationsRec::Read(SFile* f, const char* stringBuffer) {
     if (
-        !SFile::Read(f, &this->m_RaceID, sizeof(this->m_RaceID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SexID, sizeof(this->m_SexID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TextureHoldLayer[0], sizeof(m_TextureHoldLayer[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TextureHoldLayer[1], sizeof(m_TextureHoldLayer[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TextureHoldLayer[2], sizeof(m_TextureHoldLayer[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TextureHoldLayer[3], sizeof(m_TextureHoldLayer[0]), nullptr, nullptr, nullptr)
+        !SFile::Read(f, &this->m_raceID, sizeof(this->m_raceID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_sexID, sizeof(this->m_sexID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_textureHoldLayer[0], sizeof(m_textureHoldLayer[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_textureHoldLayer[1], sizeof(m_textureHoldLayer[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_textureHoldLayer[2], sizeof(m_textureHoldLayer[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_textureHoldLayer[3], sizeof(m_textureHoldLayer[0]), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

@@ -5,24 +5,28 @@ const char* TerrainTypeRec::GetFilename() {
     return "DBFilesClient\\TerrainType.dbc";
 }
 
+int32_t TerrainTypeRec::GetID() {
+    return this->m_generatedID;
+}
+
 bool TerrainTypeRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t TerrainDescOfs;
+    uint32_t terrainDescOfs;
 
     if (
-        !SFile::Read(f, &this->m_TerrainID, sizeof(this->m_TerrainID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &TerrainDescOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_FootstepSprayRun, sizeof(this->m_FootstepSprayRun), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_FootstepSprayWalk, sizeof(this->m_FootstepSprayWalk), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SoundID, sizeof(this->m_SoundID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Flags, sizeof(this->m_Flags), nullptr, nullptr, nullptr)
+        !SFile::Read(f, &this->m_terrainID, sizeof(this->m_terrainID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &terrainDescOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_footstepSprayRun, sizeof(this->m_footstepSprayRun), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_footstepSprayWalk, sizeof(this->m_footstepSprayWalk), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_soundID, sizeof(this->m_soundID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_flags, sizeof(this->m_flags), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_TerrainDesc = &stringBuffer[TerrainDescOfs];
+        this->m_terrainDesc = &stringBuffer[terrainDescOfs];
     } else {
-        this->m_TerrainDesc = "";
+        this->m_terrainDesc = "";
     }
 
     return true;

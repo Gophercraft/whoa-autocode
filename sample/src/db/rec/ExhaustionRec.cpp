@@ -5,42 +5,46 @@ const char* ExhaustionRec::GetFilename() {
     return "DBFilesClient\\Exhaustion.dbc";
 }
 
+int32_t ExhaustionRec::GetID() {
+    return this->m_ID;
+}
+
 bool ExhaustionRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t Name_langOfs[16];
-    uint32_t Name_langMask;
+    uint32_t nameOfs[16];
+    uint32_t nameMask;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Xp, sizeof(this->m_Xp), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Factor, sizeof(this->m_Factor), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_OutdoorHours, sizeof(this->m_OutdoorHours), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_InnHours, sizeof(this->m_InnHours), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[6], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[7], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[8], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[9], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[10], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[11], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[12], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[13], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[14], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[15], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langMask, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Threshold, sizeof(this->m_Threshold), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_xp, sizeof(this->m_xp), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_factor, sizeof(this->m_factor), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_outdoorHours, sizeof(this->m_outdoorHours), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_innHours, sizeof(this->m_innHours), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[6], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[7], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[8], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[9], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[10], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[11], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[12], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[13], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[14], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[15], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameMask, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_threshold, sizeof(this->m_threshold), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_Name_lang = &stringBuffer[Name_langOfs[CURRENT_LANGUAGE]];
+        this->m_name = &stringBuffer[nameOfs[CURRENT_LANGUAGE]];
     } else {
-        this->m_Name_lang = "";
+        this->m_name = "";
     }
 
     return true;

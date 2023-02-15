@@ -2,8 +2,8 @@
 #ifndef DB_REC_ITEM_LIMIT_CATEGORY_REC_HPP
 #define DB_REC_ITEM_LIMIT_CATEGORY_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class ItemLimitCategoryRec {
     public:
@@ -12,11 +12,12 @@ class ItemLimitCategoryRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        const char* m_Name_lang;
-        int32_t m_Quantity;
-        int32_t m_Flags;
+        const char* m_name;
+        int32_t m_quantity;
+        int32_t m_flags;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

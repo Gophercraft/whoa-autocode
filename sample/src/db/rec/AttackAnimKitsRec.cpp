@@ -5,13 +5,17 @@ const char* AttackAnimKitsRec::GetFilename() {
     return "DBFilesClient\\AttackAnimKits.dbc";
 }
 
+int32_t AttackAnimKitsRec::GetID() {
+    return this->m_ID;
+}
+
 bool AttackAnimKitsRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ItemSubclassID, sizeof(this->m_ItemSubclassID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AnimTypeID, sizeof(this->m_AnimTypeID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AnimFrequency, sizeof(this->m_AnimFrequency), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_WhichHand, sizeof(this->m_WhichHand), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_itemSubclassID, sizeof(this->m_itemSubclassID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_animTypeID, sizeof(this->m_animTypeID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_animFrequency, sizeof(this->m_animFrequency), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_whichHand, sizeof(this->m_whichHand), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

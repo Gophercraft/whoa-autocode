@@ -5,54 +5,58 @@ const char* SpellShapeshiftFormRec::GetFilename() {
     return "DBFilesClient\\SpellShapeshiftForm.dbc";
 }
 
+int32_t SpellShapeshiftFormRec::GetID() {
+    return this->m_ID;
+}
+
 bool SpellShapeshiftFormRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t Name_langOfs[16];
-    uint32_t Name_langMask;
+    uint32_t nameOfs[16];
+    uint32_t nameMask;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_BonusActionBar, sizeof(this->m_BonusActionBar), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[6], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[7], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[8], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[9], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[10], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[11], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[12], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[13], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[14], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[15], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langMask, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Flags, sizeof(this->m_Flags), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_CreatureType, sizeof(this->m_CreatureType), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AttackIconID, sizeof(this->m_AttackIconID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_CombatRoundTime, sizeof(this->m_CombatRoundTime), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_CreatureDisplayID[0], sizeof(m_CreatureDisplayID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_CreatureDisplayID[1], sizeof(m_CreatureDisplayID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_CreatureDisplayID[2], sizeof(m_CreatureDisplayID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_CreatureDisplayID[3], sizeof(m_CreatureDisplayID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PresetSpellID[0], sizeof(m_PresetSpellID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PresetSpellID[1], sizeof(m_PresetSpellID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PresetSpellID[2], sizeof(m_PresetSpellID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PresetSpellID[3], sizeof(m_PresetSpellID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PresetSpellID[4], sizeof(m_PresetSpellID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PresetSpellID[5], sizeof(m_PresetSpellID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PresetSpellID[6], sizeof(m_PresetSpellID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PresetSpellID[7], sizeof(m_PresetSpellID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_bonusActionBar, sizeof(this->m_bonusActionBar), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[6], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[7], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[8], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[9], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[10], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[11], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[12], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[13], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[14], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[15], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameMask, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_flags, sizeof(this->m_flags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_creatureType, sizeof(this->m_creatureType), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_attackIconID, sizeof(this->m_attackIconID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_combatRoundTime, sizeof(this->m_combatRoundTime), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_creatureDisplayID[0], sizeof(m_creatureDisplayID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_creatureDisplayID[1], sizeof(m_creatureDisplayID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_creatureDisplayID[2], sizeof(m_creatureDisplayID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_creatureDisplayID[3], sizeof(m_creatureDisplayID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_presetSpellID[0], sizeof(m_presetSpellID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_presetSpellID[1], sizeof(m_presetSpellID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_presetSpellID[2], sizeof(m_presetSpellID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_presetSpellID[3], sizeof(m_presetSpellID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_presetSpellID[4], sizeof(m_presetSpellID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_presetSpellID[5], sizeof(m_presetSpellID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_presetSpellID[6], sizeof(m_presetSpellID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_presetSpellID[7], sizeof(m_presetSpellID[0]), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_Name_lang = &stringBuffer[Name_langOfs[CURRENT_LANGUAGE]];
+        this->m_name = &stringBuffer[nameOfs[CURRENT_LANGUAGE]];
     } else {
-        this->m_Name_lang = "";
+        this->m_name = "";
     }
 
     return true;

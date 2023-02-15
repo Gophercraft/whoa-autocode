@@ -2,8 +2,8 @@
 #ifndef DB_REC_GAME_OBJECT_DISPLAY_INFO_REC_HPP
 #define DB_REC_GAME_OBJECT_DISPLAY_INFO_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class GameObjectDisplayInfoRec {
     public:
@@ -12,13 +12,14 @@ class GameObjectDisplayInfoRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        const char* m_ModelName;
-        int32_t m_Sound[10];
-        float m_GeoBoxMin[3];
-        float m_GeoBoxMax[3];
-        int32_t m_ObjectEffectPackageID;
+        const char* m_modelName;
+        int32_t m_sound[10];
+        float m_geoBoxMin[3];
+        float m_geoBoxMax[3];
+        int32_t m_objectEffectPackageID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

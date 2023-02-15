@@ -5,12 +5,16 @@ const char* ObjectEffectPackageElemRec::GetFilename() {
     return "DBFilesClient\\ObjectEffectPackageElem.dbc";
 }
 
+int32_t ObjectEffectPackageElemRec::GetID() {
+    return this->m_ID;
+}
+
 bool ObjectEffectPackageElemRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ObjectEffectPackageID, sizeof(this->m_ObjectEffectPackageID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ObjectEffectGroupID, sizeof(this->m_ObjectEffectGroupID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_StateType, sizeof(this->m_StateType), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_objectEffectPackageID, sizeof(this->m_objectEffectPackageID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_objectEffectGroupID, sizeof(this->m_objectEffectGroupID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_stateType, sizeof(this->m_stateType), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

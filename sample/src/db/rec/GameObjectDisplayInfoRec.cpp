@@ -5,37 +5,41 @@ const char* GameObjectDisplayInfoRec::GetFilename() {
     return "DBFilesClient\\GameObjectDisplayInfo.dbc";
 }
 
+int32_t GameObjectDisplayInfoRec::GetID() {
+    return this->m_ID;
+}
+
 bool GameObjectDisplayInfoRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t ModelNameOfs;
+    uint32_t modelNameOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &ModelNameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Sound[0], sizeof(m_Sound[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Sound[1], sizeof(m_Sound[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Sound[2], sizeof(m_Sound[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Sound[3], sizeof(m_Sound[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Sound[4], sizeof(m_Sound[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Sound[5], sizeof(m_Sound[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Sound[6], sizeof(m_Sound[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Sound[7], sizeof(m_Sound[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Sound[8], sizeof(m_Sound[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Sound[9], sizeof(m_Sound[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_GeoBoxMin[0], sizeof(m_GeoBoxMin[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_GeoBoxMin[1], sizeof(m_GeoBoxMin[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_GeoBoxMin[2], sizeof(m_GeoBoxMin[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_GeoBoxMax[0], sizeof(m_GeoBoxMax[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_GeoBoxMax[1], sizeof(m_GeoBoxMax[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_GeoBoxMax[2], sizeof(m_GeoBoxMax[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ObjectEffectPackageID, sizeof(this->m_ObjectEffectPackageID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &modelNameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_sound[0], sizeof(m_sound[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_sound[1], sizeof(m_sound[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_sound[2], sizeof(m_sound[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_sound[3], sizeof(m_sound[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_sound[4], sizeof(m_sound[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_sound[5], sizeof(m_sound[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_sound[6], sizeof(m_sound[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_sound[7], sizeof(m_sound[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_sound[8], sizeof(m_sound[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_sound[9], sizeof(m_sound[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_geoBoxMin[0], sizeof(m_geoBoxMin[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_geoBoxMin[1], sizeof(m_geoBoxMin[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_geoBoxMin[2], sizeof(m_geoBoxMin[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_geoBoxMax[0], sizeof(m_geoBoxMax[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_geoBoxMax[1], sizeof(m_geoBoxMax[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_geoBoxMax[2], sizeof(m_geoBoxMax[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_objectEffectPackageID, sizeof(this->m_objectEffectPackageID), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_ModelName = &stringBuffer[ModelNameOfs];
+        this->m_modelName = &stringBuffer[modelNameOfs];
     } else {
-        this->m_ModelName = "";
+        this->m_modelName = "";
     }
 
     return true;

@@ -2,8 +2,8 @@
 #ifndef DB_REC_CHAR_START_OUTFIT_REC_HPP
 #define DB_REC_CHAR_START_OUTFIT_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class CharStartOutfitRec {
     public:
@@ -12,15 +12,16 @@ class CharStartOutfitRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int8_t m_RaceID;
-        int8_t m_ClassID;
-        int8_t m_SexID;
-        int8_t m_OutfitID;
-        int32_t m_ItemID[24];
-        int32_t m_DisplayItemID[24];
-        int32_t m_InventoryType[24];
+        int8_t m_raceID;
+        int8_t m_classID;
+        int8_t m_sexID;
+        int8_t m_outfitID;
+        int32_t m_itemID[24];
+        int32_t m_displayItemID[24];
+        int32_t m_inventoryType[24];
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

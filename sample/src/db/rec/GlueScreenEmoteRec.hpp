@@ -2,8 +2,8 @@
 #ifndef DB_REC_GLUE_SCREEN_EMOTE_REC_HPP
 #define DB_REC_GLUE_SCREEN_EMOTE_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class GlueScreenEmoteRec {
     public:
@@ -12,15 +12,16 @@ class GlueScreenEmoteRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_ClassID;
-        int32_t m_RaceID;
-        int32_t m_SexID;
-        int32_t m_LeftHandItemType;
-        int32_t m_RightHandItemType;
-        int32_t m_AnimKitID;
-        int32_t m_SpellVisualKitID;
+        int32_t m_classID;
+        int32_t m_raceID;
+        int32_t m_sexID;
+        int32_t m_leftHandItemType;
+        int32_t m_rightHandItemType;
+        int32_t m_animKitID;
+        int32_t m_spellVisualKitID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

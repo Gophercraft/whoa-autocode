@@ -2,8 +2,8 @@
 #ifndef DB_REC_LIGHT_REC_HPP
 #define DB_REC_LIGHT_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class LightRec {
     public:
@@ -12,13 +12,14 @@ class LightRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_ContinentID;
-        float m_GameCoords[3];
-        float m_GameFalloffStart;
-        float m_GameFalloffEnd;
-        int32_t m_LightParamsID[8];
+        int32_t m_continentID;
+        float m_gameCoords[3];
+        float m_gameFalloffStart;
+        float m_gameFalloffEnd;
+        int32_t m_lightParamsID[8];
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

@@ -2,8 +2,8 @@
 #ifndef DB_REC_CHAR_HAIR_GEOSETS_REC_HPP
 #define DB_REC_CHAR_HAIR_GEOSETS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class CharHairGeosetsRec {
     public:
@@ -12,13 +12,14 @@ class CharHairGeosetsRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_RaceID;
-        int32_t m_SexID;
-        int32_t m_VariationID;
-        int32_t m_GeosetID;
-        int32_t m_Showscalp;
+        int32_t m_raceID;
+        int32_t m_sexID;
+        int32_t m_variationID;
+        int32_t m_geosetID;
+        int32_t m_showscalp;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

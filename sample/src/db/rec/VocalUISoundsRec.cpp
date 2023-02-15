@@ -5,15 +5,19 @@ const char* VocalUISoundsRec::GetFilename() {
     return "DBFilesClient\\VocalUISounds.dbc";
 }
 
+int32_t VocalUISoundsRec::GetID() {
+    return this->m_ID;
+}
+
 bool VocalUISoundsRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_VocalUIEnum, sizeof(this->m_VocalUIEnum), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RaceID, sizeof(this->m_RaceID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_NormalSoundID[0], sizeof(m_NormalSoundID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_NormalSoundID[1], sizeof(m_NormalSoundID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PissedSoundID[0], sizeof(m_PissedSoundID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PissedSoundID[1], sizeof(m_PissedSoundID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_vocalUienum, sizeof(this->m_vocalUienum), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_raceID, sizeof(this->m_raceID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_normalSoundID[0], sizeof(m_normalSoundID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_normalSoundID[1], sizeof(m_normalSoundID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_pissedSoundID[0], sizeof(m_pissedSoundID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_pissedSoundID[1], sizeof(m_pissedSoundID[0]), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

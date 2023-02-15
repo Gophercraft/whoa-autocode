@@ -5,10 +5,14 @@ const char* gtSpellScalingRec::GetFilename() {
     return "DBFilesClient\\gtSpellScaling.dbc";
 }
 
+int32_t gtSpellScalingRec::GetID() {
+    return this->m_ID;
+}
+
 bool gtSpellScalingRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Data, sizeof(this->m_Data), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_data, sizeof(this->m_data), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

@@ -5,16 +5,20 @@ const char* ObjectEffectModifierRec::GetFilename() {
     return "DBFilesClient\\ObjectEffectModifier.dbc";
 }
 
+int32_t ObjectEffectModifierRec::GetID() {
+    return this->m_ID;
+}
+
 bool ObjectEffectModifierRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_InputType, sizeof(this->m_InputType), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MapType, sizeof(this->m_MapType), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_OutputType, sizeof(this->m_OutputType), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Param[0], sizeof(m_Param[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Param[1], sizeof(m_Param[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Param[2], sizeof(m_Param[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Param[3], sizeof(m_Param[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_inputType, sizeof(this->m_inputType), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_mapType, sizeof(this->m_mapType), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_outputType, sizeof(this->m_outputType), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_param[0], sizeof(m_param[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_param[1], sizeof(m_param[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_param[2], sizeof(m_param[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_param[3], sizeof(m_param[0]), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

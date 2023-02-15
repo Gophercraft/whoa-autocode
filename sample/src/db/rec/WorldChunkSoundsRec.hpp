@@ -2,8 +2,8 @@
 #ifndef DB_REC_WORLD_CHUNK_SOUNDS_REC_HPP
 #define DB_REC_WORLD_CHUNK_SOUNDS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class WorldChunkSoundsRec {
     public:
@@ -12,16 +12,17 @@ class WorldChunkSoundsRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_ChunkX;
-        int32_t m_ChunkY;
-        int32_t m_SubchunkX;
-        int32_t m_SubchunkY;
-        int32_t m_ZoneIntroMusicID;
-        int32_t m_ZoneMusicID;
-        int32_t m_SoundAmbienceID;
-        int32_t m_SoundProviderPreferencesID;
+        int32_t m_chunkX;
+        int32_t m_chunkY;
+        int32_t m_subchunkX;
+        int32_t m_subchunkY;
+        int32_t m_zoneIntroMusicID;
+        int32_t m_zoneMusicID;
+        int32_t m_soundAmbienceID;
+        int32_t m_soundProviderPreferencesID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

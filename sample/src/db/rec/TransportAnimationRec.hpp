@@ -2,8 +2,8 @@
 #ifndef DB_REC_TRANSPORT_ANIMATION_REC_HPP
 #define DB_REC_TRANSPORT_ANIMATION_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class TransportAnimationRec {
     public:
@@ -12,12 +12,13 @@ class TransportAnimationRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_TransportID;
-        int32_t m_TimeIndex;
-        float m_Pos[3];
-        int32_t m_SequenceID;
+        int32_t m_transportID;
+        int32_t m_timeIndex;
+        float m_pos[3];
+        int32_t m_sequenceID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

@@ -2,8 +2,8 @@
 #ifndef DB_REC_ANIM_KIT_PRIORITY_REC_HPP
 #define DB_REC_ANIM_KIT_PRIORITY_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class AnimKitPriorityRec {
     public:
@@ -12,9 +12,10 @@ class AnimKitPriorityRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Priority;
+        int32_t m_priority;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

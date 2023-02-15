@@ -5,13 +5,17 @@ const char* SpellTotemsRec::GetFilename() {
     return "DBFilesClient\\SpellTotems.dbc";
 }
 
+int32_t SpellTotemsRec::GetID() {
+    return this->m_ID;
+}
+
 bool SpellTotemsRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RequiredTotemCategoryID[0], sizeof(m_RequiredTotemCategoryID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RequiredTotemCategoryID[1], sizeof(m_RequiredTotemCategoryID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Totem[0], sizeof(m_Totem[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Totem[1], sizeof(m_Totem[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_requiredTotemCategoryID[0], sizeof(m_requiredTotemCategoryID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_requiredTotemCategoryID[1], sizeof(m_requiredTotemCategoryID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_totem[0], sizeof(m_totem[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_totem[1], sizeof(m_totem[0]), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

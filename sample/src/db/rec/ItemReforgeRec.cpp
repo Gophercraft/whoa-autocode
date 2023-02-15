@@ -5,13 +5,17 @@ const char* ItemReforgeRec::GetFilename() {
     return "DBFilesClient\\ItemReforge.dbc";
 }
 
+int32_t ItemReforgeRec::GetID() {
+    return this->m_ID;
+}
+
 bool ItemReforgeRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Source_stat, sizeof(this->m_Source_stat), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Source_multiplier, sizeof(this->m_Source_multiplier), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Target_stat, sizeof(this->m_Target_stat), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Target_multiplier, sizeof(this->m_Target_multiplier), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_sourceStat, sizeof(this->m_sourceStat), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_sourceMultiplier, sizeof(this->m_sourceMultiplier), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_targetStat, sizeof(this->m_targetStat), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_targetMultiplier, sizeof(this->m_targetMultiplier), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

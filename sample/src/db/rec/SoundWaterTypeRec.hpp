@@ -2,8 +2,8 @@
 #ifndef DB_REC_SOUND_WATER_TYPE_REC_HPP
 #define DB_REC_SOUND_WATER_TYPE_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SoundWaterTypeRec {
     public:
@@ -12,11 +12,12 @@ class SoundWaterTypeRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_SoundType;
-        int32_t m_SoundSubtype;
-        int32_t m_SoundID;
+        int32_t m_soundType;
+        int32_t m_soundSubtype;
+        int32_t m_soundID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

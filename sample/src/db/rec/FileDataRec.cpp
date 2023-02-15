@@ -5,24 +5,28 @@ const char* FileDataRec::GetFilename() {
     return "DBFilesClient\\FileData.dbc";
 }
 
+int32_t FileDataRec::GetID() {
+    return this->m_ID;
+}
+
 bool FileDataRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t FilenameOfs;
-    uint32_t FilepathOfs;
+    uint32_t filenameOfs;
+    uint32_t filepathOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &FilenameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &FilepathOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &filenameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &filepathOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_Filename = &stringBuffer[FilenameOfs];
-        this->m_Filepath = &stringBuffer[FilepathOfs];
+        this->m_filename = &stringBuffer[filenameOfs];
+        this->m_filepath = &stringBuffer[filepathOfs];
     } else {
-        this->m_Filename = "";
-        this->m_Filepath = "";
+        this->m_filename = "";
+        this->m_filepath = "";
     }
 
     return true;

@@ -2,8 +2,8 @@
 #ifndef DB_REC_CHAT_CHANNELS_REC_HPP
 #define DB_REC_CHAT_CHANNELS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class ChatChannelsRec {
     public:
@@ -12,12 +12,13 @@ class ChatChannelsRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Flags;
-        int32_t m_FactionGroup;
-        const char* m_Name_lang;
-        const char* m_Shortcut_lang;
+        int32_t m_flags;
+        int32_t m_factionGroup;
+        const char* m_name;
+        const char* m_shortcut;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

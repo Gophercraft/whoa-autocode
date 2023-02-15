@@ -2,8 +2,8 @@
 #ifndef DB_REC_ANIMATION_DATA_REC_HPP
 #define DB_REC_ANIMATION_DATA_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class AnimationDataRec {
     public:
@@ -12,15 +12,16 @@ class AnimationDataRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        const char* m_Name;
-        int32_t m_Weaponflags;
-        int32_t m_Bodyflags;
-        int32_t m_Flags;
-        int32_t m_Fallback;
-        int32_t m_BehaviorID;
-        int32_t m_BehaviorTier;
+        const char* m_name;
+        int32_t m_weaponflags;
+        int32_t m_bodyflags;
+        int32_t m_flags;
+        int32_t m_fallback;
+        int32_t m_behaviorID;
+        int32_t m_behaviorTier;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

@@ -2,8 +2,8 @@
 #ifndef DB_REC_STARTUP_STRINGS_REC_HPP
 #define DB_REC_STARTUP_STRINGS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class Startup_StringsRec {
     public:
@@ -12,10 +12,11 @@ class Startup_StringsRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        const char* m_Name;
-        const char* m_Message_lang;
+        const char* m_name;
+        const char* m_message;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

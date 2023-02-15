@@ -2,8 +2,8 @@
 #ifndef DB_REC_VIDEO_HARDWARE_REC_HPP
 #define DB_REC_VIDEO_HARDWARE_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class VideoHardwareRec {
     public:
@@ -12,30 +12,31 @@ class VideoHardwareRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_VendorID;
-        int32_t m_DeviceID;
-        int32_t m_FarclipIdx;
-        int32_t m_TerrainLODDistIdx;
-        int32_t m_TerrainShadowLOD;
-        int32_t m_DetailDoodadDensityIdx;
-        int32_t m_DetailDoodadAlpha;
-        int32_t m_AnimatingDoodadIdx;
-        int32_t m_Trilinear;
-        int32_t m_NumLights;
-        int32_t m_Specularity;
-        int32_t m_WaterLODIdx;
-        int32_t m_ParticleDensityIdx;
-        int32_t m_UnitDrawDistIdx;
-        int32_t m_SmallCullDistIdx;
-        int32_t m_ResolutionIdx;
-        int32_t m_BaseMipLevel;
-        const char* m_OglOverrides;
-        const char* m_D3dOverrides;
-        int32_t m_FixLag;
-        int32_t m_Multisample;
-        int32_t m_Atlasdisable;
+        int32_t m_vendorID;
+        int32_t m_deviceID;
+        int32_t m_farclipIdx;
+        int32_t m_terrainLoddistIdx;
+        int32_t m_terrainShadowLod;
+        int32_t m_detailDoodadDensityIdx;
+        int32_t m_detailDoodadAlpha;
+        int32_t m_animatingDoodadIdx;
+        int32_t m_trilinear;
+        int32_t m_numLights;
+        int32_t m_specularity;
+        int32_t m_waterLodidx;
+        int32_t m_particleDensityIdx;
+        int32_t m_unitDrawDistIdx;
+        int32_t m_smallCullDistIdx;
+        int32_t m_resolutionIdx;
+        int32_t m_baseMipLevel;
+        const char* m_oglOverrides;
+        const char* m_d3DOverrides;
+        int32_t m_fixLag;
+        int32_t m_multisample;
+        int32_t m_atlasdisable;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

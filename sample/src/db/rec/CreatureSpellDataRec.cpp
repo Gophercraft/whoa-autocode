@@ -5,17 +5,21 @@ const char* CreatureSpellDataRec::GetFilename() {
     return "DBFilesClient\\CreatureSpellData.dbc";
 }
 
+int32_t CreatureSpellDataRec::GetID() {
+    return this->m_ID;
+}
+
 bool CreatureSpellDataRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Spells[0], sizeof(m_Spells[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Spells[1], sizeof(m_Spells[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Spells[2], sizeof(m_Spells[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Spells[3], sizeof(m_Spells[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Availability[0], sizeof(m_Availability[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Availability[1], sizeof(m_Availability[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Availability[2], sizeof(m_Availability[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Availability[3], sizeof(m_Availability[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spells[0], sizeof(m_spells[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spells[1], sizeof(m_spells[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spells[2], sizeof(m_spells[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spells[3], sizeof(m_spells[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_availability[0], sizeof(m_availability[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_availability[1], sizeof(m_availability[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_availability[2], sizeof(m_availability[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_availability[3], sizeof(m_availability[0]), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

@@ -2,8 +2,8 @@
 #ifndef DB_REC_TERRAIN_TYPE_SOUNDS_REC_HPP
 #define DB_REC_TERRAIN_TYPE_SOUNDS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class TerrainTypeSoundsRec {
     public:
@@ -14,6 +14,7 @@ class TerrainTypeSoundsRec {
         int32_t m_ID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

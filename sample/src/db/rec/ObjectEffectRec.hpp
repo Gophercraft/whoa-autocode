@@ -2,8 +2,8 @@
 #ifndef DB_REC_OBJECT_EFFECT_REC_HPP
 #define DB_REC_OBJECT_EFFECT_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class ObjectEffectRec {
     public:
@@ -12,17 +12,18 @@ class ObjectEffectRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        const char* m_Name;
-        int32_t m_ObjectEffectGroupID;
-        int32_t m_TriggerType;
-        int32_t m_EventType;
-        int32_t m_EffectRecType;
-        int32_t m_EffectRecID;
-        int32_t m_Attachment;
-        float m_Offset[3];
-        int32_t m_ObjectEffectModifierID;
+        const char* m_name;
+        int32_t m_objectEffectGroupID;
+        int32_t m_triggerType;
+        int32_t m_eventType;
+        int32_t m_effectRecType;
+        int32_t m_effectRecID;
+        int32_t m_attachment;
+        float m_offset[3];
+        int32_t m_objectEffectModifierID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

@@ -5,9 +5,13 @@ const char* gtChanceToMeleeCritRec::GetFilename() {
     return "DBFilesClient\\gtChanceToMeleeCrit.dbc";
 }
 
+int32_t gtChanceToMeleeCritRec::GetID() {
+    return this->m_generatedID;
+}
+
 bool gtChanceToMeleeCritRec::Read(SFile* f, const char* stringBuffer) {
     if (
-        !SFile::Read(f, &this->m_Data, sizeof(this->m_Data), nullptr, nullptr, nullptr)
+        !SFile::Read(f, &this->m_data, sizeof(this->m_data), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

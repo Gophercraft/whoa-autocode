@@ -5,21 +5,25 @@ const char* LanguageWordsRec::GetFilename() {
     return "DBFilesClient\\LanguageWords.dbc";
 }
 
+int32_t LanguageWordsRec::GetID() {
+    return this->m_ID;
+}
+
 bool LanguageWordsRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t WordOfs;
+    uint32_t wordOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_LanguageID, sizeof(this->m_LanguageID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &WordOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_languageID, sizeof(this->m_languageID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &wordOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_Word = &stringBuffer[WordOfs];
+        this->m_word = &stringBuffer[wordOfs];
     } else {
-        this->m_Word = "";
+        this->m_word = "";
     }
 
     return true;

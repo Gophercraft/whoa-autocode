@@ -5,14 +5,18 @@ const char* PVPDifficultyRec::GetFilename() {
     return "DBFilesClient\\PVPDifficulty.dbc";
 }
 
+int32_t PVPDifficultyRec::GetID() {
+    return this->m_ID;
+}
+
 bool PVPDifficultyRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MapID, sizeof(this->m_MapID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RangeIndex, sizeof(this->m_RangeIndex), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MinLevel, sizeof(this->m_MinLevel), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MaxLevel, sizeof(this->m_MaxLevel), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Difficulty, sizeof(this->m_Difficulty), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_mapID, sizeof(this->m_mapID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_rangeIndex, sizeof(this->m_rangeIndex), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_minLevel, sizeof(this->m_minLevel), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_maxLevel, sizeof(this->m_maxLevel), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_difficulty, sizeof(this->m_difficulty), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

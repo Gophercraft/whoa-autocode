@@ -2,8 +2,8 @@
 #ifndef DB_REC_ANIM_REPLACEMENT_REC_HPP
 #define DB_REC_ANIM_REPLACEMENT_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class AnimReplacementRec {
     public:
@@ -12,11 +12,12 @@ class AnimReplacementRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_SrcAnimID;
-        int32_t m_DstAnimID;
-        int32_t m_ParentAnimReplacementSetID;
+        int32_t m_srcAnimID;
+        int32_t m_dstAnimID;
+        int32_t m_parentAnimReplacementSetID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

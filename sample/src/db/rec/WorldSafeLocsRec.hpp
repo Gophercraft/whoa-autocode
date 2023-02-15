@@ -2,8 +2,8 @@
 #ifndef DB_REC_WORLD_SAFE_LOCS_REC_HPP
 #define DB_REC_WORLD_SAFE_LOCS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class WorldSafeLocsRec {
     public:
@@ -12,11 +12,12 @@ class WorldSafeLocsRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Continent;
-        float m_Loc[3];
-        const char* m_AreaName_lang;
+        int32_t m_continent;
+        float m_loc[3];
+        const char* m_areaName;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

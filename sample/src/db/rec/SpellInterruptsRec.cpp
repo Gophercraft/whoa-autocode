@@ -5,14 +5,18 @@ const char* SpellInterruptsRec::GetFilename() {
     return "DBFilesClient\\SpellInterrupts.dbc";
 }
 
+int32_t SpellInterruptsRec::GetID() {
+    return this->m_ID;
+}
+
 bool SpellInterruptsRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AuraInterruptFlags[0], sizeof(m_AuraInterruptFlags[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AuraInterruptFlags[1], sizeof(m_AuraInterruptFlags[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ChannelInterruptFlags[0], sizeof(m_ChannelInterruptFlags[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ChannelInterruptFlags[1], sizeof(m_ChannelInterruptFlags[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_InterruptFlags, sizeof(this->m_InterruptFlags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_auraInterruptFlags[0], sizeof(m_auraInterruptFlags[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_auraInterruptFlags[1], sizeof(m_auraInterruptFlags[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_channelInterruptFlags[0], sizeof(m_channelInterruptFlags[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_channelInterruptFlags[1], sizeof(m_channelInterruptFlags[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_interruptFlags, sizeof(this->m_interruptFlags), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

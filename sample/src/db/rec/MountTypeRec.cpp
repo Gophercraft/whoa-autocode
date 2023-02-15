@@ -5,17 +5,21 @@ const char* MountTypeRec::GetFilename() {
     return "DBFilesClient\\MountType.dbc";
 }
 
+int32_t MountTypeRec::GetID() {
+    return this->m_ID;
+}
+
 bool MountTypeRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Capability[0], sizeof(m_Capability[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Capability[1], sizeof(m_Capability[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Capability[2], sizeof(m_Capability[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Capability[3], sizeof(m_Capability[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Capability[4], sizeof(m_Capability[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Capability[5], sizeof(m_Capability[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Capability[6], sizeof(m_Capability[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Capability[7], sizeof(m_Capability[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_capability[0], sizeof(m_capability[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_capability[1], sizeof(m_capability[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_capability[2], sizeof(m_capability[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_capability[3], sizeof(m_capability[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_capability[4], sizeof(m_capability[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_capability[5], sizeof(m_capability[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_capability[6], sizeof(m_capability[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_capability[7], sizeof(m_capability[0]), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

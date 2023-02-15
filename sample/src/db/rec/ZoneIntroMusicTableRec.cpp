@@ -5,23 +5,27 @@ const char* ZoneIntroMusicTableRec::GetFilename() {
     return "DBFilesClient\\ZoneIntroMusicTable.dbc";
 }
 
+int32_t ZoneIntroMusicTableRec::GetID() {
+    return this->m_ID;
+}
+
 bool ZoneIntroMusicTableRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t NameOfs;
+    uint32_t nameOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &NameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SoundID, sizeof(this->m_SoundID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Priority, sizeof(this->m_Priority), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MinDelayMinutes, sizeof(this->m_MinDelayMinutes), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_soundID, sizeof(this->m_soundID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_priority, sizeof(this->m_priority), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_minDelayMinutes, sizeof(this->m_minDelayMinutes), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_Name = &stringBuffer[NameOfs];
+        this->m_name = &stringBuffer[nameOfs];
     } else {
-        this->m_Name = "";
+        this->m_name = "";
     }
 
     return true;

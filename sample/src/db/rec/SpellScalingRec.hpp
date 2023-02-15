@@ -2,8 +2,8 @@
 #ifndef DB_REC_SPELL_SCALING_REC_HPP
 #define DB_REC_SPELL_SCALING_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SpellScalingRec {
     public:
@@ -12,17 +12,18 @@ class SpellScalingRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_CastTimeMin;
-        int32_t m_CastTimeMax;
-        int32_t m_CastTimeMaxLevel;
-        int32_t m_Class;
-        float m_Coefficient[3];
-        float m_Variance[3];
-        float m_ComboPointsCoefficient[3];
-        float m_NerfFactor;
-        int32_t m_NerfMaxLevel;
+        int32_t m_castTimeMin;
+        int32_t m_castTimeMax;
+        int32_t m_castTimeMaxLevel;
+        int32_t m_class;
+        float m_coefficient[3];
+        float m_variance[3];
+        float m_comboPointsCoefficient[3];
+        float m_nerfFactor;
+        int32_t m_nerfMaxLevel;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

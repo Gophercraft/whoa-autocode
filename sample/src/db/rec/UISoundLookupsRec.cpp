@@ -5,21 +5,25 @@ const char* UISoundLookupsRec::GetFilename() {
     return "DBFilesClient\\UISoundLookups.dbc";
 }
 
+int32_t UISoundLookupsRec::GetID() {
+    return this->m_ID;
+}
+
 bool UISoundLookupsRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t SoundNameOfs;
+    uint32_t soundNameOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SoundID, sizeof(this->m_SoundID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &SoundNameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_soundID, sizeof(this->m_soundID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &soundNameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_SoundName = &stringBuffer[SoundNameOfs];
+        this->m_soundName = &stringBuffer[soundNameOfs];
     } else {
-        this->m_SoundName = "";
+        this->m_soundName = "";
     }
 
     return true;

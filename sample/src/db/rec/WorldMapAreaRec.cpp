@@ -5,29 +5,33 @@ const char* WorldMapAreaRec::GetFilename() {
     return "DBFilesClient\\WorldMapArea.dbc";
 }
 
+int32_t WorldMapAreaRec::GetID() {
+    return this->m_ID;
+}
+
 bool WorldMapAreaRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t AreaNameOfs;
+    uint32_t areaNameOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MapID, sizeof(this->m_MapID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AreaID, sizeof(this->m_AreaID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AreaNameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_LocLeft, sizeof(this->m_LocLeft), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_LocRight, sizeof(this->m_LocRight), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_LocTop, sizeof(this->m_LocTop), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_LocBottom, sizeof(this->m_LocBottom), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_DisplayMapID, sizeof(this->m_DisplayMapID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_DefaultDungeonFloor, sizeof(this->m_DefaultDungeonFloor), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ParentWorldMapID, sizeof(this->m_ParentWorldMapID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_mapID, sizeof(this->m_mapID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_areaID, sizeof(this->m_areaID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &areaNameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_locLeft, sizeof(this->m_locLeft), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_locRight, sizeof(this->m_locRight), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_locTop, sizeof(this->m_locTop), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_locBottom, sizeof(this->m_locBottom), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_displayMapID, sizeof(this->m_displayMapID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_defaultDungeonFloor, sizeof(this->m_defaultDungeonFloor), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_parentWorldMapID, sizeof(this->m_parentWorldMapID), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_AreaName = &stringBuffer[AreaNameOfs];
+        this->m_areaName = &stringBuffer[areaNameOfs];
     } else {
-        this->m_AreaName = "";
+        this->m_areaName = "";
     }
 
     return true;

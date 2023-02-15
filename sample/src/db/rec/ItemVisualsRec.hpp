@@ -2,8 +2,8 @@
 #ifndef DB_REC_ITEM_VISUALS_REC_HPP
 #define DB_REC_ITEM_VISUALS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class ItemVisualsRec {
     public:
@@ -12,9 +12,10 @@ class ItemVisualsRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Slot[5];
+        int32_t m_slot[5];
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

@@ -2,8 +2,8 @@
 #ifndef DB_REC_PHASE_SHIFT_ZONE_SOUNDS_REC_HPP
 #define DB_REC_PHASE_SHIFT_ZONE_SOUNDS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class PhaseShiftZoneSoundsRec {
     public:
@@ -12,21 +12,22 @@ class PhaseShiftZoneSoundsRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_AreaID;
-        int32_t m_WMOAreaID;
-        int32_t m_PhaseID;
-        int32_t m_PhaseGroupID;
-        int32_t m_PhaseUseFlags;
-        int32_t m_ZoneIntroMusicID;
-        int32_t m_ZoneMusicID;
-        int32_t m_SoundAmbienceID;
-        int32_t m_SoundProviderPreferencesID;
-        int32_t m_UWZoneIntroMusicID;
-        int32_t m_UWZoneMusicID;
-        int32_t m_UWSoundAmbienceID;
-        int32_t m_UWSoundProviderPreferencesID;
+        int32_t m_areaID;
+        int32_t m_wmoareaID;
+        int32_t m_phaseID;
+        int32_t m_phaseGroupID;
+        int32_t m_phaseUseFlags;
+        int32_t m_zoneIntroMusicID;
+        int32_t m_zoneMusicID;
+        int32_t m_soundAmbienceID;
+        int32_t m_soundProviderPreferencesID;
+        int32_t m_uwzoneIntroMusicID;
+        int32_t m_uwzoneMusicID;
+        int32_t m_uwsoundAmbienceID;
+        int32_t m_uwsoundProviderPreferencesID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

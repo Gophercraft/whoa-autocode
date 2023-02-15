@@ -5,18 +5,22 @@ const char* ParticleColorRec::GetFilename() {
     return "DBFilesClient\\ParticleColor.dbc";
 }
 
+int32_t ParticleColorRec::GetID() {
+    return this->m_ID;
+}
+
 bool ParticleColorRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Start[0], sizeof(m_Start[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Start[1], sizeof(m_Start[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Start[2], sizeof(m_Start[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MID[0], sizeof(m_MID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MID[1], sizeof(m_MID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MID[2], sizeof(m_MID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_End[0], sizeof(m_End[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_End[1], sizeof(m_End[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_End[2], sizeof(m_End[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_start[0], sizeof(m_start[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_start[1], sizeof(m_start[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_start[2], sizeof(m_start[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_mid[0], sizeof(m_mid[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_mid[1], sizeof(m_mid[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_mid[2], sizeof(m_mid[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_end[0], sizeof(m_end[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_end[1], sizeof(m_end[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_end[2], sizeof(m_end[0]), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

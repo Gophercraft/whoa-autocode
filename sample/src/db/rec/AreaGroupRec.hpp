@@ -2,8 +2,8 @@
 #ifndef DB_REC_AREA_GROUP_REC_HPP
 #define DB_REC_AREA_GROUP_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class AreaGroupRec {
     public:
@@ -12,10 +12,11 @@ class AreaGroupRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_AreaID[6];
-        int32_t m_NextAreaID;
+        int32_t m_areaID[6];
+        int32_t m_nextAreaID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

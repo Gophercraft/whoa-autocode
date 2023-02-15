@@ -2,8 +2,8 @@
 #ifndef DB_REC_SPELL_AURA_RESTRICTIONS_REC_HPP
 #define DB_REC_SPELL_AURA_RESTRICTIONS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SpellAuraRestrictionsRec {
     public:
@@ -12,16 +12,17 @@ class SpellAuraRestrictionsRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_CasterAuraState;
-        int32_t m_TargetAuraState;
-        int32_t m_ExcludeCasterAuraState;
-        int32_t m_ExcludeTargetAuraState;
-        int32_t m_CasterAuraSpell;
-        int32_t m_TargetAuraSpell;
-        int32_t m_ExcludeCasterAuraSpell;
-        int32_t m_ExcludeTargetAuraSpell;
+        int32_t m_casterAuraState;
+        int32_t m_targetAuraState;
+        int32_t m_excludeCasterAuraState;
+        int32_t m_excludeTargetAuraState;
+        int32_t m_casterAuraSpell;
+        int32_t m_targetAuraSpell;
+        int32_t m_excludeCasterAuraSpell;
+        int32_t m_excludeTargetAuraSpell;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

@@ -5,16 +5,20 @@ const char* CharacterFacialHairStylesRec::GetFilename() {
     return "DBFilesClient\\CharacterFacialHairStyles.dbc";
 }
 
+int32_t CharacterFacialHairStylesRec::GetID() {
+    return this->m_generatedID;
+}
+
 bool CharacterFacialHairStylesRec::Read(SFile* f, const char* stringBuffer) {
     if (
-        !SFile::Read(f, &this->m_RaceID, sizeof(this->m_RaceID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SexID, sizeof(this->m_SexID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_VariationID, sizeof(this->m_VariationID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Geoset[0], sizeof(m_Geoset[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Geoset[1], sizeof(m_Geoset[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Geoset[2], sizeof(m_Geoset[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Geoset[3], sizeof(m_Geoset[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Geoset[4], sizeof(m_Geoset[0]), nullptr, nullptr, nullptr)
+        !SFile::Read(f, &this->m_raceID, sizeof(this->m_raceID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_sexID, sizeof(this->m_sexID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_variationID, sizeof(this->m_variationID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_geoset[0], sizeof(m_geoset[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_geoset[1], sizeof(m_geoset[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_geoset[2], sizeof(m_geoset[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_geoset[3], sizeof(m_geoset[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_geoset[4], sizeof(m_geoset[0]), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

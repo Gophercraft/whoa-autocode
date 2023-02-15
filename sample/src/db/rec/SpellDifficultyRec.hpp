@@ -2,8 +2,8 @@
 #ifndef DB_REC_SPELL_DIFFICULTY_REC_HPP
 #define DB_REC_SPELL_DIFFICULTY_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SpellDifficultyRec {
     public:
@@ -12,9 +12,10 @@ class SpellDifficultyRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_DifficultySpellID[4];
+        int32_t m_difficultySpellID[4];
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

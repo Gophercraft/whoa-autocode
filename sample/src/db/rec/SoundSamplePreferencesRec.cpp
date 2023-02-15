@@ -5,25 +5,29 @@ const char* SoundSamplePreferencesRec::GetFilename() {
     return "DBFilesClient\\SoundSamplePreferences.dbc";
 }
 
+int32_t SoundSamplePreferencesRec::GetID() {
+    return this->m_ID;
+}
+
 bool SoundSamplePreferencesRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Field_0_6_0_3592_001, sizeof(this->m_Field_0_6_0_3592_001), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Field_0_6_0_3592_002, sizeof(this->m_Field_0_6_0_3592_002), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EAX2SampleRoom, sizeof(this->m_EAX2SampleRoom), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Field_0_6_0_3592_004, sizeof(this->m_Field_0_6_0_3592_004), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Field_0_6_0_3592_005, sizeof(this->m_Field_0_6_0_3592_005), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Field_0_6_0_3592_006, sizeof(this->m_Field_0_6_0_3592_006), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Field_0_6_0_3592_007, sizeof(this->m_Field_0_6_0_3592_007), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EAX2SampleOcclusionLFRatio, sizeof(this->m_EAX2SampleOcclusionLFRatio), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EAX2SampleOcclusionRoomRatio, sizeof(this->m_EAX2SampleOcclusionRoomRatio), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Field_0_6_0_3592_010, sizeof(this->m_Field_0_6_0_3592_010), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EAX1EffectLevel, sizeof(this->m_EAX1EffectLevel), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Field_0_6_0_3592_012, sizeof(this->m_Field_0_6_0_3592_012), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Field_0_6_0_3592_013, sizeof(this->m_Field_0_6_0_3592_013), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EAX3SampleExclusion, sizeof(this->m_EAX3SampleExclusion), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Field_0_6_0_3592_015, sizeof(this->m_Field_0_6_0_3592_015), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Field_0_6_0_3592_016, sizeof(this->m_Field_0_6_0_3592_016), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_field_0_6_0_3592_001, sizeof(this->m_field_0_6_0_3592_001), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_field_0_6_0_3592_002, sizeof(this->m_field_0_6_0_3592_002), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_eax2SampleRoom, sizeof(this->m_eax2SampleRoom), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_field_0_6_0_3592_004, sizeof(this->m_field_0_6_0_3592_004), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_field_0_6_0_3592_005, sizeof(this->m_field_0_6_0_3592_005), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_field_0_6_0_3592_006, sizeof(this->m_field_0_6_0_3592_006), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_field_0_6_0_3592_007, sizeof(this->m_field_0_6_0_3592_007), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_eax2SampleOcclusionLfratio, sizeof(this->m_eax2SampleOcclusionLfratio), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_eax2SampleOcclusionRoomRatio, sizeof(this->m_eax2SampleOcclusionRoomRatio), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_field_0_6_0_3592_010, sizeof(this->m_field_0_6_0_3592_010), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_eax1EffectLevel, sizeof(this->m_eax1EffectLevel), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_field_0_6_0_3592_012, sizeof(this->m_field_0_6_0_3592_012), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_field_0_6_0_3592_013, sizeof(this->m_field_0_6_0_3592_013), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_eax3SampleExclusion, sizeof(this->m_eax3SampleExclusion), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_field_0_6_0_3592_015, sizeof(this->m_field_0_6_0_3592_015), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_field_0_6_0_3592_016, sizeof(this->m_field_0_6_0_3592_016), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

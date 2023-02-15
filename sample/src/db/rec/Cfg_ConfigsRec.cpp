@@ -5,12 +5,16 @@ const char* Cfg_ConfigsRec::GetFilename() {
     return "DBFilesClient\\Cfg_Configs.dbc";
 }
 
+int32_t Cfg_ConfigsRec::GetID() {
+    return this->m_ID;
+}
+
 bool Cfg_ConfigsRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RealmType, sizeof(this->m_RealmType), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PlayerKillingAllowed, sizeof(this->m_PlayerKillingAllowed), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Roleplaying, sizeof(this->m_Roleplaying), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_realmType, sizeof(this->m_realmType), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_playerKillingAllowed, sizeof(this->m_playerKillingAllowed), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_roleplaying, sizeof(this->m_roleplaying), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

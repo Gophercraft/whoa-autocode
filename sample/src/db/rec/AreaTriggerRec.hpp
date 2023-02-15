@@ -2,8 +2,8 @@
 #ifndef DB_REC_AREA_TRIGGER_REC_HPP
 #define DB_REC_AREA_TRIGGER_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class AreaTriggerRec {
     public:
@@ -12,15 +12,16 @@ class AreaTriggerRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_ContinentID;
-        float m_Pos[3];
-        float m_Radius;
-        float m_Box_length;
-        float m_Box_width;
-        float m_Box_height;
-        float m_Box_yaw;
+        int32_t m_continentID;
+        float m_pos[3];
+        float m_radius;
+        float m_boxLength;
+        float m_boxWidth;
+        float m_boxHeight;
+        float m_boxYaw;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

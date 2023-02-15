@@ -2,8 +2,8 @@
 #ifndef DB_REC_ITEM_VISUAL_EFFECTS_REC_HPP
 #define DB_REC_ITEM_VISUAL_EFFECTS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class ItemVisualEffectsRec {
     public:
@@ -12,9 +12,10 @@ class ItemVisualEffectsRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        const char* m_Model;
+        const char* m_model;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

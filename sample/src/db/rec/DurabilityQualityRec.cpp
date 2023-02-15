@@ -5,10 +5,14 @@ const char* DurabilityQualityRec::GetFilename() {
     return "DBFilesClient\\DurabilityQuality.dbc";
 }
 
+int32_t DurabilityQualityRec::GetID() {
+    return this->m_ID;
+}
+
 bool DurabilityQualityRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Data, sizeof(this->m_Data), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_data, sizeof(this->m_data), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

@@ -5,15 +5,19 @@ const char* TransportRotationRec::GetFilename() {
     return "DBFilesClient\\TransportRotation.dbc";
 }
 
+int32_t TransportRotationRec::GetID() {
+    return this->m_ID;
+}
+
 bool TransportRotationRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_GameObjectsID, sizeof(this->m_GameObjectsID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TimeIndex, sizeof(this->m_TimeIndex), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Rot[0], sizeof(m_Rot[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Rot[1], sizeof(m_Rot[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Rot[2], sizeof(m_Rot[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Rot[3], sizeof(m_Rot[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_gameObjectsID, sizeof(this->m_gameObjectsID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_timeIndex, sizeof(this->m_timeIndex), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_rot[0], sizeof(m_rot[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_rot[1], sizeof(m_rot[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_rot[2], sizeof(m_rot[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_rot[3], sizeof(m_rot[0]), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

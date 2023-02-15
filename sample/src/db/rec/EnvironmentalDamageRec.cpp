@@ -5,11 +5,15 @@ const char* EnvironmentalDamageRec::GetFilename() {
     return "DBFilesClient\\EnvironmentalDamage.dbc";
 }
 
+int32_t EnvironmentalDamageRec::GetID() {
+    return this->m_ID;
+}
+
 bool EnvironmentalDamageRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EnumID, sizeof(this->m_EnumID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_VisualkitID, sizeof(this->m_VisualkitID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_enumID, sizeof(this->m_enumID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_visualkitID, sizeof(this->m_visualkitID), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

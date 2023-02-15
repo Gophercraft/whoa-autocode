@@ -2,8 +2,8 @@
 #ifndef DB_REC_CHAR_HAIR_TEXTURES_REC_HPP
 #define DB_REC_CHAR_HAIR_TEXTURES_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class CharHairTexturesRec {
     public:
@@ -12,15 +12,16 @@ class CharHairTexturesRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Field_0_5_3_3368_001_race; // unconfirmed
-        int32_t m_Field_0_5_3_3368_002_gender; // unconfirmed
-        int32_t m_Field_0_5_3_3368_003; // unconfirmed
-        int32_t m_Field_0_5_3_3368_004_mayberacemask; // unconfirmed
-        int32_t m_Field_0_5_3_3368_005_the_x_in_hair_xy_blp; // unconfirmed
-        int32_t m_Field_0_5_3_3368_006; // unconfirmed
-        int32_t m_Field_0_5_3_3368_007; // unconfirmed
+        int32_t m_field_0_5_3_3368_001_race; // unconfirmed
+        int32_t m_field_0_5_3_3368_002_gender; // unconfirmed
+        int32_t m_field_0_5_3_3368_003; // unconfirmed
+        int32_t m_field_0_5_3_3368_004_mayberacemask; // unconfirmed
+        int32_t m_field_0_5_3_3368_005_the_x_in_hair_xy_blp; // unconfirmed
+        int32_t m_field_0_5_3_3368_006; // unconfirmed
+        int32_t m_field_0_5_3_3368_007; // unconfirmed
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

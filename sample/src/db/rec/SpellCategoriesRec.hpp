@@ -2,8 +2,8 @@
 #ifndef DB_REC_SPELL_CATEGORIES_REC_HPP
 #define DB_REC_SPELL_CATEGORIES_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SpellCategoriesRec {
     public:
@@ -12,14 +12,15 @@ class SpellCategoriesRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Category;
-        int32_t m_DefenseType;
-        int32_t m_DispelType;
-        int32_t m_Mechanic;
-        int32_t m_PreventionType;
-        int32_t m_StartRecoveryCategory;
+        int32_t m_category;
+        int32_t m_defenseType;
+        int32_t m_dispelType;
+        int32_t m_mechanic;
+        int32_t m_preventionType;
+        int32_t m_startRecoveryCategory;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

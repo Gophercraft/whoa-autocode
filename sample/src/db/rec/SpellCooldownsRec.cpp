@@ -5,12 +5,16 @@ const char* SpellCooldownsRec::GetFilename() {
     return "DBFilesClient\\SpellCooldowns.dbc";
 }
 
+int32_t SpellCooldownsRec::GetID() {
+    return this->m_ID;
+}
+
 bool SpellCooldownsRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_CategoryRecoveryTime, sizeof(this->m_CategoryRecoveryTime), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RecoveryTime, sizeof(this->m_RecoveryTime), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_StartRecoveryTime, sizeof(this->m_StartRecoveryTime), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_categoryRecoveryTime, sizeof(this->m_categoryRecoveryTime), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_recoveryTime, sizeof(this->m_recoveryTime), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_startRecoveryTime, sizeof(this->m_startRecoveryTime), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

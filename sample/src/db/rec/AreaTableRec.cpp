@@ -5,55 +5,59 @@ const char* AreaTableRec::GetFilename() {
     return "DBFilesClient\\AreaTable.dbc";
 }
 
+int32_t AreaTableRec::GetID() {
+    return this->m_ID;
+}
+
 bool AreaTableRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t AreaName_langOfs[16];
-    uint32_t AreaName_langMask;
+    uint32_t areaNameOfs[16];
+    uint32_t areaNameMask;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ContinentID, sizeof(this->m_ContinentID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ParentAreaID, sizeof(this->m_ParentAreaID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AreaBit, sizeof(this->m_AreaBit), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Flags, sizeof(this->m_Flags), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SoundProviderPref, sizeof(this->m_SoundProviderPref), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SoundProviderPrefUnderwater, sizeof(this->m_SoundProviderPrefUnderwater), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AmbienceID, sizeof(this->m_AmbienceID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ZoneMusic, sizeof(this->m_ZoneMusic), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_IntroSound, sizeof(this->m_IntroSound), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ExplorationLevel, sizeof(this->m_ExplorationLevel), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AreaName_langOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AreaName_langOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AreaName_langOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AreaName_langOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AreaName_langOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AreaName_langOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AreaName_langOfs[6], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AreaName_langOfs[7], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AreaName_langOfs[8], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AreaName_langOfs[9], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AreaName_langOfs[10], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AreaName_langOfs[11], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AreaName_langOfs[12], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AreaName_langOfs[13], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AreaName_langOfs[14], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AreaName_langOfs[15], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AreaName_langMask, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_FactionGroupMask, sizeof(this->m_FactionGroupMask), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_LiquidTypeID[0], sizeof(m_LiquidTypeID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_LiquidTypeID[1], sizeof(m_LiquidTypeID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_LiquidTypeID[2], sizeof(m_LiquidTypeID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_LiquidTypeID[3], sizeof(m_LiquidTypeID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MinElevation, sizeof(this->m_MinElevation), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Ambient_multiplier, sizeof(this->m_Ambient_multiplier), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_LightID, sizeof(this->m_LightID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_continentID, sizeof(this->m_continentID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_parentAreaID, sizeof(this->m_parentAreaID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_areaBit, sizeof(this->m_areaBit), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_flags, sizeof(this->m_flags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_soundProviderPref, sizeof(this->m_soundProviderPref), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_soundProviderPrefUnderwater, sizeof(this->m_soundProviderPrefUnderwater), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_ambienceID, sizeof(this->m_ambienceID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_zoneMusic, sizeof(this->m_zoneMusic), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_introSound, sizeof(this->m_introSound), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_explorationLevel, sizeof(this->m_explorationLevel), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &areaNameOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &areaNameOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &areaNameOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &areaNameOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &areaNameOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &areaNameOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &areaNameOfs[6], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &areaNameOfs[7], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &areaNameOfs[8], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &areaNameOfs[9], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &areaNameOfs[10], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &areaNameOfs[11], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &areaNameOfs[12], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &areaNameOfs[13], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &areaNameOfs[14], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &areaNameOfs[15], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &areaNameMask, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_factionGroupMask, sizeof(this->m_factionGroupMask), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_liquidTypeID[0], sizeof(m_liquidTypeID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_liquidTypeID[1], sizeof(m_liquidTypeID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_liquidTypeID[2], sizeof(m_liquidTypeID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_liquidTypeID[3], sizeof(m_liquidTypeID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_minElevation, sizeof(this->m_minElevation), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_ambientMultiplier, sizeof(this->m_ambientMultiplier), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_lightID, sizeof(this->m_lightID), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_AreaName_lang = &stringBuffer[AreaName_langOfs[CURRENT_LANGUAGE]];
+        this->m_areaName = &stringBuffer[areaNameOfs[CURRENT_LANGUAGE]];
     } else {
-        this->m_AreaName_lang = "";
+        this->m_areaName = "";
     }
 
     return true;

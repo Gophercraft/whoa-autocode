@@ -5,76 +5,80 @@ const char* LiquidTypeRec::GetFilename() {
     return "DBFilesClient\\LiquidType.dbc";
 }
 
+int32_t LiquidTypeRec::GetID() {
+    return this->m_ID;
+}
+
 bool LiquidTypeRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t NameOfs;
-    uint32_t TextureOfs[6];
+    uint32_t nameOfs;
+    uint32_t textureOfs[6];
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &NameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Flags, sizeof(this->m_Flags), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SoundBank, sizeof(this->m_SoundBank), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SoundID, sizeof(this->m_SoundID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SpellID, sizeof(this->m_SpellID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MaxDarkenDepth, sizeof(this->m_MaxDarkenDepth), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_FogDarkenIntensity, sizeof(this->m_FogDarkenIntensity), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AmbDarkenIntensity, sizeof(this->m_AmbDarkenIntensity), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_DirDarkenIntensity, sizeof(this->m_DirDarkenIntensity), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_LightID, sizeof(this->m_LightID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ParticleScale, sizeof(this->m_ParticleScale), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ParticleMovement, sizeof(this->m_ParticleMovement), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ParticleTexSlots, sizeof(this->m_ParticleTexSlots), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MaterialID, sizeof(this->m_MaterialID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &TextureOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &TextureOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &TextureOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &TextureOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &TextureOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &TextureOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Color[0], sizeof(m_Color[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Color[1], sizeof(m_Color[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Float[0], sizeof(m_Float[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Float[1], sizeof(m_Float[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Float[2], sizeof(m_Float[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Float[3], sizeof(m_Float[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Float[4], sizeof(m_Float[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Float[5], sizeof(m_Float[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Float[6], sizeof(m_Float[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Float[7], sizeof(m_Float[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Float[8], sizeof(m_Float[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Float[9], sizeof(m_Float[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Float[10], sizeof(m_Float[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Float[11], sizeof(m_Float[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Float[12], sizeof(m_Float[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Float[13], sizeof(m_Float[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Float[14], sizeof(m_Float[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Float[15], sizeof(m_Float[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Float[16], sizeof(m_Float[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Float[17], sizeof(m_Float[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Int[0], sizeof(m_Int[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Int[1], sizeof(m_Int[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Int[2], sizeof(m_Int[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Int[3], sizeof(m_Int[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_flags, sizeof(this->m_flags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_soundBank, sizeof(this->m_soundBank), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_soundID, sizeof(this->m_soundID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spellID, sizeof(this->m_spellID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_maxDarkenDepth, sizeof(this->m_maxDarkenDepth), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_fogDarkenIntensity, sizeof(this->m_fogDarkenIntensity), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_ambDarkenIntensity, sizeof(this->m_ambDarkenIntensity), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_dirDarkenIntensity, sizeof(this->m_dirDarkenIntensity), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_lightID, sizeof(this->m_lightID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_particleScale, sizeof(this->m_particleScale), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_particleMovement, sizeof(this->m_particleMovement), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_particleTexSlots, sizeof(this->m_particleTexSlots), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_materialID, sizeof(this->m_materialID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &textureOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &textureOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &textureOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &textureOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &textureOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &textureOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_color[0], sizeof(m_color[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_color[1], sizeof(m_color[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_float[0], sizeof(m_float[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_float[1], sizeof(m_float[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_float[2], sizeof(m_float[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_float[3], sizeof(m_float[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_float[4], sizeof(m_float[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_float[5], sizeof(m_float[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_float[6], sizeof(m_float[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_float[7], sizeof(m_float[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_float[8], sizeof(m_float[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_float[9], sizeof(m_float[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_float[10], sizeof(m_float[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_float[11], sizeof(m_float[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_float[12], sizeof(m_float[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_float[13], sizeof(m_float[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_float[14], sizeof(m_float[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_float[15], sizeof(m_float[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_float[16], sizeof(m_float[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_float[17], sizeof(m_float[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_int[0], sizeof(m_int[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_int[1], sizeof(m_int[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_int[2], sizeof(m_int[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_int[3], sizeof(m_int[0]), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_Name = &stringBuffer[NameOfs];
-        this->m_Texture[0] = &stringBuffer[TextureOfs[0]];
-        this->m_Texture[1] = &stringBuffer[TextureOfs[1]];
-        this->m_Texture[2] = &stringBuffer[TextureOfs[2]];
-        this->m_Texture[3] = &stringBuffer[TextureOfs[3]];
-        this->m_Texture[4] = &stringBuffer[TextureOfs[4]];
-        this->m_Texture[5] = &stringBuffer[TextureOfs[5]];
+        this->m_name = &stringBuffer[nameOfs];
+        this->m_texture[0] = &stringBuffer[textureOfs[0]];
+        this->m_texture[1] = &stringBuffer[textureOfs[1]];
+        this->m_texture[2] = &stringBuffer[textureOfs[2]];
+        this->m_texture[3] = &stringBuffer[textureOfs[3]];
+        this->m_texture[4] = &stringBuffer[textureOfs[4]];
+        this->m_texture[5] = &stringBuffer[textureOfs[5]];
     } else {
-        this->m_Name = "";
-        this->m_Texture[0] = "";
-        this->m_Texture[1] = "";
-        this->m_Texture[2] = "";
-        this->m_Texture[3] = "";
-        this->m_Texture[4] = "";
-        this->m_Texture[5] = "";
+        this->m_name = "";
+        this->m_texture[0] = "";
+        this->m_texture[1] = "";
+        this->m_texture[2] = "";
+        this->m_texture[3] = "";
+        this->m_texture[4] = "";
+        this->m_texture[5] = "";
     }
 
     return true;

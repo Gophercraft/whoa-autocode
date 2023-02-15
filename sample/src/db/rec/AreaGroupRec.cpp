@@ -5,16 +5,20 @@ const char* AreaGroupRec::GetFilename() {
     return "DBFilesClient\\AreaGroup.dbc";
 }
 
+int32_t AreaGroupRec::GetID() {
+    return this->m_ID;
+}
+
 bool AreaGroupRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AreaID[0], sizeof(m_AreaID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AreaID[1], sizeof(m_AreaID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AreaID[2], sizeof(m_AreaID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AreaID[3], sizeof(m_AreaID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AreaID[4], sizeof(m_AreaID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AreaID[5], sizeof(m_AreaID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_NextAreaID, sizeof(this->m_NextAreaID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_areaID[0], sizeof(m_areaID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_areaID[1], sizeof(m_areaID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_areaID[2], sizeof(m_areaID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_areaID[3], sizeof(m_areaID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_areaID[4], sizeof(m_areaID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_areaID[5], sizeof(m_areaID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_nextAreaID, sizeof(this->m_nextAreaID), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

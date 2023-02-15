@@ -5,24 +5,28 @@ const char* PowerDisplayRec::GetFilename() {
     return "DBFilesClient\\PowerDisplay.dbc";
 }
 
+int32_t PowerDisplayRec::GetID() {
+    return this->m_ID;
+}
+
 bool PowerDisplayRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t GlobalStringBaseTagOfs;
+    uint32_t globalStringBaseTagOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ActualType, sizeof(this->m_ActualType), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &GlobalStringBaseTagOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Red, sizeof(this->m_Red), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Green, sizeof(this->m_Green), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Blue, sizeof(this->m_Blue), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_actualType, sizeof(this->m_actualType), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &globalStringBaseTagOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_red, sizeof(this->m_red), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_green, sizeof(this->m_green), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_blue, sizeof(this->m_blue), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_GlobalStringBaseTag = &stringBuffer[GlobalStringBaseTagOfs];
+        this->m_globalStringBaseTag = &stringBuffer[globalStringBaseTagOfs];
     } else {
-        this->m_GlobalStringBaseTag = "";
+        this->m_globalStringBaseTag = "";
     }
 
     return true;

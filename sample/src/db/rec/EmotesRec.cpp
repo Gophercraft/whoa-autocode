@@ -5,25 +5,29 @@ const char* EmotesRec::GetFilename() {
     return "DBFilesClient\\Emotes.dbc";
 }
 
+int32_t EmotesRec::GetID() {
+    return this->m_ID;
+}
+
 bool EmotesRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t EmoteSlashCommandOfs;
+    uint32_t emoteSlashCommandOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &EmoteSlashCommandOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AnimID, sizeof(this->m_AnimID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EmoteFlags, sizeof(this->m_EmoteFlags), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EmoteSpecProc, sizeof(this->m_EmoteSpecProc), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EmoteSpecProcParam, sizeof(this->m_EmoteSpecProcParam), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EventSoundID, sizeof(this->m_EventSoundID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &emoteSlashCommandOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_animID, sizeof(this->m_animID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_emoteFlags, sizeof(this->m_emoteFlags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_emoteSpecProc, sizeof(this->m_emoteSpecProc), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_emoteSpecProcParam, sizeof(this->m_emoteSpecProcParam), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_eventSoundID, sizeof(this->m_eventSoundID), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_EmoteSlashCommand = &stringBuffer[EmoteSlashCommandOfs];
+        this->m_emoteSlashCommand = &stringBuffer[emoteSlashCommandOfs];
     } else {
-        this->m_EmoteSlashCommand = "";
+        this->m_emoteSlashCommand = "";
     }
 
     return true;

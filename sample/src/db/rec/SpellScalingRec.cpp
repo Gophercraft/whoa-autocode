@@ -5,24 +5,28 @@ const char* SpellScalingRec::GetFilename() {
     return "DBFilesClient\\SpellScaling.dbc";
 }
 
+int32_t SpellScalingRec::GetID() {
+    return this->m_ID;
+}
+
 bool SpellScalingRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_CastTimeMin, sizeof(this->m_CastTimeMin), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_CastTimeMax, sizeof(this->m_CastTimeMax), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_CastTimeMaxLevel, sizeof(this->m_CastTimeMaxLevel), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Class, sizeof(this->m_Class), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Coefficient[0], sizeof(m_Coefficient[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Coefficient[1], sizeof(m_Coefficient[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Coefficient[2], sizeof(m_Coefficient[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Variance[0], sizeof(m_Variance[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Variance[1], sizeof(m_Variance[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Variance[2], sizeof(m_Variance[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ComboPointsCoefficient[0], sizeof(m_ComboPointsCoefficient[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ComboPointsCoefficient[1], sizeof(m_ComboPointsCoefficient[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ComboPointsCoefficient[2], sizeof(m_ComboPointsCoefficient[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_NerfFactor, sizeof(this->m_NerfFactor), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_NerfMaxLevel, sizeof(this->m_NerfMaxLevel), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_castTimeMin, sizeof(this->m_castTimeMin), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_castTimeMax, sizeof(this->m_castTimeMax), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_castTimeMaxLevel, sizeof(this->m_castTimeMaxLevel), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_class, sizeof(this->m_class), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_coefficient[0], sizeof(m_coefficient[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_coefficient[1], sizeof(m_coefficient[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_coefficient[2], sizeof(m_coefficient[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_variance[0], sizeof(m_variance[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_variance[1], sizeof(m_variance[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_variance[2], sizeof(m_variance[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_comboPointsCoefficient[0], sizeof(m_comboPointsCoefficient[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_comboPointsCoefficient[1], sizeof(m_comboPointsCoefficient[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_comboPointsCoefficient[2], sizeof(m_comboPointsCoefficient[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_nerfFactor, sizeof(this->m_nerfFactor), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_nerfMaxLevel, sizeof(this->m_nerfMaxLevel), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

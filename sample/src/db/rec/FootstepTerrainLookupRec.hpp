@@ -2,8 +2,8 @@
 #ifndef DB_REC_FOOTSTEP_TERRAIN_LOOKUP_REC_HPP
 #define DB_REC_FOOTSTEP_TERRAIN_LOOKUP_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class FootstepTerrainLookupRec {
     public:
@@ -12,12 +12,13 @@ class FootstepTerrainLookupRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_CreatureFootstepID;
-        int32_t m_TerrainSoundID;
-        int32_t m_SoundID;
-        int32_t m_SoundIDSplash;
+        int32_t m_creatureFootstepID;
+        int32_t m_terrainSoundID;
+        int32_t m_soundID;
+        int32_t m_soundIdsplash;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

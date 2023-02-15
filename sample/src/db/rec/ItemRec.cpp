@@ -5,16 +5,20 @@ const char* ItemRec::GetFilename() {
     return "DBFilesClient\\Item.dbc";
 }
 
+int32_t ItemRec::GetID() {
+    return this->m_ID;
+}
+
 bool ItemRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ClassID, sizeof(this->m_ClassID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SubclassID, sizeof(this->m_SubclassID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Sound_override_subclassID, sizeof(this->m_Sound_override_subclassID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Material, sizeof(this->m_Material), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_DisplayInfoID, sizeof(this->m_DisplayInfoID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_InventoryType, sizeof(this->m_InventoryType), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SheatheType, sizeof(this->m_SheatheType), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_classID, sizeof(this->m_classID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_subclassID, sizeof(this->m_subclassID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_soundOverrideSubclassID, sizeof(this->m_soundOverrideSubclassID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_material, sizeof(this->m_material), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_displayInfoID, sizeof(this->m_displayInfoID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_inventoryType, sizeof(this->m_inventoryType), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_sheatheType, sizeof(this->m_sheatheType), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

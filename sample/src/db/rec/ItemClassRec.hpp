@@ -2,8 +2,8 @@
 #ifndef DB_REC_ITEM_CLASS_REC_HPP
 #define DB_REC_ITEM_CLASS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class ItemClassRec {
     public:
@@ -11,12 +11,14 @@ class ItemClassRec {
         static constexpr uint32_t rowSize = 80;
         static constexpr bool indexIsID = true;
 
-        int32_t m_ClassID;
-        int32_t m_SubclassMapID;
-        int32_t m_Flags;
-        const char* m_ClassName_lang;
+        int32_t m_classID;
+        int32_t m_subclassMapID;
+        int32_t m_flags;
+        const char* m_className;
+        int32_t m_generatedID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

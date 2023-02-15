@@ -2,8 +2,8 @@
 #ifndef DB_REC_ATTACK_ANIM_KITS_REC_HPP
 #define DB_REC_ATTACK_ANIM_KITS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class AttackAnimKitsRec {
     public:
@@ -12,12 +12,13 @@ class AttackAnimKitsRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_ItemSubclassID;
-        int32_t m_AnimTypeID;
-        int32_t m_AnimFrequency;
-        int32_t m_WhichHand;
+        int32_t m_itemSubclassID;
+        int32_t m_animTypeID;
+        int32_t m_animFrequency;
+        int32_t m_whichHand;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

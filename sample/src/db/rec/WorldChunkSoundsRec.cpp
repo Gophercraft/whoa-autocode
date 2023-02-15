@@ -5,17 +5,21 @@ const char* WorldChunkSoundsRec::GetFilename() {
     return "DBFilesClient\\WorldChunkSounds.dbc";
 }
 
+int32_t WorldChunkSoundsRec::GetID() {
+    return this->m_ID;
+}
+
 bool WorldChunkSoundsRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ChunkX, sizeof(this->m_ChunkX), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ChunkY, sizeof(this->m_ChunkY), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SubchunkX, sizeof(this->m_SubchunkX), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SubchunkY, sizeof(this->m_SubchunkY), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ZoneIntroMusicID, sizeof(this->m_ZoneIntroMusicID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ZoneMusicID, sizeof(this->m_ZoneMusicID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SoundAmbienceID, sizeof(this->m_SoundAmbienceID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SoundProviderPreferencesID, sizeof(this->m_SoundProviderPreferencesID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_chunkX, sizeof(this->m_chunkX), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_chunkY, sizeof(this->m_chunkY), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_subchunkX, sizeof(this->m_subchunkX), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_subchunkY, sizeof(this->m_subchunkY), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_zoneIntroMusicID, sizeof(this->m_zoneIntroMusicID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_zoneMusicID, sizeof(this->m_zoneMusicID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_soundAmbienceID, sizeof(this->m_soundAmbienceID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_soundProviderPreferencesID, sizeof(this->m_soundProviderPreferencesID), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

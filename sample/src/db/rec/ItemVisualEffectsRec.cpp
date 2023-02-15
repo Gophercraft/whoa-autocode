@@ -5,20 +5,24 @@ const char* ItemVisualEffectsRec::GetFilename() {
     return "DBFilesClient\\ItemVisualEffects.dbc";
 }
 
+int32_t ItemVisualEffectsRec::GetID() {
+    return this->m_ID;
+}
+
 bool ItemVisualEffectsRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t ModelOfs;
+    uint32_t modelOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &ModelOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &modelOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_Model = &stringBuffer[ModelOfs];
+        this->m_model = &stringBuffer[modelOfs];
     } else {
-        this->m_Model = "";
+        this->m_model = "";
     }
 
     return true;

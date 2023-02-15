@@ -5,67 +5,71 @@ const char* ItemSubClassRec::GetFilename() {
     return "DBFilesClient\\ItemSubClass.dbc";
 }
 
+int32_t ItemSubClassRec::GetID() {
+    return this->m_generatedID;
+}
+
 bool ItemSubClassRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t DisplayName_langOfs[16];
-    uint32_t DisplayName_langMask;
-    uint32_t VerboseName_langOfs[16];
-    uint32_t VerboseName_langMask;
+    uint32_t displayNameOfs[16];
+    uint32_t displayNameMask;
+    uint32_t verboseNameOfs[16];
+    uint32_t verboseNameMask;
 
     if (
-        !SFile::Read(f, &this->m_ClassID, sizeof(this->m_ClassID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SubClassID, sizeof(this->m_SubClassID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PrerequisiteProficiency, sizeof(this->m_PrerequisiteProficiency), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PostrequisiteProficiency, sizeof(this->m_PostrequisiteProficiency), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Flags, sizeof(this->m_Flags), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_DisplayFlags, sizeof(this->m_DisplayFlags), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_WeaponParrySeq, sizeof(this->m_WeaponParrySeq), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_WeaponReadySeq, sizeof(this->m_WeaponReadySeq), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_WeaponAttackSeq, sizeof(this->m_WeaponAttackSeq), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_WeaponSwingSize, sizeof(this->m_WeaponSwingSize), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &DisplayName_langOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &DisplayName_langOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &DisplayName_langOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &DisplayName_langOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &DisplayName_langOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &DisplayName_langOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &DisplayName_langOfs[6], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &DisplayName_langOfs[7], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &DisplayName_langOfs[8], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &DisplayName_langOfs[9], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &DisplayName_langOfs[10], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &DisplayName_langOfs[11], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &DisplayName_langOfs[12], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &DisplayName_langOfs[13], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &DisplayName_langOfs[14], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &DisplayName_langOfs[15], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &DisplayName_langMask, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &VerboseName_langOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &VerboseName_langOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &VerboseName_langOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &VerboseName_langOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &VerboseName_langOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &VerboseName_langOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &VerboseName_langOfs[6], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &VerboseName_langOfs[7], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &VerboseName_langOfs[8], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &VerboseName_langOfs[9], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &VerboseName_langOfs[10], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &VerboseName_langOfs[11], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &VerboseName_langOfs[12], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &VerboseName_langOfs[13], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &VerboseName_langOfs[14], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &VerboseName_langOfs[15], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &VerboseName_langMask, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        !SFile::Read(f, &this->m_classID, sizeof(this->m_classID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_subClassID, sizeof(this->m_subClassID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_prerequisiteProficiency, sizeof(this->m_prerequisiteProficiency), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_postrequisiteProficiency, sizeof(this->m_postrequisiteProficiency), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_flags, sizeof(this->m_flags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_displayFlags, sizeof(this->m_displayFlags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_weaponParrySeq, sizeof(this->m_weaponParrySeq), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_weaponReadySeq, sizeof(this->m_weaponReadySeq), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_weaponAttackSeq, sizeof(this->m_weaponAttackSeq), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_weaponSwingSize, sizeof(this->m_weaponSwingSize), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &displayNameOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &displayNameOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &displayNameOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &displayNameOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &displayNameOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &displayNameOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &displayNameOfs[6], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &displayNameOfs[7], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &displayNameOfs[8], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &displayNameOfs[9], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &displayNameOfs[10], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &displayNameOfs[11], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &displayNameOfs[12], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &displayNameOfs[13], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &displayNameOfs[14], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &displayNameOfs[15], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &displayNameMask, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &verboseNameOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &verboseNameOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &verboseNameOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &verboseNameOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &verboseNameOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &verboseNameOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &verboseNameOfs[6], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &verboseNameOfs[7], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &verboseNameOfs[8], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &verboseNameOfs[9], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &verboseNameOfs[10], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &verboseNameOfs[11], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &verboseNameOfs[12], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &verboseNameOfs[13], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &verboseNameOfs[14], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &verboseNameOfs[15], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &verboseNameMask, sizeof(uint32_t), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_DisplayName_lang = &stringBuffer[DisplayName_langOfs[CURRENT_LANGUAGE]];
-        this->m_VerboseName_lang = &stringBuffer[VerboseName_langOfs[CURRENT_LANGUAGE]];
+        this->m_displayName = &stringBuffer[displayNameOfs[CURRENT_LANGUAGE]];
+        this->m_verboseName = &stringBuffer[verboseNameOfs[CURRENT_LANGUAGE]];
     } else {
-        this->m_DisplayName_lang = "";
-        this->m_VerboseName_lang = "";
+        this->m_displayName = "";
+        this->m_verboseName = "";
     }
 
     return true;

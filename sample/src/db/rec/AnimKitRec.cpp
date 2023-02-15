@@ -5,11 +5,15 @@ const char* AnimKitRec::GetFilename() {
     return "DBFilesClient\\AnimKit.dbc";
 }
 
+int32_t AnimKitRec::GetID() {
+    return this->m_ID;
+}
+
 bool AnimKitRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_OneShotDuration, sizeof(this->m_OneShotDuration), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_OneShotStopAnimKitID, sizeof(this->m_OneShotStopAnimKitID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_oneShotDuration, sizeof(this->m_oneShotDuration), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_oneShotStopAnimKitID, sizeof(this->m_oneShotStopAnimKitID), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

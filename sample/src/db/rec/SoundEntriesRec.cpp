@@ -5,72 +5,76 @@ const char* SoundEntriesRec::GetFilename() {
     return "DBFilesClient\\SoundEntries.dbc";
 }
 
+int32_t SoundEntriesRec::GetID() {
+    return this->m_ID;
+}
+
 bool SoundEntriesRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t NameOfs;
-    uint32_t FileOfs[10];
-    uint32_t DirectoryBaseOfs;
+    uint32_t nameOfs;
+    uint32_t fileOfs[10];
+    uint32_t directoryBaseOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SoundType, sizeof(this->m_SoundType), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &NameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &FileOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &FileOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &FileOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &FileOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &FileOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &FileOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &FileOfs[6], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &FileOfs[7], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &FileOfs[8], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &FileOfs[9], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Freq[0], sizeof(m_Freq[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Freq[1], sizeof(m_Freq[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Freq[2], sizeof(m_Freq[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Freq[3], sizeof(m_Freq[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Freq[4], sizeof(m_Freq[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Freq[5], sizeof(m_Freq[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Freq[6], sizeof(m_Freq[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Freq[7], sizeof(m_Freq[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Freq[8], sizeof(m_Freq[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Freq[9], sizeof(m_Freq[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &DirectoryBaseOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_VolumeFloat, sizeof(this->m_VolumeFloat), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Flags, sizeof(this->m_Flags), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MinDistance, sizeof(this->m_MinDistance), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_DistanceCutoff, sizeof(this->m_DistanceCutoff), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EAXDef, sizeof(this->m_EAXDef), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SoundEntriesAdvancedID, sizeof(this->m_SoundEntriesAdvancedID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_soundType, sizeof(this->m_soundType), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &fileOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &fileOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &fileOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &fileOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &fileOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &fileOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &fileOfs[6], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &fileOfs[7], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &fileOfs[8], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &fileOfs[9], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_freq[0], sizeof(m_freq[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_freq[1], sizeof(m_freq[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_freq[2], sizeof(m_freq[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_freq[3], sizeof(m_freq[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_freq[4], sizeof(m_freq[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_freq[5], sizeof(m_freq[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_freq[6], sizeof(m_freq[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_freq[7], sizeof(m_freq[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_freq[8], sizeof(m_freq[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_freq[9], sizeof(m_freq[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &directoryBaseOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_volumeFloat, sizeof(this->m_volumeFloat), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_flags, sizeof(this->m_flags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_minDistance, sizeof(this->m_minDistance), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_distanceCutoff, sizeof(this->m_distanceCutoff), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_eaxdef, sizeof(this->m_eaxdef), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_soundEntriesAdvancedID, sizeof(this->m_soundEntriesAdvancedID), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_Name = &stringBuffer[NameOfs];
-        this->m_File[0] = &stringBuffer[FileOfs[0]];
-        this->m_File[1] = &stringBuffer[FileOfs[1]];
-        this->m_File[2] = &stringBuffer[FileOfs[2]];
-        this->m_File[3] = &stringBuffer[FileOfs[3]];
-        this->m_File[4] = &stringBuffer[FileOfs[4]];
-        this->m_File[5] = &stringBuffer[FileOfs[5]];
-        this->m_File[6] = &stringBuffer[FileOfs[6]];
-        this->m_File[7] = &stringBuffer[FileOfs[7]];
-        this->m_File[8] = &stringBuffer[FileOfs[8]];
-        this->m_File[9] = &stringBuffer[FileOfs[9]];
-        this->m_DirectoryBase = &stringBuffer[DirectoryBaseOfs];
+        this->m_name = &stringBuffer[nameOfs];
+        this->m_file[0] = &stringBuffer[fileOfs[0]];
+        this->m_file[1] = &stringBuffer[fileOfs[1]];
+        this->m_file[2] = &stringBuffer[fileOfs[2]];
+        this->m_file[3] = &stringBuffer[fileOfs[3]];
+        this->m_file[4] = &stringBuffer[fileOfs[4]];
+        this->m_file[5] = &stringBuffer[fileOfs[5]];
+        this->m_file[6] = &stringBuffer[fileOfs[6]];
+        this->m_file[7] = &stringBuffer[fileOfs[7]];
+        this->m_file[8] = &stringBuffer[fileOfs[8]];
+        this->m_file[9] = &stringBuffer[fileOfs[9]];
+        this->m_directoryBase = &stringBuffer[directoryBaseOfs];
     } else {
-        this->m_Name = "";
-        this->m_File[0] = "";
-        this->m_File[1] = "";
-        this->m_File[2] = "";
-        this->m_File[3] = "";
-        this->m_File[4] = "";
-        this->m_File[5] = "";
-        this->m_File[6] = "";
-        this->m_File[7] = "";
-        this->m_File[8] = "";
-        this->m_File[9] = "";
-        this->m_DirectoryBase = "";
+        this->m_name = "";
+        this->m_file[0] = "";
+        this->m_file[1] = "";
+        this->m_file[2] = "";
+        this->m_file[3] = "";
+        this->m_file[4] = "";
+        this->m_file[5] = "";
+        this->m_file[6] = "";
+        this->m_file[7] = "";
+        this->m_file[8] = "";
+        this->m_file[9] = "";
+        this->m_directoryBase = "";
     }
 
     return true;

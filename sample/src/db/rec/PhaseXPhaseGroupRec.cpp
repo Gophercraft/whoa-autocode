@@ -5,11 +5,15 @@ const char* PhaseXPhaseGroupRec::GetFilename() {
     return "DBFilesClient\\PhaseXPhaseGroup.dbc";
 }
 
+int32_t PhaseXPhaseGroupRec::GetID() {
+    return this->m_ID;
+}
+
 bool PhaseXPhaseGroupRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PhaseID, sizeof(this->m_PhaseID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PhaseGroupID, sizeof(this->m_PhaseGroupID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_phaseID, sizeof(this->m_phaseID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_phaseGroupID, sizeof(this->m_phaseGroupID), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

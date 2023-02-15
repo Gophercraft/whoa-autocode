@@ -5,20 +5,24 @@ const char* SpellIconRec::GetFilename() {
     return "DBFilesClient\\SpellIcon.dbc";
 }
 
+int32_t SpellIconRec::GetID() {
+    return this->m_ID;
+}
+
 bool SpellIconRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t TextureFilenameOfs;
+    uint32_t textureFilenameOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &TextureFilenameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &textureFilenameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_TextureFilename = &stringBuffer[TextureFilenameOfs];
+        this->m_textureFilename = &stringBuffer[textureFilenameOfs];
     } else {
-        this->m_TextureFilename = "";
+        this->m_textureFilename = "";
     }
 
     return true;

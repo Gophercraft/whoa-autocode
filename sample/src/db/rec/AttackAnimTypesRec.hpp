@@ -2,8 +2,8 @@
 #ifndef DB_REC_ATTACK_ANIM_TYPES_REC_HPP
 #define DB_REC_ATTACK_ANIM_TYPES_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class AttackAnimTypesRec {
     public:
@@ -11,10 +11,12 @@ class AttackAnimTypesRec {
         static constexpr uint32_t rowSize = 8;
         static constexpr bool indexIsID = true;
 
-        int32_t m_AnimID;
-        const char* m_AnimName;
+        int32_t m_animID;
+        const char* m_animName;
+        int32_t m_generatedID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

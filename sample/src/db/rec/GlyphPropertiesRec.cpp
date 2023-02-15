@@ -5,12 +5,16 @@ const char* GlyphPropertiesRec::GetFilename() {
     return "DBFilesClient\\GlyphProperties.dbc";
 }
 
+int32_t GlyphPropertiesRec::GetID() {
+    return this->m_ID;
+}
+
 bool GlyphPropertiesRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SpellID, sizeof(this->m_SpellID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_GlyphSlotFlags, sizeof(this->m_GlyphSlotFlags), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SpellIconID, sizeof(this->m_SpellIconID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spellID, sizeof(this->m_spellID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_glyphSlotFlags, sizeof(this->m_glyphSlotFlags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spellIconID, sizeof(this->m_spellIconID), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

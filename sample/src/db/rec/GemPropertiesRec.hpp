@@ -2,8 +2,8 @@
 #ifndef DB_REC_GEM_PROPERTIES_REC_HPP
 #define DB_REC_GEM_PROPERTIES_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class GemPropertiesRec {
     public:
@@ -12,12 +12,13 @@ class GemPropertiesRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Enchant_ID;
-        int32_t m_Maxcount_inv;
-        int32_t m_Maxcount_item;
-        int32_t m_Type;
+        int32_t m_enchantID;
+        int32_t m_maxcountInv;
+        int32_t m_maxcountItem;
+        int32_t m_type;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

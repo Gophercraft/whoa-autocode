@@ -2,8 +2,8 @@
 #ifndef DB_REC_CREATURE_DISPLAY_INFO_EXTRA_REC_HPP
 #define DB_REC_CREATURE_DISPLAY_INFO_EXTRA_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class CreatureDisplayInfoExtraRec {
     public:
@@ -12,18 +12,19 @@ class CreatureDisplayInfoExtraRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_DisplayRaceID;
-        int32_t m_DisplaySexID;
-        int32_t m_SkinID;
-        int32_t m_FaceID;
-        int32_t m_HairStyleID;
-        int32_t m_HairColorID;
-        int32_t m_FacialHairID;
-        int32_t m_NPCItemDisplay[11];
-        int32_t m_Flags;
-        const char* m_BakeName;
+        int32_t m_displayRaceID;
+        int32_t m_displaySexID;
+        int32_t m_skinID;
+        int32_t m_faceID;
+        int32_t m_hairStyleID;
+        int32_t m_hairColorID;
+        int32_t m_facialHairID;
+        int32_t m_npcitemDisplay[11];
+        int32_t m_flags;
+        const char* m_bakeName;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

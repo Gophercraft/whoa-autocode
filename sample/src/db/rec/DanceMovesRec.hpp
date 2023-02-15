@@ -2,8 +2,8 @@
 #ifndef DB_REC_DANCE_MOVES_REC_HPP
 #define DB_REC_DANCE_MOVES_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class DanceMovesRec {
     public:
@@ -12,15 +12,16 @@ class DanceMovesRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Type;
-        int32_t m_Param;
-        int32_t m_Fallback;
-        int32_t m_Racemask;
-        const char* m_Internal_name;
-        const char* m_Name_lang;
-        int32_t m_LockID;
+        int32_t m_type;
+        int32_t m_param;
+        int32_t m_fallback;
+        int32_t m_racemask;
+        const char* m_internalName;
+        const char* m_name;
+        int32_t m_lockID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

@@ -5,12 +5,16 @@ const char* SpellLevelsRec::GetFilename() {
     return "DBFilesClient\\SpellLevels.dbc";
 }
 
+int32_t SpellLevelsRec::GetID() {
+    return this->m_ID;
+}
+
 bool SpellLevelsRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_BaseLevel, sizeof(this->m_BaseLevel), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MaxLevel, sizeof(this->m_MaxLevel), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SpellLevel, sizeof(this->m_SpellLevel), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_baseLevel, sizeof(this->m_baseLevel), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_maxLevel, sizeof(this->m_maxLevel), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spellLevel, sizeof(this->m_spellLevel), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

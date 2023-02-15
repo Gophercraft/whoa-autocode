@@ -2,8 +2,8 @@
 #ifndef DB_REC_SPELL_TARGET_RESTRICTIONS_REC_HPP
 #define DB_REC_SPELL_TARGET_RESTRICTIONS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SpellTargetRestrictionsRec {
     public:
@@ -12,12 +12,13 @@ class SpellTargetRestrictionsRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_MaxTargets;
-        int32_t m_MaxTargetLevel;
-        int32_t m_TargetCreatureType;
-        int32_t m_Targets;
+        int32_t m_maxTargets;
+        int32_t m_maxTargetLevel;
+        int32_t m_targetCreatureType;
+        int32_t m_targets;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

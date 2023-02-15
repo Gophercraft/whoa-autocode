@@ -5,42 +5,46 @@ const char* SoundEntriesAdvancedRec::GetFilename() {
     return "DBFilesClient\\SoundEntriesAdvanced.dbc";
 }
 
+int32_t SoundEntriesAdvancedRec::GetID() {
+    return this->m_ID;
+}
+
 bool SoundEntriesAdvancedRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t NameOfs;
+    uint32_t nameOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SoundEntryID, sizeof(this->m_SoundEntryID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_InnerRadius2D, sizeof(this->m_InnerRadius2D), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TimeA, sizeof(this->m_TimeA), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TimeB, sizeof(this->m_TimeB), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TimeC, sizeof(this->m_TimeC), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TimeD, sizeof(this->m_TimeD), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RandomOffsetRange, sizeof(this->m_RandomOffsetRange), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Usage, sizeof(this->m_Usage), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TimeIntervalMin, sizeof(this->m_TimeIntervalMin), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TimeIntervalMax, sizeof(this->m_TimeIntervalMax), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_VolumeSliderCategory, sizeof(this->m_VolumeSliderCategory), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_DuckToSFX, sizeof(this->m_DuckToSFX), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_DuckToMusic, sizeof(this->m_DuckToMusic), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_DuckToAmbience, sizeof(this->m_DuckToAmbience), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_InnerRadiusOfInfluence, sizeof(this->m_InnerRadiusOfInfluence), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_OuterRadiusOfInfluence, sizeof(this->m_OuterRadiusOfInfluence), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TimeToDuck, sizeof(this->m_TimeToDuck), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TimeToUnduck, sizeof(this->m_TimeToUnduck), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_InsideAngle, sizeof(this->m_InsideAngle), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_OutsideAngle, sizeof(this->m_OutsideAngle), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_OutsideVolume, sizeof(this->m_OutsideVolume), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_OuterRadius2D, sizeof(this->m_OuterRadius2D), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &NameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_soundEntryID, sizeof(this->m_soundEntryID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_innerRadius2d, sizeof(this->m_innerRadius2d), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_timeA, sizeof(this->m_timeA), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_timeB, sizeof(this->m_timeB), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_timeC, sizeof(this->m_timeC), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_timeD, sizeof(this->m_timeD), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_randomOffsetRange, sizeof(this->m_randomOffsetRange), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_usage, sizeof(this->m_usage), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_timeIntervalMin, sizeof(this->m_timeIntervalMin), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_timeIntervalMax, sizeof(this->m_timeIntervalMax), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_volumeSliderCategory, sizeof(this->m_volumeSliderCategory), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_duckToSfx, sizeof(this->m_duckToSfx), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_duckToMusic, sizeof(this->m_duckToMusic), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_duckToAmbience, sizeof(this->m_duckToAmbience), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_innerRadiusOfInfluence, sizeof(this->m_innerRadiusOfInfluence), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_outerRadiusOfInfluence, sizeof(this->m_outerRadiusOfInfluence), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_timeToDuck, sizeof(this->m_timeToDuck), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_timeToUnduck, sizeof(this->m_timeToUnduck), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_insideAngle, sizeof(this->m_insideAngle), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_outsideAngle, sizeof(this->m_outsideAngle), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_outsideVolume, sizeof(this->m_outsideVolume), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_outerRadius2d, sizeof(this->m_outerRadius2d), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_Name = &stringBuffer[NameOfs];
+        this->m_name = &stringBuffer[nameOfs];
     } else {
-        this->m_Name = "";
+        this->m_name = "";
     }
 
     return true;

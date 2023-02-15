@@ -2,8 +2,8 @@
 #ifndef DB_REC_MAP_DIFFICULTY_REC_HPP
 #define DB_REC_MAP_DIFFICULTY_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class MapDifficultyRec {
     public:
@@ -12,14 +12,15 @@ class MapDifficultyRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_MapID;
-        int32_t m_Difficulty;
-        const char* m_Message_lang;
-        int32_t m_RaidDuration;
-        int32_t m_MaxPlayers;
-        const char* m_Difficultystring;
+        int32_t m_mapID;
+        int32_t m_difficulty;
+        const char* m_message;
+        int32_t m_raidDuration;
+        int32_t m_maxPlayers;
+        const char* m_difficultystring;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

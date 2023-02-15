@@ -5,12 +5,16 @@ const char* UnitBloodLevelsRec::GetFilename() {
     return "DBFilesClient\\UnitBloodLevels.dbc";
 }
 
+int32_t UnitBloodLevelsRec::GetID() {
+    return this->m_ID;
+}
+
 bool UnitBloodLevelsRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Violencelevel[0], sizeof(m_Violencelevel[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Violencelevel[1], sizeof(m_Violencelevel[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Violencelevel[2], sizeof(m_Violencelevel[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_violencelevel[0], sizeof(m_violencelevel[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_violencelevel[1], sizeof(m_violencelevel[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_violencelevel[2], sizeof(m_violencelevel[0]), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

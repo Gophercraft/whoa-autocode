@@ -2,8 +2,8 @@
 #ifndef DB_REC_LFGDUNGEON_GROUP_REC_HPP
 #define DB_REC_LFGDUNGEON_GROUP_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class LFGDungeonGroupRec {
     public:
@@ -12,12 +12,13 @@ class LFGDungeonGroupRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        const char* m_Name_lang;
-        int32_t m_Order_index;
-        int32_t m_Parent_group_ID;
-        int32_t m_TypeID;
+        const char* m_name;
+        int32_t m_orderIndex;
+        int32_t m_parentGroupID;
+        int32_t m_typeID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

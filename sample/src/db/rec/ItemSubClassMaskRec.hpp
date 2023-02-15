@@ -2,8 +2,8 @@
 #ifndef DB_REC_ITEM_SUB_CLASS_MASK_REC_HPP
 #define DB_REC_ITEM_SUB_CLASS_MASK_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class ItemSubClassMaskRec {
     public:
@@ -11,11 +11,13 @@ class ItemSubClassMaskRec {
         static constexpr uint32_t rowSize = 76;
         static constexpr bool indexIsID = true;
 
-        int32_t m_ClassID;
-        int32_t m_Mask;
-        const char* m_Name_lang;
+        int32_t m_classID;
+        int32_t m_mask;
+        const char* m_name;
+        int32_t m_generatedID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

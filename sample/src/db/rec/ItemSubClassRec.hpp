@@ -2,8 +2,8 @@
 #ifndef DB_REC_ITEM_SUB_CLASS_REC_HPP
 #define DB_REC_ITEM_SUB_CLASS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class ItemSubClassRec {
     public:
@@ -11,20 +11,22 @@ class ItemSubClassRec {
         static constexpr uint32_t rowSize = 176;
         static constexpr bool indexIsID = true;
 
-        int32_t m_ClassID;
-        int32_t m_SubClassID;
-        int32_t m_PrerequisiteProficiency;
-        int32_t m_PostrequisiteProficiency;
-        int32_t m_Flags;
-        int32_t m_DisplayFlags;
-        int32_t m_WeaponParrySeq;
-        int32_t m_WeaponReadySeq;
-        int32_t m_WeaponAttackSeq;
-        int32_t m_WeaponSwingSize;
-        const char* m_DisplayName_lang;
-        const char* m_VerboseName_lang;
+        int32_t m_classID;
+        int32_t m_subClassID;
+        int32_t m_prerequisiteProficiency;
+        int32_t m_postrequisiteProficiency;
+        int32_t m_flags;
+        int32_t m_displayFlags;
+        int32_t m_weaponParrySeq;
+        int32_t m_weaponReadySeq;
+        int32_t m_weaponAttackSeq;
+        int32_t m_weaponSwingSize;
+        const char* m_displayName;
+        const char* m_verboseName;
+        int32_t m_generatedID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

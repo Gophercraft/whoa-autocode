@@ -2,8 +2,8 @@
 #ifndef DB_REC_WORLD_MAP_TRANSFORMS_REC_HPP
 #define DB_REC_WORLD_MAP_TRANSFORMS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class WorldMapTransformsRec {
     public:
@@ -12,14 +12,15 @@ class WorldMapTransformsRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_MapID;
-        float m_RegionMin[2];
-        float m_RegionMax[2];
-        int32_t m_NewMapID;
-        float m_RegionOffset[2];
-        int32_t m_NewDungeonMapID;
+        int32_t m_mapID;
+        float m_regionMin[2];
+        float m_regionMax[2];
+        int32_t m_newMapID;
+        float m_regionOffset[2];
+        int32_t m_newDungeonMapID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

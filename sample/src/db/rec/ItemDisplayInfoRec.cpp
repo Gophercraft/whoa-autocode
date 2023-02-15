@@ -5,72 +5,76 @@ const char* ItemDisplayInfoRec::GetFilename() {
     return "DBFilesClient\\ItemDisplayInfo.dbc";
 }
 
+int32_t ItemDisplayInfoRec::GetID() {
+    return this->m_ID;
+}
+
 bool ItemDisplayInfoRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t ModelNameOfs[2];
-    uint32_t ModelTextureOfs[2];
-    uint32_t InventoryIconOfs[2];
-    uint32_t TextureOfs[8];
+    uint32_t modelNameOfs[2];
+    uint32_t modelTextureOfs[2];
+    uint32_t inventoryIconOfs[2];
+    uint32_t textureOfs[8];
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &ModelNameOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &ModelNameOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &ModelTextureOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &ModelTextureOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &InventoryIconOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &InventoryIconOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_GeosetGroup[0], sizeof(m_GeosetGroup[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_GeosetGroup[1], sizeof(m_GeosetGroup[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_GeosetGroup[2], sizeof(m_GeosetGroup[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Flags, sizeof(this->m_Flags), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SpellVisualID, sizeof(this->m_SpellVisualID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_GroupSoundIndex, sizeof(this->m_GroupSoundIndex), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_HelmetGeosetVisID[0], sizeof(m_HelmetGeosetVisID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_HelmetGeosetVisID[1], sizeof(m_HelmetGeosetVisID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &TextureOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &TextureOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &TextureOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &TextureOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &TextureOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &TextureOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &TextureOfs[6], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &TextureOfs[7], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ItemVisual, sizeof(this->m_ItemVisual), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ParticleColorID, sizeof(this->m_ParticleColorID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &modelNameOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &modelNameOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &modelTextureOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &modelTextureOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &inventoryIconOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &inventoryIconOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_geosetGroup[0], sizeof(m_geosetGroup[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_geosetGroup[1], sizeof(m_geosetGroup[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_geosetGroup[2], sizeof(m_geosetGroup[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_flags, sizeof(this->m_flags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spellVisualID, sizeof(this->m_spellVisualID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_groupSoundIndex, sizeof(this->m_groupSoundIndex), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_helmetGeosetVisID[0], sizeof(m_helmetGeosetVisID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_helmetGeosetVisID[1], sizeof(m_helmetGeosetVisID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &textureOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &textureOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &textureOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &textureOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &textureOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &textureOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &textureOfs[6], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &textureOfs[7], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_itemVisual, sizeof(this->m_itemVisual), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_particleColorID, sizeof(this->m_particleColorID), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_ModelName[0] = &stringBuffer[ModelNameOfs[0]];
-        this->m_ModelName[1] = &stringBuffer[ModelNameOfs[1]];
-        this->m_ModelTexture[0] = &stringBuffer[ModelTextureOfs[0]];
-        this->m_ModelTexture[1] = &stringBuffer[ModelTextureOfs[1]];
-        this->m_InventoryIcon[0] = &stringBuffer[InventoryIconOfs[0]];
-        this->m_InventoryIcon[1] = &stringBuffer[InventoryIconOfs[1]];
-        this->m_Texture[0] = &stringBuffer[TextureOfs[0]];
-        this->m_Texture[1] = &stringBuffer[TextureOfs[1]];
-        this->m_Texture[2] = &stringBuffer[TextureOfs[2]];
-        this->m_Texture[3] = &stringBuffer[TextureOfs[3]];
-        this->m_Texture[4] = &stringBuffer[TextureOfs[4]];
-        this->m_Texture[5] = &stringBuffer[TextureOfs[5]];
-        this->m_Texture[6] = &stringBuffer[TextureOfs[6]];
-        this->m_Texture[7] = &stringBuffer[TextureOfs[7]];
+        this->m_modelName[0] = &stringBuffer[modelNameOfs[0]];
+        this->m_modelName[1] = &stringBuffer[modelNameOfs[1]];
+        this->m_modelTexture[0] = &stringBuffer[modelTextureOfs[0]];
+        this->m_modelTexture[1] = &stringBuffer[modelTextureOfs[1]];
+        this->m_inventoryIcon[0] = &stringBuffer[inventoryIconOfs[0]];
+        this->m_inventoryIcon[1] = &stringBuffer[inventoryIconOfs[1]];
+        this->m_texture[0] = &stringBuffer[textureOfs[0]];
+        this->m_texture[1] = &stringBuffer[textureOfs[1]];
+        this->m_texture[2] = &stringBuffer[textureOfs[2]];
+        this->m_texture[3] = &stringBuffer[textureOfs[3]];
+        this->m_texture[4] = &stringBuffer[textureOfs[4]];
+        this->m_texture[5] = &stringBuffer[textureOfs[5]];
+        this->m_texture[6] = &stringBuffer[textureOfs[6]];
+        this->m_texture[7] = &stringBuffer[textureOfs[7]];
     } else {
-        this->m_ModelName[0] = "";
-        this->m_ModelName[1] = "";
-        this->m_ModelTexture[0] = "";
-        this->m_ModelTexture[1] = "";
-        this->m_InventoryIcon[0] = "";
-        this->m_InventoryIcon[1] = "";
-        this->m_Texture[0] = "";
-        this->m_Texture[1] = "";
-        this->m_Texture[2] = "";
-        this->m_Texture[3] = "";
-        this->m_Texture[4] = "";
-        this->m_Texture[5] = "";
-        this->m_Texture[6] = "";
-        this->m_Texture[7] = "";
+        this->m_modelName[0] = "";
+        this->m_modelName[1] = "";
+        this->m_modelTexture[0] = "";
+        this->m_modelTexture[1] = "";
+        this->m_inventoryIcon[0] = "";
+        this->m_inventoryIcon[1] = "";
+        this->m_texture[0] = "";
+        this->m_texture[1] = "";
+        this->m_texture[2] = "";
+        this->m_texture[3] = "";
+        this->m_texture[4] = "";
+        this->m_texture[5] = "";
+        this->m_texture[6] = "";
+        this->m_texture[7] = "";
     }
 
     return true;

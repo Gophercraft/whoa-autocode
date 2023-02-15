@@ -2,8 +2,8 @@
 #ifndef DB_REC_AUCTION_HOUSE_REC_HPP
 #define DB_REC_AUCTION_HOUSE_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class AuctionHouseRec {
     public:
@@ -12,12 +12,13 @@ class AuctionHouseRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_FactionID;
-        int32_t m_DepositRate;
-        int32_t m_ConsignmentRate;
-        const char* m_Name_lang;
+        int32_t m_factionID;
+        int32_t m_depositRate;
+        int32_t m_consignmentRate;
+        const char* m_name;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

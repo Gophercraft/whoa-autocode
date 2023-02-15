@@ -5,15 +5,19 @@ const char* SheatheSoundLookupsRec::GetFilename() {
     return "DBFilesClient\\SheatheSoundLookups.dbc";
 }
 
+int32_t SheatheSoundLookupsRec::GetID() {
+    return this->m_ID;
+}
+
 bool SheatheSoundLookupsRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ClassID, sizeof(this->m_ClassID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SubclassID, sizeof(this->m_SubclassID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Material, sizeof(this->m_Material), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_CheckMaterial, sizeof(this->m_CheckMaterial), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SheatheSound, sizeof(this->m_SheatheSound), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_UnsheatheSound, sizeof(this->m_UnsheatheSound), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_classID, sizeof(this->m_classID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_subclassID, sizeof(this->m_subclassID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_material, sizeof(this->m_material), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_checkMaterial, sizeof(this->m_checkMaterial), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_sheatheSound, sizeof(this->m_sheatheSound), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_unsheatheSound, sizeof(this->m_unsheatheSound), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

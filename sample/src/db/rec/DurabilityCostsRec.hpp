@@ -2,8 +2,8 @@
 #ifndef DB_REC_DURABILITY_COSTS_REC_HPP
 #define DB_REC_DURABILITY_COSTS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class DurabilityCostsRec {
     public:
@@ -12,10 +12,11 @@ class DurabilityCostsRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_WeaponSubClassCost[21];
-        int32_t m_ArmorSubClassCost[8];
+        int32_t m_weaponSubClassCost[21];
+        int32_t m_armorSubClassCost[8];
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

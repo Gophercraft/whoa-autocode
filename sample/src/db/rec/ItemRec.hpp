@@ -2,8 +2,8 @@
 #ifndef DB_REC_ITEM_REC_HPP
 #define DB_REC_ITEM_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class ItemRec {
     public:
@@ -12,15 +12,16 @@ class ItemRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_ClassID;
-        int32_t m_SubclassID;
-        int32_t m_Sound_override_subclassID;
-        int32_t m_Material;
-        int32_t m_DisplayInfoID;
-        int32_t m_InventoryType;
-        int32_t m_SheatheType;
+        int32_t m_classID;
+        int32_t m_subclassID;
+        int32_t m_soundOverrideSubclassID;
+        int32_t m_material;
+        int32_t m_displayInfoID;
+        int32_t m_inventoryType;
+        int32_t m_sheatheType;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

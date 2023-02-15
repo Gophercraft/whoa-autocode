@@ -2,8 +2,8 @@
 #ifndef DB_REC_ZONE_INTRO_MUSIC_TABLE_REC_HPP
 #define DB_REC_ZONE_INTRO_MUSIC_TABLE_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class ZoneIntroMusicTableRec {
     public:
@@ -12,12 +12,13 @@ class ZoneIntroMusicTableRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        const char* m_Name;
-        int32_t m_SoundID;
-        int32_t m_Priority;
-        int32_t m_MinDelayMinutes;
+        const char* m_name;
+        int32_t m_soundID;
+        int32_t m_priority;
+        int32_t m_minDelayMinutes;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

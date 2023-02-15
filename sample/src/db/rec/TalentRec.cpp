@@ -5,31 +5,35 @@ const char* TalentRec::GetFilename() {
     return "DBFilesClient\\Talent.dbc";
 }
 
+int32_t TalentRec::GetID() {
+    return this->m_ID;
+}
+
 bool TalentRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TabID, sizeof(this->m_TabID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TierID, sizeof(this->m_TierID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ColumnIndex, sizeof(this->m_ColumnIndex), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SpellRank[0], sizeof(m_SpellRank[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SpellRank[1], sizeof(m_SpellRank[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SpellRank[2], sizeof(m_SpellRank[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SpellRank[3], sizeof(m_SpellRank[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SpellRank[4], sizeof(m_SpellRank[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SpellRank[5], sizeof(m_SpellRank[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SpellRank[6], sizeof(m_SpellRank[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SpellRank[7], sizeof(m_SpellRank[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SpellRank[8], sizeof(m_SpellRank[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PrereqTalent[0], sizeof(m_PrereqTalent[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PrereqTalent[1], sizeof(m_PrereqTalent[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PrereqTalent[2], sizeof(m_PrereqTalent[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PrereqRank[0], sizeof(m_PrereqRank[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PrereqRank[1], sizeof(m_PrereqRank[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PrereqRank[2], sizeof(m_PrereqRank[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Flags, sizeof(this->m_Flags), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RequiredSpellID, sizeof(this->m_RequiredSpellID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_CategoryMask[0], sizeof(m_CategoryMask[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_CategoryMask[1], sizeof(m_CategoryMask[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_tabID, sizeof(this->m_tabID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_tierID, sizeof(this->m_tierID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_columnIndex, sizeof(this->m_columnIndex), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spellRank[0], sizeof(m_spellRank[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spellRank[1], sizeof(m_spellRank[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spellRank[2], sizeof(m_spellRank[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spellRank[3], sizeof(m_spellRank[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spellRank[4], sizeof(m_spellRank[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spellRank[5], sizeof(m_spellRank[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spellRank[6], sizeof(m_spellRank[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spellRank[7], sizeof(m_spellRank[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spellRank[8], sizeof(m_spellRank[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_prereqTalent[0], sizeof(m_prereqTalent[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_prereqTalent[1], sizeof(m_prereqTalent[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_prereqTalent[2], sizeof(m_prereqTalent[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_prereqRank[0], sizeof(m_prereqRank[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_prereqRank[1], sizeof(m_prereqRank[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_prereqRank[2], sizeof(m_prereqRank[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_flags, sizeof(this->m_flags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_requiredSpellID, sizeof(this->m_requiredSpellID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_categoryMask[0], sizeof(m_categoryMask[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_categoryMask[1], sizeof(m_categoryMask[0]), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

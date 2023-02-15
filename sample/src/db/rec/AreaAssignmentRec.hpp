@@ -2,8 +2,8 @@
 #ifndef DB_REC_AREA_ASSIGNMENT_REC_HPP
 #define DB_REC_AREA_ASSIGNMENT_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class AreaAssignmentRec {
     public:
@@ -12,12 +12,13 @@ class AreaAssignmentRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_MapID;
-        int32_t m_AreaID;
-        int32_t m_ChunkX;
-        int32_t m_ChunkY;
+        int32_t m_mapID;
+        int32_t m_areaID;
+        int32_t m_chunkX;
+        int32_t m_chunkY;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

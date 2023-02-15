@@ -2,8 +2,8 @@
 #ifndef DB_REC_CREATURE_MOVEMENT_INFO_REC_HPP
 #define DB_REC_CREATURE_MOVEMENT_INFO_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class CreatureMovementInfoRec {
     public:
@@ -12,9 +12,10 @@ class CreatureMovementInfoRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        float m_SmoothFacingChaseRate;
+        float m_smoothFacingChaseRate;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

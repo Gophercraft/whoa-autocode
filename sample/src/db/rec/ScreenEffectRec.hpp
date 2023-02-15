@@ -2,8 +2,8 @@
 #ifndef DB_REC_SCREEN_EFFECT_REC_HPP
 #define DB_REC_SCREEN_EFFECT_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class ScreenEffectRec {
     public:
@@ -12,14 +12,15 @@ class ScreenEffectRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        const char* m_Name;
-        int32_t m_Effect;
-        int32_t m_Param[4];
-        int32_t m_LightParamsID;
-        int32_t m_SoundAmbienceID;
-        int32_t m_ZoneMusicID;
+        const char* m_name;
+        int32_t m_effect;
+        int32_t m_param[4];
+        int32_t m_lightParamsID;
+        int32_t m_soundAmbienceID;
+        int32_t m_zoneMusicID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

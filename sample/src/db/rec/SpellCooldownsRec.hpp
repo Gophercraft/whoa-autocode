@@ -2,8 +2,8 @@
 #ifndef DB_REC_SPELL_COOLDOWNS_REC_HPP
 #define DB_REC_SPELL_COOLDOWNS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SpellCooldownsRec {
     public:
@@ -12,11 +12,12 @@ class SpellCooldownsRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_CategoryRecoveryTime;
-        int32_t m_RecoveryTime;
-        int32_t m_StartRecoveryTime;
+        int32_t m_categoryRecoveryTime;
+        int32_t m_recoveryTime;
+        int32_t m_startRecoveryTime;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

@@ -2,8 +2,8 @@
 #ifndef DB_REC_ITEM_RANDOM_SUFFIX_REC_HPP
 #define DB_REC_ITEM_RANDOM_SUFFIX_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class ItemRandomSuffixRec {
     public:
@@ -12,12 +12,13 @@ class ItemRandomSuffixRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        const char* m_Name_lang;
-        const char* m_InternalName;
-        int32_t m_Enchantment[5];
-        int32_t m_AllocationPct[5];
+        const char* m_name;
+        const char* m_internalName;
+        int32_t m_enchantment[5];
+        int32_t m_allocationPct[5];
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

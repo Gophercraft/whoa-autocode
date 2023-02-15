@@ -5,28 +5,32 @@ const char* SoundEmittersRec::GetFilename() {
     return "DBFilesClient\\SoundEmitters.dbc";
 }
 
+int32_t SoundEmittersRec::GetID() {
+    return this->m_ID;
+}
+
 bool SoundEmittersRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t NameOfs;
+    uint32_t nameOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Position[0], sizeof(m_Position[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Position[1], sizeof(m_Position[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Position[2], sizeof(m_Position[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Direction[0], sizeof(m_Direction[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Direction[1], sizeof(m_Direction[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Direction[2], sizeof(m_Direction[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SoundEntryAdvancedID, sizeof(this->m_SoundEntryAdvancedID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MapID, sizeof(this->m_MapID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &NameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_position[0], sizeof(m_position[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_position[1], sizeof(m_position[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_position[2], sizeof(m_position[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_direction[0], sizeof(m_direction[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_direction[1], sizeof(m_direction[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_direction[2], sizeof(m_direction[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_soundEntryAdvancedID, sizeof(this->m_soundEntryAdvancedID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_mapID, sizeof(this->m_mapID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_Name = &stringBuffer[NameOfs];
+        this->m_name = &stringBuffer[nameOfs];
     } else {
-        this->m_Name = "";
+        this->m_name = "";
     }
 
     return true;

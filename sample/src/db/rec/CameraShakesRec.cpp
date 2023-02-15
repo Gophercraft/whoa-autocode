@@ -5,16 +5,20 @@ const char* CameraShakesRec::GetFilename() {
     return "DBFilesClient\\CameraShakes.dbc";
 }
 
+int32_t CameraShakesRec::GetID() {
+    return this->m_ID;
+}
+
 bool CameraShakesRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ShakeType, sizeof(this->m_ShakeType), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Direction, sizeof(this->m_Direction), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Amplitude, sizeof(this->m_Amplitude), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Frequency, sizeof(this->m_Frequency), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Duration, sizeof(this->m_Duration), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Phase, sizeof(this->m_Phase), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Coefficient, sizeof(this->m_Coefficient), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_shakeType, sizeof(this->m_shakeType), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_direction, sizeof(this->m_direction), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_amplitude, sizeof(this->m_amplitude), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_frequency, sizeof(this->m_frequency), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_duration, sizeof(this->m_duration), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_phase, sizeof(this->m_phase), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_coefficient, sizeof(this->m_coefficient), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

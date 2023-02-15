@@ -5,20 +5,24 @@ const char* AttackAnimTypesRec::GetFilename() {
     return "DBFilesClient\\AttackAnimTypes.dbc";
 }
 
+int32_t AttackAnimTypesRec::GetID() {
+    return this->m_generatedID;
+}
+
 bool AttackAnimTypesRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t AnimNameOfs;
+    uint32_t animNameOfs;
 
     if (
-        !SFile::Read(f, &this->m_AnimID, sizeof(this->m_AnimID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AnimNameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        !SFile::Read(f, &this->m_animID, sizeof(this->m_animID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &animNameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_AnimName = &stringBuffer[AnimNameOfs];
+        this->m_animName = &stringBuffer[animNameOfs];
     } else {
-        this->m_AnimName = "";
+        this->m_animName = "";
     }
 
     return true;

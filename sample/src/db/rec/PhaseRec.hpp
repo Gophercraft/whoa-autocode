@@ -2,8 +2,8 @@
 #ifndef DB_REC_PHASE_REC_HPP
 #define DB_REC_PHASE_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class PhaseRec {
     public:
@@ -12,12 +12,13 @@ class PhaseRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_MapID;
-        int32_t m_ParentMapID[2]; // unconfirmed
-        const char* m_Name;
-        int32_t m_Flags;
+        int32_t m_mapID;
+        int32_t m_parentMapID[2]; // unconfirmed
+        const char* m_name;
+        int32_t m_flags;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

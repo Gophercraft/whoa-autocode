@@ -2,8 +2,8 @@
 #ifndef DB_REC_AREA_TABLE_REC_HPP
 #define DB_REC_AREA_TABLE_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class AreaTableRec {
     public:
@@ -12,24 +12,25 @@ class AreaTableRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_ContinentID;
-        int32_t m_ParentAreaID;
-        int32_t m_AreaBit;
-        int32_t m_Flags;
-        int32_t m_SoundProviderPref;
-        int32_t m_SoundProviderPrefUnderwater;
-        int32_t m_AmbienceID;
-        int32_t m_ZoneMusic;
-        int32_t m_IntroSound;
-        int32_t m_ExplorationLevel;
-        const char* m_AreaName_lang;
-        int32_t m_FactionGroupMask;
-        int32_t m_LiquidTypeID[4];
-        float m_MinElevation;
-        float m_Ambient_multiplier;
-        int32_t m_LightID;
+        int32_t m_continentID;
+        int32_t m_parentAreaID;
+        int32_t m_areaBit;
+        int32_t m_flags;
+        int32_t m_soundProviderPref;
+        int32_t m_soundProviderPrefUnderwater;
+        int32_t m_ambienceID;
+        int32_t m_zoneMusic;
+        int32_t m_introSound;
+        int32_t m_explorationLevel;
+        const char* m_areaName;
+        int32_t m_factionGroupMask;
+        int32_t m_liquidTypeID[4];
+        float m_minElevation;
+        float m_ambientMultiplier;
+        int32_t m_lightID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

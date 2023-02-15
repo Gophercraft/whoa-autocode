@@ -5,35 +5,39 @@ const char* WorldMapOverlayRec::GetFilename() {
     return "DBFilesClient\\WorldMapOverlay.dbc";
 }
 
+int32_t WorldMapOverlayRec::GetID() {
+    return this->m_ID;
+}
+
 bool WorldMapOverlayRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t TextureNameOfs;
+    uint32_t textureNameOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MapAreaID, sizeof(this->m_MapAreaID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AreaID[0], sizeof(m_AreaID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AreaID[1], sizeof(m_AreaID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AreaID[2], sizeof(m_AreaID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AreaID[3], sizeof(m_AreaID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MapPointX, sizeof(this->m_MapPointX), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MapPointY, sizeof(this->m_MapPointY), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &TextureNameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TextureWidth, sizeof(this->m_TextureWidth), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TextureHeight, sizeof(this->m_TextureHeight), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_OffsetX, sizeof(this->m_OffsetX), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_OffsetY, sizeof(this->m_OffsetY), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_HitRectTop, sizeof(this->m_HitRectTop), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_HitRectLeft, sizeof(this->m_HitRectLeft), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_HitRectBottom, sizeof(this->m_HitRectBottom), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_HitRectRight, sizeof(this->m_HitRectRight), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_mapAreaID, sizeof(this->m_mapAreaID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_areaID[0], sizeof(m_areaID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_areaID[1], sizeof(m_areaID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_areaID[2], sizeof(m_areaID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_areaID[3], sizeof(m_areaID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_mapPointX, sizeof(this->m_mapPointX), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_mapPointY, sizeof(this->m_mapPointY), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &textureNameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_textureWidth, sizeof(this->m_textureWidth), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_textureHeight, sizeof(this->m_textureHeight), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_offsetX, sizeof(this->m_offsetX), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_offsetY, sizeof(this->m_offsetY), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_hitRectTop, sizeof(this->m_hitRectTop), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_hitRectLeft, sizeof(this->m_hitRectLeft), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_hitRectBottom, sizeof(this->m_hitRectBottom), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_hitRectRight, sizeof(this->m_hitRectRight), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_TextureName = &stringBuffer[TextureNameOfs];
+        this->m_textureName = &stringBuffer[textureNameOfs];
     } else {
-        this->m_TextureName = "";
+        this->m_textureName = "";
     }
 
     return true;

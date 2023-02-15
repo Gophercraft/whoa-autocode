@@ -2,8 +2,8 @@
 #ifndef DB_REC_QUEST_XP_REC_HPP
 #define DB_REC_QUEST_XP_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class QuestXPRec {
     public:
@@ -12,9 +12,10 @@ class QuestXPRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Difficulty[10];
+        int32_t m_difficulty[10];
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

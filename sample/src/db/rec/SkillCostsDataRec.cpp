@@ -5,13 +5,17 @@ const char* SkillCostsDataRec::GetFilename() {
     return "DBFilesClient\\SkillCostsData.dbc";
 }
 
+int32_t SkillCostsDataRec::GetID() {
+    return this->m_ID;
+}
+
 bool SkillCostsDataRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SkillCostsID, sizeof(this->m_SkillCostsID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Cost[0], sizeof(m_Cost[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Cost[1], sizeof(m_Cost[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Cost[2], sizeof(m_Cost[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_skillCostsID, sizeof(this->m_skillCostsID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_cost[0], sizeof(m_cost[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_cost[1], sizeof(m_cost[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_cost[2], sizeof(m_cost[0]), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

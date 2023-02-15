@@ -5,20 +5,24 @@ const char* SpellDescriptionVariablesRec::GetFilename() {
     return "DBFilesClient\\SpellDescriptionVariables.dbc";
 }
 
+int32_t SpellDescriptionVariablesRec::GetID() {
+    return this->m_ID;
+}
+
 bool SpellDescriptionVariablesRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t VariablesOfs;
+    uint32_t variablesOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &VariablesOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &variablesOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_Variables = &stringBuffer[VariablesOfs];
+        this->m_variables = &stringBuffer[variablesOfs];
     } else {
-        this->m_Variables = "";
+        this->m_variables = "";
     }
 
     return true;

@@ -2,8 +2,8 @@
 #ifndef DB_REC_SPELL_CLASS_OPTIONS_REC_HPP
 #define DB_REC_SPELL_CLASS_OPTIONS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SpellClassOptionsRec {
     public:
@@ -12,11 +12,12 @@ class SpellClassOptionsRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_ModalNextSpell;
-        int32_t m_SpellClassMask[3];
-        int32_t m_SpellClassSet;
+        int32_t m_modalNextSpell;
+        int32_t m_spellClassMask[3];
+        int32_t m_spellClassSet;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

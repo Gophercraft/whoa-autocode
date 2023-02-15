@@ -5,13 +5,17 @@ const char* DungeonMapChunkRec::GetFilename() {
     return "DBFilesClient\\DungeonMapChunk.dbc";
 }
 
+int32_t DungeonMapChunkRec::GetID() {
+    return this->m_ID;
+}
+
 bool DungeonMapChunkRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MapID, sizeof(this->m_MapID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_WMOGroupID, sizeof(this->m_WMOGroupID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_DungeonMapID, sizeof(this->m_DungeonMapID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MinZ, sizeof(this->m_MinZ), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_mapID, sizeof(this->m_mapID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_wmogroupID, sizeof(this->m_wmogroupID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_dungeonMapID, sizeof(this->m_dungeonMapID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_minZ, sizeof(this->m_minZ), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

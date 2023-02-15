@@ -2,8 +2,8 @@
 #ifndef DB_REC_LFGDUNGEONS_REC_HPP
 #define DB_REC_LFGDUNGEONS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class LFGDungeonsRec {
     public:
@@ -12,24 +12,25 @@ class LFGDungeonsRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        const char* m_Name_lang;
-        int32_t m_MinLevel;
-        int32_t m_MaxLevel;
-        int32_t m_Target_level;
-        int32_t m_Target_level_min;
-        int32_t m_Target_level_max;
-        int32_t m_MapID;
-        int32_t m_Difficulty;
-        int32_t m_Flags;
-        int32_t m_TypeID;
-        int32_t m_Faction;
-        const char* m_TextureFilename;
-        int32_t m_ExpansionLevel;
-        int32_t m_Order_index;
-        int32_t m_Group_ID;
-        const char* m_Description_lang;
+        const char* m_name;
+        int32_t m_minLevel;
+        int32_t m_maxLevel;
+        int32_t m_targetLevel;
+        int32_t m_targetLevelMin;
+        int32_t m_targetLevelMax;
+        int32_t m_mapID;
+        int32_t m_difficulty;
+        int32_t m_flags;
+        int32_t m_typeID;
+        int32_t m_faction;
+        const char* m_textureFilename;
+        int32_t m_expansionLevel;
+        int32_t m_orderIndex;
+        int32_t m_groupID;
+        const char* m_description;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

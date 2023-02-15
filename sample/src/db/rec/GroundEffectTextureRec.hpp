@@ -2,8 +2,8 @@
 #ifndef DB_REC_GROUND_EFFECT_TEXTURE_REC_HPP
 #define DB_REC_GROUND_EFFECT_TEXTURE_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class GroundEffectTextureRec {
     public:
@@ -12,12 +12,13 @@ class GroundEffectTextureRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_DoodadID[4];
-        int32_t m_DoodadWeight[4];
-        int32_t m_Density;
-        int32_t m_Sound;
+        int32_t m_doodadID[4];
+        int32_t m_doodadWeight[4];
+        int32_t m_density;
+        int32_t m_sound;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

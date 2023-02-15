@@ -2,8 +2,8 @@
 #ifndef DB_REC_TAXI_NODES_REC_HPP
 #define DB_REC_TAXI_NODES_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class TaxiNodesRec {
     public:
@@ -12,12 +12,13 @@ class TaxiNodesRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_ContinentID;
-        float m_Pos[3];
-        const char* m_Name_lang;
-        int32_t m_MountCreatureID[2];
+        int32_t m_continentID;
+        float m_pos[3];
+        const char* m_name;
+        int32_t m_mountCreatureID[2];
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

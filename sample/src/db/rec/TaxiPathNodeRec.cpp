@@ -5,19 +5,23 @@ const char* TaxiPathNodeRec::GetFilename() {
     return "DBFilesClient\\TaxiPathNode.dbc";
 }
 
+int32_t TaxiPathNodeRec::GetID() {
+    return this->m_ID;
+}
+
 bool TaxiPathNodeRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PathID, sizeof(this->m_PathID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_NodeIndex, sizeof(this->m_NodeIndex), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ContinentID, sizeof(this->m_ContinentID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Loc[0], sizeof(m_Loc[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Loc[1], sizeof(m_Loc[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Loc[2], sizeof(m_Loc[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Flags, sizeof(this->m_Flags), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Delay, sizeof(this->m_Delay), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ArrivalEventID, sizeof(this->m_ArrivalEventID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_DepartureEventID, sizeof(this->m_DepartureEventID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_pathID, sizeof(this->m_pathID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_nodeIndex, sizeof(this->m_nodeIndex), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_continentID, sizeof(this->m_continentID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_loc[0], sizeof(m_loc[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_loc[1], sizeof(m_loc[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_loc[2], sizeof(m_loc[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_flags, sizeof(this->m_flags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_delay, sizeof(this->m_delay), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_arrivalEventID, sizeof(this->m_arrivalEventID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_departureEventID, sizeof(this->m_departureEventID), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

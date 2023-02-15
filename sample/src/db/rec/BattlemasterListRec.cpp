@@ -5,51 +5,55 @@ const char* BattlemasterListRec::GetFilename() {
     return "DBFilesClient\\BattlemasterList.dbc";
 }
 
+int32_t BattlemasterListRec::GetID() {
+    return this->m_ID;
+}
+
 bool BattlemasterListRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t Name_langOfs[16];
-    uint32_t Name_langMask;
+    uint32_t nameOfs[16];
+    uint32_t nameMask;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MapID[0], sizeof(m_MapID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MapID[1], sizeof(m_MapID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MapID[2], sizeof(m_MapID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MapID[3], sizeof(m_MapID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MapID[4], sizeof(m_MapID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MapID[5], sizeof(m_MapID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MapID[6], sizeof(m_MapID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MapID[7], sizeof(m_MapID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_InstanceType, sizeof(this->m_InstanceType), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_GroupsAllowed, sizeof(this->m_GroupsAllowed), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[6], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[7], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[8], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[9], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[10], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[11], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[12], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[13], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[14], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[15], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langMask, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MaxGroupSize, sizeof(this->m_MaxGroupSize), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_HolidayWorldState, sizeof(this->m_HolidayWorldState), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MinLevel, sizeof(this->m_MinLevel), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MaxLevel, sizeof(this->m_MaxLevel), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_mapID[0], sizeof(m_mapID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_mapID[1], sizeof(m_mapID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_mapID[2], sizeof(m_mapID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_mapID[3], sizeof(m_mapID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_mapID[4], sizeof(m_mapID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_mapID[5], sizeof(m_mapID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_mapID[6], sizeof(m_mapID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_mapID[7], sizeof(m_mapID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_instanceType, sizeof(this->m_instanceType), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_groupsAllowed, sizeof(this->m_groupsAllowed), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[6], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[7], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[8], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[9], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[10], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[11], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[12], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[13], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[14], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[15], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameMask, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_maxGroupSize, sizeof(this->m_maxGroupSize), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_holidayWorldState, sizeof(this->m_holidayWorldState), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_minLevel, sizeof(this->m_minLevel), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_maxLevel, sizeof(this->m_maxLevel), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_Name_lang = &stringBuffer[Name_langOfs[CURRENT_LANGUAGE]];
+        this->m_name = &stringBuffer[nameOfs[CURRENT_LANGUAGE]];
     } else {
-        this->m_Name_lang = "";
+        this->m_name = "";
     }
 
     return true;

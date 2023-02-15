@@ -2,8 +2,8 @@
 #ifndef DB_REC_UISOUND_LOOKUPS_REC_HPP
 #define DB_REC_UISOUND_LOOKUPS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class UISoundLookupsRec {
     public:
@@ -12,10 +12,11 @@ class UISoundLookupsRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_SoundID;
-        const char* m_SoundName;
+        int32_t m_soundID;
+        const char* m_soundName;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

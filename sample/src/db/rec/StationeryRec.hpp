@@ -2,8 +2,8 @@
 #ifndef DB_REC_STATIONERY_REC_HPP
 #define DB_REC_STATIONERY_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class StationeryRec {
     public:
@@ -12,11 +12,12 @@ class StationeryRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_ItemID;
-        const char* m_Texture;
-        int32_t m_Flags;
+        int32_t m_itemID;
+        const char* m_texture;
+        int32_t m_flags;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

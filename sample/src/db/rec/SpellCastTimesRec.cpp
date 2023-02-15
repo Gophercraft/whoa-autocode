@@ -5,12 +5,16 @@ const char* SpellCastTimesRec::GetFilename() {
     return "DBFilesClient\\SpellCastTimes.dbc";
 }
 
+int32_t SpellCastTimesRec::GetID() {
+    return this->m_ID;
+}
+
 bool SpellCastTimesRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Base, sizeof(this->m_Base), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PerLevel, sizeof(this->m_PerLevel), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Minimum, sizeof(this->m_Minimum), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_base, sizeof(this->m_base), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_perLevel, sizeof(this->m_perLevel), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_minimum, sizeof(this->m_minimum), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

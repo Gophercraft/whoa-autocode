@@ -5,11 +5,15 @@ const char* SoundAmbienceRec::GetFilename() {
     return "DBFilesClient\\SoundAmbience.dbc";
 }
 
+int32_t SoundAmbienceRec::GetID() {
+    return this->m_ID;
+}
+
 bool SoundAmbienceRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AmbienceID[0], sizeof(m_AmbienceID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AmbienceID[1], sizeof(m_AmbienceID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_ambienceID[0], sizeof(m_ambienceID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_ambienceID[1], sizeof(m_ambienceID[0]), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

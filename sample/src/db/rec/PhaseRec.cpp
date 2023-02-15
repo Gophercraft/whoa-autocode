@@ -5,24 +5,28 @@ const char* PhaseRec::GetFilename() {
     return "DBFilesClient\\Phase.dbc";
 }
 
+int32_t PhaseRec::GetID() {
+    return this->m_ID;
+}
+
 bool PhaseRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t NameOfs;
+    uint32_t nameOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MapID, sizeof(this->m_MapID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ParentMapID[0], sizeof(m_ParentMapID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ParentMapID[1], sizeof(m_ParentMapID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &NameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Flags, sizeof(this->m_Flags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_mapID, sizeof(this->m_mapID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_parentMapID[0], sizeof(m_parentMapID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_parentMapID[1], sizeof(m_parentMapID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_flags, sizeof(this->m_flags), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_Name = &stringBuffer[NameOfs];
+        this->m_name = &stringBuffer[nameOfs];
     } else {
-        this->m_Name = "";
+        this->m_name = "";
     }
 
     return true;

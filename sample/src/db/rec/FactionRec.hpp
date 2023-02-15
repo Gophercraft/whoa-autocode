@@ -2,8 +2,8 @@
 #ifndef DB_REC_FACTION_REC_HPP
 #define DB_REC_FACTION_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class FactionRec {
     public:
@@ -12,18 +12,19 @@ class FactionRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_ReputationIndex;
-        int32_t m_ReputationRaceMask[4];
-        int32_t m_ReputationClassMask[4];
-        int32_t m_ReputationBase[4];
-        int32_t m_ReputationFlags[4];
-        int32_t m_ParentFactionID;
-        float m_ParentFactionMod[2];
-        int32_t m_ParentFactionCap[2];
-        const char* m_Name_lang;
-        const char* m_Description_lang;
+        int32_t m_reputationIndex;
+        int32_t m_reputationRaceMask[4];
+        int32_t m_reputationClassMask[4];
+        int32_t m_reputationBase[4];
+        int32_t m_reputationFlags[4];
+        int32_t m_parentFactionID;
+        float m_parentFactionMod[2];
+        int32_t m_parentFactionCap[2];
+        const char* m_name;
+        const char* m_description;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

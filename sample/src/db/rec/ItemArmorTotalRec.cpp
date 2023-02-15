@@ -5,14 +5,18 @@ const char* ItemArmorTotalRec::GetFilename() {
     return "DBFilesClient\\ItemArmorTotal.dbc";
 }
 
+int32_t ItemArmorTotalRec::GetID() {
+    return this->m_ID;
+}
+
 bool ItemArmorTotalRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ItemLevel, sizeof(this->m_ItemLevel), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Cloth, sizeof(this->m_Cloth), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Leather, sizeof(this->m_Leather), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Mail, sizeof(this->m_Mail), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Plate, sizeof(this->m_Plate), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_itemLevel, sizeof(this->m_itemLevel), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_cloth, sizeof(this->m_cloth), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_leather, sizeof(this->m_leather), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_mail, sizeof(this->m_mail), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_plate, sizeof(this->m_plate), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

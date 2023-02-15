@@ -5,12 +5,16 @@ const char* SpellRadiusRec::GetFilename() {
     return "DBFilesClient\\SpellRadius.dbc";
 }
 
+int32_t SpellRadiusRec::GetID() {
+    return this->m_ID;
+}
+
 bool SpellRadiusRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Radius, sizeof(this->m_Radius), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RadiusPerLevel, sizeof(this->m_RadiusPerLevel), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RadiusMax, sizeof(this->m_RadiusMax), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_radius, sizeof(this->m_radius), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_radiusPerLevel, sizeof(this->m_radiusPerLevel), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_radiusMax, sizeof(this->m_radiusMax), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

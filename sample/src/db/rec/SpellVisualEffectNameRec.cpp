@@ -5,28 +5,32 @@ const char* SpellVisualEffectNameRec::GetFilename() {
     return "DBFilesClient\\SpellVisualEffectName.dbc";
 }
 
+int32_t SpellVisualEffectNameRec::GetID() {
+    return this->m_ID;
+}
+
 bool SpellVisualEffectNameRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t NameOfs;
-    uint32_t FileNameOfs;
+    uint32_t nameOfs;
+    uint32_t fileNameOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &NameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &FileNameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AreaEffectSize, sizeof(this->m_AreaEffectSize), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Scale, sizeof(this->m_Scale), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MinAllowedScale, sizeof(this->m_MinAllowedScale), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MaxAllowedScale, sizeof(this->m_MaxAllowedScale), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &fileNameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_areaEffectSize, sizeof(this->m_areaEffectSize), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_scale, sizeof(this->m_scale), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_minAllowedScale, sizeof(this->m_minAllowedScale), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_maxAllowedScale, sizeof(this->m_maxAllowedScale), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_Name = &stringBuffer[NameOfs];
-        this->m_FileName = &stringBuffer[FileNameOfs];
+        this->m_name = &stringBuffer[nameOfs];
+        this->m_fileName = &stringBuffer[fileNameOfs];
     } else {
-        this->m_Name = "";
-        this->m_FileName = "";
+        this->m_name = "";
+        this->m_fileName = "";
     }
 
     return true;

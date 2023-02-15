@@ -5,32 +5,36 @@ const char* ScalingStatValuesRec::GetFilename() {
     return "DBFilesClient\\ScalingStatValues.dbc";
 }
 
+int32_t ScalingStatValuesRec::GetID() {
+    return this->m_ID;
+}
+
 bool ScalingStatValuesRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Charlevel, sizeof(this->m_Charlevel), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ShoulderBudget, sizeof(this->m_ShoulderBudget), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TrinketBudget, sizeof(this->m_TrinketBudget), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_WeaponBudget1H, sizeof(this->m_WeaponBudget1H), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RangedBudget, sizeof(this->m_RangedBudget), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ClothShoulderArmor, sizeof(this->m_ClothShoulderArmor), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_LeatherShoulderArmor, sizeof(this->m_LeatherShoulderArmor), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MailShoulderArmor, sizeof(this->m_MailShoulderArmor), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PlateShoulderArmor, sizeof(this->m_PlateShoulderArmor), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_WeaponDPS1H, sizeof(this->m_WeaponDPS1H), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_WeaponDPS2H, sizeof(this->m_WeaponDPS2H), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SpellcasterDPS1H, sizeof(this->m_SpellcasterDPS1H), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SpellcasterDPS2H, sizeof(this->m_SpellcasterDPS2H), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RangedDPS, sizeof(this->m_RangedDPS), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_WandDPS, sizeof(this->m_WandDPS), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SpellPower, sizeof(this->m_SpellPower), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PrimaryBudget, sizeof(this->m_PrimaryBudget), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TertiaryBudget, sizeof(this->m_TertiaryBudget), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ClothCloakArmor, sizeof(this->m_ClothCloakArmor), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ClothChestArmor, sizeof(this->m_ClothChestArmor), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_LeatherChestArmor, sizeof(this->m_LeatherChestArmor), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MailChestArmor, sizeof(this->m_MailChestArmor), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PlateChestArmor, sizeof(this->m_PlateChestArmor), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_charlevel, sizeof(this->m_charlevel), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_shoulderBudget, sizeof(this->m_shoulderBudget), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_trinketBudget, sizeof(this->m_trinketBudget), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_weaponBudget1h, sizeof(this->m_weaponBudget1h), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_rangedBudget, sizeof(this->m_rangedBudget), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_clothShoulderArmor, sizeof(this->m_clothShoulderArmor), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_leatherShoulderArmor, sizeof(this->m_leatherShoulderArmor), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_mailShoulderArmor, sizeof(this->m_mailShoulderArmor), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_plateShoulderArmor, sizeof(this->m_plateShoulderArmor), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_weaponDps1h, sizeof(this->m_weaponDps1h), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_weaponDps2h, sizeof(this->m_weaponDps2h), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spellcasterDps1h, sizeof(this->m_spellcasterDps1h), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spellcasterDps2h, sizeof(this->m_spellcasterDps2h), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_rangedDps, sizeof(this->m_rangedDps), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_wandDps, sizeof(this->m_wandDps), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spellPower, sizeof(this->m_spellPower), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_primaryBudget, sizeof(this->m_primaryBudget), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_tertiaryBudget, sizeof(this->m_tertiaryBudget), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_clothCloakArmor, sizeof(this->m_clothCloakArmor), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_clothChestArmor, sizeof(this->m_clothChestArmor), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_leatherChestArmor, sizeof(this->m_leatherChestArmor), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_mailChestArmor, sizeof(this->m_mailChestArmor), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_plateChestArmor, sizeof(this->m_plateChestArmor), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

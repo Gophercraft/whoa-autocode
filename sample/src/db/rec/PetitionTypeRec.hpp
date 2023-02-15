@@ -2,8 +2,8 @@
 #ifndef DB_REC_PETITION_TYPE_REC_HPP
 #define DB_REC_PETITION_TYPE_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class PetitionTypeRec {
     public:
@@ -12,10 +12,11 @@ class PetitionTypeRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID; // unconfirmed
-        const char* m_Name; // unconfirmed
-        int32_t m_Type; // unconfirmed
+        const char* m_name; // unconfirmed
+        int32_t m_type; // unconfirmed
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

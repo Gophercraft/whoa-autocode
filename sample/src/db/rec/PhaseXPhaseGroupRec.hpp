@@ -2,8 +2,8 @@
 #ifndef DB_REC_PHASE_XPHASE_GROUP_REC_HPP
 #define DB_REC_PHASE_XPHASE_GROUP_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class PhaseXPhaseGroupRec {
     public:
@@ -12,10 +12,11 @@ class PhaseXPhaseGroupRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_PhaseID;
-        int32_t m_PhaseGroupID;
+        int32_t m_phaseID;
+        int32_t m_phaseGroupID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

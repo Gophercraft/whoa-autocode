@@ -5,25 +5,29 @@ const char* LoadingScreensRec::GetFilename() {
     return "DBFilesClient\\LoadingScreens.dbc";
 }
 
+int32_t LoadingScreensRec::GetID() {
+    return this->m_ID;
+}
+
 bool LoadingScreensRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t NameOfs;
-    uint32_t FileNameOfs;
+    uint32_t nameOfs;
+    uint32_t fileNameOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &NameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &FileNameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_HasWideScreen, sizeof(this->m_HasWideScreen), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &fileNameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_hasWideScreen, sizeof(this->m_hasWideScreen), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_Name = &stringBuffer[NameOfs];
-        this->m_FileName = &stringBuffer[FileNameOfs];
+        this->m_name = &stringBuffer[nameOfs];
+        this->m_fileName = &stringBuffer[fileNameOfs];
     } else {
-        this->m_Name = "";
-        this->m_FileName = "";
+        this->m_name = "";
+        this->m_fileName = "";
     }
 
     return true;

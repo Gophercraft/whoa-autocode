@@ -5,24 +5,28 @@ const char* SpellVisualPrecastTransitionsRec::GetFilename() {
     return "DBFilesClient\\SpellVisualPrecastTransitions.dbc";
 }
 
+int32_t SpellVisualPrecastTransitionsRec::GetID() {
+    return this->m_ID;
+}
+
 bool SpellVisualPrecastTransitionsRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t PrecastLoadAnimNameOfs;
-    uint32_t PrecastHoldAnimNameOfs;
+    uint32_t precastLoadAnimNameOfs;
+    uint32_t precastHoldAnimNameOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &PrecastLoadAnimNameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &PrecastHoldAnimNameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &precastLoadAnimNameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &precastHoldAnimNameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_PrecastLoadAnimName = &stringBuffer[PrecastLoadAnimNameOfs];
-        this->m_PrecastHoldAnimName = &stringBuffer[PrecastHoldAnimNameOfs];
+        this->m_precastLoadAnimName = &stringBuffer[precastLoadAnimNameOfs];
+        this->m_precastHoldAnimName = &stringBuffer[precastHoldAnimNameOfs];
     } else {
-        this->m_PrecastLoadAnimName = "";
-        this->m_PrecastHoldAnimName = "";
+        this->m_precastLoadAnimName = "";
+        this->m_precastHoldAnimName = "";
     }
 
     return true;

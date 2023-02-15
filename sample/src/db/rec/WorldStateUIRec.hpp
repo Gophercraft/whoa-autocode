@@ -2,8 +2,8 @@
 #ifndef DB_REC_WORLD_STATE_UI_REC_HPP
 #define DB_REC_WORLD_STATE_UI_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class WorldStateUIRec {
     public:
@@ -12,20 +12,21 @@ class WorldStateUIRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_MapID;
-        int32_t m_AreaID;
-        int32_t m_PhaseShift;
-        const char* m_Icon;
-        const char* m_String_lang;
-        const char* m_Tooltip_lang;
-        int32_t m_StateVariable;
-        int32_t m_Type;
-        const char* m_DynamicIcon;
-        const char* m_DynamicTooltip_lang;
-        const char* m_ExtendedUI;
-        int32_t m_ExtendedUIStateVariable[3];
+        int32_t m_mapID;
+        int32_t m_areaID;
+        int32_t m_phaseShift;
+        const char* m_icon;
+        const char* m_string;
+        const char* m_tooltip;
+        int32_t m_stateVariable;
+        int32_t m_type;
+        const char* m_dynamicIcon;
+        const char* m_dynamicTooltip;
+        const char* m_extendedUi;
+        int32_t m_extendedUistateVariable[3];
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

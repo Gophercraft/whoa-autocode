@@ -5,39 +5,43 @@ const char* CreatureDisplayInfoExtraRec::GetFilename() {
     return "DBFilesClient\\CreatureDisplayInfoExtra.dbc";
 }
 
+int32_t CreatureDisplayInfoExtraRec::GetID() {
+    return this->m_ID;
+}
+
 bool CreatureDisplayInfoExtraRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t BakeNameOfs;
+    uint32_t bakeNameOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_DisplayRaceID, sizeof(this->m_DisplayRaceID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_DisplaySexID, sizeof(this->m_DisplaySexID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SkinID, sizeof(this->m_SkinID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_FaceID, sizeof(this->m_FaceID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_HairStyleID, sizeof(this->m_HairStyleID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_HairColorID, sizeof(this->m_HairColorID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_FacialHairID, sizeof(this->m_FacialHairID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_NPCItemDisplay[0], sizeof(m_NPCItemDisplay[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_NPCItemDisplay[1], sizeof(m_NPCItemDisplay[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_NPCItemDisplay[2], sizeof(m_NPCItemDisplay[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_NPCItemDisplay[3], sizeof(m_NPCItemDisplay[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_NPCItemDisplay[4], sizeof(m_NPCItemDisplay[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_NPCItemDisplay[5], sizeof(m_NPCItemDisplay[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_NPCItemDisplay[6], sizeof(m_NPCItemDisplay[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_NPCItemDisplay[7], sizeof(m_NPCItemDisplay[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_NPCItemDisplay[8], sizeof(m_NPCItemDisplay[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_NPCItemDisplay[9], sizeof(m_NPCItemDisplay[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_NPCItemDisplay[10], sizeof(m_NPCItemDisplay[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Flags, sizeof(this->m_Flags), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &BakeNameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_displayRaceID, sizeof(this->m_displayRaceID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_displaySexID, sizeof(this->m_displaySexID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_skinID, sizeof(this->m_skinID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_faceID, sizeof(this->m_faceID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_hairStyleID, sizeof(this->m_hairStyleID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_hairColorID, sizeof(this->m_hairColorID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_facialHairID, sizeof(this->m_facialHairID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_npcitemDisplay[0], sizeof(m_npcitemDisplay[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_npcitemDisplay[1], sizeof(m_npcitemDisplay[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_npcitemDisplay[2], sizeof(m_npcitemDisplay[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_npcitemDisplay[3], sizeof(m_npcitemDisplay[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_npcitemDisplay[4], sizeof(m_npcitemDisplay[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_npcitemDisplay[5], sizeof(m_npcitemDisplay[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_npcitemDisplay[6], sizeof(m_npcitemDisplay[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_npcitemDisplay[7], sizeof(m_npcitemDisplay[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_npcitemDisplay[8], sizeof(m_npcitemDisplay[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_npcitemDisplay[9], sizeof(m_npcitemDisplay[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_npcitemDisplay[10], sizeof(m_npcitemDisplay[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_flags, sizeof(this->m_flags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &bakeNameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_BakeName = &stringBuffer[BakeNameOfs];
+        this->m_bakeName = &stringBuffer[bakeNameOfs];
     } else {
-        this->m_BakeName = "";
+        this->m_bakeName = "";
     }
 
     return true;

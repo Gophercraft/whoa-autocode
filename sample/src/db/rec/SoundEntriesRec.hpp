@@ -2,8 +2,8 @@
 #ifndef DB_REC_SOUND_ENTRIES_REC_HPP
 #define DB_REC_SOUND_ENTRIES_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SoundEntriesRec {
     public:
@@ -12,19 +12,20 @@ class SoundEntriesRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_SoundType;
-        const char* m_Name;
-        const char* m_File[10];
-        int32_t m_Freq[10];
-        const char* m_DirectoryBase;
-        float m_VolumeFloat;
-        int32_t m_Flags;
-        float m_MinDistance;
-        float m_DistanceCutoff;
-        int32_t m_EAXDef;
-        int32_t m_SoundEntriesAdvancedID;
+        int32_t m_soundType;
+        const char* m_name;
+        const char* m_file[10];
+        int32_t m_freq[10];
+        const char* m_directoryBase;
+        float m_volumeFloat;
+        int32_t m_flags;
+        float m_minDistance;
+        float m_distanceCutoff;
+        int32_t m_eaxdef;
+        int32_t m_soundEntriesAdvancedID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

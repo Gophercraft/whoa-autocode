@@ -2,8 +2,8 @@
 #ifndef DB_REC_LIQUID_TYPE_REC_HPP
 #define DB_REC_LIQUID_TYPE_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class LiquidTypeRec {
     public:
@@ -12,26 +12,27 @@ class LiquidTypeRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        const char* m_Name;
-        int32_t m_Flags;
-        int32_t m_SoundBank;
-        int32_t m_SoundID;
-        int32_t m_SpellID;
-        float m_MaxDarkenDepth;
-        float m_FogDarkenIntensity;
-        float m_AmbDarkenIntensity;
-        float m_DirDarkenIntensity;
-        int32_t m_LightID;
-        float m_ParticleScale;
-        int32_t m_ParticleMovement;
-        int32_t m_ParticleTexSlots;
-        int32_t m_MaterialID;
-        const char* m_Texture[6];
-        int32_t m_Color[2];
-        float m_Float[18];
-        int32_t m_Int[4];
+        const char* m_name;
+        int32_t m_flags;
+        int32_t m_soundBank;
+        int32_t m_soundID;
+        int32_t m_spellID;
+        float m_maxDarkenDepth;
+        float m_fogDarkenIntensity;
+        float m_ambDarkenIntensity;
+        float m_dirDarkenIntensity;
+        int32_t m_lightID;
+        float m_particleScale;
+        int32_t m_particleMovement;
+        int32_t m_particleTexSlots;
+        int32_t m_materialID;
+        const char* m_texture[6];
+        int32_t m_color[2];
+        float m_float[18];
+        int32_t m_int[4];
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

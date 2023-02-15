@@ -2,8 +2,8 @@
 #ifndef DB_REC_LIQUID_MATERIAL_REC_HPP
 #define DB_REC_LIQUID_MATERIAL_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class LiquidMaterialRec {
     public:
@@ -12,10 +12,11 @@ class LiquidMaterialRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_LVF;
-        int32_t m_Flags;
+        int32_t m_lvf;
+        int32_t m_flags;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

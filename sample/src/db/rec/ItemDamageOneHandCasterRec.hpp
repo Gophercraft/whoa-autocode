@@ -2,8 +2,8 @@
 #ifndef DB_REC_ITEM_DAMAGE_ONE_HAND_CASTER_REC_HPP
 #define DB_REC_ITEM_DAMAGE_ONE_HAND_CASTER_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class ItemDamageOneHandCasterRec {
     public:
@@ -12,10 +12,11 @@ class ItemDamageOneHandCasterRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        float m_Quality[7];
-        int32_t m_ItemLevel;
+        float m_quality[7];
+        int32_t m_itemLevel;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

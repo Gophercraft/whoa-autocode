@@ -2,8 +2,8 @@
 #ifndef DB_REC_LOCK_REC_HPP
 #define DB_REC_LOCK_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class LockRec {
     public:
@@ -12,12 +12,13 @@ class LockRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Type[8];
-        int32_t m_Index[8];
-        int32_t m_Skill[8];
-        int32_t m_Action[8];
+        int32_t m_type[8];
+        int32_t m_index[8];
+        int32_t m_skill[8];
+        int32_t m_action[8];
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

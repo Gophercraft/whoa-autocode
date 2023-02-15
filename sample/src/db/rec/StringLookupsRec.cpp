@@ -5,20 +5,24 @@ const char* StringLookupsRec::GetFilename() {
     return "DBFilesClient\\StringLookups.dbc";
 }
 
+int32_t StringLookupsRec::GetID() {
+    return this->m_ID;
+}
+
 bool StringLookupsRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t StringOfs;
+    uint32_t stringOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &StringOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &stringOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_String = &stringBuffer[StringOfs];
+        this->m_string = &stringBuffer[stringOfs];
     } else {
-        this->m_String = "";
+        this->m_string = "";
     }
 
     return true;

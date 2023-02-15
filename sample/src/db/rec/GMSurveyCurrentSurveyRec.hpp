@@ -2,8 +2,8 @@
 #ifndef DB_REC_GMSURVEY_CURRENT_SURVEY_REC_HPP
 #define DB_REC_GMSURVEY_CURRENT_SURVEY_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class GMSurveyCurrentSurveyRec {
     public:
@@ -11,10 +11,12 @@ class GMSurveyCurrentSurveyRec {
         static constexpr uint32_t rowSize = 8;
         static constexpr bool indexIsID = true;
 
-        int32_t m_LANGID;
-        int32_t m_GMSURVEY_ID;
+        int32_t m_langid;
+        int32_t m_gmsurveyID;
+        int32_t m_generatedID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

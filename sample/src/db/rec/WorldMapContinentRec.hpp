@@ -2,8 +2,8 @@
 #ifndef DB_REC_WORLD_MAP_CONTINENT_REC_HPP
 #define DB_REC_WORLD_MAP_CONTINENT_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class WorldMapContinentRec {
     public:
@@ -12,18 +12,19 @@ class WorldMapContinentRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_MapID;
-        int32_t m_LeftBoundary;
-        int32_t m_RightBoundary;
-        int32_t m_TopBoundary;
-        int32_t m_BottomBoundary;
-        float m_ContinentOffset[2];
-        float m_Scale;
-        float m_TaxiMin[2];
-        float m_TaxiMax[2];
-        int32_t m_WorldMapID;
+        int32_t m_mapID;
+        int32_t m_leftBoundary;
+        int32_t m_rightBoundary;
+        int32_t m_topBoundary;
+        int32_t m_bottomBoundary;
+        float m_continentOffset[2];
+        float m_scale;
+        float m_taxiMin[2];
+        float m_taxiMax[2];
+        int32_t m_worldMapID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

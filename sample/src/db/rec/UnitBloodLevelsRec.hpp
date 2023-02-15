@@ -2,8 +2,8 @@
 #ifndef DB_REC_UNIT_BLOOD_LEVELS_REC_HPP
 #define DB_REC_UNIT_BLOOD_LEVELS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class UnitBloodLevelsRec {
     public:
@@ -12,9 +12,10 @@ class UnitBloodLevelsRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Violencelevel[3];
+        int32_t m_violencelevel[3];
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

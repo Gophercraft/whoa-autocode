@@ -5,23 +5,27 @@ const char* SpellMissileRec::GetFilename() {
     return "DBFilesClient\\SpellMissile.dbc";
 }
 
+int32_t SpellMissileRec::GetID() {
+    return this->m_ID;
+}
+
 bool SpellMissileRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Flags, sizeof(this->m_Flags), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_DefaultPitchMin, sizeof(this->m_DefaultPitchMin), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_DefaultPitchMax, sizeof(this->m_DefaultPitchMax), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_DefaultSpeedMin, sizeof(this->m_DefaultSpeedMin), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_DefaultSpeedMax, sizeof(this->m_DefaultSpeedMax), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RandomizeFacingMin, sizeof(this->m_RandomizeFacingMin), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RandomizeFacingMax, sizeof(this->m_RandomizeFacingMax), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RandomizePitchMin, sizeof(this->m_RandomizePitchMin), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RandomizePitchMax, sizeof(this->m_RandomizePitchMax), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RandomizeSpeedMin, sizeof(this->m_RandomizeSpeedMin), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RandomizeSpeedMax, sizeof(this->m_RandomizeSpeedMax), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Gravity, sizeof(this->m_Gravity), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MaxDuration, sizeof(this->m_MaxDuration), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_CollisionRadius, sizeof(this->m_CollisionRadius), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_flags, sizeof(this->m_flags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_defaultPitchMin, sizeof(this->m_defaultPitchMin), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_defaultPitchMax, sizeof(this->m_defaultPitchMax), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_defaultSpeedMin, sizeof(this->m_defaultSpeedMin), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_defaultSpeedMax, sizeof(this->m_defaultSpeedMax), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_randomizeFacingMin, sizeof(this->m_randomizeFacingMin), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_randomizeFacingMax, sizeof(this->m_randomizeFacingMax), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_randomizePitchMin, sizeof(this->m_randomizePitchMin), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_randomizePitchMax, sizeof(this->m_randomizePitchMax), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_randomizeSpeedMin, sizeof(this->m_randomizeSpeedMin), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_randomizeSpeedMax, sizeof(this->m_randomizeSpeedMax), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_gravity, sizeof(this->m_gravity), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_maxDuration, sizeof(this->m_maxDuration), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_collisionRadius, sizeof(this->m_collisionRadius), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

@@ -2,8 +2,8 @@
 #ifndef DB_REC_TRANSPORT_PHYSICS_REC_HPP
 #define DB_REC_TRANSPORT_PHYSICS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class TransportPhysicsRec {
     public:
@@ -12,18 +12,19 @@ class TransportPhysicsRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        float m_WaveAmp;
-        float m_WaveTimeScale;
-        float m_RollAmp;
-        float m_RollTimeScale;
-        float m_PitchAmp;
-        float m_PitchTimeScale;
-        float m_MaxBank;
-        float m_MaxBankTurnSpeed;
-        float m_SpeedDampThresh;
-        float m_SpeedDamp;
+        float m_waveAmp;
+        float m_waveTimeScale;
+        float m_rollAmp;
+        float m_rollTimeScale;
+        float m_pitchAmp;
+        float m_pitchTimeScale;
+        float m_maxBank;
+        float m_maxBankTurnSpeed;
+        float m_speedDampThresh;
+        float m_speedDamp;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

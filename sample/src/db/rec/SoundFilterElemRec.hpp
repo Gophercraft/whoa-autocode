@@ -2,8 +2,8 @@
 #ifndef DB_REC_SOUND_FILTER_ELEM_REC_HPP
 #define DB_REC_SOUND_FILTER_ELEM_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SoundFilterElemRec {
     public:
@@ -12,12 +12,13 @@ class SoundFilterElemRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_SoundFilterID;
-        int32_t m_OrderIndex;
-        int32_t m_FilterType;
-        float m_Params[9];
+        int32_t m_soundFilterID;
+        int32_t m_orderIndex;
+        int32_t m_filterType;
+        float m_params[9];
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

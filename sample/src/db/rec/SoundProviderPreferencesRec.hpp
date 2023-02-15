@@ -2,8 +2,8 @@
 #ifndef DB_REC_SOUND_PROVIDER_PREFERENCES_REC_HPP
 #define DB_REC_SOUND_PROVIDER_PREFERENCES_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SoundProviderPreferencesRec {
     public:
@@ -12,31 +12,32 @@ class SoundProviderPreferencesRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        const char* m_Description;
-        int32_t m_Flags;
-        int32_t m_EAXEnvironmentSelection;
-        float m_EAXDecayTime;
-        float m_EAX2EnvironmentSize;
-        float m_EAX2EnvironmentDiffusion;
-        int32_t m_EAX2Room;
-        int32_t m_EAX2RoomHF;
-        float m_EAX2DecayHFRatio;
-        int32_t m_EAX2Reflections;
-        float m_EAX2ReflectionsDelay;
-        int32_t m_EAX2Reverb;
-        float m_EAX2ReverbDelay;
-        float m_EAX2RoomRolloff;
-        float m_EAX2AirAbsorption;
-        int32_t m_EAX3RoomLF;
-        float m_EAX3DecayLFRatio;
-        float m_EAX3EchoTime;
-        float m_EAX3EchoDepth;
-        float m_EAX3ModulationTime;
-        float m_EAX3ModulationDepth;
-        float m_EAX3HFReference;
-        float m_EAX3LFReference;
+        const char* m_description;
+        int32_t m_flags;
+        int32_t m_eaxenvironmentSelection;
+        float m_eaxdecayTime;
+        float m_eax2EnvironmentSize;
+        float m_eax2EnvironmentDiffusion;
+        int32_t m_eax2Room;
+        int32_t m_eax2RoomHf;
+        float m_eax2DecayHfratio;
+        int32_t m_eax2Reflections;
+        float m_eax2ReflectionsDelay;
+        int32_t m_eax2Reverb;
+        float m_eax2ReverbDelay;
+        float m_eax2RoomRolloff;
+        float m_eax2AirAbsorption;
+        int32_t m_eax3RoomLf;
+        float m_eax3DecayLfratio;
+        float m_eax3EchoTime;
+        float m_eax3EchoDepth;
+        float m_eax3ModulationTime;
+        float m_eax3ModulationDepth;
+        float m_eax3Hfreference;
+        float m_eax3Lfreference;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

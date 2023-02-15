@@ -2,8 +2,8 @@
 #ifndef DB_REC_VEHICLE_REC_HPP
 #define DB_REC_VEHICLE_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class VehicleRec {
     public:
@@ -12,36 +12,37 @@ class VehicleRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Flags;
-        float m_TurnSpeed;
-        float m_PitchSpeed;
-        float m_PitchMin;
-        float m_PitchMax;
-        int32_t m_SeatID[8];
-        float m_MouseLookOffsetPitch;
-        float m_CameraFadeDistScalarMin;
-        float m_CameraFadeDistScalarMax;
-        float m_CameraPitchOffset;
-        float m_FacingLimitRight;
-        float m_FacingLimitLeft;
-        float m_MsslTrgtTurnLingering;
-        float m_MsslTrgtPitchLingering;
-        float m_MsslTrgtMouseLingering;
-        float m_MsslTrgtEndOpacity;
-        float m_MsslTrgtArcSpeed;
-        float m_MsslTrgtArcRepeat;
-        float m_MsslTrgtArcWidth;
-        float m_MsslTrgtImpactRadius[2];
-        const char* m_MsslTrgtArcTexture;
-        const char* m_MsslTrgtImpactTexture;
-        const char* m_MsslTrgtImpactModel[2];
-        float m_CameraYawOffset;
-        int32_t m_UiLocomotionType;
-        float m_MsslTrgtImpactTexRadius;
-        int32_t m_VehicleUIIndicatorID;
-        int32_t m_PowerDisplayID[3];
+        int32_t m_flags;
+        float m_turnSpeed;
+        float m_pitchSpeed;
+        float m_pitchMin;
+        float m_pitchMax;
+        int32_t m_seatID[8];
+        float m_mouseLookOffsetPitch;
+        float m_cameraFadeDistScalarMin;
+        float m_cameraFadeDistScalarMax;
+        float m_cameraPitchOffset;
+        float m_facingLimitRight;
+        float m_facingLimitLeft;
+        float m_msslTrgtTurnLingering;
+        float m_msslTrgtPitchLingering;
+        float m_msslTrgtMouseLingering;
+        float m_msslTrgtEndOpacity;
+        float m_msslTrgtArcSpeed;
+        float m_msslTrgtArcRepeat;
+        float m_msslTrgtArcWidth;
+        float m_msslTrgtImpactRadius[2];
+        const char* m_msslTrgtArcTexture;
+        const char* m_msslTrgtImpactTexture;
+        const char* m_msslTrgtImpactModel[2];
+        float m_cameraYawOffset;
+        int32_t m_uiLocomotionType;
+        float m_msslTrgtImpactTexRadius;
+        int32_t m_vehicleUiindicatorID;
+        int32_t m_powerDisplayID[3];
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

@@ -2,8 +2,8 @@
 #ifndef DB_REC_CFG_CONFIGS_REC_HPP
 #define DB_REC_CFG_CONFIGS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class Cfg_ConfigsRec {
     public:
@@ -12,11 +12,12 @@ class Cfg_ConfigsRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_RealmType;
-        int32_t m_PlayerKillingAllowed;
-        int32_t m_Roleplaying;
+        int32_t m_realmType;
+        int32_t m_playerKillingAllowed;
+        int32_t m_roleplaying;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

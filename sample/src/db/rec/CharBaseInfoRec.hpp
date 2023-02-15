@@ -2,8 +2,8 @@
 #ifndef DB_REC_CHAR_BASE_INFO_REC_HPP
 #define DB_REC_CHAR_BASE_INFO_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class CharBaseInfoRec {
     public:
@@ -11,10 +11,12 @@ class CharBaseInfoRec {
         static constexpr uint32_t rowSize = 2;
         static constexpr bool indexIsID = true;
 
-        int8_t m_RaceID;
-        int8_t m_ClassID;
+        int8_t m_raceID;
+        int8_t m_classID;
+        int32_t m_generatedID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

@@ -5,26 +5,30 @@ const char* WeatherRec::GetFilename() {
     return "DBFilesClient\\Weather.dbc";
 }
 
+int32_t WeatherRec::GetID() {
+    return this->m_ID;
+}
+
 bool WeatherRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t EffectTextureOfs;
+    uint32_t effectTextureOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AmbienceID, sizeof(this->m_AmbienceID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EffectType, sizeof(this->m_EffectType), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TransitionSkyBox, sizeof(this->m_TransitionSkyBox), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EffectColor[0], sizeof(m_EffectColor[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EffectColor[1], sizeof(m_EffectColor[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EffectColor[2], sizeof(m_EffectColor[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &EffectTextureOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_ambienceID, sizeof(this->m_ambienceID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effectType, sizeof(this->m_effectType), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_transitionSkyBox, sizeof(this->m_transitionSkyBox), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effectColor[0], sizeof(m_effectColor[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effectColor[1], sizeof(m_effectColor[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effectColor[2], sizeof(m_effectColor[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &effectTextureOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_EffectTexture = &stringBuffer[EffectTextureOfs];
+        this->m_effectTexture = &stringBuffer[effectTextureOfs];
     } else {
-        this->m_EffectTexture = "";
+        this->m_effectTexture = "";
     }
 
     return true;

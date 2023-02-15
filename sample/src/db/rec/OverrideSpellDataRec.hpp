@@ -2,8 +2,8 @@
 #ifndef DB_REC_OVERRIDE_SPELL_DATA_REC_HPP
 #define DB_REC_OVERRIDE_SPELL_DATA_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class OverrideSpellDataRec {
     public:
@@ -12,10 +12,11 @@ class OverrideSpellDataRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Spells[10];
-        int32_t m_Flags;
+        int32_t m_spells[10];
+        int32_t m_flags;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

@@ -2,8 +2,8 @@
 #ifndef DB_REC_MOVIE_FILE_DATA_REC_HPP
 #define DB_REC_MOVIE_FILE_DATA_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class MovieFileDataRec {
     public:
@@ -11,10 +11,12 @@ class MovieFileDataRec {
         static constexpr uint32_t rowSize = 8;
         static constexpr bool indexIsID = true;
 
-        int32_t m_FileDataID;
-        int32_t m_Resolution;
+        int32_t m_fileDataID;
+        int32_t m_resolution;
+        int32_t m_generatedID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

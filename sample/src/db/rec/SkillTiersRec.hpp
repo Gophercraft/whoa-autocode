@@ -2,8 +2,8 @@
 #ifndef DB_REC_SKILL_TIERS_REC_HPP
 #define DB_REC_SKILL_TIERS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SkillTiersRec {
     public:
@@ -12,10 +12,11 @@ class SkillTiersRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Cost[16];
-        int32_t m_Value[16];
+        int32_t m_cost[16];
+        int32_t m_value[16];
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

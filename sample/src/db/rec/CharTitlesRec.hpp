@@ -2,8 +2,8 @@
 #ifndef DB_REC_CHAR_TITLES_REC_HPP
 #define DB_REC_CHAR_TITLES_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class CharTitlesRec {
     public:
@@ -12,12 +12,13 @@ class CharTitlesRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Condition_ID;
-        const char* m_Name_lang;
-        const char* m_Name1_lang;
-        int32_t m_Mask_ID;
+        int32_t m_conditionID;
+        const char* m_name;
+        const char* m_name1;
+        int32_t m_maskID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

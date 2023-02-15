@@ -2,8 +2,8 @@
 #ifndef DB_REC_VEHICLE_UIIND_SEAT_REC_HPP
 #define DB_REC_VEHICLE_UIIND_SEAT_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class VehicleUIIndSeatRec {
     public:
@@ -12,12 +12,13 @@ class VehicleUIIndSeatRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_VehicleUIIndicatorID;
-        int32_t m_VirtualSeatIndex;
-        float m_XPos;
-        float m_YPos;
+        int32_t m_vehicleUiindicatorID;
+        int32_t m_virtualSeatIndex;
+        float m_xpos;
+        float m_ypos;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

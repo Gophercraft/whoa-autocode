@@ -2,8 +2,8 @@
 #ifndef DB_REC_CHAR_VARIATIONS_REC_HPP
 #define DB_REC_CHAR_VARIATIONS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class CharVariationsRec {
     public:
@@ -11,11 +11,13 @@ class CharVariationsRec {
         static constexpr uint32_t rowSize = 24;
         static constexpr bool indexIsID = true;
 
-        int32_t m_RaceID;
-        int32_t m_SexID;
-        int32_t m_TextureHoldLayer[4];
+        int32_t m_raceID;
+        int32_t m_sexID;
+        int32_t m_textureHoldLayer[4];
+        int32_t m_generatedID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

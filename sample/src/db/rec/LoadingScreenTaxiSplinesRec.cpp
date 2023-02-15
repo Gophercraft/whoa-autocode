@@ -5,27 +5,31 @@ const char* LoadingScreenTaxiSplinesRec::GetFilename() {
     return "DBFilesClient\\LoadingScreenTaxiSplines.dbc";
 }
 
+int32_t LoadingScreenTaxiSplinesRec::GetID() {
+    return this->m_ID;
+}
+
 bool LoadingScreenTaxiSplinesRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PathID, sizeof(this->m_PathID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Locx[0], sizeof(m_Locx[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Locx[1], sizeof(m_Locx[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Locx[2], sizeof(m_Locx[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Locx[3], sizeof(m_Locx[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Locx[4], sizeof(m_Locx[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Locx[5], sizeof(m_Locx[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Locx[6], sizeof(m_Locx[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Locx[7], sizeof(m_Locx[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Locy[0], sizeof(m_Locy[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Locy[1], sizeof(m_Locy[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Locy[2], sizeof(m_Locy[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Locy[3], sizeof(m_Locy[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Locy[4], sizeof(m_Locy[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Locy[5], sizeof(m_Locy[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Locy[6], sizeof(m_Locy[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Locy[7], sizeof(m_Locy[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_LegIndex, sizeof(this->m_LegIndex), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_pathID, sizeof(this->m_pathID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_locx[0], sizeof(m_locx[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_locx[1], sizeof(m_locx[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_locx[2], sizeof(m_locx[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_locx[3], sizeof(m_locx[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_locx[4], sizeof(m_locx[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_locx[5], sizeof(m_locx[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_locx[6], sizeof(m_locx[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_locx[7], sizeof(m_locx[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_locy[0], sizeof(m_locy[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_locy[1], sizeof(m_locy[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_locy[2], sizeof(m_locy[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_locy[3], sizeof(m_locy[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_locy[4], sizeof(m_locy[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_locy[5], sizeof(m_locy[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_locy[6], sizeof(m_locy[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_locy[7], sizeof(m_locy[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_legIndex, sizeof(this->m_legIndex), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

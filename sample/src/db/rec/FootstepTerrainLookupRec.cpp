@@ -5,13 +5,17 @@ const char* FootstepTerrainLookupRec::GetFilename() {
     return "DBFilesClient\\FootstepTerrainLookup.dbc";
 }
 
+int32_t FootstepTerrainLookupRec::GetID() {
+    return this->m_ID;
+}
+
 bool FootstepTerrainLookupRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_CreatureFootstepID, sizeof(this->m_CreatureFootstepID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TerrainSoundID, sizeof(this->m_TerrainSoundID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SoundID, sizeof(this->m_SoundID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SoundIDSplash, sizeof(this->m_SoundIDSplash), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_creatureFootstepID, sizeof(this->m_creatureFootstepID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_terrainSoundID, sizeof(this->m_terrainSoundID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_soundID, sizeof(this->m_soundID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_soundIdsplash, sizeof(this->m_soundIdsplash), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

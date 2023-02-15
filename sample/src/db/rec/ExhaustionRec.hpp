@@ -2,8 +2,8 @@
 #ifndef DB_REC_EXHAUSTION_REC_HPP
 #define DB_REC_EXHAUSTION_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class ExhaustionRec {
     public:
@@ -12,14 +12,15 @@ class ExhaustionRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Xp;
-        float m_Factor;
-        float m_OutdoorHours;
-        float m_InnHours;
-        const char* m_Name_lang;
-        float m_Threshold;
+        int32_t m_xp;
+        float m_factor;
+        float m_outdoorHours;
+        float m_innHours;
+        const char* m_name;
+        float m_threshold;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

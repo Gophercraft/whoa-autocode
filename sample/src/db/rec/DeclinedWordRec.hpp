@@ -2,8 +2,8 @@
 #ifndef DB_REC_DECLINED_WORD_REC_HPP
 #define DB_REC_DECLINED_WORD_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class DeclinedWordRec {
     public:
@@ -12,9 +12,10 @@ class DeclinedWordRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        const char* m_Word;
+        const char* m_word;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

@@ -5,39 +5,43 @@ const char* GameObjectArtKitRec::GetFilename() {
     return "DBFilesClient\\GameObjectArtKit.dbc";
 }
 
+int32_t GameObjectArtKitRec::GetID() {
+    return this->m_ID;
+}
+
 bool GameObjectArtKitRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t TextureVariationOfs[3];
-    uint32_t AttachModelOfs[4];
+    uint32_t textureVariationOfs[3];
+    uint32_t attachModelOfs[4];
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &TextureVariationOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &TextureVariationOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &TextureVariationOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AttachModelOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AttachModelOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AttachModelOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AttachModelOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &textureVariationOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &textureVariationOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &textureVariationOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &attachModelOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &attachModelOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &attachModelOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &attachModelOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_TextureVariation[0] = &stringBuffer[TextureVariationOfs[0]];
-        this->m_TextureVariation[1] = &stringBuffer[TextureVariationOfs[1]];
-        this->m_TextureVariation[2] = &stringBuffer[TextureVariationOfs[2]];
-        this->m_AttachModel[0] = &stringBuffer[AttachModelOfs[0]];
-        this->m_AttachModel[1] = &stringBuffer[AttachModelOfs[1]];
-        this->m_AttachModel[2] = &stringBuffer[AttachModelOfs[2]];
-        this->m_AttachModel[3] = &stringBuffer[AttachModelOfs[3]];
+        this->m_textureVariation[0] = &stringBuffer[textureVariationOfs[0]];
+        this->m_textureVariation[1] = &stringBuffer[textureVariationOfs[1]];
+        this->m_textureVariation[2] = &stringBuffer[textureVariationOfs[2]];
+        this->m_attachModel[0] = &stringBuffer[attachModelOfs[0]];
+        this->m_attachModel[1] = &stringBuffer[attachModelOfs[1]];
+        this->m_attachModel[2] = &stringBuffer[attachModelOfs[2]];
+        this->m_attachModel[3] = &stringBuffer[attachModelOfs[3]];
     } else {
-        this->m_TextureVariation[0] = "";
-        this->m_TextureVariation[1] = "";
-        this->m_TextureVariation[2] = "";
-        this->m_AttachModel[0] = "";
-        this->m_AttachModel[1] = "";
-        this->m_AttachModel[2] = "";
-        this->m_AttachModel[3] = "";
+        this->m_textureVariation[0] = "";
+        this->m_textureVariation[1] = "";
+        this->m_textureVariation[2] = "";
+        this->m_attachModel[0] = "";
+        this->m_attachModel[1] = "";
+        this->m_attachModel[2] = "";
+        this->m_attachModel[3] = "";
     }
 
     return true;

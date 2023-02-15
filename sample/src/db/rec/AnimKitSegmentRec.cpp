@@ -5,24 +5,28 @@ const char* AnimKitSegmentRec::GetFilename() {
     return "DBFilesClient\\AnimKitSegment.dbc";
 }
 
+int32_t AnimKitSegmentRec::GetID() {
+    return this->m_ID;
+}
+
 bool AnimKitSegmentRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ParentAnimKitID, sizeof(this->m_ParentAnimKitID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AnimID, sizeof(this->m_AnimID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AnimStartTime, sizeof(this->m_AnimStartTime), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AnimKitConfigID, sizeof(this->m_AnimKitConfigID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_StartCondition, sizeof(this->m_StartCondition), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_StartConditionParam, sizeof(this->m_StartConditionParam), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_StartConditionDelay, sizeof(this->m_StartConditionDelay), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EndCondition, sizeof(this->m_EndCondition), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EndConditionParam, sizeof(this->m_EndConditionParam), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EndConditionDelay, sizeof(this->m_EndConditionDelay), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Speed, sizeof(this->m_Speed), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SegmentFlags, sizeof(this->m_SegmentFlags), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ForcedVariation, sizeof(this->m_ForcedVariation), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_OverrideConfigFlags, sizeof(this->m_OverrideConfigFlags), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_LoopToSegmentIndex, sizeof(this->m_LoopToSegmentIndex), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_parentAnimKitID, sizeof(this->m_parentAnimKitID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_animID, sizeof(this->m_animID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_animStartTime, sizeof(this->m_animStartTime), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_animKitConfigID, sizeof(this->m_animKitConfigID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_startCondition, sizeof(this->m_startCondition), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_startConditionParam, sizeof(this->m_startConditionParam), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_startConditionDelay, sizeof(this->m_startConditionDelay), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_endCondition, sizeof(this->m_endCondition), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_endConditionParam, sizeof(this->m_endConditionParam), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_endConditionDelay, sizeof(this->m_endConditionDelay), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_speed, sizeof(this->m_speed), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_segmentFlags, sizeof(this->m_segmentFlags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_forcedVariation, sizeof(this->m_forcedVariation), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_overrideConfigFlags, sizeof(this->m_overrideConfigFlags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_loopToSegmentIndex, sizeof(this->m_loopToSegmentIndex), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

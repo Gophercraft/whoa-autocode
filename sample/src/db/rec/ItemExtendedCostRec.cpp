@@ -5,24 +5,28 @@ const char* ItemExtendedCostRec::GetFilename() {
     return "DBFilesClient\\ItemExtendedCost.dbc";
 }
 
+int32_t ItemExtendedCostRec::GetID() {
+    return this->m_ID;
+}
+
 bool ItemExtendedCostRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_HonorPoints, sizeof(this->m_HonorPoints), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ArenaPoints, sizeof(this->m_ArenaPoints), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ArenaBracket, sizeof(this->m_ArenaBracket), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ItemID[0], sizeof(m_ItemID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ItemID[1], sizeof(m_ItemID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ItemID[2], sizeof(m_ItemID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ItemID[3], sizeof(m_ItemID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ItemID[4], sizeof(m_ItemID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ItemCount[0], sizeof(m_ItemCount[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ItemCount[1], sizeof(m_ItemCount[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ItemCount[2], sizeof(m_ItemCount[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ItemCount[3], sizeof(m_ItemCount[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ItemCount[4], sizeof(m_ItemCount[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RequiredArenaRating, sizeof(this->m_RequiredArenaRating), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ItemPurchaseGroup, sizeof(this->m_ItemPurchaseGroup), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_honorPoints, sizeof(this->m_honorPoints), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_arenaPoints, sizeof(this->m_arenaPoints), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_arenaBracket, sizeof(this->m_arenaBracket), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_itemID[0], sizeof(m_itemID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_itemID[1], sizeof(m_itemID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_itemID[2], sizeof(m_itemID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_itemID[3], sizeof(m_itemID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_itemID[4], sizeof(m_itemID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_itemCount[0], sizeof(m_itemCount[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_itemCount[1], sizeof(m_itemCount[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_itemCount[2], sizeof(m_itemCount[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_itemCount[3], sizeof(m_itemCount[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_itemCount[4], sizeof(m_itemCount[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_requiredArenaRating, sizeof(this->m_requiredArenaRating), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_itemPurchaseGroup, sizeof(this->m_itemPurchaseGroup), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

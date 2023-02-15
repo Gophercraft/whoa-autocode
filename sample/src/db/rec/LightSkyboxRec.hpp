@@ -2,8 +2,8 @@
 #ifndef DB_REC_LIGHT_SKYBOX_REC_HPP
 #define DB_REC_LIGHT_SKYBOX_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class LightSkyboxRec {
     public:
@@ -12,10 +12,11 @@ class LightSkyboxRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        const char* m_Name;
-        int32_t m_Flags;
+        const char* m_name;
+        int32_t m_flags;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

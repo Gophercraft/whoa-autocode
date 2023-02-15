@@ -2,8 +2,8 @@
 #ifndef DB_REC_SPELL_VISUAL_EFFECT_NAME_REC_HPP
 #define DB_REC_SPELL_VISUAL_EFFECT_NAME_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SpellVisualEffectNameRec {
     public:
@@ -12,14 +12,15 @@ class SpellVisualEffectNameRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        const char* m_Name;
-        const char* m_FileName;
-        float m_AreaEffectSize;
-        float m_Scale;
-        float m_MinAllowedScale;
-        float m_MaxAllowedScale;
+        const char* m_name;
+        const char* m_fileName;
+        float m_areaEffectSize;
+        float m_scale;
+        float m_minAllowedScale;
+        float m_maxAllowedScale;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

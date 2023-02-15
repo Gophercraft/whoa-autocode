@@ -5,17 +5,21 @@ const char* ItemDamageAmmoRec::GetFilename() {
     return "DBFilesClient\\ItemDamageAmmo.dbc";
 }
 
+int32_t ItemDamageAmmoRec::GetID() {
+    return this->m_ID;
+}
+
 bool ItemDamageAmmoRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Quality[0], sizeof(m_Quality[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Quality[1], sizeof(m_Quality[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Quality[2], sizeof(m_Quality[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Quality[3], sizeof(m_Quality[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Quality[4], sizeof(m_Quality[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Quality[5], sizeof(m_Quality[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Quality[6], sizeof(m_Quality[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ItemLevel, sizeof(this->m_ItemLevel), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_quality[0], sizeof(m_quality[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_quality[1], sizeof(m_quality[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_quality[2], sizeof(m_quality[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_quality[3], sizeof(m_quality[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_quality[4], sizeof(m_quality[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_quality[5], sizeof(m_quality[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_quality[6], sizeof(m_quality[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_itemLevel, sizeof(this->m_itemLevel), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

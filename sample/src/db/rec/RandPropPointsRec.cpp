@@ -5,24 +5,28 @@ const char* RandPropPointsRec::GetFilename() {
     return "DBFilesClient\\RandPropPoints.dbc";
 }
 
+int32_t RandPropPointsRec::GetID() {
+    return this->m_ID;
+}
+
 bool RandPropPointsRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Epic[0], sizeof(m_Epic[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Epic[1], sizeof(m_Epic[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Epic[2], sizeof(m_Epic[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Epic[3], sizeof(m_Epic[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Epic[4], sizeof(m_Epic[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Superior[0], sizeof(m_Superior[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Superior[1], sizeof(m_Superior[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Superior[2], sizeof(m_Superior[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Superior[3], sizeof(m_Superior[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Superior[4], sizeof(m_Superior[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Good[0], sizeof(m_Good[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Good[1], sizeof(m_Good[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Good[2], sizeof(m_Good[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Good[3], sizeof(m_Good[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Good[4], sizeof(m_Good[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_epic[0], sizeof(m_epic[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_epic[1], sizeof(m_epic[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_epic[2], sizeof(m_epic[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_epic[3], sizeof(m_epic[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_epic[4], sizeof(m_epic[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_superior[0], sizeof(m_superior[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_superior[1], sizeof(m_superior[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_superior[2], sizeof(m_superior[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_superior[3], sizeof(m_superior[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_superior[4], sizeof(m_superior[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_good[0], sizeof(m_good[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_good[1], sizeof(m_good[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_good[2], sizeof(m_good[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_good[3], sizeof(m_good[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_good[4], sizeof(m_good[0]), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

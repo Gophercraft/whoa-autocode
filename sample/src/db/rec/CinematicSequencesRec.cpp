@@ -5,18 +5,22 @@ const char* CinematicSequencesRec::GetFilename() {
     return "DBFilesClient\\CinematicSequences.dbc";
 }
 
+int32_t CinematicSequencesRec::GetID() {
+    return this->m_ID;
+}
+
 bool CinematicSequencesRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SoundID, sizeof(this->m_SoundID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Camera[0], sizeof(m_Camera[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Camera[1], sizeof(m_Camera[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Camera[2], sizeof(m_Camera[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Camera[3], sizeof(m_Camera[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Camera[4], sizeof(m_Camera[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Camera[5], sizeof(m_Camera[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Camera[6], sizeof(m_Camera[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Camera[7], sizeof(m_Camera[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_soundID, sizeof(this->m_soundID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_camera[0], sizeof(m_camera[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_camera[1], sizeof(m_camera[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_camera[2], sizeof(m_camera[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_camera[3], sizeof(m_camera[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_camera[4], sizeof(m_camera[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_camera[5], sizeof(m_camera[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_camera[6], sizeof(m_camera[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_camera[7], sizeof(m_camera[0]), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

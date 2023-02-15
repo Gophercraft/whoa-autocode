@@ -5,12 +5,16 @@ const char* SpellEquippedItemsRec::GetFilename() {
     return "DBFilesClient\\SpellEquippedItems.dbc";
 }
 
+int32_t SpellEquippedItemsRec::GetID() {
+    return this->m_ID;
+}
+
 bool SpellEquippedItemsRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EquippedItemClass, sizeof(this->m_EquippedItemClass), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EquippedItemInvTypes, sizeof(this->m_EquippedItemInvTypes), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EquippedItemSubclass, sizeof(this->m_EquippedItemSubclass), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_equippedItemClass, sizeof(this->m_equippedItemClass), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_equippedItemInvTypes, sizeof(this->m_equippedItemInvTypes), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_equippedItemSubclass, sizeof(this->m_equippedItemSubclass), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

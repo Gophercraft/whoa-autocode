@@ -2,8 +2,8 @@
 #ifndef DB_REC_SPELL_EQUIPPED_ITEMS_REC_HPP
 #define DB_REC_SPELL_EQUIPPED_ITEMS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SpellEquippedItemsRec {
     public:
@@ -12,11 +12,12 @@ class SpellEquippedItemsRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_EquippedItemClass;
-        int32_t m_EquippedItemInvTypes;
-        int32_t m_EquippedItemSubclass;
+        int32_t m_equippedItemClass;
+        int32_t m_equippedItemInvTypes;
+        int32_t m_equippedItemSubclass;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

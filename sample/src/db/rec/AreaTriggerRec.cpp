@@ -5,18 +5,22 @@ const char* AreaTriggerRec::GetFilename() {
     return "DBFilesClient\\AreaTrigger.dbc";
 }
 
+int32_t AreaTriggerRec::GetID() {
+    return this->m_ID;
+}
+
 bool AreaTriggerRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ContinentID, sizeof(this->m_ContinentID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Pos[0], sizeof(m_Pos[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Pos[1], sizeof(m_Pos[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Pos[2], sizeof(m_Pos[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Radius, sizeof(this->m_Radius), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Box_length, sizeof(this->m_Box_length), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Box_width, sizeof(this->m_Box_width), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Box_height, sizeof(this->m_Box_height), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Box_yaw, sizeof(this->m_Box_yaw), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_continentID, sizeof(this->m_continentID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_pos[0], sizeof(m_pos[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_pos[1], sizeof(m_pos[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_pos[2], sizeof(m_pos[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_radius, sizeof(this->m_radius), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_boxLength, sizeof(this->m_boxLength), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_boxWidth, sizeof(this->m_boxWidth), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_boxHeight, sizeof(this->m_boxHeight), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_boxYaw, sizeof(this->m_boxYaw), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

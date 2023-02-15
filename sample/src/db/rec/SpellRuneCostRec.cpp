@@ -5,13 +5,17 @@ const char* SpellRuneCostRec::GetFilename() {
     return "DBFilesClient\\SpellRuneCost.dbc";
 }
 
+int32_t SpellRuneCostRec::GetID() {
+    return this->m_ID;
+}
+
 bool SpellRuneCostRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Blood, sizeof(this->m_Blood), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Unholy, sizeof(this->m_Unholy), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Frost, sizeof(this->m_Frost), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RunicPower, sizeof(this->m_RunicPower), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_blood, sizeof(this->m_blood), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_unholy, sizeof(this->m_unholy), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_frost, sizeof(this->m_frost), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_runicPower, sizeof(this->m_runicPower), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

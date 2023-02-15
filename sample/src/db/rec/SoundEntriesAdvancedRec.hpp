@@ -2,8 +2,8 @@
 #ifndef DB_REC_SOUND_ENTRIES_ADVANCED_REC_HPP
 #define DB_REC_SOUND_ENTRIES_ADVANCED_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SoundEntriesAdvancedRec {
     public:
@@ -12,31 +12,32 @@ class SoundEntriesAdvancedRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_SoundEntryID;
-        float m_InnerRadius2D;
-        int32_t m_TimeA;
-        int32_t m_TimeB;
-        int32_t m_TimeC;
-        int32_t m_TimeD;
-        int32_t m_RandomOffsetRange;
-        int32_t m_Usage;
-        int32_t m_TimeIntervalMin;
-        int32_t m_TimeIntervalMax;
-        int32_t m_VolumeSliderCategory;
-        float m_DuckToSFX;
-        float m_DuckToMusic;
-        float m_DuckToAmbience;
-        float m_InnerRadiusOfInfluence;
-        float m_OuterRadiusOfInfluence;
-        int32_t m_TimeToDuck;
-        int32_t m_TimeToUnduck;
-        float m_InsideAngle;
-        float m_OutsideAngle;
-        float m_OutsideVolume;
-        float m_OuterRadius2D;
-        const char* m_Name;
+        int32_t m_soundEntryID;
+        float m_innerRadius2d;
+        int32_t m_timeA;
+        int32_t m_timeB;
+        int32_t m_timeC;
+        int32_t m_timeD;
+        int32_t m_randomOffsetRange;
+        int32_t m_usage;
+        int32_t m_timeIntervalMin;
+        int32_t m_timeIntervalMax;
+        int32_t m_volumeSliderCategory;
+        float m_duckToSfx;
+        float m_duckToMusic;
+        float m_duckToAmbience;
+        float m_innerRadiusOfInfluence;
+        float m_outerRadiusOfInfluence;
+        int32_t m_timeToDuck;
+        int32_t m_timeToUnduck;
+        float m_insideAngle;
+        float m_outsideAngle;
+        float m_outsideVolume;
+        float m_outerRadius2d;
+        const char* m_name;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

@@ -2,8 +2,8 @@
 #ifndef DB_REC_ITEM_DISPLAY_INFO_REC_HPP
 #define DB_REC_ITEM_DISPLAY_INFO_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class ItemDisplayInfoRec {
     public:
@@ -12,19 +12,20 @@ class ItemDisplayInfoRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        const char* m_ModelName[2];
-        const char* m_ModelTexture[2];
-        const char* m_InventoryIcon[2];
-        int32_t m_GeosetGroup[3];
-        int32_t m_Flags;
-        int32_t m_SpellVisualID;
-        int32_t m_GroupSoundIndex;
-        int32_t m_HelmetGeosetVisID[2];
-        const char* m_Texture[8];
-        int32_t m_ItemVisual;
-        int32_t m_ParticleColorID;
+        const char* m_modelName[2];
+        const char* m_modelTexture[2];
+        const char* m_inventoryIcon[2];
+        int32_t m_geosetGroup[3];
+        int32_t m_flags;
+        int32_t m_spellVisualID;
+        int32_t m_groupSoundIndex;
+        int32_t m_helmetGeosetVisID[2];
+        const char* m_texture[8];
+        int32_t m_itemVisual;
+        int32_t m_particleColorID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

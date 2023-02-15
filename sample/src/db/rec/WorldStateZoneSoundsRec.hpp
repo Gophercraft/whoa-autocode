@@ -2,8 +2,8 @@
 #ifndef DB_REC_WORLD_STATE_ZONE_SOUNDS_REC_HPP
 #define DB_REC_WORLD_STATE_ZONE_SOUNDS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class WorldStateZoneSoundsRec {
     public:
@@ -11,16 +11,18 @@ class WorldStateZoneSoundsRec {
         static constexpr uint32_t rowSize = 32;
         static constexpr bool indexIsID = true;
 
-        int32_t m_WorldStateID;
-        int32_t m_WorldStateValue;
-        int32_t m_AreaID;
-        int32_t m_WMOAreaID;
-        int32_t m_ZoneIntroMusicID;
-        int32_t m_ZoneMusicID;
-        int32_t m_SoundAmbienceID;
-        int32_t m_SoundProviderPreferencesID;
+        int32_t m_worldStateID;
+        int32_t m_worldStateValue;
+        int32_t m_areaID;
+        int32_t m_wmoareaID;
+        int32_t m_zoneIntroMusicID;
+        int32_t m_zoneMusicID;
+        int32_t m_soundAmbienceID;
+        int32_t m_soundProviderPreferencesID;
+        int32_t m_generatedID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

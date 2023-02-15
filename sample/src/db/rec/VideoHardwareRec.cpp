@@ -5,44 +5,48 @@ const char* VideoHardwareRec::GetFilename() {
     return "DBFilesClient\\VideoHardware.dbc";
 }
 
+int32_t VideoHardwareRec::GetID() {
+    return this->m_ID;
+}
+
 bool VideoHardwareRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t OglOverridesOfs;
-    uint32_t D3dOverridesOfs;
+    uint32_t oglOverridesOfs;
+    uint32_t d3DOverridesOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_VendorID, sizeof(this->m_VendorID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_DeviceID, sizeof(this->m_DeviceID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_FarclipIdx, sizeof(this->m_FarclipIdx), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TerrainLODDistIdx, sizeof(this->m_TerrainLODDistIdx), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TerrainShadowLOD, sizeof(this->m_TerrainShadowLOD), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_DetailDoodadDensityIdx, sizeof(this->m_DetailDoodadDensityIdx), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_DetailDoodadAlpha, sizeof(this->m_DetailDoodadAlpha), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AnimatingDoodadIdx, sizeof(this->m_AnimatingDoodadIdx), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Trilinear, sizeof(this->m_Trilinear), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_NumLights, sizeof(this->m_NumLights), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Specularity, sizeof(this->m_Specularity), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_WaterLODIdx, sizeof(this->m_WaterLODIdx), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ParticleDensityIdx, sizeof(this->m_ParticleDensityIdx), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_UnitDrawDistIdx, sizeof(this->m_UnitDrawDistIdx), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SmallCullDistIdx, sizeof(this->m_SmallCullDistIdx), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ResolutionIdx, sizeof(this->m_ResolutionIdx), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_BaseMipLevel, sizeof(this->m_BaseMipLevel), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &OglOverridesOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &D3dOverridesOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_FixLag, sizeof(this->m_FixLag), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Multisample, sizeof(this->m_Multisample), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Atlasdisable, sizeof(this->m_Atlasdisable), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_vendorID, sizeof(this->m_vendorID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_deviceID, sizeof(this->m_deviceID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_farclipIdx, sizeof(this->m_farclipIdx), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_terrainLoddistIdx, sizeof(this->m_terrainLoddistIdx), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_terrainShadowLod, sizeof(this->m_terrainShadowLod), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_detailDoodadDensityIdx, sizeof(this->m_detailDoodadDensityIdx), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_detailDoodadAlpha, sizeof(this->m_detailDoodadAlpha), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_animatingDoodadIdx, sizeof(this->m_animatingDoodadIdx), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_trilinear, sizeof(this->m_trilinear), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_numLights, sizeof(this->m_numLights), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_specularity, sizeof(this->m_specularity), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_waterLodidx, sizeof(this->m_waterLodidx), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_particleDensityIdx, sizeof(this->m_particleDensityIdx), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_unitDrawDistIdx, sizeof(this->m_unitDrawDistIdx), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_smallCullDistIdx, sizeof(this->m_smallCullDistIdx), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_resolutionIdx, sizeof(this->m_resolutionIdx), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_baseMipLevel, sizeof(this->m_baseMipLevel), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &oglOverridesOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &d3DOverridesOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_fixLag, sizeof(this->m_fixLag), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_multisample, sizeof(this->m_multisample), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_atlasdisable, sizeof(this->m_atlasdisable), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_OglOverrides = &stringBuffer[OglOverridesOfs];
-        this->m_D3dOverrides = &stringBuffer[D3dOverridesOfs];
+        this->m_oglOverrides = &stringBuffer[oglOverridesOfs];
+        this->m_d3DOverrides = &stringBuffer[d3DOverridesOfs];
     } else {
-        this->m_OglOverrides = "";
-        this->m_D3dOverrides = "";
+        this->m_oglOverrides = "";
+        this->m_d3DOverrides = "";
     }
 
     return true;

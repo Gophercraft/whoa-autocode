@@ -5,51 +5,55 @@ const char* ItemRandomSuffixRec::GetFilename() {
     return "DBFilesClient\\ItemRandomSuffix.dbc";
 }
 
+int32_t ItemRandomSuffixRec::GetID() {
+    return this->m_ID;
+}
+
 bool ItemRandomSuffixRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t Name_langOfs[16];
-    uint32_t Name_langMask;
-    uint32_t InternalNameOfs;
+    uint32_t nameOfs[16];
+    uint32_t nameMask;
+    uint32_t internalNameOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[6], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[7], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[8], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[9], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[10], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[11], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[12], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[13], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[14], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[15], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langMask, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &InternalNameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Enchantment[0], sizeof(m_Enchantment[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Enchantment[1], sizeof(m_Enchantment[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Enchantment[2], sizeof(m_Enchantment[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Enchantment[3], sizeof(m_Enchantment[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Enchantment[4], sizeof(m_Enchantment[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AllocationPct[0], sizeof(m_AllocationPct[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AllocationPct[1], sizeof(m_AllocationPct[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AllocationPct[2], sizeof(m_AllocationPct[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AllocationPct[3], sizeof(m_AllocationPct[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AllocationPct[4], sizeof(m_AllocationPct[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[6], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[7], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[8], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[9], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[10], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[11], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[12], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[13], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[14], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[15], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameMask, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &internalNameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_enchantment[0], sizeof(m_enchantment[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_enchantment[1], sizeof(m_enchantment[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_enchantment[2], sizeof(m_enchantment[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_enchantment[3], sizeof(m_enchantment[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_enchantment[4], sizeof(m_enchantment[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_allocationPct[0], sizeof(m_allocationPct[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_allocationPct[1], sizeof(m_allocationPct[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_allocationPct[2], sizeof(m_allocationPct[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_allocationPct[3], sizeof(m_allocationPct[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_allocationPct[4], sizeof(m_allocationPct[0]), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_Name_lang = &stringBuffer[Name_langOfs[CURRENT_LANGUAGE]];
-        this->m_InternalName = &stringBuffer[InternalNameOfs];
+        this->m_name = &stringBuffer[nameOfs[CURRENT_LANGUAGE]];
+        this->m_internalName = &stringBuffer[internalNameOfs];
     } else {
-        this->m_Name_lang = "";
-        this->m_InternalName = "";
+        this->m_name = "";
+        this->m_internalName = "";
     }
 
     return true;

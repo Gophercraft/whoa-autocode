@@ -2,8 +2,8 @@
 #ifndef DB_REC_ANIM_KIT_SEGMENT_REC_HPP
 #define DB_REC_ANIM_KIT_SEGMENT_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class AnimKitSegmentRec {
     public:
@@ -12,23 +12,24 @@ class AnimKitSegmentRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_ParentAnimKitID;
-        int32_t m_AnimID;
-        int32_t m_AnimStartTime;
-        int32_t m_AnimKitConfigID;
-        int32_t m_StartCondition;
-        int32_t m_StartConditionParam;
-        int32_t m_StartConditionDelay;
-        int32_t m_EndCondition;
-        int32_t m_EndConditionParam;
-        int32_t m_EndConditionDelay;
-        float m_Speed;
-        int32_t m_SegmentFlags;
-        int32_t m_ForcedVariation;
-        int32_t m_OverrideConfigFlags;
-        int32_t m_LoopToSegmentIndex;
+        int32_t m_parentAnimKitID;
+        int32_t m_animID;
+        int32_t m_animStartTime;
+        int32_t m_animKitConfigID;
+        int32_t m_startCondition;
+        int32_t m_startConditionParam;
+        int32_t m_startConditionDelay;
+        int32_t m_endCondition;
+        int32_t m_endConditionParam;
+        int32_t m_endConditionDelay;
+        float m_speed;
+        int32_t m_segmentFlags;
+        int32_t m_forcedVariation;
+        int32_t m_overrideConfigFlags;
+        int32_t m_loopToSegmentIndex;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

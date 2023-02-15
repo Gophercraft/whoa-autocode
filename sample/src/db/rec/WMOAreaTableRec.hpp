@@ -2,8 +2,8 @@
 #ifndef DB_REC_WMOAREA_TABLE_REC_HPP
 #define DB_REC_WMOAREA_TABLE_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class WMOAreaTableRec {
     public:
@@ -12,19 +12,20 @@ class WMOAreaTableRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_WMOID;
-        int32_t m_NameSetID;
-        int32_t m_WMOGroupID;
-        int32_t m_SoundProviderPref;
-        int32_t m_SoundProviderPrefUnderwater;
-        int32_t m_AmbienceID;
-        int32_t m_ZoneMusic;
-        int32_t m_IntroSound;
-        int32_t m_Flags;
-        int32_t m_AreaTableID;
-        const char* m_AreaName_lang;
+        int32_t m_wmoid;
+        int32_t m_nameSetID;
+        int32_t m_wmogroupID;
+        int32_t m_soundProviderPref;
+        int32_t m_soundProviderPrefUnderwater;
+        int32_t m_ambienceID;
+        int32_t m_zoneMusic;
+        int32_t m_introSound;
+        int32_t m_flags;
+        int32_t m_areaTableID;
+        const char* m_areaName;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

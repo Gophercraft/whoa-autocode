@@ -2,8 +2,8 @@
 #ifndef DB_REC_RESEARCH_BRANCH_REC_HPP
 #define DB_REC_RESEARCH_BRANCH_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class ResearchBranchRec {
     public:
@@ -12,13 +12,14 @@ class ResearchBranchRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        const char* m_Name_lang;
-        int32_t m_ResearchFieldID;
-        int32_t m_CurrencyID;
-        const char* m_Texture;
-        int32_t m_ItemID;
+        const char* m_name;
+        int32_t m_researchFieldID;
+        int32_t m_currencyID;
+        const char* m_texture;
+        int32_t m_itemID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

@@ -5,21 +5,25 @@ const char* GameTablesRec::GetFilename() {
     return "DBFilesClient\\GameTables.dbc";
 }
 
+int32_t GameTablesRec::GetID() {
+    return this->m_generatedID;
+}
+
 bool GameTablesRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t NameOfs;
+    uint32_t nameOfs;
 
     if (
-        !SFile::Read(f, &NameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_NumRows, sizeof(this->m_NumRows), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_NumColumns, sizeof(this->m_NumColumns), nullptr, nullptr, nullptr)
+        !SFile::Read(f, &nameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_numRows, sizeof(this->m_numRows), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_numColumns, sizeof(this->m_numColumns), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_Name = &stringBuffer[NameOfs];
+        this->m_name = &stringBuffer[nameOfs];
     } else {
-        this->m_Name = "";
+        this->m_name = "";
     }
 
     return true;

@@ -5,16 +5,20 @@ const char* WorldStateZoneSoundsRec::GetFilename() {
     return "DBFilesClient\\WorldStateZoneSounds.dbc";
 }
 
+int32_t WorldStateZoneSoundsRec::GetID() {
+    return this->m_generatedID;
+}
+
 bool WorldStateZoneSoundsRec::Read(SFile* f, const char* stringBuffer) {
     if (
-        !SFile::Read(f, &this->m_WorldStateID, sizeof(this->m_WorldStateID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_WorldStateValue, sizeof(this->m_WorldStateValue), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AreaID, sizeof(this->m_AreaID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_WMOAreaID, sizeof(this->m_WMOAreaID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ZoneIntroMusicID, sizeof(this->m_ZoneIntroMusicID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ZoneMusicID, sizeof(this->m_ZoneMusicID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SoundAmbienceID, sizeof(this->m_SoundAmbienceID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SoundProviderPreferencesID, sizeof(this->m_SoundProviderPreferencesID), nullptr, nullptr, nullptr)
+        !SFile::Read(f, &this->m_worldStateID, sizeof(this->m_worldStateID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_worldStateValue, sizeof(this->m_worldStateValue), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_areaID, sizeof(this->m_areaID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_wmoareaID, sizeof(this->m_wmoareaID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_zoneIntroMusicID, sizeof(this->m_zoneIntroMusicID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_zoneMusicID, sizeof(this->m_zoneMusicID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_soundAmbienceID, sizeof(this->m_soundAmbienceID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_soundProviderPreferencesID, sizeof(this->m_soundProviderPreferencesID), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

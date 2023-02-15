@@ -2,8 +2,8 @@
 #ifndef DB_REC_EMOTES_REC_HPP
 #define DB_REC_EMOTES_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class EmotesRec {
     public:
@@ -12,14 +12,15 @@ class EmotesRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        const char* m_EmoteSlashCommand;
-        int32_t m_AnimID;
-        int32_t m_EmoteFlags;
-        int32_t m_EmoteSpecProc;
-        int32_t m_EmoteSpecProcParam;
-        int32_t m_EventSoundID;
+        const char* m_emoteSlashCommand;
+        int32_t m_animID;
+        int32_t m_emoteFlags;
+        int32_t m_emoteSpecProc;
+        int32_t m_emoteSpecProcParam;
+        int32_t m_eventSoundID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

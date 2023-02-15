@@ -2,8 +2,8 @@
 #ifndef DB_REC_CHR_CLASSES_REC_HPP
 #define DB_REC_CHR_CLASSES_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class ChrClassesRec {
     public:
@@ -12,19 +12,20 @@ class ChrClassesRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_DamageBonusStat;
-        int32_t m_DisplayPower;
-        const char* m_PetNameToken;
-        const char* m_Name_lang;
-        const char* m_Name_female_lang;
-        const char* m_Name_male_lang;
-        const char* m_Filename;
-        int32_t m_SpellClassSet;
-        int32_t m_Flags;
-        int32_t m_CinematicSequenceID;
-        int32_t m_Required_expansion;
+        int32_t m_damageBonusStat;
+        int32_t m_displayPower;
+        const char* m_petNameToken;
+        const char* m_name;
+        const char* m_nameFemale;
+        const char* m_nameMale;
+        const char* m_filename;
+        int32_t m_spellClassSet;
+        int32_t m_flags;
+        int32_t m_cinematicSequenceID;
+        int32_t m_requiredExpansion;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

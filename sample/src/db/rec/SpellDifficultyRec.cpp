@@ -5,13 +5,17 @@ const char* SpellDifficultyRec::GetFilename() {
     return "DBFilesClient\\SpellDifficulty.dbc";
 }
 
+int32_t SpellDifficultyRec::GetID() {
+    return this->m_ID;
+}
+
 bool SpellDifficultyRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_DifficultySpellID[0], sizeof(m_DifficultySpellID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_DifficultySpellID[1], sizeof(m_DifficultySpellID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_DifficultySpellID[2], sizeof(m_DifficultySpellID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_DifficultySpellID[3], sizeof(m_DifficultySpellID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_difficultySpellID[0], sizeof(m_difficultySpellID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_difficultySpellID[1], sizeof(m_difficultySpellID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_difficultySpellID[2], sizeof(m_difficultySpellID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_difficultySpellID[3], sizeof(m_difficultySpellID[0]), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

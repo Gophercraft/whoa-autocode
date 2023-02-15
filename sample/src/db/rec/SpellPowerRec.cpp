@@ -5,14 +5,18 @@ const char* SpellPowerRec::GetFilename() {
     return "DBFilesClient\\SpellPower.dbc";
 }
 
+int32_t SpellPowerRec::GetID() {
+    return this->m_ID;
+}
+
 bool SpellPowerRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ManaCost, sizeof(this->m_ManaCost), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ManaCostPerLevel, sizeof(this->m_ManaCostPerLevel), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PowerCost, sizeof(this->m_PowerCost), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ManaPerSecond, sizeof(this->m_ManaPerSecond), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PowerDisplayID, sizeof(this->m_PowerDisplayID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_manaCost, sizeof(this->m_manaCost), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_manaCostPerLevel, sizeof(this->m_manaCostPerLevel), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_powerCost, sizeof(this->m_powerCost), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_manaPerSecond, sizeof(this->m_manaPerSecond), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_powerDisplayID, sizeof(this->m_powerDisplayID), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

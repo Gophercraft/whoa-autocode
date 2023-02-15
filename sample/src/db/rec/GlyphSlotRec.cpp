@@ -5,11 +5,15 @@ const char* GlyphSlotRec::GetFilename() {
     return "DBFilesClient\\GlyphSlot.dbc";
 }
 
+int32_t GlyphSlotRec::GetID() {
+    return this->m_ID;
+}
+
 bool GlyphSlotRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Type, sizeof(this->m_Type), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Tooltip, sizeof(this->m_Tooltip), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_type, sizeof(this->m_type), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_tooltip, sizeof(this->m_tooltip), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

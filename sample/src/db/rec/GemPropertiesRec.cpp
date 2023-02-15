@@ -5,13 +5,17 @@ const char* GemPropertiesRec::GetFilename() {
     return "DBFilesClient\\GemProperties.dbc";
 }
 
+int32_t GemPropertiesRec::GetID() {
+    return this->m_ID;
+}
+
 bool GemPropertiesRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Enchant_ID, sizeof(this->m_Enchant_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Maxcount_inv, sizeof(this->m_Maxcount_inv), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Maxcount_item, sizeof(this->m_Maxcount_item), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Type, sizeof(this->m_Type), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_enchantID, sizeof(this->m_enchantID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_maxcountInv, sizeof(this->m_maxcountInv), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_maxcountItem, sizeof(this->m_maxcountItem), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_type, sizeof(this->m_type), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

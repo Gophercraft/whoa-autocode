@@ -2,8 +2,8 @@
 #ifndef DB_REC_SPELL_INTERRUPTS_REC_HPP
 #define DB_REC_SPELL_INTERRUPTS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SpellInterruptsRec {
     public:
@@ -12,11 +12,12 @@ class SpellInterruptsRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_AuraInterruptFlags[2];
-        int32_t m_ChannelInterruptFlags[2];
-        int32_t m_InterruptFlags;
+        int32_t m_auraInterruptFlags[2];
+        int32_t m_channelInterruptFlags[2];
+        int32_t m_interruptFlags;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

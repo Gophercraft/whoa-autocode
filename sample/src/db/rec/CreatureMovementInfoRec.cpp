@@ -5,10 +5,14 @@ const char* CreatureMovementInfoRec::GetFilename() {
     return "DBFilesClient\\CreatureMovementInfo.dbc";
 }
 
+int32_t CreatureMovementInfoRec::GetID() {
+    return this->m_ID;
+}
+
 bool CreatureMovementInfoRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SmoothFacingChaseRate, sizeof(this->m_SmoothFacingChaseRate), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_smoothFacingChaseRate, sizeof(this->m_smoothFacingChaseRate), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

@@ -2,8 +2,8 @@
 #ifndef DB_REC_SKILL_LINE_ABILITY_REC_HPP
 #define DB_REC_SKILL_LINE_ABILITY_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SkillLineAbilityRec {
     public:
@@ -12,20 +12,21 @@ class SkillLineAbilityRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_SkillLine;
-        int32_t m_Spell;
-        int32_t m_RaceMask;
-        int32_t m_ClassMask;
-        int32_t m_ExcludeRace;
-        int32_t m_ExcludeClass;
-        int32_t m_MinSkillLineRank;
-        int32_t m_SupercededBySpell;
-        int32_t m_AcquireMethod;
-        int32_t m_TrivialSkillLineRankHigh;
-        int32_t m_TrivialSkillLineRankLow;
-        int32_t m_CharacterPoints[2];
+        int32_t m_skillLine;
+        int32_t m_spell;
+        int32_t m_raceMask;
+        int32_t m_classMask;
+        int32_t m_excludeRace;
+        int32_t m_excludeClass;
+        int32_t m_minSkillLineRank;
+        int32_t m_supercededBySpell;
+        int32_t m_acquireMethod;
+        int32_t m_trivialSkillLineRankHigh;
+        int32_t m_trivialSkillLineRankLow;
+        int32_t m_characterPoints[2];
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

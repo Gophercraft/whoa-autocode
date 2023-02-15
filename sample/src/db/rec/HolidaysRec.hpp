@@ -2,8 +2,8 @@
 #ifndef DB_REC_HOLIDAYS_REC_HPP
 #define DB_REC_HOLIDAYS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class HolidaysRec {
     public:
@@ -12,19 +12,20 @@ class HolidaysRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Duration[10];
-        int32_t m_Date[26];
-        int32_t m_Region;
-        int32_t m_Looping;
-        int32_t m_CalendarFlags[10];
-        int32_t m_HolidayNameID;
-        int32_t m_HolidayDescriptionID;
-        const char* m_TextureFileName;
-        int32_t m_Priority;
-        int32_t m_CalendarFilterType;
-        int32_t m_Flags;
+        int32_t m_duration[10];
+        int32_t m_date[26];
+        int32_t m_region;
+        int32_t m_looping;
+        int32_t m_calendarFlags[10];
+        int32_t m_holidayNameID;
+        int32_t m_holidayDescriptionID;
+        const char* m_textureFileName;
+        int32_t m_priority;
+        int32_t m_calendarFilterType;
+        int32_t m_flags;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

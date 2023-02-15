@@ -5,34 +5,38 @@ const char* SpellEffectRec::GetFilename() {
     return "DBFilesClient\\SpellEffect.dbc";
 }
 
+int32_t SpellEffectRec::GetID() {
+    return this->m_ID;
+}
+
 bool SpellEffectRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Effect, sizeof(this->m_Effect), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EffectAmplitude, sizeof(this->m_EffectAmplitude), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EffectAura, sizeof(this->m_EffectAura), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EffectAuraPeriod, sizeof(this->m_EffectAuraPeriod), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EffectBasePoints, sizeof(this->m_EffectBasePoints), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EffectBonusCoefficient, sizeof(this->m_EffectBonusCoefficient), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EffectChainAmplitude, sizeof(this->m_EffectChainAmplitude), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EffectChainTargets, sizeof(this->m_EffectChainTargets), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EffectDieSides, sizeof(this->m_EffectDieSides), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EffectItemType, sizeof(this->m_EffectItemType), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EffectMechanic, sizeof(this->m_EffectMechanic), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EffectMiscValue[0], sizeof(m_EffectMiscValue[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EffectMiscValue[1], sizeof(m_EffectMiscValue[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EffectPointsPerResource, sizeof(this->m_EffectPointsPerResource), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EffectRadiusIndex[0], sizeof(m_EffectRadiusIndex[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EffectRadiusIndex[1], sizeof(m_EffectRadiusIndex[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EffectRealPointsPerLevel, sizeof(this->m_EffectRealPointsPerLevel), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EffectSpellClassMask[0], sizeof(m_EffectSpellClassMask[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EffectSpellClassMask[1], sizeof(m_EffectSpellClassMask[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EffectSpellClassMask[2], sizeof(m_EffectSpellClassMask[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EffectTriggerSpell, sizeof(this->m_EffectTriggerSpell), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ImplicitTarget[0], sizeof(m_ImplicitTarget[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ImplicitTarget[1], sizeof(m_ImplicitTarget[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SpellID, sizeof(this->m_SpellID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EffectIndex, sizeof(this->m_EffectIndex), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effect, sizeof(this->m_effect), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effectAmplitude, sizeof(this->m_effectAmplitude), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effectAura, sizeof(this->m_effectAura), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effectAuraPeriod, sizeof(this->m_effectAuraPeriod), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effectBasePoints, sizeof(this->m_effectBasePoints), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effectBonusCoefficient, sizeof(this->m_effectBonusCoefficient), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effectChainAmplitude, sizeof(this->m_effectChainAmplitude), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effectChainTargets, sizeof(this->m_effectChainTargets), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effectDieSides, sizeof(this->m_effectDieSides), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effectItemType, sizeof(this->m_effectItemType), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effectMechanic, sizeof(this->m_effectMechanic), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effectMiscValue[0], sizeof(m_effectMiscValue[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effectMiscValue[1], sizeof(m_effectMiscValue[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effectPointsPerResource, sizeof(this->m_effectPointsPerResource), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effectRadiusIndex[0], sizeof(m_effectRadiusIndex[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effectRadiusIndex[1], sizeof(m_effectRadiusIndex[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effectRealPointsPerLevel, sizeof(this->m_effectRealPointsPerLevel), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effectSpellClassMask[0], sizeof(m_effectSpellClassMask[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effectSpellClassMask[1], sizeof(m_effectSpellClassMask[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effectSpellClassMask[2], sizeof(m_effectSpellClassMask[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effectTriggerSpell, sizeof(this->m_effectTriggerSpell), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_implicitTarget[0], sizeof(m_implicitTarget[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_implicitTarget[1], sizeof(m_implicitTarget[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spellID, sizeof(this->m_spellID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effectIndex, sizeof(this->m_effectIndex), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

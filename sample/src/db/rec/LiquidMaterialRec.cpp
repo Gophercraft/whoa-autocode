@@ -5,11 +5,15 @@ const char* LiquidMaterialRec::GetFilename() {
     return "DBFilesClient\\LiquidMaterial.dbc";
 }
 
+int32_t LiquidMaterialRec::GetID() {
+    return this->m_ID;
+}
+
 bool LiquidMaterialRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_LVF, sizeof(this->m_LVF), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Flags, sizeof(this->m_Flags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_lvf, sizeof(this->m_lvf), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_flags, sizeof(this->m_flags), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

@@ -5,41 +5,45 @@ const char* WorldSafeLocsRec::GetFilename() {
     return "DBFilesClient\\WorldSafeLocs.dbc";
 }
 
+int32_t WorldSafeLocsRec::GetID() {
+    return this->m_ID;
+}
+
 bool WorldSafeLocsRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t AreaName_langOfs[16];
-    uint32_t AreaName_langMask;
+    uint32_t areaNameOfs[16];
+    uint32_t areaNameMask;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Continent, sizeof(this->m_Continent), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Loc[0], sizeof(m_Loc[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Loc[1], sizeof(m_Loc[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Loc[2], sizeof(m_Loc[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AreaName_langOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AreaName_langOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AreaName_langOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AreaName_langOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AreaName_langOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AreaName_langOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AreaName_langOfs[6], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AreaName_langOfs[7], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AreaName_langOfs[8], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AreaName_langOfs[9], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AreaName_langOfs[10], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AreaName_langOfs[11], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AreaName_langOfs[12], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AreaName_langOfs[13], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AreaName_langOfs[14], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AreaName_langOfs[15], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &AreaName_langMask, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_continent, sizeof(this->m_continent), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_loc[0], sizeof(m_loc[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_loc[1], sizeof(m_loc[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_loc[2], sizeof(m_loc[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &areaNameOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &areaNameOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &areaNameOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &areaNameOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &areaNameOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &areaNameOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &areaNameOfs[6], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &areaNameOfs[7], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &areaNameOfs[8], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &areaNameOfs[9], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &areaNameOfs[10], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &areaNameOfs[11], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &areaNameOfs[12], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &areaNameOfs[13], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &areaNameOfs[14], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &areaNameOfs[15], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &areaNameMask, sizeof(uint32_t), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_AreaName_lang = &stringBuffer[AreaName_langOfs[CURRENT_LANGUAGE]];
+        this->m_areaName = &stringBuffer[areaNameOfs[CURRENT_LANGUAGE]];
     } else {
-        this->m_AreaName_lang = "";
+        this->m_areaName = "";
     }
 
     return true;

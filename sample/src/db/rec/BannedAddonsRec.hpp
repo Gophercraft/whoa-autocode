@@ -2,8 +2,8 @@
 #ifndef DB_REC_BANNED_ADDONS_REC_HPP
 #define DB_REC_BANNED_ADDONS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class BannedAddonsRec {
     public:
@@ -12,12 +12,13 @@ class BannedAddonsRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_NameMD5[4];
-        int32_t m_VersionMD5[4];
-        int32_t m_LastModified;
-        int32_t m_Flags;
+        int32_t m_nameMd5[4];
+        int32_t m_versionMd5[4];
+        int32_t m_lastModified;
+        int32_t m_flags;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

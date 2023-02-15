@@ -5,22 +5,26 @@ const char* DeclinedWordCasesRec::GetFilename() {
     return "DBFilesClient\\DeclinedWordCases.dbc";
 }
 
+int32_t DeclinedWordCasesRec::GetID() {
+    return this->m_ID;
+}
+
 bool DeclinedWordCasesRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t DeclinedWordOfs;
+    uint32_t declinedWordOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_DeclinedWordID, sizeof(this->m_DeclinedWordID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_CaseIndex, sizeof(this->m_CaseIndex), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &DeclinedWordOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_declinedWordID, sizeof(this->m_declinedWordID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_caseIndex, sizeof(this->m_caseIndex), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &declinedWordOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_DeclinedWord = &stringBuffer[DeclinedWordOfs];
+        this->m_declinedWord = &stringBuffer[declinedWordOfs];
     } else {
-        this->m_DeclinedWord = "";
+        this->m_declinedWord = "";
     }
 
     return true;

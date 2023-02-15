@@ -5,22 +5,26 @@ const char* FactionTemplateRec::GetFilename() {
     return "DBFilesClient\\FactionTemplate.dbc";
 }
 
+int32_t FactionTemplateRec::GetID() {
+    return this->m_ID;
+}
+
 bool FactionTemplateRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Faction, sizeof(this->m_Faction), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Flags, sizeof(this->m_Flags), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_FactionGroup, sizeof(this->m_FactionGroup), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_FriendGroup, sizeof(this->m_FriendGroup), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EnemyGroup, sizeof(this->m_EnemyGroup), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Enemies[0], sizeof(m_Enemies[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Enemies[1], sizeof(m_Enemies[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Enemies[2], sizeof(m_Enemies[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Enemies[3], sizeof(m_Enemies[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Friend[0], sizeof(m_Friend[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Friend[1], sizeof(m_Friend[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Friend[2], sizeof(m_Friend[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Friend[3], sizeof(m_Friend[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_faction, sizeof(this->m_faction), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_flags, sizeof(this->m_flags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_factionGroup, sizeof(this->m_factionGroup), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_friendGroup, sizeof(this->m_friendGroup), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_enemyGroup, sizeof(this->m_enemyGroup), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_enemies[0], sizeof(m_enemies[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_enemies[1], sizeof(m_enemies[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_enemies[2], sizeof(m_enemies[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_enemies[3], sizeof(m_enemies[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_friend[0], sizeof(m_friend[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_friend[1], sizeof(m_friend[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_friend[2], sizeof(m_friend[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_friend[3], sizeof(m_friend[0]), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

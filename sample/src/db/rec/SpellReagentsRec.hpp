@@ -2,8 +2,8 @@
 #ifndef DB_REC_SPELL_REAGENTS_REC_HPP
 #define DB_REC_SPELL_REAGENTS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SpellReagentsRec {
     public:
@@ -12,10 +12,11 @@ class SpellReagentsRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Reagent[8];
-        int32_t m_ReagentCount[8];
+        int32_t m_reagent[8];
+        int32_t m_reagentCount[8];
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

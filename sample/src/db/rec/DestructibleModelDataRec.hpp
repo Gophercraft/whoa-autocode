@@ -2,8 +2,8 @@
 #ifndef DB_REC_DESTRUCTIBLE_MODEL_DATA_REC_HPP
 #define DB_REC_DESTRUCTIBLE_MODEL_DATA_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class DestructibleModelDataRec {
     public:
@@ -12,26 +12,27 @@ class DestructibleModelDataRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_State0ImpactEffectDoodadSet;
-        int32_t m_State0AmbientDoodadSet;
-        int32_t m_State1WMO;
-        int32_t m_State1DestructionDoodadSet;
-        int32_t m_State1ImpactEffectDoodadSet;
-        int32_t m_State1AmbientDoodadSet;
-        int32_t m_State2WMO;
-        int32_t m_State2DestructionDoodadSet;
-        int32_t m_State2ImpactEffectDoodadSet;
-        int32_t m_State2AmbientDoodadSet;
-        int32_t m_State3WMO;
-        int32_t m_State3InitDoodadSet;
-        int32_t m_State3AmbientDoodadSet;
-        int32_t m_EjectDirection;
-        int32_t m_RepairGroundFx;
-        int32_t m_DoNotHighlight;
-        int32_t m_HealEffect;
-        int32_t m_HealEffectSpeed;
+        int32_t m_state0ImpactEffectDoodadSet;
+        int32_t m_state0AmbientDoodadSet;
+        int32_t m_state1WMO;
+        int32_t m_state1DestructionDoodadSet;
+        int32_t m_state1ImpactEffectDoodadSet;
+        int32_t m_state1AmbientDoodadSet;
+        int32_t m_state2WMO;
+        int32_t m_state2DestructionDoodadSet;
+        int32_t m_state2ImpactEffectDoodadSet;
+        int32_t m_state2AmbientDoodadSet;
+        int32_t m_state3WMO;
+        int32_t m_state3InitDoodadSet;
+        int32_t m_state3AmbientDoodadSet;
+        int32_t m_ejectDirection;
+        int32_t m_repairGroundFx;
+        int32_t m_doNotHighlight;
+        int32_t m_healEffect;
+        int32_t m_healEffectSpeed;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

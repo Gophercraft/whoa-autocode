@@ -2,8 +2,8 @@
 #ifndef DB_REC_MAP_REC_HPP
 #define DB_REC_MAP_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class MapRec {
     public:
@@ -12,24 +12,25 @@ class MapRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        const char* m_Directory;
-        int32_t m_InstanceType;
-        int32_t m_Flags; // unconfirmed
-        int32_t m_PVP;
-        const char* m_MapName_lang;
-        int32_t m_AreaTableID;
-        const char* m_MapDescription0_lang;
-        const char* m_MapDescription1_lang;
-        int32_t m_LoadingScreenID;
-        float m_MinimapIconScale;
-        int32_t m_CorpseMapID;
-        float m_Corpse[2];
-        int32_t m_TimeOfDayOverride;
-        int32_t m_ExpansionID;
-        int32_t m_RaidOffset;
-        int32_t m_MaxPlayers;
+        const char* m_directory;
+        int32_t m_instanceType;
+        int32_t m_flags; // unconfirmed
+        int32_t m_pvp;
+        const char* m_mapName;
+        int32_t m_areaTableID;
+        const char* m_mapDescription0;
+        const char* m_mapDescription1;
+        int32_t m_loadingScreenID;
+        float m_minimapIconScale;
+        int32_t m_corpseMapID;
+        float m_corpse[2];
+        int32_t m_timeOfDayOverride;
+        int32_t m_expansionID;
+        int32_t m_raidOffset;
+        int32_t m_maxPlayers;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

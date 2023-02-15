@@ -5,16 +5,20 @@ const char* GlueScreenEmoteRec::GetFilename() {
     return "DBFilesClient\\GlueScreenEmote.dbc";
 }
 
+int32_t GlueScreenEmoteRec::GetID() {
+    return this->m_ID;
+}
+
 bool GlueScreenEmoteRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ClassID, sizeof(this->m_ClassID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RaceID, sizeof(this->m_RaceID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SexID, sizeof(this->m_SexID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_LeftHandItemType, sizeof(this->m_LeftHandItemType), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RightHandItemType, sizeof(this->m_RightHandItemType), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AnimKitID, sizeof(this->m_AnimKitID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SpellVisualKitID, sizeof(this->m_SpellVisualKitID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_classID, sizeof(this->m_classID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_raceID, sizeof(this->m_raceID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_sexID, sizeof(this->m_sexID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_leftHandItemType, sizeof(this->m_leftHandItemType), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_rightHandItemType, sizeof(this->m_rightHandItemType), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_animKitID, sizeof(this->m_animKitID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spellVisualKitID, sizeof(this->m_spellVisualKitID), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

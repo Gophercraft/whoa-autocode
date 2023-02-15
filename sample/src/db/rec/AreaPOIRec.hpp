@@ -2,8 +2,8 @@
 #ifndef DB_REC_AREA_POI_REC_HPP
 #define DB_REC_AREA_POI_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class AreaPOIRec {
     public:
@@ -12,19 +12,20 @@ class AreaPOIRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Importance;
-        int32_t m_Icon[9];
-        int32_t m_FactionID;
-        float m_Pos[3];
-        int32_t m_ContinentID;
-        int32_t m_Flags;
-        int32_t m_AreaID;
-        const char* m_Name_lang;
-        const char* m_Description_lang;
-        int32_t m_WorldStateID;
-        int32_t m_WorldMapLink;
+        int32_t m_importance;
+        int32_t m_icon[9];
+        int32_t m_factionID;
+        float m_pos[3];
+        int32_t m_continentID;
+        int32_t m_flags;
+        int32_t m_areaID;
+        const char* m_name;
+        const char* m_description;
+        int32_t m_worldStateID;
+        int32_t m_worldMapLink;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

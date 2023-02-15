@@ -2,8 +2,8 @@
 #ifndef DB_REC_GT_OCTREGEN_HP_REC_HPP
 #define DB_REC_GT_OCTREGEN_HP_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class gtOCTRegenHPRec {
     public:
@@ -11,9 +11,11 @@ class gtOCTRegenHPRec {
         static constexpr uint32_t rowSize = 4;
         static constexpr bool indexIsID = true;
 
-        float m_Data;
+        float m_data;
+        int32_t m_generatedID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

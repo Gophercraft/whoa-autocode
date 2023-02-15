@@ -2,8 +2,8 @@
 #ifndef DB_REC_ACHIEVEMENT_CATEGORY_REC_HPP
 #define DB_REC_ACHIEVEMENT_CATEGORY_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class Achievement_CategoryRec {
     public:
@@ -12,11 +12,12 @@ class Achievement_CategoryRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Parent;
-        const char* m_Name_lang;
-        int32_t m_Ui_order;
+        int32_t m_parent;
+        const char* m_name;
+        int32_t m_uiOrder;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

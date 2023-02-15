@@ -5,13 +5,17 @@ const char* SpellAuraOptionsRec::GetFilename() {
     return "DBFilesClient\\SpellAuraOptions.dbc";
 }
 
+int32_t SpellAuraOptionsRec::GetID() {
+    return this->m_ID;
+}
+
 bool SpellAuraOptionsRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_CumulativeAura, sizeof(this->m_CumulativeAura), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ProcChance, sizeof(this->m_ProcChance), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ProcCharges, sizeof(this->m_ProcCharges), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ProcTypeMask, sizeof(this->m_ProcTypeMask), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_cumulativeAura, sizeof(this->m_cumulativeAura), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_procChance, sizeof(this->m_procChance), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_procCharges, sizeof(this->m_procCharges), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_procTypeMask, sizeof(this->m_procTypeMask), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

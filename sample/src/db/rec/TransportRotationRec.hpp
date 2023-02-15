@@ -2,8 +2,8 @@
 #ifndef DB_REC_TRANSPORT_ROTATION_REC_HPP
 #define DB_REC_TRANSPORT_ROTATION_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class TransportRotationRec {
     public:
@@ -12,11 +12,12 @@ class TransportRotationRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_GameObjectsID;
-        int32_t m_TimeIndex;
-        float m_Rot[4];
+        int32_t m_gameObjectsID;
+        int32_t m_timeIndex;
+        float m_rot[4];
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

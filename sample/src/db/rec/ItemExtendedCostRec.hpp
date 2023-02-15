@@ -2,8 +2,8 @@
 #ifndef DB_REC_ITEM_EXTENDED_COST_REC_HPP
 #define DB_REC_ITEM_EXTENDED_COST_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class ItemExtendedCostRec {
     public:
@@ -12,15 +12,16 @@ class ItemExtendedCostRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_HonorPoints;
-        int32_t m_ArenaPoints;
-        int32_t m_ArenaBracket;
-        int32_t m_ItemID[5];
-        int32_t m_ItemCount[5];
-        int32_t m_RequiredArenaRating;
-        int32_t m_ItemPurchaseGroup;
+        int32_t m_honorPoints;
+        int32_t m_arenaPoints;
+        int32_t m_arenaBracket;
+        int32_t m_itemID[5];
+        int32_t m_itemCount[5];
+        int32_t m_requiredArenaRating;
+        int32_t m_itemPurchaseGroup;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

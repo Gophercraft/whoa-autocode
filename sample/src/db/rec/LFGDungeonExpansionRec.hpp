@@ -2,8 +2,8 @@
 #ifndef DB_REC_LFGDUNGEON_EXPANSION_REC_HPP
 #define DB_REC_LFGDUNGEON_EXPANSION_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class LFGDungeonExpansionRec {
     public:
@@ -12,15 +12,16 @@ class LFGDungeonExpansionRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Lfg_ID;
-        int32_t m_Expansion_level;
-        int32_t m_Random_ID;
-        int32_t m_Hard_level_min;
-        int32_t m_Hard_level_max;
-        int32_t m_Target_level_min;
-        int32_t m_Target_level_max;
+        int32_t m_lfgID;
+        int32_t m_expansionLevel;
+        int32_t m_randomID;
+        int32_t m_hardLevelMin;
+        int32_t m_hardLevelMax;
+        int32_t m_targetLevelMin;
+        int32_t m_targetLevelMax;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

@@ -2,8 +2,8 @@
 #ifndef DB_REC_SPELL_RANGE_REC_HPP
 #define DB_REC_SPELL_RANGE_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SpellRangeRec {
     public:
@@ -12,13 +12,14 @@ class SpellRangeRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        float m_RangeMin[2];
-        float m_RangeMax[2];
-        int32_t m_Flags;
-        const char* m_DisplayName_lang;
-        const char* m_DisplayNameShort_lang;
+        float m_rangeMin[2];
+        float m_rangeMax[2];
+        int32_t m_flags;
+        const char* m_displayName;
+        const char* m_displayNameShort;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

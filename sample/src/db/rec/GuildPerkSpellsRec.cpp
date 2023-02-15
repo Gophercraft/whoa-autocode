@@ -5,11 +5,15 @@ const char* GuildPerkSpellsRec::GetFilename() {
     return "DBFilesClient\\GuildPerkSpells.dbc";
 }
 
+int32_t GuildPerkSpellsRec::GetID() {
+    return this->m_ID;
+}
+
 bool GuildPerkSpellsRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_GuildLevel, sizeof(this->m_GuildLevel), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SpellID, sizeof(this->m_SpellID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_guildLevel, sizeof(this->m_guildLevel), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spellID, sizeof(this->m_spellID), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

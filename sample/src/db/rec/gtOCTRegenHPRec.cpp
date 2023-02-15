@@ -5,9 +5,13 @@ const char* gtOCTRegenHPRec::GetFilename() {
     return "DBFilesClient\\gtOCTRegenHP.dbc";
 }
 
+int32_t gtOCTRegenHPRec::GetID() {
+    return this->m_generatedID;
+}
+
 bool gtOCTRegenHPRec::Read(SFile* f, const char* stringBuffer) {
     if (
-        !SFile::Read(f, &this->m_Data, sizeof(this->m_Data), nullptr, nullptr, nullptr)
+        !SFile::Read(f, &this->m_data, sizeof(this->m_data), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

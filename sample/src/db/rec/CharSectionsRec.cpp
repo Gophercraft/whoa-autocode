@@ -5,32 +5,36 @@ const char* CharSectionsRec::GetFilename() {
     return "DBFilesClient\\CharSections.dbc";
 }
 
+int32_t CharSectionsRec::GetID() {
+    return this->m_ID;
+}
+
 bool CharSectionsRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t TextureNameOfs[3];
+    uint32_t textureNameOfs[3];
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RaceID, sizeof(this->m_RaceID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SexID, sizeof(this->m_SexID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_BaseSection, sizeof(this->m_BaseSection), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &TextureNameOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &TextureNameOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &TextureNameOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Flags, sizeof(this->m_Flags), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_VariationIndex, sizeof(this->m_VariationIndex), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ColorIndex, sizeof(this->m_ColorIndex), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_raceID, sizeof(this->m_raceID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_sexID, sizeof(this->m_sexID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_baseSection, sizeof(this->m_baseSection), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &textureNameOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &textureNameOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &textureNameOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_flags, sizeof(this->m_flags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_variationIndex, sizeof(this->m_variationIndex), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_colorIndex, sizeof(this->m_colorIndex), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_TextureName[0] = &stringBuffer[TextureNameOfs[0]];
-        this->m_TextureName[1] = &stringBuffer[TextureNameOfs[1]];
-        this->m_TextureName[2] = &stringBuffer[TextureNameOfs[2]];
+        this->m_textureName[0] = &stringBuffer[textureNameOfs[0]];
+        this->m_textureName[1] = &stringBuffer[textureNameOfs[1]];
+        this->m_textureName[2] = &stringBuffer[textureNameOfs[2]];
     } else {
-        this->m_TextureName[0] = "";
-        this->m_TextureName[1] = "";
-        this->m_TextureName[2] = "";
+        this->m_textureName[0] = "";
+        this->m_textureName[1] = "";
+        this->m_textureName[2] = "";
     }
 
     return true;

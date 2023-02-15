@@ -2,8 +2,8 @@
 #ifndef DB_REC_SPELL_DURATION_REC_HPP
 #define DB_REC_SPELL_DURATION_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SpellDurationRec {
     public:
@@ -12,11 +12,12 @@ class SpellDurationRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Duration;
-        int32_t m_DurationPerLevel;
-        int32_t m_MaxDuration;
+        int32_t m_duration;
+        int32_t m_durationPerLevel;
+        int32_t m_maxDuration;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

@@ -2,8 +2,8 @@
 #ifndef DB_REC_CFG_CATEGORIES_REC_HPP
 #define DB_REC_CFG_CATEGORIES_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class Cfg_CategoriesRec {
     public:
@@ -12,12 +12,13 @@ class Cfg_CategoriesRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_LocaleMask;
-        int32_t m_Create_charsetMask;
-        int32_t m_Flags;
-        const char* m_Name_lang;
+        int32_t m_localeMask;
+        int32_t m_createCharsetMask;
+        int32_t m_flags;
+        const char* m_name;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

@@ -5,11 +5,15 @@ const char* MovieVariationRec::GetFilename() {
     return "DBFilesClient\\MovieVariation.dbc";
 }
 
+int32_t MovieVariationRec::GetID() {
+    return this->m_ID;
+}
+
 bool MovieVariationRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MovieID, sizeof(this->m_MovieID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_FileDataID, sizeof(this->m_FileDataID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_movieID, sizeof(this->m_movieID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_fileDataID, sizeof(this->m_fileDataID), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

@@ -2,8 +2,8 @@
 #ifndef DB_REC_BATTLEMASTER_LIST_REC_HPP
 #define DB_REC_BATTLEMASTER_LIST_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class BattlemasterListRec {
     public:
@@ -12,16 +12,17 @@ class BattlemasterListRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_MapID[8];
-        int32_t m_InstanceType;
-        int32_t m_GroupsAllowed;
-        const char* m_Name_lang;
-        int32_t m_MaxGroupSize;
-        int32_t m_HolidayWorldState;
-        int32_t m_MinLevel;
-        int32_t m_MaxLevel;
+        int32_t m_mapID[8];
+        int32_t m_instanceType;
+        int32_t m_groupsAllowed;
+        const char* m_name;
+        int32_t m_maxGroupSize;
+        int32_t m_holidayWorldState;
+        int32_t m_minLevel;
+        int32_t m_maxLevel;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

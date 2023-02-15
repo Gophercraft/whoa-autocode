@@ -5,10 +5,14 @@ const char* CharBaseInfoRec::GetFilename() {
     return "DBFilesClient\\CharBaseInfo.dbc";
 }
 
+int32_t CharBaseInfoRec::GetID() {
+    return this->m_generatedID;
+}
+
 bool CharBaseInfoRec::Read(SFile* f, const char* stringBuffer) {
     if (
-        !SFile::Read(f, &this->m_RaceID, sizeof(this->m_RaceID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ClassID, sizeof(this->m_ClassID), nullptr, nullptr, nullptr)
+        !SFile::Read(f, &this->m_raceID, sizeof(this->m_raceID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_classID, sizeof(this->m_classID), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

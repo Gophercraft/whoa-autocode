@@ -5,22 +5,26 @@ const char* PhaseShiftZoneSoundsRec::GetFilename() {
     return "DBFilesClient\\PhaseShiftZoneSounds.dbc";
 }
 
+int32_t PhaseShiftZoneSoundsRec::GetID() {
+    return this->m_ID;
+}
+
 bool PhaseShiftZoneSoundsRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AreaID, sizeof(this->m_AreaID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_WMOAreaID, sizeof(this->m_WMOAreaID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PhaseID, sizeof(this->m_PhaseID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PhaseGroupID, sizeof(this->m_PhaseGroupID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PhaseUseFlags, sizeof(this->m_PhaseUseFlags), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ZoneIntroMusicID, sizeof(this->m_ZoneIntroMusicID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ZoneMusicID, sizeof(this->m_ZoneMusicID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SoundAmbienceID, sizeof(this->m_SoundAmbienceID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SoundProviderPreferencesID, sizeof(this->m_SoundProviderPreferencesID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_UWZoneIntroMusicID, sizeof(this->m_UWZoneIntroMusicID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_UWZoneMusicID, sizeof(this->m_UWZoneMusicID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_UWSoundAmbienceID, sizeof(this->m_UWSoundAmbienceID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_UWSoundProviderPreferencesID, sizeof(this->m_UWSoundProviderPreferencesID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_areaID, sizeof(this->m_areaID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_wmoareaID, sizeof(this->m_wmoareaID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_phaseID, sizeof(this->m_phaseID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_phaseGroupID, sizeof(this->m_phaseGroupID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_phaseUseFlags, sizeof(this->m_phaseUseFlags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_zoneIntroMusicID, sizeof(this->m_zoneIntroMusicID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_zoneMusicID, sizeof(this->m_zoneMusicID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_soundAmbienceID, sizeof(this->m_soundAmbienceID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_soundProviderPreferencesID, sizeof(this->m_soundProviderPreferencesID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_uwzoneIntroMusicID, sizeof(this->m_uwzoneIntroMusicID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_uwzoneMusicID, sizeof(this->m_uwzoneMusicID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_uwsoundAmbienceID, sizeof(this->m_uwsoundAmbienceID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_uwsoundProviderPreferencesID, sizeof(this->m_uwsoundProviderPreferencesID), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

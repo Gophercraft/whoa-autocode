@@ -5,19 +5,23 @@ const char* QuestFactionRewardRec::GetFilename() {
     return "DBFilesClient\\QuestFactionReward.dbc";
 }
 
+int32_t QuestFactionRewardRec::GetID() {
+    return this->m_ID;
+}
+
 bool QuestFactionRewardRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Difficulty[0], sizeof(m_Difficulty[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Difficulty[1], sizeof(m_Difficulty[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Difficulty[2], sizeof(m_Difficulty[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Difficulty[3], sizeof(m_Difficulty[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Difficulty[4], sizeof(m_Difficulty[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Difficulty[5], sizeof(m_Difficulty[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Difficulty[6], sizeof(m_Difficulty[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Difficulty[7], sizeof(m_Difficulty[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Difficulty[8], sizeof(m_Difficulty[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Difficulty[9], sizeof(m_Difficulty[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_difficulty[0], sizeof(m_difficulty[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_difficulty[1], sizeof(m_difficulty[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_difficulty[2], sizeof(m_difficulty[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_difficulty[3], sizeof(m_difficulty[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_difficulty[4], sizeof(m_difficulty[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_difficulty[5], sizeof(m_difficulty[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_difficulty[6], sizeof(m_difficulty[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_difficulty[7], sizeof(m_difficulty[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_difficulty[8], sizeof(m_difficulty[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_difficulty[9], sizeof(m_difficulty[0]), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

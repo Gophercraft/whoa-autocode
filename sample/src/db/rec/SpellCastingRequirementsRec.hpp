@@ -2,8 +2,8 @@
 #ifndef DB_REC_SPELL_CASTING_REQUIREMENTS_REC_HPP
 #define DB_REC_SPELL_CASTING_REQUIREMENTS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SpellCastingRequirementsRec {
     public:
@@ -12,14 +12,15 @@ class SpellCastingRequirementsRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_FacingCasterFlags;
-        int32_t m_MinFactionID;
-        int32_t m_MinReputation;
-        int32_t m_RequiredAreasID;
-        int32_t m_RequiredAuraVision;
-        int32_t m_RequiresSpellFocus;
+        int32_t m_facingCasterFlags;
+        int32_t m_minFactionID;
+        int32_t m_minReputation;
+        int32_t m_requiredAreasID;
+        int32_t m_requiredAuraVision;
+        int32_t m_requiresSpellFocus;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

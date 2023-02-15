@@ -5,10 +5,14 @@ const char* SpellCategoryRec::GetFilename() {
     return "DBFilesClient\\SpellCategory.dbc";
 }
 
+int32_t SpellCategoryRec::GetID() {
+    return this->m_ID;
+}
+
 bool SpellCategoryRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Flags, sizeof(this->m_Flags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_flags, sizeof(this->m_flags), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

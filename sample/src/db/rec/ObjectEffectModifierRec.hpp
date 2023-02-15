@@ -2,8 +2,8 @@
 #ifndef DB_REC_OBJECT_EFFECT_MODIFIER_REC_HPP
 #define DB_REC_OBJECT_EFFECT_MODIFIER_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class ObjectEffectModifierRec {
     public:
@@ -12,12 +12,13 @@ class ObjectEffectModifierRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_InputType;
-        int32_t m_MapType;
-        int32_t m_OutputType;
-        float m_Param[4];
+        int32_t m_inputType;
+        int32_t m_mapType;
+        int32_t m_outputType;
+        float m_param[4];
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

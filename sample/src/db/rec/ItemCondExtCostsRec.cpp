@@ -5,12 +5,16 @@ const char* ItemCondExtCostsRec::GetFilename() {
     return "DBFilesClient\\ItemCondExtCosts.dbc";
 }
 
+int32_t ItemCondExtCostsRec::GetID() {
+    return this->m_ID;
+}
+
 bool ItemCondExtCostsRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_CondExtendedCost, sizeof(this->m_CondExtendedCost), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ItemExtendedCostEntry, sizeof(this->m_ItemExtendedCostEntry), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ArenaSeason, sizeof(this->m_ArenaSeason), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_condExtendedCost, sizeof(this->m_condExtendedCost), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_itemExtendedCostEntry, sizeof(this->m_itemExtendedCostEntry), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_arenaSeason, sizeof(this->m_arenaSeason), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

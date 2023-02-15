@@ -2,8 +2,8 @@
 #ifndef DB_REC_SHEATHE_SOUND_LOOKUPS_REC_HPP
 #define DB_REC_SHEATHE_SOUND_LOOKUPS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SheatheSoundLookupsRec {
     public:
@@ -12,14 +12,15 @@ class SheatheSoundLookupsRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_ClassID;
-        int32_t m_SubclassID;
-        int32_t m_Material;
-        int32_t m_CheckMaterial;
-        int32_t m_SheatheSound;
-        int32_t m_UnsheatheSound;
+        int32_t m_classID;
+        int32_t m_subclassID;
+        int32_t m_material;
+        int32_t m_checkMaterial;
+        int32_t m_sheatheSound;
+        int32_t m_unsheatheSound;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

@@ -2,8 +2,8 @@
 #ifndef DB_REC_SOUND_AMBIENCE_REC_HPP
 #define DB_REC_SOUND_AMBIENCE_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SoundAmbienceRec {
     public:
@@ -12,9 +12,10 @@ class SoundAmbienceRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_AmbienceID[2];
+        int32_t m_ambienceID[2];
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

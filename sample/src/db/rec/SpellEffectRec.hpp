@@ -2,8 +2,8 @@
 #ifndef DB_REC_SPELL_EFFECT_REC_HPP
 #define DB_REC_SPELL_EFFECT_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SpellEffectRec {
     public:
@@ -12,28 +12,29 @@ class SpellEffectRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Effect;
-        float m_EffectAmplitude;
-        int32_t m_EffectAura;
-        int32_t m_EffectAuraPeriod;
-        int32_t m_EffectBasePoints;
-        float m_EffectBonusCoefficient;
-        float m_EffectChainAmplitude;
-        int32_t m_EffectChainTargets;
-        int32_t m_EffectDieSides;
-        int32_t m_EffectItemType;
-        int32_t m_EffectMechanic;
-        int32_t m_EffectMiscValue[2];
-        float m_EffectPointsPerResource;
-        int32_t m_EffectRadiusIndex[2];
-        float m_EffectRealPointsPerLevel;
-        int32_t m_EffectSpellClassMask[3];
-        int32_t m_EffectTriggerSpell;
-        int32_t m_ImplicitTarget[2];
-        int32_t m_SpellID;
-        int32_t m_EffectIndex;
+        int32_t m_effect;
+        float m_effectAmplitude;
+        int32_t m_effectAura;
+        int32_t m_effectAuraPeriod;
+        int32_t m_effectBasePoints;
+        float m_effectBonusCoefficient;
+        float m_effectChainAmplitude;
+        int32_t m_effectChainTargets;
+        int32_t m_effectDieSides;
+        int32_t m_effectItemType;
+        int32_t m_effectMechanic;
+        int32_t m_effectMiscValue[2];
+        float m_effectPointsPerResource;
+        int32_t m_effectRadiusIndex[2];
+        float m_effectRealPointsPerLevel;
+        int32_t m_effectSpellClassMask[3];
+        int32_t m_effectTriggerSpell;
+        int32_t m_implicitTarget[2];
+        int32_t m_spellID;
+        int32_t m_effectIndex;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

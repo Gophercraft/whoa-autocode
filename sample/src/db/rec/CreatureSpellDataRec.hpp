@@ -2,8 +2,8 @@
 #ifndef DB_REC_CREATURE_SPELL_DATA_REC_HPP
 #define DB_REC_CREATURE_SPELL_DATA_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class CreatureSpellDataRec {
     public:
@@ -12,10 +12,11 @@ class CreatureSpellDataRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Spells[4];
-        int32_t m_Availability[4];
+        int32_t m_spells[4];
+        int32_t m_availability[4];
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

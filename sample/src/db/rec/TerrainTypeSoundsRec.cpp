@@ -5,6 +5,10 @@ const char* TerrainTypeSoundsRec::GetFilename() {
     return "DBFilesClient\\TerrainTypeSounds.dbc";
 }
 
+int32_t TerrainTypeSoundsRec::GetID() {
+    return this->m_ID;
+}
+
 bool TerrainTypeSoundsRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)

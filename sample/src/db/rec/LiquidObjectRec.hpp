@@ -2,8 +2,8 @@
 #ifndef DB_REC_LIQUID_OBJECT_REC_HPP
 #define DB_REC_LIQUID_OBJECT_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class LiquidObjectRec {
     public:
@@ -12,13 +12,14 @@ class LiquidObjectRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        float m_FlowDirection;
-        float m_FlowSpeed;
-        int32_t m_LiquidTypeID;
-        int32_t m_Fishable;
-        int32_t m_Reflection;
+        float m_flowDirection;
+        float m_flowSpeed;
+        int32_t m_liquidTypeID;
+        int32_t m_fishable;
+        int32_t m_reflection;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

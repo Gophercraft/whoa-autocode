@@ -2,8 +2,8 @@
 #ifndef DB_REC_GMSURVEY_ANSWERS_REC_HPP
 #define DB_REC_GMSURVEY_ANSWERS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class GMSurveyAnswersRec {
     public:
@@ -12,11 +12,12 @@ class GMSurveyAnswersRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Sort_Index;
-        int32_t m_GMSurveyQuestionID;
-        const char* m_Answer_lang;
+        int32_t m_sortIndex;
+        int32_t m_gmsurveyQuestionID;
+        const char* m_answer;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

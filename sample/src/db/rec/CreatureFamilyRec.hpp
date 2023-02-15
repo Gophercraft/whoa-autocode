@@ -2,8 +2,8 @@
 #ifndef DB_REC_CREATURE_FAMILY_REC_HPP
 #define DB_REC_CREATURE_FAMILY_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class CreatureFamilyRec {
     public:
@@ -12,18 +12,19 @@ class CreatureFamilyRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        float m_MinScale;
-        int32_t m_MinScaleLevel;
-        float m_MaxScale;
-        int32_t m_MaxScaleLevel;
-        int32_t m_SkillLine[2];
-        int32_t m_PetFoodMask;
-        int32_t m_PetTalentType;
-        int32_t m_CategoryEnumID;
-        const char* m_Name_lang;
-        const char* m_IconFile;
+        float m_minScale;
+        int32_t m_minScaleLevel;
+        float m_maxScale;
+        int32_t m_maxScaleLevel;
+        int32_t m_skillLine[2];
+        int32_t m_petFoodMask;
+        int32_t m_petTalentType;
+        int32_t m_categoryEnumID;
+        const char* m_name;
+        const char* m_iconFile;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

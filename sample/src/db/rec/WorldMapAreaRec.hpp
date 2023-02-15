@@ -2,8 +2,8 @@
 #ifndef DB_REC_WORLD_MAP_AREA_REC_HPP
 #define DB_REC_WORLD_MAP_AREA_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class WorldMapAreaRec {
     public:
@@ -12,18 +12,19 @@ class WorldMapAreaRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_MapID;
-        int32_t m_AreaID;
-        const char* m_AreaName;
-        float m_LocLeft;
-        float m_LocRight;
-        float m_LocTop;
-        float m_LocBottom;
-        int32_t m_DisplayMapID;
-        int32_t m_DefaultDungeonFloor;
-        int32_t m_ParentWorldMapID;
+        int32_t m_mapID;
+        int32_t m_areaID;
+        const char* m_areaName;
+        float m_locLeft;
+        float m_locRight;
+        float m_locTop;
+        float m_locBottom;
+        int32_t m_displayMapID;
+        int32_t m_defaultDungeonFloor;
+        int32_t m_parentWorldMapID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

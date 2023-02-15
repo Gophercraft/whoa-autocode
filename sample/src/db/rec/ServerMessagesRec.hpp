@@ -2,8 +2,8 @@
 #ifndef DB_REC_SERVER_MESSAGES_REC_HPP
 #define DB_REC_SERVER_MESSAGES_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class ServerMessagesRec {
     public:
@@ -12,9 +12,10 @@ class ServerMessagesRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        const char* m_Text_lang;
+        const char* m_text;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

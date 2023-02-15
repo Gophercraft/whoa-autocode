@@ -2,8 +2,8 @@
 #ifndef DB_REC_ITEM_SET_REC_HPP
 #define DB_REC_ITEM_SET_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class ItemSetRec {
     public:
@@ -12,14 +12,15 @@ class ItemSetRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        const char* m_Name_lang;
-        int32_t m_ItemID[17];
-        int32_t m_SetSpellID[8];
-        int32_t m_SetThreshold[8];
-        int32_t m_RequiredSkill;
-        int32_t m_RequiredSkillRank;
+        const char* m_name;
+        int32_t m_itemID[17];
+        int32_t m_setSpellID[8];
+        int32_t m_setThreshold[8];
+        int32_t m_requiredSkill;
+        int32_t m_requiredSkillRank;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

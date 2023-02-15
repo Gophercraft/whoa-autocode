@@ -2,8 +2,8 @@
 #ifndef DB_REC_ITEM_PURCHASE_GROUP_REC_HPP
 #define DB_REC_ITEM_PURCHASE_GROUP_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class ItemPurchaseGroupRec {
     public:
@@ -12,10 +12,11 @@ class ItemPurchaseGroupRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_ItemID[8];
-        const char* m_Name_lang;
+        int32_t m_itemID[8];
+        const char* m_name;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

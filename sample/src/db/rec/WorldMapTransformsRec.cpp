@@ -5,18 +5,22 @@ const char* WorldMapTransformsRec::GetFilename() {
     return "DBFilesClient\\WorldMapTransforms.dbc";
 }
 
+int32_t WorldMapTransformsRec::GetID() {
+    return this->m_ID;
+}
+
 bool WorldMapTransformsRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MapID, sizeof(this->m_MapID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RegionMin[0], sizeof(m_RegionMin[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RegionMin[1], sizeof(m_RegionMin[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RegionMax[0], sizeof(m_RegionMax[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RegionMax[1], sizeof(m_RegionMax[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_NewMapID, sizeof(this->m_NewMapID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RegionOffset[0], sizeof(m_RegionOffset[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RegionOffset[1], sizeof(m_RegionOffset[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_NewDungeonMapID, sizeof(this->m_NewDungeonMapID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_mapID, sizeof(this->m_mapID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_regionMin[0], sizeof(m_regionMin[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_regionMin[1], sizeof(m_regionMin[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_regionMax[0], sizeof(m_regionMax[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_regionMax[1], sizeof(m_regionMax[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_newMapID, sizeof(this->m_newMapID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_regionOffset[0], sizeof(m_regionOffset[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_regionOffset[1], sizeof(m_regionOffset[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_newDungeonMapID, sizeof(this->m_newDungeonMapID), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

@@ -2,8 +2,8 @@
 #ifndef DB_REC_SPELL_POWER_REC_HPP
 #define DB_REC_SPELL_POWER_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SpellPowerRec {
     public:
@@ -12,13 +12,14 @@ class SpellPowerRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_ManaCost;
-        int32_t m_ManaCostPerLevel;
-        int32_t m_PowerCost; // unconfirmed
-        int32_t m_ManaPerSecond;
-        int32_t m_PowerDisplayID;
+        int32_t m_manaCost;
+        int32_t m_manaCostPerLevel;
+        int32_t m_powerCost; // unconfirmed
+        int32_t m_manaPerSecond;
+        int32_t m_powerDisplayID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

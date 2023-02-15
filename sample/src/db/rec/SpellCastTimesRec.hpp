@@ -2,8 +2,8 @@
 #ifndef DB_REC_SPELL_CAST_TIMES_REC_HPP
 #define DB_REC_SPELL_CAST_TIMES_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SpellCastTimesRec {
     public:
@@ -12,11 +12,12 @@ class SpellCastTimesRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Base;
-        int32_t m_PerLevel;
-        int32_t m_Minimum;
+        int32_t m_base;
+        int32_t m_perLevel;
+        int32_t m_minimum;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

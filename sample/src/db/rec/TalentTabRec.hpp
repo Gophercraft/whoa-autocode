@@ -2,8 +2,8 @@
 #ifndef DB_REC_TALENT_TAB_REC_HPP
 #define DB_REC_TALENT_TAB_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class TalentTabRec {
     public:
@@ -12,15 +12,16 @@ class TalentTabRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        const char* m_Name_lang;
-        int32_t m_SpellIconID;
-        int32_t m_RaceMask;
-        int32_t m_ClassMask;
-        int32_t m_CategoryEnumID; // unconfirmed
-        int32_t m_OrderIndex;
-        const char* m_BackgroundFile;
+        const char* m_name;
+        int32_t m_spellIconID;
+        int32_t m_raceMask;
+        int32_t m_classMask;
+        int32_t m_categoryEnumID; // unconfirmed
+        int32_t m_orderIndex;
+        const char* m_backgroundFile;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

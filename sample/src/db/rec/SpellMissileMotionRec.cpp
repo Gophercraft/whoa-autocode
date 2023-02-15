@@ -5,26 +5,30 @@ const char* SpellMissileMotionRec::GetFilename() {
     return "DBFilesClient\\SpellMissileMotion.dbc";
 }
 
+int32_t SpellMissileMotionRec::GetID() {
+    return this->m_ID;
+}
+
 bool SpellMissileMotionRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t NameOfs;
-    uint32_t ScriptBodyOfs;
+    uint32_t nameOfs;
+    uint32_t scriptBodyOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &NameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &ScriptBodyOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Flags, sizeof(this->m_Flags), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MissileCount, sizeof(this->m_MissileCount), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &scriptBodyOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_flags, sizeof(this->m_flags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_missileCount, sizeof(this->m_missileCount), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_Name = &stringBuffer[NameOfs];
-        this->m_ScriptBody = &stringBuffer[ScriptBodyOfs];
+        this->m_name = &stringBuffer[nameOfs];
+        this->m_scriptBody = &stringBuffer[scriptBodyOfs];
     } else {
-        this->m_Name = "";
-        this->m_ScriptBody = "";
+        this->m_name = "";
+        this->m_scriptBody = "";
     }
 
     return true;

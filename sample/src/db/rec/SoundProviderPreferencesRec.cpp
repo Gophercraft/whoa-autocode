@@ -5,42 +5,46 @@ const char* SoundProviderPreferencesRec::GetFilename() {
     return "DBFilesClient\\SoundProviderPreferences.dbc";
 }
 
+int32_t SoundProviderPreferencesRec::GetID() {
+    return this->m_ID;
+}
+
 bool SoundProviderPreferencesRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t DescriptionOfs;
+    uint32_t descriptionOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &DescriptionOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Flags, sizeof(this->m_Flags), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EAXEnvironmentSelection, sizeof(this->m_EAXEnvironmentSelection), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EAXDecayTime, sizeof(this->m_EAXDecayTime), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EAX2EnvironmentSize, sizeof(this->m_EAX2EnvironmentSize), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EAX2EnvironmentDiffusion, sizeof(this->m_EAX2EnvironmentDiffusion), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EAX2Room, sizeof(this->m_EAX2Room), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EAX2RoomHF, sizeof(this->m_EAX2RoomHF), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EAX2DecayHFRatio, sizeof(this->m_EAX2DecayHFRatio), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EAX2Reflections, sizeof(this->m_EAX2Reflections), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EAX2ReflectionsDelay, sizeof(this->m_EAX2ReflectionsDelay), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EAX2Reverb, sizeof(this->m_EAX2Reverb), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EAX2ReverbDelay, sizeof(this->m_EAX2ReverbDelay), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EAX2RoomRolloff, sizeof(this->m_EAX2RoomRolloff), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EAX2AirAbsorption, sizeof(this->m_EAX2AirAbsorption), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EAX3RoomLF, sizeof(this->m_EAX3RoomLF), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EAX3DecayLFRatio, sizeof(this->m_EAX3DecayLFRatio), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EAX3EchoTime, sizeof(this->m_EAX3EchoTime), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EAX3EchoDepth, sizeof(this->m_EAX3EchoDepth), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EAX3ModulationTime, sizeof(this->m_EAX3ModulationTime), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EAX3ModulationDepth, sizeof(this->m_EAX3ModulationDepth), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EAX3HFReference, sizeof(this->m_EAX3HFReference), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EAX3LFReference, sizeof(this->m_EAX3LFReference), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &descriptionOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_flags, sizeof(this->m_flags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_eaxenvironmentSelection, sizeof(this->m_eaxenvironmentSelection), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_eaxdecayTime, sizeof(this->m_eaxdecayTime), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_eax2EnvironmentSize, sizeof(this->m_eax2EnvironmentSize), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_eax2EnvironmentDiffusion, sizeof(this->m_eax2EnvironmentDiffusion), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_eax2Room, sizeof(this->m_eax2Room), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_eax2RoomHf, sizeof(this->m_eax2RoomHf), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_eax2DecayHfratio, sizeof(this->m_eax2DecayHfratio), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_eax2Reflections, sizeof(this->m_eax2Reflections), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_eax2ReflectionsDelay, sizeof(this->m_eax2ReflectionsDelay), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_eax2Reverb, sizeof(this->m_eax2Reverb), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_eax2ReverbDelay, sizeof(this->m_eax2ReverbDelay), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_eax2RoomRolloff, sizeof(this->m_eax2RoomRolloff), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_eax2AirAbsorption, sizeof(this->m_eax2AirAbsorption), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_eax3RoomLf, sizeof(this->m_eax3RoomLf), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_eax3DecayLfratio, sizeof(this->m_eax3DecayLfratio), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_eax3EchoTime, sizeof(this->m_eax3EchoTime), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_eax3EchoDepth, sizeof(this->m_eax3EchoDepth), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_eax3ModulationTime, sizeof(this->m_eax3ModulationTime), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_eax3ModulationDepth, sizeof(this->m_eax3ModulationDepth), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_eax3Hfreference, sizeof(this->m_eax3Hfreference), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_eax3Lfreference, sizeof(this->m_eax3Lfreference), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_Description = &stringBuffer[DescriptionOfs];
+        this->m_description = &stringBuffer[descriptionOfs];
     } else {
-        this->m_Description = "";
+        this->m_description = "";
     }
 
     return true;

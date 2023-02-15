@@ -5,18 +5,22 @@ const char* SpellVisualKitModelAttachRec::GetFilename() {
     return "DBFilesClient\\SpellVisualKitModelAttach.dbc";
 }
 
+int32_t SpellVisualKitModelAttachRec::GetID() {
+    return this->m_ID;
+}
+
 bool SpellVisualKitModelAttachRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ParentSpellVisualKitID, sizeof(this->m_ParentSpellVisualKitID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SpellVisualEffectNameID, sizeof(this->m_SpellVisualEffectNameID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AttachmentID, sizeof(this->m_AttachmentID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Offset[0], sizeof(m_Offset[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Offset[1], sizeof(m_Offset[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Offset[2], sizeof(m_Offset[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Yaw, sizeof(this->m_Yaw), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Pitch, sizeof(this->m_Pitch), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Roll, sizeof(this->m_Roll), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_parentSpellVisualKitID, sizeof(this->m_parentSpellVisualKitID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spellVisualEffectNameID, sizeof(this->m_spellVisualEffectNameID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_attachmentID, sizeof(this->m_attachmentID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_offset[0], sizeof(m_offset[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_offset[1], sizeof(m_offset[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_offset[2], sizeof(m_offset[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_yaw, sizeof(this->m_yaw), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_pitch, sizeof(this->m_pitch), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_roll, sizeof(this->m_roll), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

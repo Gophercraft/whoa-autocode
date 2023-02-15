@@ -2,8 +2,8 @@
 #ifndef DB_REC_PVPDIFFICULTY_REC_HPP
 #define DB_REC_PVPDIFFICULTY_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class PVPDifficultyRec {
     public:
@@ -12,13 +12,14 @@ class PVPDifficultyRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_MapID;
-        int32_t m_RangeIndex;
-        int32_t m_MinLevel;
-        int32_t m_MaxLevel;
-        int32_t m_Difficulty;
+        int32_t m_mapID;
+        int32_t m_rangeIndex;
+        int32_t m_minLevel;
+        int32_t m_maxLevel;
+        int32_t m_difficulty;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

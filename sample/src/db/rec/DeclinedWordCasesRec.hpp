@@ -2,8 +2,8 @@
 #ifndef DB_REC_DECLINED_WORD_CASES_REC_HPP
 #define DB_REC_DECLINED_WORD_CASES_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class DeclinedWordCasesRec {
     public:
@@ -12,11 +12,12 @@ class DeclinedWordCasesRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_DeclinedWordID;
-        int32_t m_CaseIndex;
-        const char* m_DeclinedWord;
+        int32_t m_declinedWordID;
+        int32_t m_caseIndex;
+        const char* m_declinedWord;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

@@ -5,22 +5,26 @@ const char* SkillLineAbilityRec::GetFilename() {
     return "DBFilesClient\\SkillLineAbility.dbc";
 }
 
+int32_t SkillLineAbilityRec::GetID() {
+    return this->m_ID;
+}
+
 bool SkillLineAbilityRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SkillLine, sizeof(this->m_SkillLine), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Spell, sizeof(this->m_Spell), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RaceMask, sizeof(this->m_RaceMask), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ClassMask, sizeof(this->m_ClassMask), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ExcludeRace, sizeof(this->m_ExcludeRace), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ExcludeClass, sizeof(this->m_ExcludeClass), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MinSkillLineRank, sizeof(this->m_MinSkillLineRank), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SupercededBySpell, sizeof(this->m_SupercededBySpell), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AcquireMethod, sizeof(this->m_AcquireMethod), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TrivialSkillLineRankHigh, sizeof(this->m_TrivialSkillLineRankHigh), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TrivialSkillLineRankLow, sizeof(this->m_TrivialSkillLineRankLow), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_CharacterPoints[0], sizeof(m_CharacterPoints[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_CharacterPoints[1], sizeof(m_CharacterPoints[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_skillLine, sizeof(this->m_skillLine), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spell, sizeof(this->m_spell), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_raceMask, sizeof(this->m_raceMask), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_classMask, sizeof(this->m_classMask), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_excludeRace, sizeof(this->m_excludeRace), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_excludeClass, sizeof(this->m_excludeClass), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_minSkillLineRank, sizeof(this->m_minSkillLineRank), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_supercededBySpell, sizeof(this->m_supercededBySpell), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_acquireMethod, sizeof(this->m_acquireMethod), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_trivialSkillLineRankHigh, sizeof(this->m_trivialSkillLineRankHigh), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_trivialSkillLineRankLow, sizeof(this->m_trivialSkillLineRankLow), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_characterPoints[0], sizeof(m_characterPoints[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_characterPoints[1], sizeof(m_characterPoints[0]), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

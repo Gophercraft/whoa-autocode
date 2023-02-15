@@ -5,50 +5,54 @@ const char* Achievement_CriteriaRec::GetFilename() {
     return "DBFilesClient\\Achievement_Criteria.dbc";
 }
 
+int32_t Achievement_CriteriaRec::GetID() {
+    return this->m_ID;
+}
+
 bool Achievement_CriteriaRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t Description_langOfs[16];
-    uint32_t Description_langMask;
+    uint32_t descriptionOfs[16];
+    uint32_t descriptionMask;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Achievement_ID, sizeof(this->m_Achievement_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Type, sizeof(this->m_Type), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Asset_ID, sizeof(this->m_Asset_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Quantity, sizeof(this->m_Quantity), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Start_event, sizeof(this->m_Start_event), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Start_asset, sizeof(this->m_Start_asset), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Fail_event, sizeof(this->m_Fail_event), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Fail_asset, sizeof(this->m_Fail_asset), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Description_langOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Description_langOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Description_langOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Description_langOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Description_langOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Description_langOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Description_langOfs[6], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Description_langOfs[7], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Description_langOfs[8], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Description_langOfs[9], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Description_langOfs[10], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Description_langOfs[11], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Description_langOfs[12], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Description_langOfs[13], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Description_langOfs[14], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Description_langOfs[15], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Description_langMask, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Flags, sizeof(this->m_Flags), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Timer_start_event, sizeof(this->m_Timer_start_event), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Timer_asset_ID, sizeof(this->m_Timer_asset_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Timer_time, sizeof(this->m_Timer_time), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Ui_order, sizeof(this->m_Ui_order), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_achievementID, sizeof(this->m_achievementID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_type, sizeof(this->m_type), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_assetID, sizeof(this->m_assetID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_quantity, sizeof(this->m_quantity), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_startEvent, sizeof(this->m_startEvent), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_startAsset, sizeof(this->m_startAsset), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_failEvent, sizeof(this->m_failEvent), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_failAsset, sizeof(this->m_failAsset), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &descriptionOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &descriptionOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &descriptionOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &descriptionOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &descriptionOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &descriptionOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &descriptionOfs[6], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &descriptionOfs[7], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &descriptionOfs[8], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &descriptionOfs[9], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &descriptionOfs[10], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &descriptionOfs[11], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &descriptionOfs[12], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &descriptionOfs[13], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &descriptionOfs[14], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &descriptionOfs[15], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &descriptionMask, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_flags, sizeof(this->m_flags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_timerStartEvent, sizeof(this->m_timerStartEvent), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_timerAssetID, sizeof(this->m_timerAssetID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_timerTime, sizeof(this->m_timerTime), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_uiOrder, sizeof(this->m_uiOrder), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_Description_lang = &stringBuffer[Description_langOfs[CURRENT_LANGUAGE]];
+        this->m_description = &stringBuffer[descriptionOfs[CURRENT_LANGUAGE]];
     } else {
-        this->m_Description_lang = "";
+        this->m_description = "";
     }
 
     return true;

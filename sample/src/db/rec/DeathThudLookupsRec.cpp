@@ -5,13 +5,17 @@ const char* DeathThudLookupsRec::GetFilename() {
     return "DBFilesClient\\DeathThudLookups.dbc";
 }
 
+int32_t DeathThudLookupsRec::GetID() {
+    return this->m_ID;
+}
+
 bool DeathThudLookupsRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SizeClass, sizeof(this->m_SizeClass), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TerrainTypeSoundID, sizeof(this->m_TerrainTypeSoundID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SoundEntryID, sizeof(this->m_SoundEntryID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SoundEntryIDWater, sizeof(this->m_SoundEntryIDWater), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_sizeClass, sizeof(this->m_sizeClass), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_terrainTypeSoundID, sizeof(this->m_terrainTypeSoundID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_soundEntryID, sizeof(this->m_soundEntryID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_soundEntryIdwater, sizeof(this->m_soundEntryIdwater), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

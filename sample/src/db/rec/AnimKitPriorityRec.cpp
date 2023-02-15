@@ -5,10 +5,14 @@ const char* AnimKitPriorityRec::GetFilename() {
     return "DBFilesClient\\AnimKitPriority.dbc";
 }
 
+int32_t AnimKitPriorityRec::GetID() {
+    return this->m_ID;
+}
+
 bool AnimKitPriorityRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Priority, sizeof(this->m_Priority), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_priority, sizeof(this->m_priority), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

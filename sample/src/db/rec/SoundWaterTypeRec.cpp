@@ -5,12 +5,16 @@ const char* SoundWaterTypeRec::GetFilename() {
     return "DBFilesClient\\SoundWaterType.dbc";
 }
 
+int32_t SoundWaterTypeRec::GetID() {
+    return this->m_ID;
+}
+
 bool SoundWaterTypeRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SoundType, sizeof(this->m_SoundType), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SoundSubtype, sizeof(this->m_SoundSubtype), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SoundID, sizeof(this->m_SoundID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_soundType, sizeof(this->m_soundType), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_soundSubtype, sizeof(this->m_soundSubtype), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_soundID, sizeof(this->m_soundID), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

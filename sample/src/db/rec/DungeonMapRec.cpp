@@ -5,16 +5,20 @@ const char* DungeonMapRec::GetFilename() {
     return "DBFilesClient\\DungeonMap.dbc";
 }
 
+int32_t DungeonMapRec::GetID() {
+    return this->m_ID;
+}
+
 bool DungeonMapRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MapID, sizeof(this->m_MapID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_FloorIndex, sizeof(this->m_FloorIndex), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MinX, sizeof(this->m_MinX), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MaxX, sizeof(this->m_MaxX), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MinY, sizeof(this->m_MinY), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MaxY, sizeof(this->m_MaxY), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ParentWorldMapID, sizeof(this->m_ParentWorldMapID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_mapID, sizeof(this->m_mapID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_floorIndex, sizeof(this->m_floorIndex), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_minX, sizeof(this->m_minX), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_maxX, sizeof(this->m_maxX), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_minY, sizeof(this->m_minY), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_maxY, sizeof(this->m_maxY), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_parentWorldMapID, sizeof(this->m_parentWorldMapID), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

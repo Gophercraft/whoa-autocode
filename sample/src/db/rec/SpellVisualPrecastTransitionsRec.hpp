@@ -2,8 +2,8 @@
 #ifndef DB_REC_SPELL_VISUAL_PRECAST_TRANSITIONS_REC_HPP
 #define DB_REC_SPELL_VISUAL_PRECAST_TRANSITIONS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SpellVisualPrecastTransitionsRec {
     public:
@@ -12,10 +12,11 @@ class SpellVisualPrecastTransitionsRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        const char* m_PrecastLoadAnimName;
-        const char* m_PrecastHoldAnimName;
+        const char* m_precastLoadAnimName;
+        const char* m_precastHoldAnimName;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

@@ -5,13 +5,17 @@ const char* EmotesTextSoundRec::GetFilename() {
     return "DBFilesClient\\EmotesTextSound.dbc";
 }
 
+int32_t EmotesTextSoundRec::GetID() {
+    return this->m_ID;
+}
+
 bool EmotesTextSoundRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EmotesTextID, sizeof(this->m_EmotesTextID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RaceID, sizeof(this->m_RaceID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SexID, sizeof(this->m_SexID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SoundID, sizeof(this->m_SoundID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_emotesTextID, sizeof(this->m_emotesTextID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_raceID, sizeof(this->m_raceID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_sexID, sizeof(this->m_sexID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_soundID, sizeof(this->m_soundID), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

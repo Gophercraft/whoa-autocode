@@ -2,8 +2,8 @@
 #ifndef DB_REC_SPELL_ITEM_ENCHANTMENT_REC_HPP
 #define DB_REC_SPELL_ITEM_ENCHANTMENT_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SpellItemEnchantmentRec {
     public:
@@ -12,21 +12,22 @@ class SpellItemEnchantmentRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Charges;
-        int32_t m_Effect[3];
-        int32_t m_EffectPointsMin[3];
-        int32_t m_EffectPointsMax[3];
-        int32_t m_EffectArg[3];
-        const char* m_Name_lang;
-        int32_t m_ItemVisual;
-        int32_t m_Flags;
-        int32_t m_Src_itemID;
-        int32_t m_Condition_ID;
-        int32_t m_RequiredSkillID;
-        int32_t m_RequiredSkillRank;
-        int32_t m_MinLevel;
+        int32_t m_charges;
+        int32_t m_effect[3];
+        int32_t m_effectPointsMin[3];
+        int32_t m_effectPointsMax[3];
+        int32_t m_effectArg[3];
+        const char* m_name;
+        int32_t m_itemVisual;
+        int32_t m_flags;
+        int32_t m_srcItemID;
+        int32_t m_conditionID;
+        int32_t m_requiredSkillID;
+        int32_t m_requiredSkillRank;
+        int32_t m_minLevel;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

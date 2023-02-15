@@ -5,14 +5,18 @@ const char* LiquidObjectRec::GetFilename() {
     return "DBFilesClient\\LiquidObject.dbc";
 }
 
+int32_t LiquidObjectRec::GetID() {
+    return this->m_ID;
+}
+
 bool LiquidObjectRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_FlowDirection, sizeof(this->m_FlowDirection), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_FlowSpeed, sizeof(this->m_FlowSpeed), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_LiquidTypeID, sizeof(this->m_LiquidTypeID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Fishable, sizeof(this->m_Fishable), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Reflection, sizeof(this->m_Reflection), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_flowDirection, sizeof(this->m_flowDirection), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_flowSpeed, sizeof(this->m_flowSpeed), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_liquidTypeID, sizeof(this->m_liquidTypeID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_fishable, sizeof(this->m_fishable), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_reflection, sizeof(this->m_reflection), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

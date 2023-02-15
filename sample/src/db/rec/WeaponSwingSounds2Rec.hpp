@@ -2,8 +2,8 @@
 #ifndef DB_REC_WEAPON_SWING_SOUNDS2_REC_HPP
 #define DB_REC_WEAPON_SWING_SOUNDS2_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class WeaponSwingSounds2Rec {
     public:
@@ -12,11 +12,12 @@ class WeaponSwingSounds2Rec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_SwingType;
-        int32_t m_Crit;
-        int32_t m_SoundID;
+        int32_t m_swingType;
+        int32_t m_crit;
+        int32_t m_soundID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

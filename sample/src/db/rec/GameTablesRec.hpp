@@ -2,8 +2,8 @@
 #ifndef DB_REC_GAME_TABLES_REC_HPP
 #define DB_REC_GAME_TABLES_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class GameTablesRec {
     public:
@@ -11,11 +11,13 @@ class GameTablesRec {
         static constexpr uint32_t rowSize = 12;
         static constexpr bool indexIsID = true;
 
-        const char* m_Name;
-        int32_t m_NumRows;
-        int32_t m_NumColumns;
+        const char* m_name;
+        int32_t m_numRows;
+        int32_t m_numColumns;
+        int32_t m_generatedID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

@@ -5,21 +5,25 @@ const char* MovieRec::GetFilename() {
     return "DBFilesClient\\Movie.dbc";
 }
 
+int32_t MovieRec::GetID() {
+    return this->m_ID;
+}
+
 bool MovieRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t FilenameOfs;
+    uint32_t filenameOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &FilenameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Volume, sizeof(this->m_Volume), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &filenameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_volume, sizeof(this->m_volume), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_Filename = &stringBuffer[FilenameOfs];
+        this->m_filename = &stringBuffer[filenameOfs];
     } else {
-        this->m_Filename = "";
+        this->m_filename = "";
     }
 
     return true;

@@ -2,8 +2,8 @@
 #ifndef DB_REC_FACTION_TEMPLATE_REC_HPP
 #define DB_REC_FACTION_TEMPLATE_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class FactionTemplateRec {
     public:
@@ -12,15 +12,16 @@ class FactionTemplateRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Faction;
-        int32_t m_Flags;
-        int32_t m_FactionGroup;
-        int32_t m_FriendGroup;
-        int32_t m_EnemyGroup;
-        int32_t m_Enemies[4];
-        int32_t m_Friend[4];
+        int32_t m_faction;
+        int32_t m_flags;
+        int32_t m_factionGroup;
+        int32_t m_friendGroup;
+        int32_t m_enemyGroup;
+        int32_t m_enemies[4];
+        int32_t m_friend[4];
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

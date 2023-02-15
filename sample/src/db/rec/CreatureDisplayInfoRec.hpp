@@ -2,8 +2,8 @@
 #ifndef DB_REC_CREATURE_DISPLAY_INFO_REC_HPP
 #define DB_REC_CREATURE_DISPLAY_INFO_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class CreatureDisplayInfoRec {
     public:
@@ -12,21 +12,22 @@ class CreatureDisplayInfoRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_ModelID;
-        int32_t m_SoundID;
-        int32_t m_ExtendedDisplayInfoID;
-        float m_CreatureModelScale;
-        int32_t m_CreatureModelAlpha;
-        const char* m_TextureVariation[3];
-        const char* m_PortraitTextureName;
-        int32_t m_SizeClass;
-        int32_t m_BloodID;
-        int32_t m_NPCSoundID;
-        int32_t m_ParticleColorID;
-        int32_t m_CreatureGeosetData;
-        int32_t m_ObjectEffectPackageID;
+        int32_t m_modelID;
+        int32_t m_soundID;
+        int32_t m_extendedDisplayInfoID;
+        float m_creatureModelScale;
+        int32_t m_creatureModelAlpha;
+        const char* m_textureVariation[3];
+        const char* m_portraitTextureName;
+        int32_t m_sizeClass;
+        int32_t m_bloodID;
+        int32_t m_npcsoundID;
+        int32_t m_particleColorID;
+        int32_t m_creatureGeosetData;
+        int32_t m_objectEffectPackageID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

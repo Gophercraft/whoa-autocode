@@ -5,9 +5,13 @@ const char* gtRegenMPPerSptRec::GetFilename() {
     return "DBFilesClient\\gtRegenMPPerSpt.dbc";
 }
 
+int32_t gtRegenMPPerSptRec::GetID() {
+    return this->m_generatedID;
+}
+
 bool gtRegenMPPerSptRec::Read(SFile* f, const char* stringBuffer) {
     if (
-        !SFile::Read(f, &this->m_Data, sizeof(this->m_Data), nullptr, nullptr, nullptr)
+        !SFile::Read(f, &this->m_data, sizeof(this->m_data), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

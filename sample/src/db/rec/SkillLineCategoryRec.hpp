@@ -2,8 +2,8 @@
 #ifndef DB_REC_SKILL_LINE_CATEGORY_REC_HPP
 #define DB_REC_SKILL_LINE_CATEGORY_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SkillLineCategoryRec {
     public:
@@ -12,10 +12,11 @@ class SkillLineCategoryRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        const char* m_Name_lang;
-        int32_t m_SortIndex;
+        const char* m_name;
+        int32_t m_sortIndex;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

@@ -2,8 +2,8 @@
 #ifndef DB_REC_RESISTANCES_REC_HPP
 #define DB_REC_RESISTANCES_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class ResistancesRec {
     public:
@@ -12,11 +12,12 @@ class ResistancesRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Flags;
-        int32_t m_FizzleSoundID;
-        const char* m_Name_lang;
+        int32_t m_flags;
+        int32_t m_fizzleSoundID;
+        const char* m_name;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

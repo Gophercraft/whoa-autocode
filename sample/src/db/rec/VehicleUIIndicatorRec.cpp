@@ -5,20 +5,24 @@ const char* VehicleUIIndicatorRec::GetFilename() {
     return "DBFilesClient\\VehicleUIIndicator.dbc";
 }
 
+int32_t VehicleUIIndicatorRec::GetID() {
+    return this->m_ID;
+}
+
 bool VehicleUIIndicatorRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t BackgroundTextureOfs;
+    uint32_t backgroundTextureOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &BackgroundTextureOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &backgroundTextureOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_BackgroundTexture = &stringBuffer[BackgroundTextureOfs];
+        this->m_backgroundTexture = &stringBuffer[backgroundTextureOfs];
     } else {
-        this->m_BackgroundTexture = "";
+        this->m_backgroundTexture = "";
     }
 
     return true;

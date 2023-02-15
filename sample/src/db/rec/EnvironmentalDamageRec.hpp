@@ -2,8 +2,8 @@
 #ifndef DB_REC_ENVIRONMENTAL_DAMAGE_REC_HPP
 #define DB_REC_ENVIRONMENTAL_DAMAGE_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class EnvironmentalDamageRec {
     public:
@@ -12,10 +12,11 @@ class EnvironmentalDamageRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_EnumID;
-        int32_t m_VisualkitID;
+        int32_t m_enumID;
+        int32_t m_visualkitID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

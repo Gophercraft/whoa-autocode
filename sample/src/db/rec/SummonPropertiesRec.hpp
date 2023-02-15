@@ -2,8 +2,8 @@
 #ifndef DB_REC_SUMMON_PROPERTIES_REC_HPP
 #define DB_REC_SUMMON_PROPERTIES_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SummonPropertiesRec {
     public:
@@ -12,13 +12,14 @@ class SummonPropertiesRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Control;
-        int32_t m_Faction;
-        int32_t m_Title;
-        int32_t m_Slot;
-        int32_t m_Flags;
+        int32_t m_control;
+        int32_t m_faction;
+        int32_t m_title;
+        int32_t m_slot;
+        int32_t m_flags;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

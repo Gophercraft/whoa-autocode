@@ -2,8 +2,8 @@
 #ifndef DB_REC_ITEM_ARMOR_TOTAL_REC_HPP
 #define DB_REC_ITEM_ARMOR_TOTAL_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class ItemArmorTotalRec {
     public:
@@ -12,13 +12,14 @@ class ItemArmorTotalRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_ItemLevel;
-        float m_Cloth;
-        float m_Leather;
-        float m_Mail;
-        float m_Plate;
+        int32_t m_itemLevel;
+        float m_cloth;
+        float m_leather;
+        float m_mail;
+        float m_plate;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

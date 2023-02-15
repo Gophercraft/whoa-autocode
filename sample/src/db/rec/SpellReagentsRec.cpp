@@ -5,25 +5,29 @@ const char* SpellReagentsRec::GetFilename() {
     return "DBFilesClient\\SpellReagents.dbc";
 }
 
+int32_t SpellReagentsRec::GetID() {
+    return this->m_ID;
+}
+
 bool SpellReagentsRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Reagent[0], sizeof(m_Reagent[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Reagent[1], sizeof(m_Reagent[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Reagent[2], sizeof(m_Reagent[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Reagent[3], sizeof(m_Reagent[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Reagent[4], sizeof(m_Reagent[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Reagent[5], sizeof(m_Reagent[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Reagent[6], sizeof(m_Reagent[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Reagent[7], sizeof(m_Reagent[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ReagentCount[0], sizeof(m_ReagentCount[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ReagentCount[1], sizeof(m_ReagentCount[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ReagentCount[2], sizeof(m_ReagentCount[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ReagentCount[3], sizeof(m_ReagentCount[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ReagentCount[4], sizeof(m_ReagentCount[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ReagentCount[5], sizeof(m_ReagentCount[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ReagentCount[6], sizeof(m_ReagentCount[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ReagentCount[7], sizeof(m_ReagentCount[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_reagent[0], sizeof(m_reagent[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_reagent[1], sizeof(m_reagent[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_reagent[2], sizeof(m_reagent[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_reagent[3], sizeof(m_reagent[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_reagent[4], sizeof(m_reagent[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_reagent[5], sizeof(m_reagent[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_reagent[6], sizeof(m_reagent[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_reagent[7], sizeof(m_reagent[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_reagentCount[0], sizeof(m_reagentCount[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_reagentCount[1], sizeof(m_reagentCount[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_reagentCount[2], sizeof(m_reagentCount[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_reagentCount[3], sizeof(m_reagentCount[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_reagentCount[4], sizeof(m_reagentCount[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_reagentCount[5], sizeof(m_reagentCount[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_reagentCount[6], sizeof(m_reagentCount[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_reagentCount[7], sizeof(m_reagentCount[0]), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

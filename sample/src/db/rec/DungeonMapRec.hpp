@@ -2,8 +2,8 @@
 #ifndef DB_REC_DUNGEON_MAP_REC_HPP
 #define DB_REC_DUNGEON_MAP_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class DungeonMapRec {
     public:
@@ -12,15 +12,16 @@ class DungeonMapRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_MapID;
-        int32_t m_FloorIndex;
-        float m_MinX;
-        float m_MaxX;
-        float m_MinY;
-        float m_MaxY;
-        int32_t m_ParentWorldMapID;
+        int32_t m_mapID;
+        int32_t m_floorIndex;
+        float m_minX;
+        float m_maxX;
+        float m_minY;
+        float m_maxY;
+        int32_t m_parentWorldMapID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

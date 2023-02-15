@@ -5,27 +5,31 @@ const char* DestructibleModelDataRec::GetFilename() {
     return "DBFilesClient\\DestructibleModelData.dbc";
 }
 
+int32_t DestructibleModelDataRec::GetID() {
+    return this->m_ID;
+}
+
 bool DestructibleModelDataRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_State0ImpactEffectDoodadSet, sizeof(this->m_State0ImpactEffectDoodadSet), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_State0AmbientDoodadSet, sizeof(this->m_State0AmbientDoodadSet), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_State1WMO, sizeof(this->m_State1WMO), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_State1DestructionDoodadSet, sizeof(this->m_State1DestructionDoodadSet), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_State1ImpactEffectDoodadSet, sizeof(this->m_State1ImpactEffectDoodadSet), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_State1AmbientDoodadSet, sizeof(this->m_State1AmbientDoodadSet), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_State2WMO, sizeof(this->m_State2WMO), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_State2DestructionDoodadSet, sizeof(this->m_State2DestructionDoodadSet), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_State2ImpactEffectDoodadSet, sizeof(this->m_State2ImpactEffectDoodadSet), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_State2AmbientDoodadSet, sizeof(this->m_State2AmbientDoodadSet), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_State3WMO, sizeof(this->m_State3WMO), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_State3InitDoodadSet, sizeof(this->m_State3InitDoodadSet), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_State3AmbientDoodadSet, sizeof(this->m_State3AmbientDoodadSet), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EjectDirection, sizeof(this->m_EjectDirection), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RepairGroundFx, sizeof(this->m_RepairGroundFx), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_DoNotHighlight, sizeof(this->m_DoNotHighlight), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_HealEffect, sizeof(this->m_HealEffect), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_HealEffectSpeed, sizeof(this->m_HealEffectSpeed), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_state0ImpactEffectDoodadSet, sizeof(this->m_state0ImpactEffectDoodadSet), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_state0AmbientDoodadSet, sizeof(this->m_state0AmbientDoodadSet), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_state1WMO, sizeof(this->m_state1WMO), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_state1DestructionDoodadSet, sizeof(this->m_state1DestructionDoodadSet), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_state1ImpactEffectDoodadSet, sizeof(this->m_state1ImpactEffectDoodadSet), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_state1AmbientDoodadSet, sizeof(this->m_state1AmbientDoodadSet), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_state2WMO, sizeof(this->m_state2WMO), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_state2DestructionDoodadSet, sizeof(this->m_state2DestructionDoodadSet), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_state2ImpactEffectDoodadSet, sizeof(this->m_state2ImpactEffectDoodadSet), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_state2AmbientDoodadSet, sizeof(this->m_state2AmbientDoodadSet), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_state3WMO, sizeof(this->m_state3WMO), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_state3InitDoodadSet, sizeof(this->m_state3InitDoodadSet), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_state3AmbientDoodadSet, sizeof(this->m_state3AmbientDoodadSet), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_ejectDirection, sizeof(this->m_ejectDirection), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_repairGroundFx, sizeof(this->m_repairGroundFx), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_doNotHighlight, sizeof(this->m_doNotHighlight), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_healEffect, sizeof(this->m_healEffect), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_healEffectSpeed, sizeof(this->m_healEffectSpeed), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

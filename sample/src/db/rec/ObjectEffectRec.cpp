@@ -5,30 +5,34 @@ const char* ObjectEffectRec::GetFilename() {
     return "DBFilesClient\\ObjectEffect.dbc";
 }
 
+int32_t ObjectEffectRec::GetID() {
+    return this->m_ID;
+}
+
 bool ObjectEffectRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t NameOfs;
+    uint32_t nameOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &NameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ObjectEffectGroupID, sizeof(this->m_ObjectEffectGroupID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TriggerType, sizeof(this->m_TriggerType), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EventType, sizeof(this->m_EventType), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EffectRecType, sizeof(this->m_EffectRecType), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EffectRecID, sizeof(this->m_EffectRecID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Attachment, sizeof(this->m_Attachment), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Offset[0], sizeof(m_Offset[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Offset[1], sizeof(m_Offset[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Offset[2], sizeof(m_Offset[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ObjectEffectModifierID, sizeof(this->m_ObjectEffectModifierID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_objectEffectGroupID, sizeof(this->m_objectEffectGroupID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_triggerType, sizeof(this->m_triggerType), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_eventType, sizeof(this->m_eventType), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effectRecType, sizeof(this->m_effectRecType), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effectRecID, sizeof(this->m_effectRecID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_attachment, sizeof(this->m_attachment), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_offset[0], sizeof(m_offset[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_offset[1], sizeof(m_offset[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_offset[2], sizeof(m_offset[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_objectEffectModifierID, sizeof(this->m_objectEffectModifierID), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_Name = &stringBuffer[NameOfs];
+        this->m_name = &stringBuffer[nameOfs];
     } else {
-        this->m_Name = "";
+        this->m_name = "";
     }
 
     return true;

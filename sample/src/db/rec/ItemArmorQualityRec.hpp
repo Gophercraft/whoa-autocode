@@ -2,8 +2,8 @@
 #ifndef DB_REC_ITEM_ARMOR_QUALITY_REC_HPP
 #define DB_REC_ITEM_ARMOR_QUALITY_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class ItemArmorQualityRec {
     public:
@@ -12,10 +12,11 @@ class ItemArmorQualityRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        float m_Qualitymod[7];
-        int32_t m_ItemLevel;
+        float m_qualitymod[7];
+        int32_t m_itemLevel;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

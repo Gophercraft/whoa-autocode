@@ -5,14 +5,18 @@ const char* SpellShapeshiftRec::GetFilename() {
     return "DBFilesClient\\SpellShapeshift.dbc";
 }
 
+int32_t SpellShapeshiftRec::GetID() {
+    return this->m_ID;
+}
+
 bool SpellShapeshiftRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ShapeshiftExclude[0], sizeof(m_ShapeshiftExclude[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ShapeshiftExclude[1], sizeof(m_ShapeshiftExclude[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ShapeshiftMask[0], sizeof(m_ShapeshiftMask[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ShapeshiftMask[1], sizeof(m_ShapeshiftMask[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_StanceBarOrder, sizeof(this->m_StanceBarOrder), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_shapeshiftExclude[0], sizeof(m_shapeshiftExclude[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_shapeshiftExclude[1], sizeof(m_shapeshiftExclude[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_shapeshiftMask[0], sizeof(m_shapeshiftMask[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_shapeshiftMask[1], sizeof(m_shapeshiftMask[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_stanceBarOrder, sizeof(this->m_stanceBarOrder), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

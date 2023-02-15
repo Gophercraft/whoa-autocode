@@ -5,10 +5,14 @@ const char* AnimReplacementSetRec::GetFilename() {
     return "DBFilesClient\\AnimReplacementSet.dbc";
 }
 
+int32_t AnimReplacementSetRec::GetID() {
+    return this->m_ID;
+}
+
 bool AnimReplacementSetRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ExecOrder, sizeof(this->m_ExecOrder), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_execOrder, sizeof(this->m_execOrder), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

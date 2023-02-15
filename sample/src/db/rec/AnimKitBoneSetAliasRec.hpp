@@ -2,8 +2,8 @@
 #ifndef DB_REC_ANIM_KIT_BONE_SET_ALIAS_REC_HPP
 #define DB_REC_ANIM_KIT_BONE_SET_ALIAS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class AnimKitBoneSetAliasRec {
     public:
@@ -12,10 +12,11 @@ class AnimKitBoneSetAliasRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_BoneDataID;
-        int32_t m_AnimKitBoneSetID;
+        int32_t m_boneDataID;
+        int32_t m_animKitBoneSetID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

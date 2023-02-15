@@ -2,8 +2,8 @@
 #ifndef DB_REC_GLYPH_SLOT_REC_HPP
 #define DB_REC_GLYPH_SLOT_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class GlyphSlotRec {
     public:
@@ -12,10 +12,11 @@ class GlyphSlotRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Type;
-        int32_t m_Tooltip;
+        int32_t m_type;
+        int32_t m_tooltip;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

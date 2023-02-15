@@ -5,25 +5,29 @@ const char* TerrainMaterialRec::GetFilename() {
     return "DBFilesClient\\TerrainMaterial.dbc";
 }
 
+int32_t TerrainMaterialRec::GetID() {
+    return this->m_ID;
+}
+
 bool TerrainMaterialRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t NameOfs;
-    uint32_t EnvMapPathOfs;
+    uint32_t nameOfs;
+    uint32_t envMapPathOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &NameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Shader, sizeof(this->m_Shader), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &EnvMapPathOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_shader, sizeof(this->m_shader), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &envMapPathOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_Name = &stringBuffer[NameOfs];
-        this->m_EnvMapPath = &stringBuffer[EnvMapPathOfs];
+        this->m_name = &stringBuffer[nameOfs];
+        this->m_envMapPath = &stringBuffer[envMapPathOfs];
     } else {
-        this->m_Name = "";
-        this->m_EnvMapPath = "";
+        this->m_name = "";
+        this->m_envMapPath = "";
     }
 
     return true;

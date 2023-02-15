@@ -5,57 +5,61 @@ const char* SpellItemEnchantmentRec::GetFilename() {
     return "DBFilesClient\\SpellItemEnchantment.dbc";
 }
 
+int32_t SpellItemEnchantmentRec::GetID() {
+    return this->m_ID;
+}
+
 bool SpellItemEnchantmentRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t Name_langOfs[16];
-    uint32_t Name_langMask;
+    uint32_t nameOfs[16];
+    uint32_t nameMask;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Charges, sizeof(this->m_Charges), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Effect[0], sizeof(m_Effect[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Effect[1], sizeof(m_Effect[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Effect[2], sizeof(m_Effect[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EffectPointsMin[0], sizeof(m_EffectPointsMin[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EffectPointsMin[1], sizeof(m_EffectPointsMin[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EffectPointsMin[2], sizeof(m_EffectPointsMin[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EffectPointsMax[0], sizeof(m_EffectPointsMax[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EffectPointsMax[1], sizeof(m_EffectPointsMax[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EffectPointsMax[2], sizeof(m_EffectPointsMax[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EffectArg[0], sizeof(m_EffectArg[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EffectArg[1], sizeof(m_EffectArg[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EffectArg[2], sizeof(m_EffectArg[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[6], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[7], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[8], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[9], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[10], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[11], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[12], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[13], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[14], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[15], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langMask, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ItemVisual, sizeof(this->m_ItemVisual), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Flags, sizeof(this->m_Flags), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Src_itemID, sizeof(this->m_Src_itemID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Condition_ID, sizeof(this->m_Condition_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RequiredSkillID, sizeof(this->m_RequiredSkillID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RequiredSkillRank, sizeof(this->m_RequiredSkillRank), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MinLevel, sizeof(this->m_MinLevel), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_charges, sizeof(this->m_charges), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effect[0], sizeof(m_effect[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effect[1], sizeof(m_effect[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effect[2], sizeof(m_effect[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effectPointsMin[0], sizeof(m_effectPointsMin[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effectPointsMin[1], sizeof(m_effectPointsMin[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effectPointsMin[2], sizeof(m_effectPointsMin[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effectPointsMax[0], sizeof(m_effectPointsMax[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effectPointsMax[1], sizeof(m_effectPointsMax[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effectPointsMax[2], sizeof(m_effectPointsMax[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effectArg[0], sizeof(m_effectArg[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effectArg[1], sizeof(m_effectArg[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_effectArg[2], sizeof(m_effectArg[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[6], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[7], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[8], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[9], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[10], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[11], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[12], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[13], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[14], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[15], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameMask, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_itemVisual, sizeof(this->m_itemVisual), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_flags, sizeof(this->m_flags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_srcItemID, sizeof(this->m_srcItemID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_conditionID, sizeof(this->m_conditionID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_requiredSkillID, sizeof(this->m_requiredSkillID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_requiredSkillRank, sizeof(this->m_requiredSkillRank), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_minLevel, sizeof(this->m_minLevel), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_Name_lang = &stringBuffer[Name_langOfs[CURRENT_LANGUAGE]];
+        this->m_name = &stringBuffer[nameOfs[CURRENT_LANGUAGE]];
     } else {
-        this->m_Name_lang = "";
+        this->m_name = "";
     }
 
     return true;

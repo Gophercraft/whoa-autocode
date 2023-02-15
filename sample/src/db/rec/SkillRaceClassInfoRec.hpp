@@ -2,8 +2,8 @@
 #ifndef DB_REC_SKILL_RACE_CLASS_INFO_REC_HPP
 #define DB_REC_SKILL_RACE_CLASS_INFO_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SkillRaceClassInfoRec {
     public:
@@ -12,15 +12,16 @@ class SkillRaceClassInfoRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_SkillID;
-        int32_t m_RaceMask;
-        int32_t m_ClassMask;
-        int32_t m_Flags;
-        int32_t m_MinLevel;
-        int32_t m_SkillTierID;
-        int32_t m_SkillCostIndex;
+        int32_t m_skillID;
+        int32_t m_raceMask;
+        int32_t m_classMask;
+        int32_t m_flags;
+        int32_t m_minLevel;
+        int32_t m_skillTierID;
+        int32_t m_skillCostIndex;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

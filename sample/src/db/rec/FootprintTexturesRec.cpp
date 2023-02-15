@@ -5,20 +5,24 @@ const char* FootprintTexturesRec::GetFilename() {
     return "DBFilesClient\\FootprintTextures.dbc";
 }
 
+int32_t FootprintTexturesRec::GetID() {
+    return this->m_ID;
+}
+
 bool FootprintTexturesRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t FootstepFilenameOfs;
+    uint32_t footstepFilenameOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &FootstepFilenameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &footstepFilenameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_FootstepFilename = &stringBuffer[FootstepFilenameOfs];
+        this->m_footstepFilename = &stringBuffer[footstepFilenameOfs];
     } else {
-        this->m_FootstepFilename = "";
+        this->m_footstepFilename = "";
     }
 
     return true;

@@ -5,12 +5,16 @@ const char* CurrencyTypesRec::GetFilename() {
     return "DBFilesClient\\CurrencyTypes.dbc";
 }
 
+int32_t CurrencyTypesRec::GetID() {
+    return this->m_ID;
+}
+
 bool CurrencyTypesRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ItemID, sizeof(this->m_ItemID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_CategoryID, sizeof(this->m_CategoryID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_BitIndex, sizeof(this->m_BitIndex), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_itemID, sizeof(this->m_itemID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_categoryID, sizeof(this->m_categoryID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_bitIndex, sizeof(this->m_bitIndex), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

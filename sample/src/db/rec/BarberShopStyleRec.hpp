@@ -2,8 +2,8 @@
 #ifndef DB_REC_BARBER_SHOP_STYLE_REC_HPP
 #define DB_REC_BARBER_SHOP_STYLE_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class BarberShopStyleRec {
     public:
@@ -12,15 +12,16 @@ class BarberShopStyleRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Type;
-        const char* m_DisplayName_lang;
-        const char* m_Description_lang;
-        float m_Cost_Modifier;
-        int32_t m_Race;
-        int32_t m_Sex;
-        int32_t m_Data;
+        int32_t m_type;
+        const char* m_displayName;
+        const char* m_description;
+        float m_costModifier;
+        int32_t m_race;
+        int32_t m_sex;
+        int32_t m_data;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

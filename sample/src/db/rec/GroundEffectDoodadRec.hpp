@@ -2,8 +2,8 @@
 #ifndef DB_REC_GROUND_EFFECT_DOODAD_REC_HPP
 #define DB_REC_GROUND_EFFECT_DOODAD_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class GroundEffectDoodadRec {
     public:
@@ -12,10 +12,11 @@ class GroundEffectDoodadRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        const char* m_Doodadpath;
-        int32_t m_Flags;
+        const char* m_doodadpath;
+        int32_t m_flags;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

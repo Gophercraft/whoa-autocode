@@ -5,35 +5,39 @@ const char* CameraModeRec::GetFilename() {
     return "DBFilesClient\\CameraMode.dbc";
 }
 
+int32_t CameraModeRec::GetID() {
+    return this->m_ID;
+}
+
 bool CameraModeRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t NameOfs;
+    uint32_t nameOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &NameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Type, sizeof(this->m_Type), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Flags, sizeof(this->m_Flags), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PositionOffset[0], sizeof(m_PositionOffset[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PositionOffset[1], sizeof(m_PositionOffset[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PositionOffset[2], sizeof(m_PositionOffset[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TargetOffset[0], sizeof(m_TargetOffset[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TargetOffset[1], sizeof(m_TargetOffset[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TargetOffset[2], sizeof(m_TargetOffset[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PositionSmoothing, sizeof(this->m_PositionSmoothing), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RotationSmoothing, sizeof(this->m_RotationSmoothing), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_FieldOfView, sizeof(this->m_FieldOfView), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_LockedPositionOffsetBase, sizeof(this->m_LockedPositionOffsetBase), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_LockedPositionOffsetDirection, sizeof(this->m_LockedPositionOffsetDirection), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_LockedTargetOffsetBase, sizeof(this->m_LockedTargetOffsetBase), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_LockedTargetOffsetDirection, sizeof(this->m_LockedTargetOffsetDirection), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_type, sizeof(this->m_type), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_flags, sizeof(this->m_flags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_positionOffset[0], sizeof(m_positionOffset[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_positionOffset[1], sizeof(m_positionOffset[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_positionOffset[2], sizeof(m_positionOffset[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_targetOffset[0], sizeof(m_targetOffset[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_targetOffset[1], sizeof(m_targetOffset[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_targetOffset[2], sizeof(m_targetOffset[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_positionSmoothing, sizeof(this->m_positionSmoothing), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_rotationSmoothing, sizeof(this->m_rotationSmoothing), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_fieldOfView, sizeof(this->m_fieldOfView), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_lockedPositionOffsetBase, sizeof(this->m_lockedPositionOffsetBase), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_lockedPositionOffsetDirection, sizeof(this->m_lockedPositionOffsetDirection), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_lockedTargetOffsetBase, sizeof(this->m_lockedTargetOffsetBase), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_lockedTargetOffsetDirection, sizeof(this->m_lockedTargetOffsetDirection), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_Name = &stringBuffer[NameOfs];
+        this->m_name = &stringBuffer[nameOfs];
     } else {
-        this->m_Name = "";
+        this->m_name = "";
     }
 
     return true;

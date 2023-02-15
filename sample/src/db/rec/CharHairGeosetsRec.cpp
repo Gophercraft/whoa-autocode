@@ -5,14 +5,18 @@ const char* CharHairGeosetsRec::GetFilename() {
     return "DBFilesClient\\CharHairGeosets.dbc";
 }
 
+int32_t CharHairGeosetsRec::GetID() {
+    return this->m_ID;
+}
+
 bool CharHairGeosetsRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RaceID, sizeof(this->m_RaceID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SexID, sizeof(this->m_SexID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_VariationID, sizeof(this->m_VariationID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_GeosetID, sizeof(this->m_GeosetID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Showscalp, sizeof(this->m_Showscalp), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_raceID, sizeof(this->m_raceID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_sexID, sizeof(this->m_sexID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_variationID, sizeof(this->m_variationID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_geosetID, sizeof(this->m_geosetID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_showscalp, sizeof(this->m_showscalp), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

@@ -5,15 +5,19 @@ const char* SpellCastingRequirementsRec::GetFilename() {
     return "DBFilesClient\\SpellCastingRequirements.dbc";
 }
 
+int32_t SpellCastingRequirementsRec::GetID() {
+    return this->m_ID;
+}
+
 bool SpellCastingRequirementsRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_FacingCasterFlags, sizeof(this->m_FacingCasterFlags), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MinFactionID, sizeof(this->m_MinFactionID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MinReputation, sizeof(this->m_MinReputation), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RequiredAreasID, sizeof(this->m_RequiredAreasID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RequiredAuraVision, sizeof(this->m_RequiredAuraVision), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RequiresSpellFocus, sizeof(this->m_RequiresSpellFocus), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_facingCasterFlags, sizeof(this->m_facingCasterFlags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_minFactionID, sizeof(this->m_minFactionID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_minReputation, sizeof(this->m_minReputation), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_requiredAreasID, sizeof(this->m_requiredAreasID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_requiredAuraVision, sizeof(this->m_requiredAuraVision), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_requiresSpellFocus, sizeof(this->m_requiresSpellFocus), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

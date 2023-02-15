@@ -2,8 +2,8 @@
 #ifndef DB_REC_ITEM_BAG_FAMILY_REC_HPP
 #define DB_REC_ITEM_BAG_FAMILY_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class ItemBagFamilyRec {
     public:
@@ -12,9 +12,10 @@ class ItemBagFamilyRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        const char* m_Name_lang;
+        const char* m_name;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

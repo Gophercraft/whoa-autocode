@@ -2,8 +2,8 @@
 #ifndef DB_REC_WORLD_MAP_OVERLAY_REC_HPP
 #define DB_REC_WORLD_MAP_OVERLAY_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class WorldMapOverlayRec {
     public:
@@ -12,21 +12,22 @@ class WorldMapOverlayRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_MapAreaID;
-        int32_t m_AreaID[4];
-        int32_t m_MapPointX;
-        int32_t m_MapPointY;
-        const char* m_TextureName;
-        int32_t m_TextureWidth;
-        int32_t m_TextureHeight;
-        int32_t m_OffsetX;
-        int32_t m_OffsetY;
-        int32_t m_HitRectTop;
-        int32_t m_HitRectLeft;
-        int32_t m_HitRectBottom;
-        int32_t m_HitRectRight;
+        int32_t m_mapAreaID;
+        int32_t m_areaID[4];
+        int32_t m_mapPointX;
+        int32_t m_mapPointY;
+        const char* m_textureName;
+        int32_t m_textureWidth;
+        int32_t m_textureHeight;
+        int32_t m_offsetX;
+        int32_t m_offsetY;
+        int32_t m_hitRectTop;
+        int32_t m_hitRectLeft;
+        int32_t m_hitRectBottom;
+        int32_t m_hitRectRight;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

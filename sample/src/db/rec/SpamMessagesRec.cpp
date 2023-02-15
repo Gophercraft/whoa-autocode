@@ -5,20 +5,24 @@ const char* SpamMessagesRec::GetFilename() {
     return "DBFilesClient\\SpamMessages.dbc";
 }
 
+int32_t SpamMessagesRec::GetID() {
+    return this->m_ID;
+}
+
 bool SpamMessagesRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t TextOfs;
+    uint32_t textOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &TextOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &textOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_Text = &stringBuffer[TextOfs];
+        this->m_text = &stringBuffer[textOfs];
     } else {
-        this->m_Text = "";
+        this->m_text = "";
     }
 
     return true;

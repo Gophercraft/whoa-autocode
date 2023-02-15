@@ -5,21 +5,25 @@ const char* SoundFilterElemRec::GetFilename() {
     return "DBFilesClient\\SoundFilterElem.dbc";
 }
 
+int32_t SoundFilterElemRec::GetID() {
+    return this->m_ID;
+}
+
 bool SoundFilterElemRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SoundFilterID, sizeof(this->m_SoundFilterID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_OrderIndex, sizeof(this->m_OrderIndex), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_FilterType, sizeof(this->m_FilterType), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Params[0], sizeof(m_Params[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Params[1], sizeof(m_Params[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Params[2], sizeof(m_Params[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Params[3], sizeof(m_Params[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Params[4], sizeof(m_Params[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Params[5], sizeof(m_Params[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Params[6], sizeof(m_Params[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Params[7], sizeof(m_Params[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Params[8], sizeof(m_Params[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_soundFilterID, sizeof(this->m_soundFilterID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_orderIndex, sizeof(this->m_orderIndex), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_filterType, sizeof(this->m_filterType), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_params[0], sizeof(m_params[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_params[1], sizeof(m_params[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_params[2], sizeof(m_params[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_params[3], sizeof(m_params[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_params[4], sizeof(m_params[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_params[5], sizeof(m_params[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_params[6], sizeof(m_params[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_params[7], sizeof(m_params[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_params[8], sizeof(m_params[0]), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

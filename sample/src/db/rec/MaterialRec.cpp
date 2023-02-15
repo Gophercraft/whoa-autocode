@@ -5,13 +5,17 @@ const char* MaterialRec::GetFilename() {
     return "DBFilesClient\\Material.dbc";
 }
 
+int32_t MaterialRec::GetID() {
+    return this->m_ID;
+}
+
 bool MaterialRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Flags, sizeof(this->m_Flags), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_FoleySoundID, sizeof(this->m_FoleySoundID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SheatheSoundID, sizeof(this->m_SheatheSoundID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_UnsheatheSoundID, sizeof(this->m_UnsheatheSoundID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_flags, sizeof(this->m_flags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_foleySoundID, sizeof(this->m_foleySoundID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_sheatheSoundID, sizeof(this->m_sheatheSoundID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_unsheatheSoundID, sizeof(this->m_unsheatheSoundID), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

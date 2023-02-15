@@ -2,8 +2,8 @@
 #ifndef DB_REC_MOVIE_VARIATION_REC_HPP
 #define DB_REC_MOVIE_VARIATION_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class MovieVariationRec {
     public:
@@ -12,10 +12,11 @@ class MovieVariationRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_MovieID;
-        int32_t m_FileDataID;
+        int32_t m_movieID;
+        int32_t m_fileDataID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

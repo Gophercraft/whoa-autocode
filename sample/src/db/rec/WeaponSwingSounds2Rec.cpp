@@ -5,12 +5,16 @@ const char* WeaponSwingSounds2Rec::GetFilename() {
     return "DBFilesClient\\WeaponSwingSounds2.dbc";
 }
 
+int32_t WeaponSwingSounds2Rec::GetID() {
+    return this->m_ID;
+}
+
 bool WeaponSwingSounds2Rec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SwingType, sizeof(this->m_SwingType), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Crit, sizeof(this->m_Crit), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SoundID, sizeof(this->m_SoundID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_swingType, sizeof(this->m_swingType), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_crit, sizeof(this->m_crit), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_soundID, sizeof(this->m_soundID), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

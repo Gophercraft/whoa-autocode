@@ -2,8 +2,8 @@
 #ifndef DB_REC_PET_PERSONALITY_REC_HPP
 #define DB_REC_PET_PERSONALITY_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class PetPersonalityRec {
     public:
@@ -12,11 +12,12 @@ class PetPersonalityRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        const char* m_Name_lang;
-        int32_t m_HappinessThreshold[3];
-        float m_HappinessDamage[3];
+        const char* m_name;
+        int32_t m_happinessThreshold[3];
+        float m_happinessDamage[3];
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

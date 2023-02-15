@@ -5,69 +5,73 @@ const char* SpellChainEffectsRec::GetFilename() {
     return "DBFilesClient\\SpellChainEffects.dbc";
 }
 
+int32_t SpellChainEffectsRec::GetID() {
+    return this->m_ID;
+}
+
 bool SpellChainEffectsRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t TextureOfs;
-    uint32_t ComboOfs;
+    uint32_t textureOfs;
+    uint32_t comboOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AvgSegLen, sizeof(this->m_AvgSegLen), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Width, sizeof(this->m_Width), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_NoiseScale, sizeof(this->m_NoiseScale), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TexCoordScale, sizeof(this->m_TexCoordScale), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SegDuration, sizeof(this->m_SegDuration), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SegDelay, sizeof(this->m_SegDelay), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &TextureOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Flags, sizeof(this->m_Flags), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_JointCount, sizeof(this->m_JointCount), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_JointOffsetRadius, sizeof(this->m_JointOffsetRadius), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_JointsPerMinorJoint, sizeof(this->m_JointsPerMinorJoint), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MinorJointsPerMajorJoint, sizeof(this->m_MinorJointsPerMajorJoint), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MinorJointScale, sizeof(this->m_MinorJointScale), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MajorJointScale, sizeof(this->m_MajorJointScale), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_JointMoveSpeed, sizeof(this->m_JointMoveSpeed), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_JointSmoothness, sizeof(this->m_JointSmoothness), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MinDurationBetweenJointJumps, sizeof(this->m_MinDurationBetweenJointJumps), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MaxDurationBetweenJointJumps, sizeof(this->m_MaxDurationBetweenJointJumps), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_WaveHeight, sizeof(this->m_WaveHeight), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_WaveFreq, sizeof(this->m_WaveFreq), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_WaveSpeed, sizeof(this->m_WaveSpeed), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MinWaveAngle, sizeof(this->m_MinWaveAngle), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MaxWaveAngle, sizeof(this->m_MaxWaveAngle), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MinWaveSpin, sizeof(this->m_MinWaveSpin), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MaxWaveSpin, sizeof(this->m_MaxWaveSpin), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ArcHeight, sizeof(this->m_ArcHeight), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MinArcAngle, sizeof(this->m_MinArcAngle), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MaxArcAngle, sizeof(this->m_MaxArcAngle), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MinArcSpin, sizeof(this->m_MinArcSpin), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MaxArcSpin, sizeof(this->m_MaxArcSpin), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_DelayBetweenEffects, sizeof(this->m_DelayBetweenEffects), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MinFlickerOnDuration, sizeof(this->m_MinFlickerOnDuration), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MaxFlickerOnDuration, sizeof(this->m_MaxFlickerOnDuration), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MinFlickerOffDuration, sizeof(this->m_MinFlickerOffDuration), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MaxFlickerOffDuration, sizeof(this->m_MaxFlickerOffDuration), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PulseSpeed, sizeof(this->m_PulseSpeed), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PulseOnLength, sizeof(this->m_PulseOnLength), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PulseFadeLength, sizeof(this->m_PulseFadeLength), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Alpha, sizeof(this->m_Alpha), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Red, sizeof(this->m_Red), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Green, sizeof(this->m_Green), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Blue, sizeof(this->m_Blue), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_BlendMode, sizeof(this->m_BlendMode), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &ComboOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RenderLayer, sizeof(this->m_RenderLayer), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TextureLength, sizeof(this->m_TextureLength), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_WavePhase, sizeof(this->m_WavePhase), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_avgSegLen, sizeof(this->m_avgSegLen), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_width, sizeof(this->m_width), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_noiseScale, sizeof(this->m_noiseScale), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_texCoordScale, sizeof(this->m_texCoordScale), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_segDuration, sizeof(this->m_segDuration), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_segDelay, sizeof(this->m_segDelay), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &textureOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_flags, sizeof(this->m_flags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_jointCount, sizeof(this->m_jointCount), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_jointOffsetRadius, sizeof(this->m_jointOffsetRadius), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_jointsPerMinorJoint, sizeof(this->m_jointsPerMinorJoint), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_minorJointsPerMajorJoint, sizeof(this->m_minorJointsPerMajorJoint), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_minorJointScale, sizeof(this->m_minorJointScale), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_majorJointScale, sizeof(this->m_majorJointScale), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_jointMoveSpeed, sizeof(this->m_jointMoveSpeed), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_jointSmoothness, sizeof(this->m_jointSmoothness), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_minDurationBetweenJointJumps, sizeof(this->m_minDurationBetweenJointJumps), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_maxDurationBetweenJointJumps, sizeof(this->m_maxDurationBetweenJointJumps), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_waveHeight, sizeof(this->m_waveHeight), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_waveFreq, sizeof(this->m_waveFreq), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_waveSpeed, sizeof(this->m_waveSpeed), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_minWaveAngle, sizeof(this->m_minWaveAngle), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_maxWaveAngle, sizeof(this->m_maxWaveAngle), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_minWaveSpin, sizeof(this->m_minWaveSpin), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_maxWaveSpin, sizeof(this->m_maxWaveSpin), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_arcHeight, sizeof(this->m_arcHeight), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_minArcAngle, sizeof(this->m_minArcAngle), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_maxArcAngle, sizeof(this->m_maxArcAngle), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_minArcSpin, sizeof(this->m_minArcSpin), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_maxArcSpin, sizeof(this->m_maxArcSpin), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_delayBetweenEffects, sizeof(this->m_delayBetweenEffects), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_minFlickerOnDuration, sizeof(this->m_minFlickerOnDuration), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_maxFlickerOnDuration, sizeof(this->m_maxFlickerOnDuration), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_minFlickerOffDuration, sizeof(this->m_minFlickerOffDuration), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_maxFlickerOffDuration, sizeof(this->m_maxFlickerOffDuration), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_pulseSpeed, sizeof(this->m_pulseSpeed), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_pulseOnLength, sizeof(this->m_pulseOnLength), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_pulseFadeLength, sizeof(this->m_pulseFadeLength), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_alpha, sizeof(this->m_alpha), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_red, sizeof(this->m_red), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_green, sizeof(this->m_green), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_blue, sizeof(this->m_blue), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_blendMode, sizeof(this->m_blendMode), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &comboOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_renderLayer, sizeof(this->m_renderLayer), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_textureLength, sizeof(this->m_textureLength), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_wavePhase, sizeof(this->m_wavePhase), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_Texture = &stringBuffer[TextureOfs];
-        this->m_Combo = &stringBuffer[ComboOfs];
+        this->m_texture = &stringBuffer[textureOfs];
+        this->m_combo = &stringBuffer[comboOfs];
     } else {
-        this->m_Texture = "";
-        this->m_Combo = "";
+        this->m_texture = "";
+        this->m_combo = "";
     }
 
     return true;

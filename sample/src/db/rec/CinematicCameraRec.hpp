@@ -2,8 +2,8 @@
 #ifndef DB_REC_CINEMATIC_CAMERA_REC_HPP
 #define DB_REC_CINEMATIC_CAMERA_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class CinematicCameraRec {
     public:
@@ -12,12 +12,13 @@ class CinematicCameraRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        const char* m_Model;
-        int32_t m_SoundID;
-        float m_Origin[3];
-        float m_OriginFacing;
+        const char* m_model;
+        int32_t m_soundID;
+        float m_origin[3];
+        float m_originFacing;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

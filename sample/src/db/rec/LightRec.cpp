@@ -5,23 +5,27 @@ const char* LightRec::GetFilename() {
     return "DBFilesClient\\Light.dbc";
 }
 
+int32_t LightRec::GetID() {
+    return this->m_ID;
+}
+
 bool LightRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ContinentID, sizeof(this->m_ContinentID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_GameCoords[0], sizeof(m_GameCoords[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_GameCoords[1], sizeof(m_GameCoords[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_GameCoords[2], sizeof(m_GameCoords[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_GameFalloffStart, sizeof(this->m_GameFalloffStart), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_GameFalloffEnd, sizeof(this->m_GameFalloffEnd), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_LightParamsID[0], sizeof(m_LightParamsID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_LightParamsID[1], sizeof(m_LightParamsID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_LightParamsID[2], sizeof(m_LightParamsID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_LightParamsID[3], sizeof(m_LightParamsID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_LightParamsID[4], sizeof(m_LightParamsID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_LightParamsID[5], sizeof(m_LightParamsID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_LightParamsID[6], sizeof(m_LightParamsID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_LightParamsID[7], sizeof(m_LightParamsID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_continentID, sizeof(this->m_continentID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_gameCoords[0], sizeof(m_gameCoords[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_gameCoords[1], sizeof(m_gameCoords[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_gameCoords[2], sizeof(m_gameCoords[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_gameFalloffStart, sizeof(this->m_gameFalloffStart), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_gameFalloffEnd, sizeof(this->m_gameFalloffEnd), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_lightParamsID[0], sizeof(m_lightParamsID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_lightParamsID[1], sizeof(m_lightParamsID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_lightParamsID[2], sizeof(m_lightParamsID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_lightParamsID[3], sizeof(m_lightParamsID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_lightParamsID[4], sizeof(m_lightParamsID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_lightParamsID[5], sizeof(m_lightParamsID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_lightParamsID[6], sizeof(m_lightParamsID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_lightParamsID[7], sizeof(m_lightParamsID[0]), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

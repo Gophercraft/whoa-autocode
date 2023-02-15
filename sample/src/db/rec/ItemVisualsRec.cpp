@@ -5,14 +5,18 @@ const char* ItemVisualsRec::GetFilename() {
     return "DBFilesClient\\ItemVisuals.dbc";
 }
 
+int32_t ItemVisualsRec::GetID() {
+    return this->m_ID;
+}
+
 bool ItemVisualsRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Slot[0], sizeof(m_Slot[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Slot[1], sizeof(m_Slot[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Slot[2], sizeof(m_Slot[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Slot[3], sizeof(m_Slot[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Slot[4], sizeof(m_Slot[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_slot[0], sizeof(m_slot[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_slot[1], sizeof(m_slot[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_slot[2], sizeof(m_slot[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_slot[3], sizeof(m_slot[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_slot[4], sizeof(m_slot[0]), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

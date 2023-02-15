@@ -2,8 +2,8 @@
 #ifndef DB_REC_SPELL_VISUAL_KIT_REC_HPP
 #define DB_REC_SPELL_VISUAL_KIT_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SpellVisualKitRec {
     public:
@@ -12,28 +12,29 @@ class SpellVisualKitRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_StartAnimID;
-        int32_t m_AnimID;
-        int32_t m_HeadEffect;
-        int32_t m_ChestEffect;
-        int32_t m_BaseEffect;
-        int32_t m_LeftHandEffect;
-        int32_t m_RightHandEffect;
-        int32_t m_BreathEffect;
-        int32_t m_LeftWeaponEffect;
-        int32_t m_RightWeaponEffect;
-        int32_t m_SpecialEffect[3];
-        int32_t m_WorldEffect;
-        int32_t m_SoundID;
-        int32_t m_ShakeID;
-        int32_t m_CharProc[4];
-        float m_CharParamZero[4];
-        float m_CharParamOne[4];
-        float m_CharParamTwo[4];
-        float m_CharParamThree[4];
-        int32_t m_Flags;
+        int32_t m_startAnimID;
+        int32_t m_animID;
+        int32_t m_headEffect;
+        int32_t m_chestEffect;
+        int32_t m_baseEffect;
+        int32_t m_leftHandEffect;
+        int32_t m_rightHandEffect;
+        int32_t m_breathEffect;
+        int32_t m_leftWeaponEffect;
+        int32_t m_rightWeaponEffect;
+        int32_t m_specialEffect[3];
+        int32_t m_worldEffect;
+        int32_t m_soundID;
+        int32_t m_shakeID;
+        int32_t m_charProc[4];
+        float m_charParamZero[4];
+        float m_charParamOne[4];
+        float m_charParamTwo[4];
+        float m_charParamThree[4];
+        int32_t m_flags;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

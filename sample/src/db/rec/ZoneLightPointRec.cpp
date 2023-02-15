@@ -5,13 +5,17 @@ const char* ZoneLightPointRec::GetFilename() {
     return "DBFilesClient\\ZoneLightPoint.dbc";
 }
 
+int32_t ZoneLightPointRec::GetID() {
+    return this->m_ID;
+}
+
 bool ZoneLightPointRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ZoneLightID, sizeof(this->m_ZoneLightID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Pos[0], sizeof(m_Pos[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Pos[1], sizeof(m_Pos[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PointOrder, sizeof(this->m_PointOrder), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_zoneLightID, sizeof(this->m_zoneLightID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_pos[0], sizeof(m_pos[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_pos[1], sizeof(m_pos[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_pointOrder, sizeof(this->m_pointOrder), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

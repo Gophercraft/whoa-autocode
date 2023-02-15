@@ -2,8 +2,8 @@
 #ifndef DB_REC_SOUND_EMITTERS_REC_HPP
 #define DB_REC_SOUND_EMITTERS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SoundEmittersRec {
     public:
@@ -12,13 +12,14 @@ class SoundEmittersRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        float m_Position[3];
-        float m_Direction[3];
-        int32_t m_SoundEntryAdvancedID;
-        int32_t m_MapID;
-        const char* m_Name;
+        float m_position[3];
+        float m_direction[3];
+        int32_t m_soundEntryAdvancedID;
+        int32_t m_mapID;
+        const char* m_name;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

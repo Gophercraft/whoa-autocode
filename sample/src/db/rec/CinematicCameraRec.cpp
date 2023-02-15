@@ -5,25 +5,29 @@ const char* CinematicCameraRec::GetFilename() {
     return "DBFilesClient\\CinematicCamera.dbc";
 }
 
+int32_t CinematicCameraRec::GetID() {
+    return this->m_ID;
+}
+
 bool CinematicCameraRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t ModelOfs;
+    uint32_t modelOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &ModelOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SoundID, sizeof(this->m_SoundID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Origin[0], sizeof(m_Origin[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Origin[1], sizeof(m_Origin[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Origin[2], sizeof(m_Origin[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_OriginFacing, sizeof(this->m_OriginFacing), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &modelOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_soundID, sizeof(this->m_soundID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_origin[0], sizeof(m_origin[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_origin[1], sizeof(m_origin[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_origin[2], sizeof(m_origin[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_originFacing, sizeof(this->m_originFacing), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_Model = &stringBuffer[ModelOfs];
+        this->m_model = &stringBuffer[modelOfs];
     } else {
-        this->m_Model = "";
+        this->m_model = "";
     }
 
     return true;

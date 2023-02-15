@@ -5,10 +5,14 @@ const char* AnimKitConfigRec::GetFilename() {
     return "DBFilesClient\\AnimKitConfig.dbc";
 }
 
+int32_t AnimKitConfigRec::GetID() {
+    return this->m_ID;
+}
+
 bool AnimKitConfigRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ConfigFlags, sizeof(this->m_ConfigFlags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_configFlags, sizeof(this->m_configFlags), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

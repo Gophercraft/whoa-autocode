@@ -2,8 +2,8 @@
 #ifndef DB_REC_ACHIEVEMENT_CRITERIA_REC_HPP
 #define DB_REC_ACHIEVEMENT_CRITERIA_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class Achievement_CriteriaRec {
     public:
@@ -12,22 +12,23 @@ class Achievement_CriteriaRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Achievement_ID;
-        int32_t m_Type;
-        int32_t m_Asset_ID;
-        int32_t m_Quantity;
-        int32_t m_Start_event;
-        int32_t m_Start_asset;
-        int32_t m_Fail_event;
-        int32_t m_Fail_asset;
-        const char* m_Description_lang;
-        int32_t m_Flags;
-        int32_t m_Timer_start_event;
-        int32_t m_Timer_asset_ID;
-        int32_t m_Timer_time;
-        int32_t m_Ui_order;
+        int32_t m_achievementID;
+        int32_t m_type;
+        int32_t m_assetID;
+        int32_t m_quantity;
+        int32_t m_startEvent;
+        int32_t m_startAsset;
+        int32_t m_failEvent;
+        int32_t m_failAsset;
+        const char* m_description;
+        int32_t m_flags;
+        int32_t m_timerStartEvent;
+        int32_t m_timerAssetID;
+        int32_t m_timerTime;
+        int32_t m_uiOrder;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

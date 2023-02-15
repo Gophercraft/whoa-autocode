@@ -5,37 +5,41 @@ const char* EmotesTextRec::GetFilename() {
     return "DBFilesClient\\EmotesText.dbc";
 }
 
+int32_t EmotesTextRec::GetID() {
+    return this->m_ID;
+}
+
 bool EmotesTextRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t NameOfs;
+    uint32_t nameOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &NameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EmoteID, sizeof(this->m_EmoteID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EmoteText[0], sizeof(m_EmoteText[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EmoteText[1], sizeof(m_EmoteText[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EmoteText[2], sizeof(m_EmoteText[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EmoteText[3], sizeof(m_EmoteText[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EmoteText[4], sizeof(m_EmoteText[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EmoteText[5], sizeof(m_EmoteText[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EmoteText[6], sizeof(m_EmoteText[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EmoteText[7], sizeof(m_EmoteText[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EmoteText[8], sizeof(m_EmoteText[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EmoteText[9], sizeof(m_EmoteText[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EmoteText[10], sizeof(m_EmoteText[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EmoteText[11], sizeof(m_EmoteText[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EmoteText[12], sizeof(m_EmoteText[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EmoteText[13], sizeof(m_EmoteText[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EmoteText[14], sizeof(m_EmoteText[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_EmoteText[15], sizeof(m_EmoteText[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_emoteID, sizeof(this->m_emoteID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_emoteText[0], sizeof(m_emoteText[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_emoteText[1], sizeof(m_emoteText[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_emoteText[2], sizeof(m_emoteText[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_emoteText[3], sizeof(m_emoteText[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_emoteText[4], sizeof(m_emoteText[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_emoteText[5], sizeof(m_emoteText[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_emoteText[6], sizeof(m_emoteText[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_emoteText[7], sizeof(m_emoteText[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_emoteText[8], sizeof(m_emoteText[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_emoteText[9], sizeof(m_emoteText[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_emoteText[10], sizeof(m_emoteText[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_emoteText[11], sizeof(m_emoteText[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_emoteText[12], sizeof(m_emoteText[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_emoteText[13], sizeof(m_emoteText[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_emoteText[14], sizeof(m_emoteText[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_emoteText[15], sizeof(m_emoteText[0]), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_Name = &stringBuffer[NameOfs];
+        this->m_name = &stringBuffer[nameOfs];
     } else {
-        this->m_Name = "";
+        this->m_name = "";
     }
 
     return true;

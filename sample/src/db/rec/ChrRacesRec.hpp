@@ -2,8 +2,8 @@
 #ifndef DB_REC_CHR_RACES_REC_HPP
 #define DB_REC_CHR_RACES_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class ChrRacesRec {
     public:
@@ -12,27 +12,28 @@ class ChrRacesRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Flags;
-        int32_t m_FactionID;
-        int32_t m_ExplorationSoundID;
-        int32_t m_MaleDisplayID;
-        int32_t m_FemaleDisplayID;
-        const char* m_ClientPrefix;
-        int32_t m_BaseLanguage;
-        int32_t m_CreatureType;
-        int32_t m_ResSicknessSpellID;
-        int32_t m_SplashSoundID;
-        const char* m_ClientFileString;
-        int32_t m_CinematicSequenceID;
-        int32_t m_Alliance;
-        const char* m_Name_lang;
-        const char* m_Name_female_lang;
-        const char* m_Name_male_lang;
-        const char* m_FacialHairCustomization[2];
-        const char* m_HairCustomization;
-        int32_t m_Required_expansion;
+        int32_t m_flags;
+        int32_t m_factionID;
+        int32_t m_explorationSoundID;
+        int32_t m_maleDisplayID;
+        int32_t m_femaleDisplayID;
+        const char* m_clientPrefix;
+        int32_t m_baseLanguage;
+        int32_t m_creatureType;
+        int32_t m_resSicknessSpellID;
+        int32_t m_splashSoundID;
+        const char* m_clientFileString;
+        int32_t m_cinematicSequenceID;
+        int32_t m_alliance;
+        const char* m_name;
+        const char* m_nameFemale;
+        const char* m_nameMale;
+        const char* m_facialHairCustomization[2];
+        const char* m_hairCustomization;
+        int32_t m_requiredExpansion;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

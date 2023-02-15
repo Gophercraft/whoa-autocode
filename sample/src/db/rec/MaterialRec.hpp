@@ -2,8 +2,8 @@
 #ifndef DB_REC_MATERIAL_REC_HPP
 #define DB_REC_MATERIAL_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class MaterialRec {
     public:
@@ -12,12 +12,13 @@ class MaterialRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Flags;
-        int32_t m_FoleySoundID;
-        int32_t m_SheatheSoundID;
-        int32_t m_UnsheatheSoundID;
+        int32_t m_flags;
+        int32_t m_foleySoundID;
+        int32_t m_sheatheSoundID;
+        int32_t m_unsheatheSoundID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

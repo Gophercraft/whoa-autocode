@@ -5,14 +5,18 @@ const char* SummonPropertiesRec::GetFilename() {
     return "DBFilesClient\\SummonProperties.dbc";
 }
 
+int32_t SummonPropertiesRec::GetID() {
+    return this->m_ID;
+}
+
 bool SummonPropertiesRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Control, sizeof(this->m_Control), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Faction, sizeof(this->m_Faction), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Title, sizeof(this->m_Title), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Slot, sizeof(this->m_Slot), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Flags, sizeof(this->m_Flags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_control, sizeof(this->m_control), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_faction, sizeof(this->m_faction), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_title, sizeof(this->m_title), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_slot, sizeof(this->m_slot), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_flags, sizeof(this->m_flags), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

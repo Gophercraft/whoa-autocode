@@ -2,8 +2,8 @@
 #ifndef DB_REC_QUEST_INFO_REC_HPP
 #define DB_REC_QUEST_INFO_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class QuestInfoRec {
     public:
@@ -12,9 +12,10 @@ class QuestInfoRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        const char* m_InfoName_lang;
+        const char* m_infoName;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

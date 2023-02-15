@@ -2,8 +2,8 @@
 #ifndef DB_REC_SPELL_MISSILE_REC_HPP
 #define DB_REC_SPELL_MISSILE_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SpellMissileRec {
     public:
@@ -12,22 +12,23 @@ class SpellMissileRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Flags;
-        float m_DefaultPitchMin;
-        float m_DefaultPitchMax;
-        float m_DefaultSpeedMin;
-        float m_DefaultSpeedMax;
-        float m_RandomizeFacingMin;
-        float m_RandomizeFacingMax;
-        float m_RandomizePitchMin;
-        float m_RandomizePitchMax;
-        float m_RandomizeSpeedMin;
-        float m_RandomizeSpeedMax;
-        float m_Gravity;
-        float m_MaxDuration;
-        float m_CollisionRadius;
+        int32_t m_flags;
+        float m_defaultPitchMin;
+        float m_defaultPitchMax;
+        float m_defaultSpeedMin;
+        float m_defaultSpeedMax;
+        float m_randomizeFacingMin;
+        float m_randomizeFacingMax;
+        float m_randomizePitchMin;
+        float m_randomizePitchMax;
+        float m_randomizeSpeedMin;
+        float m_randomizeSpeedMax;
+        float m_gravity;
+        float m_maxDuration;
+        float m_collisionRadius;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

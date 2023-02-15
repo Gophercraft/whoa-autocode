@@ -2,8 +2,8 @@
 #ifndef DB_REC_SCALING_STAT_VALUES_REC_HPP
 #define DB_REC_SCALING_STAT_VALUES_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class ScalingStatValuesRec {
     public:
@@ -12,31 +12,32 @@ class ScalingStatValuesRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Charlevel;
-        int32_t m_ShoulderBudget;
-        int32_t m_TrinketBudget;
-        int32_t m_WeaponBudget1H;
-        int32_t m_RangedBudget;
-        int32_t m_ClothShoulderArmor;
-        int32_t m_LeatherShoulderArmor;
-        int32_t m_MailShoulderArmor;
-        int32_t m_PlateShoulderArmor;
-        int32_t m_WeaponDPS1H;
-        int32_t m_WeaponDPS2H;
-        int32_t m_SpellcasterDPS1H;
-        int32_t m_SpellcasterDPS2H;
-        int32_t m_RangedDPS;
-        int32_t m_WandDPS;
-        int32_t m_SpellPower;
-        int32_t m_PrimaryBudget;
-        int32_t m_TertiaryBudget;
-        int32_t m_ClothCloakArmor;
-        int32_t m_ClothChestArmor;
-        int32_t m_LeatherChestArmor;
-        int32_t m_MailChestArmor;
-        int32_t m_PlateChestArmor;
+        int32_t m_charlevel;
+        int32_t m_shoulderBudget;
+        int32_t m_trinketBudget;
+        int32_t m_weaponBudget1h;
+        int32_t m_rangedBudget;
+        int32_t m_clothShoulderArmor;
+        int32_t m_leatherShoulderArmor;
+        int32_t m_mailShoulderArmor;
+        int32_t m_plateShoulderArmor;
+        int32_t m_weaponDps1h;
+        int32_t m_weaponDps2h;
+        int32_t m_spellcasterDps1h;
+        int32_t m_spellcasterDps2h;
+        int32_t m_rangedDps;
+        int32_t m_wandDps;
+        int32_t m_spellPower;
+        int32_t m_primaryBudget;
+        int32_t m_tertiaryBudget;
+        int32_t m_clothCloakArmor;
+        int32_t m_clothChestArmor;
+        int32_t m_leatherChestArmor;
+        int32_t m_mailChestArmor;
+        int32_t m_plateChestArmor;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

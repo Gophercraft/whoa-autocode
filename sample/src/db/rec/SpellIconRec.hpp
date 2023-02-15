@@ -2,8 +2,8 @@
 #ifndef DB_REC_SPELL_ICON_REC_HPP
 #define DB_REC_SPELL_ICON_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SpellIconRec {
     public:
@@ -12,9 +12,10 @@ class SpellIconRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        const char* m_TextureFilename;
+        const char* m_textureFilename;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

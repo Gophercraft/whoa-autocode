@@ -5,10 +5,14 @@ const char* BankBagSlotPricesRec::GetFilename() {
     return "DBFilesClient\\BankBagSlotPrices.dbc";
 }
 
+int32_t BankBagSlotPricesRec::GetID() {
+    return this->m_ID;
+}
+
 bool BankBagSlotPricesRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Cost, sizeof(this->m_Cost), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_cost, sizeof(this->m_cost), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

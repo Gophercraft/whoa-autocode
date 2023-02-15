@@ -5,20 +5,24 @@ const char* DeclinedWordRec::GetFilename() {
     return "DBFilesClient\\DeclinedWord.dbc";
 }
 
+int32_t DeclinedWordRec::GetID() {
+    return this->m_ID;
+}
+
 bool DeclinedWordRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t WordOfs;
+    uint32_t wordOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &WordOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &wordOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_Word = &stringBuffer[WordOfs];
+        this->m_word = &stringBuffer[wordOfs];
     } else {
-        this->m_Word = "";
+        this->m_word = "";
     }
 
     return true;

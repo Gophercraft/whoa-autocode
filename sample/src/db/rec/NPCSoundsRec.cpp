@@ -5,13 +5,17 @@ const char* NPCSoundsRec::GetFilename() {
     return "DBFilesClient\\NPCSounds.dbc";
 }
 
+int32_t NPCSoundsRec::GetID() {
+    return this->m_ID;
+}
+
 bool NPCSoundsRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SoundID[0], sizeof(m_SoundID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SoundID[1], sizeof(m_SoundID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SoundID[2], sizeof(m_SoundID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SoundID[3], sizeof(m_SoundID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_soundID[0], sizeof(m_soundID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_soundID[1], sizeof(m_soundID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_soundID[2], sizeof(m_soundID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_soundID[3], sizeof(m_soundID[0]), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

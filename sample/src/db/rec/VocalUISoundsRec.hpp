@@ -2,8 +2,8 @@
 #ifndef DB_REC_VOCAL_UISOUNDS_REC_HPP
 #define DB_REC_VOCAL_UISOUNDS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class VocalUISoundsRec {
     public:
@@ -12,12 +12,13 @@ class VocalUISoundsRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_VocalUIEnum;
-        int32_t m_RaceID;
-        int32_t m_NormalSoundID[2];
-        int32_t m_PissedSoundID[2];
+        int32_t m_vocalUienum;
+        int32_t m_raceID;
+        int32_t m_normalSoundID[2];
+        int32_t m_pissedSoundID[2];
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

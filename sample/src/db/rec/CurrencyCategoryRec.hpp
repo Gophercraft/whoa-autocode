@@ -2,8 +2,8 @@
 #ifndef DB_REC_CURRENCY_CATEGORY_REC_HPP
 #define DB_REC_CURRENCY_CATEGORY_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class CurrencyCategoryRec {
     public:
@@ -12,10 +12,11 @@ class CurrencyCategoryRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Flags;
-        const char* m_Name_lang;
+        int32_t m_flags;
+        const char* m_name;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

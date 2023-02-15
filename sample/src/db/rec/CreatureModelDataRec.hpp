@@ -2,8 +2,8 @@
 #ifndef DB_REC_CREATURE_MODEL_DATA_REC_HPP
 #define DB_REC_CREATURE_MODEL_DATA_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class CreatureModelDataRec {
     public:
@@ -12,35 +12,36 @@ class CreatureModelDataRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Flags;
-        const char* m_ModelName;
-        int32_t m_SizeClass;
-        float m_ModelScale;
-        int32_t m_BloodID;
-        int32_t m_FootprintTextureID;
-        float m_FootprintTextureLength;
-        float m_FootprintTextureWidth;
-        float m_FootprintParticleScale;
-        int32_t m_FoleyMaterialID;
-        int32_t m_FootstepShakeSize;
-        int32_t m_DeathThudShakeSize;
-        int32_t m_SoundID;
-        float m_CollisionWidth;
-        float m_CollisionHeight;
-        float m_MountHeight;
-        float m_GeoBoxMinX;
-        float m_GeoBoxMinY;
-        float m_GeoBoxMinZ;
-        float m_GeoBoxMaxX;
-        float m_GeoBoxMaxY;
-        float m_GeoBoxMaxZ;
-        float m_WorldEffectScale;
-        float m_AttachedEffectScale;
-        float m_MissileCollisionRadius;
-        float m_MissileCollisionPush;
-        float m_MissileCollisionRaise;
+        int32_t m_flags;
+        const char* m_modelName;
+        int32_t m_sizeClass;
+        float m_modelScale;
+        int32_t m_bloodID;
+        int32_t m_footprintTextureID;
+        float m_footprintTextureLength;
+        float m_footprintTextureWidth;
+        float m_footprintParticleScale;
+        int32_t m_foleyMaterialID;
+        int32_t m_footstepShakeSize;
+        int32_t m_deathThudShakeSize;
+        int32_t m_soundID;
+        float m_collisionWidth;
+        float m_collisionHeight;
+        float m_mountHeight;
+        float m_geoBoxMinX;
+        float m_geoBoxMinY;
+        float m_geoBoxMinZ;
+        float m_geoBoxMaxX;
+        float m_geoBoxMaxY;
+        float m_geoBoxMaxZ;
+        float m_worldEffectScale;
+        float m_attachedEffectScale;
+        float m_missileCollisionRadius;
+        float m_missileCollisionPush;
+        float m_missileCollisionRaise;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

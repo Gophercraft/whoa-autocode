@@ -2,8 +2,8 @@
 #ifndef DB_REC_LOADING_SCREEN_TAXI_SPLINES_REC_HPP
 #define DB_REC_LOADING_SCREEN_TAXI_SPLINES_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class LoadingScreenTaxiSplinesRec {
     public:
@@ -12,12 +12,13 @@ class LoadingScreenTaxiSplinesRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_PathID;
-        float m_Locx[8];
-        float m_Locy[8];
-        int32_t m_LegIndex;
+        int32_t m_pathID;
+        float m_locx[8];
+        float m_locy[8];
+        int32_t m_legIndex;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

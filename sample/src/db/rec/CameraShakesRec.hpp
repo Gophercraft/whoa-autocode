@@ -2,8 +2,8 @@
 #ifndef DB_REC_CAMERA_SHAKES_REC_HPP
 #define DB_REC_CAMERA_SHAKES_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class CameraShakesRec {
     public:
@@ -12,15 +12,16 @@ class CameraShakesRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_ShakeType;
-        int32_t m_Direction;
-        float m_Amplitude;
-        float m_Frequency;
-        float m_Duration;
-        float m_Phase;
-        float m_Coefficient;
+        int32_t m_shakeType;
+        int32_t m_direction;
+        float m_amplitude;
+        float m_frequency;
+        float m_duration;
+        float m_phase;
+        float m_coefficient;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

@@ -5,17 +5,21 @@ const char* SpellAuraRestrictionsRec::GetFilename() {
     return "DBFilesClient\\SpellAuraRestrictions.dbc";
 }
 
+int32_t SpellAuraRestrictionsRec::GetID() {
+    return this->m_ID;
+}
+
 bool SpellAuraRestrictionsRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_CasterAuraState, sizeof(this->m_CasterAuraState), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TargetAuraState, sizeof(this->m_TargetAuraState), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ExcludeCasterAuraState, sizeof(this->m_ExcludeCasterAuraState), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ExcludeTargetAuraState, sizeof(this->m_ExcludeTargetAuraState), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_CasterAuraSpell, sizeof(this->m_CasterAuraSpell), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TargetAuraSpell, sizeof(this->m_TargetAuraSpell), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ExcludeCasterAuraSpell, sizeof(this->m_ExcludeCasterAuraSpell), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ExcludeTargetAuraSpell, sizeof(this->m_ExcludeTargetAuraSpell), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_casterAuraState, sizeof(this->m_casterAuraState), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_targetAuraState, sizeof(this->m_targetAuraState), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_excludeCasterAuraState, sizeof(this->m_excludeCasterAuraState), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_excludeTargetAuraState, sizeof(this->m_excludeTargetAuraState), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_casterAuraSpell, sizeof(this->m_casterAuraSpell), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_targetAuraSpell, sizeof(this->m_targetAuraSpell), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_excludeCasterAuraSpell, sizeof(this->m_excludeCasterAuraSpell), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_excludeTargetAuraSpell, sizeof(this->m_excludeTargetAuraSpell), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

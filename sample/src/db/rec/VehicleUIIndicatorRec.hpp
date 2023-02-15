@@ -2,8 +2,8 @@
 #ifndef DB_REC_VEHICLE_UIINDICATOR_REC_HPP
 #define DB_REC_VEHICLE_UIINDICATOR_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class VehicleUIIndicatorRec {
     public:
@@ -12,9 +12,10 @@ class VehicleUIIndicatorRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        const char* m_BackgroundTexture;
+        const char* m_backgroundTexture;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

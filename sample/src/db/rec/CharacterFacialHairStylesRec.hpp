@@ -2,8 +2,8 @@
 #ifndef DB_REC_CHARACTER_FACIAL_HAIR_STYLES_REC_HPP
 #define DB_REC_CHARACTER_FACIAL_HAIR_STYLES_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class CharacterFacialHairStylesRec {
     public:
@@ -11,12 +11,14 @@ class CharacterFacialHairStylesRec {
         static constexpr uint32_t rowSize = 32;
         static constexpr bool indexIsID = true;
 
-        int32_t m_RaceID;
-        int32_t m_SexID;
-        int32_t m_VariationID;
-        int32_t m_Geoset[5];
+        int32_t m_raceID;
+        int32_t m_sexID;
+        int32_t m_variationID;
+        int32_t m_geoset[5];
+        int32_t m_generatedID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

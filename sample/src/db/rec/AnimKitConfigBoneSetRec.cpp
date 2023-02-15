@@ -5,12 +5,16 @@ const char* AnimKitConfigBoneSetRec::GetFilename() {
     return "DBFilesClient\\AnimKitConfigBoneSet.dbc";
 }
 
+int32_t AnimKitConfigBoneSetRec::GetID() {
+    return this->m_ID;
+}
+
 bool AnimKitConfigBoneSetRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ParentAnimKitConfigID, sizeof(this->m_ParentAnimKitConfigID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AnimKitBoneSetID, sizeof(this->m_AnimKitBoneSetID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AnimKitPriorityID, sizeof(this->m_AnimKitPriorityID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_parentAnimKitConfigID, sizeof(this->m_parentAnimKitConfigID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_animKitBoneSetID, sizeof(this->m_animKitBoneSetID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_animKitPriorityID, sizeof(this->m_animKitPriorityID), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

@@ -2,8 +2,8 @@
 #ifndef DB_REC_SPELL_MISSILE_MOTION_REC_HPP
 #define DB_REC_SPELL_MISSILE_MOTION_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SpellMissileMotionRec {
     public:
@@ -12,12 +12,13 @@ class SpellMissileMotionRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        const char* m_Name;
-        const char* m_ScriptBody;
-        int32_t m_Flags;
-        int32_t m_MissileCount;
+        const char* m_name;
+        const char* m_scriptBody;
+        int32_t m_flags;
+        int32_t m_missileCount;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

@@ -5,20 +5,24 @@ const char* OverrideSpellDataRec::GetFilename() {
     return "DBFilesClient\\OverrideSpellData.dbc";
 }
 
+int32_t OverrideSpellDataRec::GetID() {
+    return this->m_ID;
+}
+
 bool OverrideSpellDataRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Spells[0], sizeof(m_Spells[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Spells[1], sizeof(m_Spells[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Spells[2], sizeof(m_Spells[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Spells[3], sizeof(m_Spells[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Spells[4], sizeof(m_Spells[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Spells[5], sizeof(m_Spells[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Spells[6], sizeof(m_Spells[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Spells[7], sizeof(m_Spells[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Spells[8], sizeof(m_Spells[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Spells[9], sizeof(m_Spells[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Flags, sizeof(this->m_Flags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spells[0], sizeof(m_spells[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spells[1], sizeof(m_spells[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spells[2], sizeof(m_spells[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spells[3], sizeof(m_spells[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spells[4], sizeof(m_spells[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spells[5], sizeof(m_spells[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spells[6], sizeof(m_spells[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spells[7], sizeof(m_spells[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spells[8], sizeof(m_spells[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_spells[9], sizeof(m_spells[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_flags, sizeof(this->m_flags), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

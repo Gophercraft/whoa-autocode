@@ -2,8 +2,8 @@
 #ifndef DB_REC_SPELL_VISUAL_REC_HPP
 #define DB_REC_SPELL_VISUAL_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SpellVisualRec {
     public:
@@ -12,35 +12,36 @@ class SpellVisualRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_PrecastKit;
-        int32_t m_CastKit;
-        int32_t m_ImpactKit;
-        int32_t m_StateKit;
-        int32_t m_StateDoneKit;
-        int32_t m_ChannelKit;
-        int32_t m_HasMissile;
-        int32_t m_MissileModel;
-        int32_t m_MissilePathType;
-        int32_t m_MissileDestinationAttachment;
-        int32_t m_MissileSound;
-        int32_t m_AnimEventSoundID;
-        int32_t m_Flags;
-        int32_t m_CasterImpactKit;
-        int32_t m_TargetImpactKit;
-        int32_t m_MissileAttachment;
-        int32_t m_MissileFollowGroundHeight;
-        int32_t m_MissileFollowGroundDropSpeed;
-        int32_t m_MissileFollowGroundApproach;
-        int32_t m_MissileFollowGroundFlags;
-        int32_t m_MissileMotion;
-        int32_t m_MissileTargetingKit;
-        int32_t m_InstantAreaKit;
-        int32_t m_ImpactAreaKit;
-        int32_t m_PersistentAreaKit;
-        float m_MissileCastOffset[3];
-        float m_MissileImpactOffset[3];
+        int32_t m_precastKit;
+        int32_t m_castKit;
+        int32_t m_impactKit;
+        int32_t m_stateKit;
+        int32_t m_stateDoneKit;
+        int32_t m_channelKit;
+        int32_t m_hasMissile;
+        int32_t m_missileModel;
+        int32_t m_missilePathType;
+        int32_t m_missileDestinationAttachment;
+        int32_t m_missileSound;
+        int32_t m_animEventSoundID;
+        int32_t m_flags;
+        int32_t m_casterImpactKit;
+        int32_t m_targetImpactKit;
+        int32_t m_missileAttachment;
+        int32_t m_missileFollowGroundHeight;
+        int32_t m_missileFollowGroundDropSpeed;
+        int32_t m_missileFollowGroundApproach;
+        int32_t m_missileFollowGroundFlags;
+        int32_t m_missileMotion;
+        int32_t m_missileTargetingKit;
+        int32_t m_instantAreaKit;
+        int32_t m_impactAreaKit;
+        int32_t m_persistentAreaKit;
+        float m_missileCastOffset[3];
+        float m_missileImpactOffset[3];
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

@@ -2,8 +2,8 @@
 #ifndef DB_REC_CAMERA_MODE_REC_HPP
 #define DB_REC_CAMERA_MODE_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class CameraModeRec {
     public:
@@ -12,20 +12,21 @@ class CameraModeRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        const char* m_Name;
-        int32_t m_Type;
-        int32_t m_Flags;
-        float m_PositionOffset[3];
-        float m_TargetOffset[3];
-        float m_PositionSmoothing;
-        float m_RotationSmoothing;
-        float m_FieldOfView;
-        int32_t m_LockedPositionOffsetBase;
-        int32_t m_LockedPositionOffsetDirection;
-        int32_t m_LockedTargetOffsetBase;
-        int32_t m_LockedTargetOffsetDirection;
+        const char* m_name;
+        int32_t m_type;
+        int32_t m_flags;
+        float m_positionOffset[3];
+        float m_targetOffset[3];
+        float m_positionSmoothing;
+        float m_rotationSmoothing;
+        float m_fieldOfView;
+        int32_t m_lockedPositionOffsetBase;
+        int32_t m_lockedPositionOffsetDirection;
+        int32_t m_lockedTargetOffsetBase;
+        int32_t m_lockedTargetOffsetDirection;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

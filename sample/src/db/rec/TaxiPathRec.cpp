@@ -5,12 +5,16 @@ const char* TaxiPathRec::GetFilename() {
     return "DBFilesClient\\TaxiPath.dbc";
 }
 
+int32_t TaxiPathRec::GetID() {
+    return this->m_ID;
+}
+
 bool TaxiPathRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_FromTaxiNode, sizeof(this->m_FromTaxiNode), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ToTaxiNode, sizeof(this->m_ToTaxiNode), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Cost, sizeof(this->m_Cost), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_fromTaxiNode, sizeof(this->m_fromTaxiNode), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_toTaxiNode, sizeof(this->m_toTaxiNode), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_cost, sizeof(this->m_cost), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

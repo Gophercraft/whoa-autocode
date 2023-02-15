@@ -2,8 +2,8 @@
 #ifndef DB_REC_PAPER_DOLL_ITEM_FRAME_REC_HPP
 #define DB_REC_PAPER_DOLL_ITEM_FRAME_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class PaperDollItemFrameRec {
     public:
@@ -11,11 +11,13 @@ class PaperDollItemFrameRec {
         static constexpr uint32_t rowSize = 12;
         static constexpr bool indexIsID = true;
 
-        const char* m_ItemButtonName;
-        const char* m_SlotIcon;
-        int32_t m_SlotNumber;
+        const char* m_itemButtonName;
+        const char* m_slotIcon;
+        int32_t m_slotNumber;
+        int32_t m_generatedID;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

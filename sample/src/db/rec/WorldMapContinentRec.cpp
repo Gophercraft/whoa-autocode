@@ -5,22 +5,26 @@ const char* WorldMapContinentRec::GetFilename() {
     return "DBFilesClient\\WorldMapContinent.dbc";
 }
 
+int32_t WorldMapContinentRec::GetID() {
+    return this->m_ID;
+}
+
 bool WorldMapContinentRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MapID, sizeof(this->m_MapID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_LeftBoundary, sizeof(this->m_LeftBoundary), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RightBoundary, sizeof(this->m_RightBoundary), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TopBoundary, sizeof(this->m_TopBoundary), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_BottomBoundary, sizeof(this->m_BottomBoundary), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ContinentOffset[0], sizeof(m_ContinentOffset[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ContinentOffset[1], sizeof(m_ContinentOffset[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Scale, sizeof(this->m_Scale), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TaxiMin[0], sizeof(m_TaxiMin[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TaxiMin[1], sizeof(m_TaxiMin[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TaxiMax[0], sizeof(m_TaxiMax[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_TaxiMax[1], sizeof(m_TaxiMax[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_WorldMapID, sizeof(this->m_WorldMapID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_mapID, sizeof(this->m_mapID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_leftBoundary, sizeof(this->m_leftBoundary), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_rightBoundary, sizeof(this->m_rightBoundary), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_topBoundary, sizeof(this->m_topBoundary), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_bottomBoundary, sizeof(this->m_bottomBoundary), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_continentOffset[0], sizeof(m_continentOffset[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_continentOffset[1], sizeof(m_continentOffset[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_scale, sizeof(this->m_scale), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_taxiMin[0], sizeof(m_taxiMin[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_taxiMin[1], sizeof(m_taxiMin[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_taxiMax[0], sizeof(m_taxiMax[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_taxiMax[1], sizeof(m_taxiMax[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_worldMapID, sizeof(this->m_worldMapID), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

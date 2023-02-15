@@ -5,16 +5,20 @@ const char* SkillRaceClassInfoRec::GetFilename() {
     return "DBFilesClient\\SkillRaceClassInfo.dbc";
 }
 
+int32_t SkillRaceClassInfoRec::GetID() {
+    return this->m_ID;
+}
+
 bool SkillRaceClassInfoRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SkillID, sizeof(this->m_SkillID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RaceMask, sizeof(this->m_RaceMask), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ClassMask, sizeof(this->m_ClassMask), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Flags, sizeof(this->m_Flags), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MinLevel, sizeof(this->m_MinLevel), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SkillTierID, sizeof(this->m_SkillTierID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SkillCostIndex, sizeof(this->m_SkillCostIndex), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_skillID, sizeof(this->m_skillID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_raceMask, sizeof(this->m_raceMask), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_classMask, sizeof(this->m_classMask), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_flags, sizeof(this->m_flags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_minLevel, sizeof(this->m_minLevel), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_skillTierID, sizeof(this->m_skillTierID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_skillCostIndex, sizeof(this->m_skillCostIndex), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

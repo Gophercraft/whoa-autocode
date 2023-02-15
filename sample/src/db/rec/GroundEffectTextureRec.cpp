@@ -5,19 +5,23 @@ const char* GroundEffectTextureRec::GetFilename() {
     return "DBFilesClient\\GroundEffectTexture.dbc";
 }
 
+int32_t GroundEffectTextureRec::GetID() {
+    return this->m_ID;
+}
+
 bool GroundEffectTextureRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_DoodadID[0], sizeof(m_DoodadID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_DoodadID[1], sizeof(m_DoodadID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_DoodadID[2], sizeof(m_DoodadID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_DoodadID[3], sizeof(m_DoodadID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_DoodadWeight[0], sizeof(m_DoodadWeight[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_DoodadWeight[1], sizeof(m_DoodadWeight[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_DoodadWeight[2], sizeof(m_DoodadWeight[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_DoodadWeight[3], sizeof(m_DoodadWeight[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Density, sizeof(this->m_Density), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Sound, sizeof(this->m_Sound), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_doodadID[0], sizeof(m_doodadID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_doodadID[1], sizeof(m_doodadID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_doodadID[2], sizeof(m_doodadID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_doodadID[3], sizeof(m_doodadID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_doodadWeight[0], sizeof(m_doodadWeight[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_doodadWeight[1], sizeof(m_doodadWeight[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_doodadWeight[2], sizeof(m_doodadWeight[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_doodadWeight[3], sizeof(m_doodadWeight[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_density, sizeof(this->m_density), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_sound, sizeof(this->m_sound), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

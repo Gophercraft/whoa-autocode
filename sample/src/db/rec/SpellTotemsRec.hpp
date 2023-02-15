@@ -2,8 +2,8 @@
 #ifndef DB_REC_SPELL_TOTEMS_REC_HPP
 #define DB_REC_SPELL_TOTEMS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SpellTotemsRec {
     public:
@@ -12,10 +12,11 @@ class SpellTotemsRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_RequiredTotemCategoryID[2];
-        int32_t m_Totem[2];
+        int32_t m_requiredTotemCategoryID[2];
+        int32_t m_totem[2];
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

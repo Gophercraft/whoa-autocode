@@ -2,8 +2,8 @@
 #ifndef DB_REC_DEATH_THUD_LOOKUPS_REC_HPP
 #define DB_REC_DEATH_THUD_LOOKUPS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class DeathThudLookupsRec {
     public:
@@ -12,12 +12,13 @@ class DeathThudLookupsRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_SizeClass;
-        int32_t m_TerrainTypeSoundID;
-        int32_t m_SoundEntryID;
-        int32_t m_SoundEntryIDWater;
+        int32_t m_sizeClass;
+        int32_t m_terrainTypeSoundID;
+        int32_t m_soundEntryID;
+        int32_t m_soundEntryIdwater;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

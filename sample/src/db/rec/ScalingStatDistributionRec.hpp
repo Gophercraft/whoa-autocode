@@ -2,8 +2,8 @@
 #ifndef DB_REC_SCALING_STAT_DISTRIBUTION_REC_HPP
 #define DB_REC_SCALING_STAT_DISTRIBUTION_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class ScalingStatDistributionRec {
     public:
@@ -12,11 +12,12 @@ class ScalingStatDistributionRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_StatID[10];
-        int32_t m_Bonus[10];
-        int32_t m_Maxlevel;
+        int32_t m_statID[10];
+        int32_t m_bonus[10];
+        int32_t m_maxlevel;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

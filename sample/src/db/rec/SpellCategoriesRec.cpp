@@ -5,15 +5,19 @@ const char* SpellCategoriesRec::GetFilename() {
     return "DBFilesClient\\SpellCategories.dbc";
 }
 
+int32_t SpellCategoriesRec::GetID() {
+    return this->m_ID;
+}
+
 bool SpellCategoriesRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Category, sizeof(this->m_Category), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_DefenseType, sizeof(this->m_DefenseType), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_DispelType, sizeof(this->m_DispelType), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Mechanic, sizeof(this->m_Mechanic), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_PreventionType, sizeof(this->m_PreventionType), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_StartRecoveryCategory, sizeof(this->m_StartRecoveryCategory), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_category, sizeof(this->m_category), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_defenseType, sizeof(this->m_defenseType), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_dispelType, sizeof(this->m_dispelType), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_mechanic, sizeof(this->m_mechanic), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_preventionType, sizeof(this->m_preventionType), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_startRecoveryCategory, sizeof(this->m_startRecoveryCategory), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

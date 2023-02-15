@@ -2,8 +2,8 @@
 #ifndef DB_REC_GAME_OBJECT_ART_KIT_REC_HPP
 #define DB_REC_GAME_OBJECT_ART_KIT_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class GameObjectArtKitRec {
     public:
@@ -12,10 +12,11 @@ class GameObjectArtKitRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        const char* m_TextureVariation[3];
-        const char* m_AttachModel[4];
+        const char* m_textureVariation[3];
+        const char* m_attachModel[4];
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

@@ -5,41 +5,45 @@ const char* CreatureDisplayInfoRec::GetFilename() {
     return "DBFilesClient\\CreatureDisplayInfo.dbc";
 }
 
+int32_t CreatureDisplayInfoRec::GetID() {
+    return this->m_ID;
+}
+
 bool CreatureDisplayInfoRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t TextureVariationOfs[3];
-    uint32_t PortraitTextureNameOfs;
+    uint32_t textureVariationOfs[3];
+    uint32_t portraitTextureNameOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ModelID, sizeof(this->m_ModelID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SoundID, sizeof(this->m_SoundID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ExtendedDisplayInfoID, sizeof(this->m_ExtendedDisplayInfoID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_CreatureModelScale, sizeof(this->m_CreatureModelScale), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_CreatureModelAlpha, sizeof(this->m_CreatureModelAlpha), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &TextureVariationOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &TextureVariationOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &TextureVariationOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &PortraitTextureNameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SizeClass, sizeof(this->m_SizeClass), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_BloodID, sizeof(this->m_BloodID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_NPCSoundID, sizeof(this->m_NPCSoundID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ParticleColorID, sizeof(this->m_ParticleColorID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_CreatureGeosetData, sizeof(this->m_CreatureGeosetData), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ObjectEffectPackageID, sizeof(this->m_ObjectEffectPackageID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_modelID, sizeof(this->m_modelID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_soundID, sizeof(this->m_soundID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_extendedDisplayInfoID, sizeof(this->m_extendedDisplayInfoID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_creatureModelScale, sizeof(this->m_creatureModelScale), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_creatureModelAlpha, sizeof(this->m_creatureModelAlpha), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &textureVariationOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &textureVariationOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &textureVariationOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &portraitTextureNameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_sizeClass, sizeof(this->m_sizeClass), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_bloodID, sizeof(this->m_bloodID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_npcsoundID, sizeof(this->m_npcsoundID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_particleColorID, sizeof(this->m_particleColorID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_creatureGeosetData, sizeof(this->m_creatureGeosetData), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_objectEffectPackageID, sizeof(this->m_objectEffectPackageID), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_TextureVariation[0] = &stringBuffer[TextureVariationOfs[0]];
-        this->m_TextureVariation[1] = &stringBuffer[TextureVariationOfs[1]];
-        this->m_TextureVariation[2] = &stringBuffer[TextureVariationOfs[2]];
-        this->m_PortraitTextureName = &stringBuffer[PortraitTextureNameOfs];
+        this->m_textureVariation[0] = &stringBuffer[textureVariationOfs[0]];
+        this->m_textureVariation[1] = &stringBuffer[textureVariationOfs[1]];
+        this->m_textureVariation[2] = &stringBuffer[textureVariationOfs[2]];
+        this->m_portraitTextureName = &stringBuffer[portraitTextureNameOfs];
     } else {
-        this->m_TextureVariation[0] = "";
-        this->m_TextureVariation[1] = "";
-        this->m_TextureVariation[2] = "";
-        this->m_PortraitTextureName = "";
+        this->m_textureVariation[0] = "";
+        this->m_textureVariation[1] = "";
+        this->m_textureVariation[2] = "";
+        this->m_portraitTextureName = "";
     }
 
     return true;

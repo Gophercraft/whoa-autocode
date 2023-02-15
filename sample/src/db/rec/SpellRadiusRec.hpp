@@ -2,8 +2,8 @@
 #ifndef DB_REC_SPELL_RADIUS_REC_HPP
 #define DB_REC_SPELL_RADIUS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SpellRadiusRec {
     public:
@@ -12,11 +12,12 @@ class SpellRadiusRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        float m_Radius;
-        float m_RadiusPerLevel;
-        float m_RadiusMax;
+        float m_radius;
+        float m_radiusPerLevel;
+        float m_radiusMax;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

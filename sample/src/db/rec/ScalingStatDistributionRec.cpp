@@ -5,30 +5,34 @@ const char* ScalingStatDistributionRec::GetFilename() {
     return "DBFilesClient\\ScalingStatDistribution.dbc";
 }
 
+int32_t ScalingStatDistributionRec::GetID() {
+    return this->m_ID;
+}
+
 bool ScalingStatDistributionRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_StatID[0], sizeof(m_StatID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_StatID[1], sizeof(m_StatID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_StatID[2], sizeof(m_StatID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_StatID[3], sizeof(m_StatID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_StatID[4], sizeof(m_StatID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_StatID[5], sizeof(m_StatID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_StatID[6], sizeof(m_StatID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_StatID[7], sizeof(m_StatID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_StatID[8], sizeof(m_StatID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_StatID[9], sizeof(m_StatID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Bonus[0], sizeof(m_Bonus[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Bonus[1], sizeof(m_Bonus[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Bonus[2], sizeof(m_Bonus[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Bonus[3], sizeof(m_Bonus[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Bonus[4], sizeof(m_Bonus[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Bonus[5], sizeof(m_Bonus[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Bonus[6], sizeof(m_Bonus[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Bonus[7], sizeof(m_Bonus[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Bonus[8], sizeof(m_Bonus[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Bonus[9], sizeof(m_Bonus[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Maxlevel, sizeof(this->m_Maxlevel), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_statID[0], sizeof(m_statID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_statID[1], sizeof(m_statID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_statID[2], sizeof(m_statID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_statID[3], sizeof(m_statID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_statID[4], sizeof(m_statID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_statID[5], sizeof(m_statID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_statID[6], sizeof(m_statID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_statID[7], sizeof(m_statID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_statID[8], sizeof(m_statID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_statID[9], sizeof(m_statID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_bonus[0], sizeof(m_bonus[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_bonus[1], sizeof(m_bonus[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_bonus[2], sizeof(m_bonus[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_bonus[3], sizeof(m_bonus[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_bonus[4], sizeof(m_bonus[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_bonus[5], sizeof(m_bonus[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_bonus[6], sizeof(m_bonus[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_bonus[7], sizeof(m_bonus[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_bonus[8], sizeof(m_bonus[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_bonus[9], sizeof(m_bonus[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_maxlevel, sizeof(this->m_maxlevel), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

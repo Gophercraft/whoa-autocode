@@ -5,12 +5,16 @@ const char* SpellEffectCameraShakesRec::GetFilename() {
     return "DBFilesClient\\SpellEffectCameraShakes.dbc";
 }
 
+int32_t SpellEffectCameraShakesRec::GetID() {
+    return this->m_ID;
+}
+
 bool SpellEffectCameraShakesRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_CameraShake[0], sizeof(m_CameraShake[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_CameraShake[1], sizeof(m_CameraShake[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_CameraShake[2], sizeof(m_CameraShake[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_cameraShake[0], sizeof(m_cameraShake[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_cameraShake[1], sizeof(m_cameraShake[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_cameraShake[2], sizeof(m_cameraShake[0]), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

@@ -2,8 +2,8 @@
 #ifndef DB_REC_LIGHT_PARAMS_REC_HPP
 #define DB_REC_LIGHT_PARAMS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class LightParamsRec {
     public:
@@ -12,16 +12,17 @@ class LightParamsRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_HighlightSky;
-        int32_t m_LightSkyboxID;
-        float m_Glow;
-        float m_WaterShallowAlpha;
-        float m_WaterDeepAlpha;
-        float m_OceanShallowAlpha;
-        float m_OceanDeepAlpha;
-        int32_t m_Flags;
+        int32_t m_highlightSky;
+        int32_t m_lightSkyboxID;
+        float m_glow;
+        float m_waterShallowAlpha;
+        float m_waterDeepAlpha;
+        float m_oceanShallowAlpha;
+        float m_oceanDeepAlpha;
+        int32_t m_flags;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

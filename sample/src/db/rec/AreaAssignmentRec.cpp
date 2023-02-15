@@ -5,13 +5,17 @@ const char* AreaAssignmentRec::GetFilename() {
     return "DBFilesClient\\AreaAssignment.dbc";
 }
 
+int32_t AreaAssignmentRec::GetID() {
+    return this->m_ID;
+}
+
 bool AreaAssignmentRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MapID, sizeof(this->m_MapID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AreaID, sizeof(this->m_AreaID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ChunkX, sizeof(this->m_ChunkX), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ChunkY, sizeof(this->m_ChunkY), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_mapID, sizeof(this->m_mapID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_areaID, sizeof(this->m_areaID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_chunkX, sizeof(this->m_chunkX), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_chunkY, sizeof(this->m_chunkY), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

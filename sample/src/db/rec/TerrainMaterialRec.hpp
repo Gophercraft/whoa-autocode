@@ -2,8 +2,8 @@
 #ifndef DB_REC_TERRAIN_MATERIAL_REC_HPP
 #define DB_REC_TERRAIN_MATERIAL_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class TerrainMaterialRec {
     public:
@@ -12,11 +12,12 @@ class TerrainMaterialRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        const char* m_Name;
-        int32_t m_Shader;
-        const char* m_EnvMapPath;
+        const char* m_name;
+        int32_t m_shader;
+        const char* m_envMapPath;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

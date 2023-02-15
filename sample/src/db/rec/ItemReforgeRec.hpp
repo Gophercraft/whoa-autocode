@@ -2,8 +2,8 @@
 #ifndef DB_REC_ITEM_REFORGE_REC_HPP
 #define DB_REC_ITEM_REFORGE_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class ItemReforgeRec {
     public:
@@ -12,12 +12,13 @@ class ItemReforgeRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID; // unconfirmed
-        int32_t m_Source_stat; // unconfirmed
-        float m_Source_multiplier; // unconfirmed
-        int32_t m_Target_stat; // unconfirmed
-        float m_Target_multiplier; // unconfirmed
+        int32_t m_sourceStat; // unconfirmed
+        float m_sourceMultiplier; // unconfirmed
+        int32_t m_targetStat; // unconfirmed
+        float m_targetMultiplier; // unconfirmed
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

@@ -5,16 +5,20 @@ const char* LFGDungeonExpansionRec::GetFilename() {
     return "DBFilesClient\\LFGDungeonExpansion.dbc";
 }
 
+int32_t LFGDungeonExpansionRec::GetID() {
+    return this->m_ID;
+}
+
 bool LFGDungeonExpansionRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Lfg_ID, sizeof(this->m_Lfg_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Expansion_level, sizeof(this->m_Expansion_level), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Random_ID, sizeof(this->m_Random_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Hard_level_min, sizeof(this->m_Hard_level_min), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Hard_level_max, sizeof(this->m_Hard_level_max), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Target_level_min, sizeof(this->m_Target_level_min), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Target_level_max, sizeof(this->m_Target_level_max), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_lfgID, sizeof(this->m_lfgID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_expansionLevel, sizeof(this->m_expansionLevel), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_randomID, sizeof(this->m_randomID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_hardLevelMin, sizeof(this->m_hardLevelMin), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_hardLevelMax, sizeof(this->m_hardLevelMax), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_targetLevelMin, sizeof(this->m_targetLevelMin), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_targetLevelMax, sizeof(this->m_targetLevelMax), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

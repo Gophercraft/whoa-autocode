@@ -2,8 +2,8 @@
 #ifndef DB_REC_LIGHT_FLOAT_BAND_REC_HPP
 #define DB_REC_LIGHT_FLOAT_BAND_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class LightFloatBandRec {
     public:
@@ -12,11 +12,12 @@ class LightFloatBandRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Num;
-        int32_t m_Time[16];
-        float m_Data[16];
+        int32_t m_num;
+        int32_t m_time[16];
+        float m_data[16];
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

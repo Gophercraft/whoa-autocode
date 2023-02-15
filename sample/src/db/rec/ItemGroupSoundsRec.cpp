@@ -5,13 +5,17 @@ const char* ItemGroupSoundsRec::GetFilename() {
     return "DBFilesClient\\ItemGroupSounds.dbc";
 }
 
+int32_t ItemGroupSoundsRec::GetID() {
+    return this->m_ID;
+}
+
 bool ItemGroupSoundsRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Sound[0], sizeof(m_Sound[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Sound[1], sizeof(m_Sound[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Sound[2], sizeof(m_Sound[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Sound[3], sizeof(m_Sound[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_sound[0], sizeof(m_sound[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_sound[1], sizeof(m_sound[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_sound[2], sizeof(m_sound[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_sound[3], sizeof(m_sound[0]), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

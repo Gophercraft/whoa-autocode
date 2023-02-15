@@ -5,46 +5,50 @@ const char* CreatureModelDataRec::GetFilename() {
     return "DBFilesClient\\CreatureModelData.dbc";
 }
 
+int32_t CreatureModelDataRec::GetID() {
+    return this->m_ID;
+}
+
 bool CreatureModelDataRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t ModelNameOfs;
+    uint32_t modelNameOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Flags, sizeof(this->m_Flags), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &ModelNameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SizeClass, sizeof(this->m_SizeClass), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ModelScale, sizeof(this->m_ModelScale), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_BloodID, sizeof(this->m_BloodID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_FootprintTextureID, sizeof(this->m_FootprintTextureID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_FootprintTextureLength, sizeof(this->m_FootprintTextureLength), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_FootprintTextureWidth, sizeof(this->m_FootprintTextureWidth), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_FootprintParticleScale, sizeof(this->m_FootprintParticleScale), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_FoleyMaterialID, sizeof(this->m_FoleyMaterialID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_FootstepShakeSize, sizeof(this->m_FootstepShakeSize), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_DeathThudShakeSize, sizeof(this->m_DeathThudShakeSize), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SoundID, sizeof(this->m_SoundID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_CollisionWidth, sizeof(this->m_CollisionWidth), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_CollisionHeight, sizeof(this->m_CollisionHeight), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MountHeight, sizeof(this->m_MountHeight), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_GeoBoxMinX, sizeof(this->m_GeoBoxMinX), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_GeoBoxMinY, sizeof(this->m_GeoBoxMinY), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_GeoBoxMinZ, sizeof(this->m_GeoBoxMinZ), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_GeoBoxMaxX, sizeof(this->m_GeoBoxMaxX), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_GeoBoxMaxY, sizeof(this->m_GeoBoxMaxY), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_GeoBoxMaxZ, sizeof(this->m_GeoBoxMaxZ), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_WorldEffectScale, sizeof(this->m_WorldEffectScale), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_AttachedEffectScale, sizeof(this->m_AttachedEffectScale), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MissileCollisionRadius, sizeof(this->m_MissileCollisionRadius), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MissileCollisionPush, sizeof(this->m_MissileCollisionPush), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_MissileCollisionRaise, sizeof(this->m_MissileCollisionRaise), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_flags, sizeof(this->m_flags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &modelNameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_sizeClass, sizeof(this->m_sizeClass), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_modelScale, sizeof(this->m_modelScale), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_bloodID, sizeof(this->m_bloodID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_footprintTextureID, sizeof(this->m_footprintTextureID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_footprintTextureLength, sizeof(this->m_footprintTextureLength), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_footprintTextureWidth, sizeof(this->m_footprintTextureWidth), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_footprintParticleScale, sizeof(this->m_footprintParticleScale), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_foleyMaterialID, sizeof(this->m_foleyMaterialID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_footstepShakeSize, sizeof(this->m_footstepShakeSize), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_deathThudShakeSize, sizeof(this->m_deathThudShakeSize), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_soundID, sizeof(this->m_soundID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_collisionWidth, sizeof(this->m_collisionWidth), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_collisionHeight, sizeof(this->m_collisionHeight), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_mountHeight, sizeof(this->m_mountHeight), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_geoBoxMinX, sizeof(this->m_geoBoxMinX), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_geoBoxMinY, sizeof(this->m_geoBoxMinY), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_geoBoxMinZ, sizeof(this->m_geoBoxMinZ), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_geoBoxMaxX, sizeof(this->m_geoBoxMaxX), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_geoBoxMaxY, sizeof(this->m_geoBoxMaxY), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_geoBoxMaxZ, sizeof(this->m_geoBoxMaxZ), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_worldEffectScale, sizeof(this->m_worldEffectScale), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_attachedEffectScale, sizeof(this->m_attachedEffectScale), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_missileCollisionRadius, sizeof(this->m_missileCollisionRadius), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_missileCollisionPush, sizeof(this->m_missileCollisionPush), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_missileCollisionRaise, sizeof(this->m_missileCollisionRaise), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_ModelName = &stringBuffer[ModelNameOfs];
+        this->m_modelName = &stringBuffer[modelNameOfs];
     } else {
-        this->m_ModelName = "";
+        this->m_modelName = "";
     }
 
     return true;

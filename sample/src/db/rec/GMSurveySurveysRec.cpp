@@ -5,19 +5,23 @@ const char* GMSurveySurveysRec::GetFilename() {
     return "DBFilesClient\\GMSurveySurveys.dbc";
 }
 
+int32_t GMSurveySurveysRec::GetID() {
+    return this->m_ID;
+}
+
 bool GMSurveySurveysRec::Read(SFile* f, const char* stringBuffer) {
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Q[0], sizeof(m_Q[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Q[1], sizeof(m_Q[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Q[2], sizeof(m_Q[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Q[3], sizeof(m_Q[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Q[4], sizeof(m_Q[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Q[5], sizeof(m_Q[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Q[6], sizeof(m_Q[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Q[7], sizeof(m_Q[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Q[8], sizeof(m_Q[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Q[9], sizeof(m_Q[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_[0], sizeof(m_[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_[1], sizeof(m_[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_[2], sizeof(m_[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_[3], sizeof(m_[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_[4], sizeof(m_[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_[5], sizeof(m_[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_[6], sizeof(m_[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_[7], sizeof(m_[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_[8], sizeof(m_[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_[9], sizeof(m_[0]), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

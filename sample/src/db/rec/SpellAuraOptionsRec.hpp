@@ -2,8 +2,8 @@
 #ifndef DB_REC_SPELL_AURA_OPTIONS_REC_HPP
 #define DB_REC_SPELL_AURA_OPTIONS_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SpellAuraOptionsRec {
     public:
@@ -12,12 +12,13 @@ class SpellAuraOptionsRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_CumulativeAura;
-        int32_t m_ProcChance;
-        int32_t m_ProcCharges;
-        int32_t m_ProcTypeMask;
+        int32_t m_cumulativeAura;
+        int32_t m_procChance;
+        int32_t m_procCharges;
+        int32_t m_procTypeMask;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

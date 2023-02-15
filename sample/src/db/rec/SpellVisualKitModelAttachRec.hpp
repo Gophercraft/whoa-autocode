@@ -2,8 +2,8 @@
 #ifndef DB_REC_SPELL_VISUAL_KIT_MODEL_ATTACH_REC_HPP
 #define DB_REC_SPELL_VISUAL_KIT_MODEL_ATTACH_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SpellVisualKitModelAttachRec {
     public:
@@ -12,15 +12,16 @@ class SpellVisualKitModelAttachRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_ParentSpellVisualKitID;
-        int32_t m_SpellVisualEffectNameID;
-        int32_t m_AttachmentID;
-        float m_Offset[3];
-        float m_Yaw;
-        float m_Pitch;
-        float m_Roll;
+        int32_t m_parentSpellVisualKitID;
+        int32_t m_spellVisualEffectNameID;
+        int32_t m_attachmentID;
+        float m_offset[3];
+        float m_yaw;
+        float m_pitch;
+        float m_roll;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

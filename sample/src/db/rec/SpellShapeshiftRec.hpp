@@ -2,8 +2,8 @@
 #ifndef DB_REC_SPELL_SHAPESHIFT_REC_HPP
 #define DB_REC_SPELL_SHAPESHIFT_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SpellShapeshiftRec {
     public:
@@ -12,11 +12,12 @@ class SpellShapeshiftRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_ShapeshiftExclude[2];
-        int32_t m_ShapeshiftMask[2];
-        int32_t m_StanceBarOrder;
+        int32_t m_shapeshiftExclude[2];
+        int32_t m_shapeshiftMask[2];
+        int32_t m_stanceBarOrder;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

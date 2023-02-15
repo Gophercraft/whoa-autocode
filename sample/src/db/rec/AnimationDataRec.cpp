@@ -5,26 +5,30 @@ const char* AnimationDataRec::GetFilename() {
     return "DBFilesClient\\AnimationData.dbc";
 }
 
+int32_t AnimationDataRec::GetID() {
+    return this->m_ID;
+}
+
 bool AnimationDataRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t NameOfs;
+    uint32_t nameOfs;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &NameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Weaponflags, sizeof(this->m_Weaponflags), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Bodyflags, sizeof(this->m_Bodyflags), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Flags, sizeof(this->m_Flags), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_Fallback, sizeof(this->m_Fallback), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_BehaviorID, sizeof(this->m_BehaviorID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_BehaviorTier, sizeof(this->m_BehaviorTier), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_weaponflags, sizeof(this->m_weaponflags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_bodyflags, sizeof(this->m_bodyflags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_flags, sizeof(this->m_flags), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_fallback, sizeof(this->m_fallback), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_behaviorID, sizeof(this->m_behaviorID), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_behaviorTier, sizeof(this->m_behaviorTier), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_Name = &stringBuffer[NameOfs];
+        this->m_name = &stringBuffer[nameOfs];
     } else {
-        this->m_Name = "";
+        this->m_name = "";
     }
 
     return true;

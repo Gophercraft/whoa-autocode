@@ -5,72 +5,76 @@ const char* ItemSetRec::GetFilename() {
     return "DBFilesClient\\ItemSet.dbc";
 }
 
+int32_t ItemSetRec::GetID() {
+    return this->m_ID;
+}
+
 bool ItemSetRec::Read(SFile* f, const char* stringBuffer) {
-    uint32_t Name_langOfs[16];
-    uint32_t Name_langMask;
+    uint32_t nameOfs[16];
+    uint32_t nameMask;
 
     if (
         !SFile::Read(f, &this->m_ID, sizeof(this->m_ID), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[6], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[7], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[8], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[9], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[10], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[11], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[12], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[13], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[14], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langOfs[15], sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &Name_langMask, sizeof(uint32_t), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ItemID[0], sizeof(m_ItemID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ItemID[1], sizeof(m_ItemID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ItemID[2], sizeof(m_ItemID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ItemID[3], sizeof(m_ItemID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ItemID[4], sizeof(m_ItemID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ItemID[5], sizeof(m_ItemID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ItemID[6], sizeof(m_ItemID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ItemID[7], sizeof(m_ItemID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ItemID[8], sizeof(m_ItemID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ItemID[9], sizeof(m_ItemID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ItemID[10], sizeof(m_ItemID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ItemID[11], sizeof(m_ItemID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ItemID[12], sizeof(m_ItemID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ItemID[13], sizeof(m_ItemID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ItemID[14], sizeof(m_ItemID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ItemID[15], sizeof(m_ItemID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_ItemID[16], sizeof(m_ItemID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SetSpellID[0], sizeof(m_SetSpellID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SetSpellID[1], sizeof(m_SetSpellID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SetSpellID[2], sizeof(m_SetSpellID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SetSpellID[3], sizeof(m_SetSpellID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SetSpellID[4], sizeof(m_SetSpellID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SetSpellID[5], sizeof(m_SetSpellID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SetSpellID[6], sizeof(m_SetSpellID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SetSpellID[7], sizeof(m_SetSpellID[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SetThreshold[0], sizeof(m_SetThreshold[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SetThreshold[1], sizeof(m_SetThreshold[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SetThreshold[2], sizeof(m_SetThreshold[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SetThreshold[3], sizeof(m_SetThreshold[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SetThreshold[4], sizeof(m_SetThreshold[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SetThreshold[5], sizeof(m_SetThreshold[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SetThreshold[6], sizeof(m_SetThreshold[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_SetThreshold[7], sizeof(m_SetThreshold[0]), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RequiredSkill, sizeof(this->m_RequiredSkill), nullptr, nullptr, nullptr)
-        || !SFile::Read(f, &this->m_RequiredSkillRank, sizeof(this->m_RequiredSkillRank), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[0], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[1], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[2], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[3], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[4], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[5], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[6], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[7], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[8], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[9], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[10], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[11], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[12], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[13], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[14], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameOfs[15], sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &nameMask, sizeof(uint32_t), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_itemID[0], sizeof(m_itemID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_itemID[1], sizeof(m_itemID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_itemID[2], sizeof(m_itemID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_itemID[3], sizeof(m_itemID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_itemID[4], sizeof(m_itemID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_itemID[5], sizeof(m_itemID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_itemID[6], sizeof(m_itemID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_itemID[7], sizeof(m_itemID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_itemID[8], sizeof(m_itemID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_itemID[9], sizeof(m_itemID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_itemID[10], sizeof(m_itemID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_itemID[11], sizeof(m_itemID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_itemID[12], sizeof(m_itemID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_itemID[13], sizeof(m_itemID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_itemID[14], sizeof(m_itemID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_itemID[15], sizeof(m_itemID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_itemID[16], sizeof(m_itemID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_setSpellID[0], sizeof(m_setSpellID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_setSpellID[1], sizeof(m_setSpellID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_setSpellID[2], sizeof(m_setSpellID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_setSpellID[3], sizeof(m_setSpellID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_setSpellID[4], sizeof(m_setSpellID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_setSpellID[5], sizeof(m_setSpellID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_setSpellID[6], sizeof(m_setSpellID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_setSpellID[7], sizeof(m_setSpellID[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_setThreshold[0], sizeof(m_setThreshold[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_setThreshold[1], sizeof(m_setThreshold[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_setThreshold[2], sizeof(m_setThreshold[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_setThreshold[3], sizeof(m_setThreshold[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_setThreshold[4], sizeof(m_setThreshold[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_setThreshold[5], sizeof(m_setThreshold[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_setThreshold[6], sizeof(m_setThreshold[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_setThreshold[7], sizeof(m_setThreshold[0]), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_requiredSkill, sizeof(this->m_requiredSkill), nullptr, nullptr, nullptr)
+        || !SFile::Read(f, &this->m_requiredSkillRank, sizeof(this->m_requiredSkillRank), nullptr, nullptr, nullptr)
     ) {
         return false;
     }
 
     if (stringBuffer) {
-        this->m_Name_lang = &stringBuffer[Name_langOfs[CURRENT_LANGUAGE]];
+        this->m_name = &stringBuffer[nameOfs[CURRENT_LANGUAGE]];
     } else {
-        this->m_Name_lang = "";
+        this->m_name = "";
     }
 
     return true;

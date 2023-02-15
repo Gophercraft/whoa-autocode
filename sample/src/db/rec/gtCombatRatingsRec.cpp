@@ -5,9 +5,13 @@ const char* gtCombatRatingsRec::GetFilename() {
     return "DBFilesClient\\gtCombatRatings.dbc";
 }
 
+int32_t gtCombatRatingsRec::GetID() {
+    return this->m_generatedID;
+}
+
 bool gtCombatRatingsRec::Read(SFile* f, const char* stringBuffer) {
     if (
-        !SFile::Read(f, &this->m_Data, sizeof(this->m_Data), nullptr, nullptr, nullptr)
+        !SFile::Read(f, &this->m_data, sizeof(this->m_data), nullptr, nullptr, nullptr)
     ) {
         return false;
     }

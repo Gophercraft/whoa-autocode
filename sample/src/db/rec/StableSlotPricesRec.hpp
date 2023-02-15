@@ -2,8 +2,8 @@
 #ifndef DB_REC_STABLE_SLOT_PRICES_REC_HPP
 #define DB_REC_STABLE_SLOT_PRICES_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class StableSlotPricesRec {
     public:
@@ -12,9 +12,10 @@ class StableSlotPricesRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Cost;
+        int32_t m_cost;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 

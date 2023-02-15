@@ -2,8 +2,8 @@
 #ifndef DB_REC_SPELL_RUNE_COST_REC_HPP
 #define DB_REC_SPELL_RUNE_COST_REC_HPP
 
+#include "util/SFile.hpp"
 #include <cstdint>
-#include <storm/File.hpp>
 
 class SpellRuneCostRec {
     public:
@@ -12,12 +12,13 @@ class SpellRuneCostRec {
         static constexpr bool indexIsID = false;
 
         int32_t m_ID;
-        int32_t m_Blood;
-        int32_t m_Unholy;
-        int32_t m_Frost;
-        int32_t m_RunicPower;
+        int32_t m_blood;
+        int32_t m_unholy;
+        int32_t m_frost;
+        int32_t m_runicPower;
 
         static const char* GetFilename();
+        int32_t GetID();
         bool Read(SFile* f, const char* stringBuffer);
 };
 
