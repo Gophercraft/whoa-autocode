@@ -5,8 +5,24 @@ const char* ItemDamageOneHandCasterRec::GetFilename() {
     return "DBFilesClient\\ItemDamageOneHandCaster.dbc";
 }
 
+int32_t ItemDamageOneHandCasterRec::GetNumColumns() {
+    return 9;
+}
+
+int32_t ItemDamageOneHandCasterRec::GetRowSize() {
+    return 36;
+}
+
+bool ItemDamageOneHandCasterRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t ItemDamageOneHandCasterRec::GetID() {
     return this->m_ID;
+}
+
+void ItemDamageOneHandCasterRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool ItemDamageOneHandCasterRec::Read(SFile* f, const char* stringBuffer) {

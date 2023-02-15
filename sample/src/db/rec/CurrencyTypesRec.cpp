@@ -5,8 +5,24 @@ const char* CurrencyTypesRec::GetFilename() {
     return "DBFilesClient\\CurrencyTypes.dbc";
 }
 
+int32_t CurrencyTypesRec::GetNumColumns() {
+    return 4;
+}
+
+int32_t CurrencyTypesRec::GetRowSize() {
+    return 16;
+}
+
+bool CurrencyTypesRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t CurrencyTypesRec::GetID() {
     return this->m_ID;
+}
+
+void CurrencyTypesRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool CurrencyTypesRec::Read(SFile* f, const char* stringBuffer) {

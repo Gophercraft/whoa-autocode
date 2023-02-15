@@ -5,8 +5,24 @@ const char* Startup_StringsRec::GetFilename() {
     return "DBFilesClient\\Startup_Strings.dbc";
 }
 
+int32_t Startup_StringsRec::GetNumColumns() {
+    return 19;
+}
+
+int32_t Startup_StringsRec::GetRowSize() {
+    return 76;
+}
+
+bool Startup_StringsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t Startup_StringsRec::GetID() {
     return this->m_ID;
+}
+
+void Startup_StringsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool Startup_StringsRec::Read(SFile* f, const char* stringBuffer) {

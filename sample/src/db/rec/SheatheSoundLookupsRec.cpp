@@ -5,8 +5,24 @@ const char* SheatheSoundLookupsRec::GetFilename() {
     return "DBFilesClient\\SheatheSoundLookups.dbc";
 }
 
+int32_t SheatheSoundLookupsRec::GetNumColumns() {
+    return 7;
+}
+
+int32_t SheatheSoundLookupsRec::GetRowSize() {
+    return 28;
+}
+
+bool SheatheSoundLookupsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SheatheSoundLookupsRec::GetID() {
     return this->m_ID;
+}
+
+void SheatheSoundLookupsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SheatheSoundLookupsRec::Read(SFile* f, const char* stringBuffer) {

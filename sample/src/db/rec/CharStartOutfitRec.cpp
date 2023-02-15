@@ -5,8 +5,24 @@ const char* CharStartOutfitRec::GetFilename() {
     return "DBFilesClient\\CharStartOutfit.dbc";
 }
 
+int32_t CharStartOutfitRec::GetNumColumns() {
+    return 77;
+}
+
+int32_t CharStartOutfitRec::GetRowSize() {
+    return 296;
+}
+
+bool CharStartOutfitRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t CharStartOutfitRec::GetID() {
     return this->m_ID;
+}
+
+void CharStartOutfitRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool CharStartOutfitRec::Read(SFile* f, const char* stringBuffer) {

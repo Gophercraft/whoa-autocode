@@ -5,8 +5,24 @@ const char* SkillLineRec::GetFilename() {
     return "DBFilesClient\\SkillLine.dbc";
 }
 
+int32_t SkillLineRec::GetNumColumns() {
+    return 56;
+}
+
+int32_t SkillLineRec::GetRowSize() {
+    return 224;
+}
+
+bool SkillLineRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SkillLineRec::GetID() {
     return this->m_ID;
+}
+
+void SkillLineRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SkillLineRec::Read(SFile* f, const char* stringBuffer) {

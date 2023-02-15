@@ -5,8 +5,24 @@ const char* ItemDamageAmmoRec::GetFilename() {
     return "DBFilesClient\\ItemDamageAmmo.dbc";
 }
 
+int32_t ItemDamageAmmoRec::GetNumColumns() {
+    return 9;
+}
+
+int32_t ItemDamageAmmoRec::GetRowSize() {
+    return 36;
+}
+
+bool ItemDamageAmmoRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t ItemDamageAmmoRec::GetID() {
     return this->m_ID;
+}
+
+void ItemDamageAmmoRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool ItemDamageAmmoRec::Read(SFile* f, const char* stringBuffer) {

@@ -5,8 +5,24 @@ const char* NamesReservedRec::GetFilename() {
     return "DBFilesClient\\NamesReserved.dbc";
 }
 
+int32_t NamesReservedRec::GetNumColumns() {
+    return 3;
+}
+
+int32_t NamesReservedRec::GetRowSize() {
+    return 12;
+}
+
+bool NamesReservedRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t NamesReservedRec::GetID() {
     return this->m_ID;
+}
+
+void NamesReservedRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool NamesReservedRec::Read(SFile* f, const char* stringBuffer) {

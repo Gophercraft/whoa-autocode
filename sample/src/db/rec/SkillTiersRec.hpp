@@ -7,16 +7,16 @@
 
 class SkillTiersRec {
     public:
-        static constexpr uint32_t columnCount = 33;
-        static constexpr uint32_t rowSize = 132;
-        static constexpr bool indexIsID = false;
-
         int32_t m_ID;
         int32_t m_cost[16];
         int32_t m_value[16];
 
         static const char* GetFilename();
+        static int32_t GetNumColumns();
+        static int32_t GetRowSize();
+        static bool NeedIDAssigned();
         int32_t GetID();
+        void SetID(int32_t id);
         bool Read(SFile* f, const char* stringBuffer);
 };
 

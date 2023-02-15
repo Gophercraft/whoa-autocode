@@ -5,8 +5,24 @@ const char* LanguagesRec::GetFilename() {
     return "DBFilesClient\\Languages.dbc";
 }
 
+int32_t LanguagesRec::GetNumColumns() {
+    return 18;
+}
+
+int32_t LanguagesRec::GetRowSize() {
+    return 72;
+}
+
+bool LanguagesRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t LanguagesRec::GetID() {
     return this->m_ID;
+}
+
+void LanguagesRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool LanguagesRec::Read(SFile* f, const char* stringBuffer) {

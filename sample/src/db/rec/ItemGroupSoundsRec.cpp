@@ -5,8 +5,24 @@ const char* ItemGroupSoundsRec::GetFilename() {
     return "DBFilesClient\\ItemGroupSounds.dbc";
 }
 
+int32_t ItemGroupSoundsRec::GetNumColumns() {
+    return 5;
+}
+
+int32_t ItemGroupSoundsRec::GetRowSize() {
+    return 20;
+}
+
+bool ItemGroupSoundsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t ItemGroupSoundsRec::GetID() {
     return this->m_ID;
+}
+
+void ItemGroupSoundsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool ItemGroupSoundsRec::Read(SFile* f, const char* stringBuffer) {

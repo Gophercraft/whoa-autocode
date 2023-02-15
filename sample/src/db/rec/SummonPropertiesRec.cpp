@@ -5,8 +5,24 @@ const char* SummonPropertiesRec::GetFilename() {
     return "DBFilesClient\\SummonProperties.dbc";
 }
 
+int32_t SummonPropertiesRec::GetNumColumns() {
+    return 6;
+}
+
+int32_t SummonPropertiesRec::GetRowSize() {
+    return 24;
+}
+
+bool SummonPropertiesRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SummonPropertiesRec::GetID() {
     return this->m_ID;
+}
+
+void SummonPropertiesRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SummonPropertiesRec::Read(SFile* f, const char* stringBuffer) {

@@ -5,8 +5,24 @@ const char* ItemDisplayInfoRec::GetFilename() {
     return "DBFilesClient\\ItemDisplayInfo.dbc";
 }
 
+int32_t ItemDisplayInfoRec::GetNumColumns() {
+    return 25;
+}
+
+int32_t ItemDisplayInfoRec::GetRowSize() {
+    return 100;
+}
+
+bool ItemDisplayInfoRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t ItemDisplayInfoRec::GetID() {
     return this->m_ID;
+}
+
+void ItemDisplayInfoRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool ItemDisplayInfoRec::Read(SFile* f, const char* stringBuffer) {

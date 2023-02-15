@@ -5,8 +5,24 @@ const char* GlueScreenEmoteRec::GetFilename() {
     return "DBFilesClient\\GlueScreenEmote.dbc";
 }
 
+int32_t GlueScreenEmoteRec::GetNumColumns() {
+    return 8;
+}
+
+int32_t GlueScreenEmoteRec::GetRowSize() {
+    return 32;
+}
+
+bool GlueScreenEmoteRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t GlueScreenEmoteRec::GetID() {
     return this->m_ID;
+}
+
+void GlueScreenEmoteRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool GlueScreenEmoteRec::Read(SFile* f, const char* stringBuffer) {

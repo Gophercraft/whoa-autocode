@@ -5,8 +5,24 @@ const char* CameraShakesRec::GetFilename() {
     return "DBFilesClient\\CameraShakes.dbc";
 }
 
+int32_t CameraShakesRec::GetNumColumns() {
+    return 8;
+}
+
+int32_t CameraShakesRec::GetRowSize() {
+    return 32;
+}
+
+bool CameraShakesRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t CameraShakesRec::GetID() {
     return this->m_ID;
+}
+
+void CameraShakesRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool CameraShakesRec::Read(SFile* f, const char* stringBuffer) {

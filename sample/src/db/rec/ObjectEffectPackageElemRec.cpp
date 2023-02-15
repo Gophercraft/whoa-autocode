@@ -5,8 +5,24 @@ const char* ObjectEffectPackageElemRec::GetFilename() {
     return "DBFilesClient\\ObjectEffectPackageElem.dbc";
 }
 
+int32_t ObjectEffectPackageElemRec::GetNumColumns() {
+    return 4;
+}
+
+int32_t ObjectEffectPackageElemRec::GetRowSize() {
+    return 16;
+}
+
+bool ObjectEffectPackageElemRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t ObjectEffectPackageElemRec::GetID() {
     return this->m_ID;
+}
+
+void ObjectEffectPackageElemRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool ObjectEffectPackageElemRec::Read(SFile* f, const char* stringBuffer) {

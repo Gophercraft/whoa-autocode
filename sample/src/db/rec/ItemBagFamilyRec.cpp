@@ -5,8 +5,24 @@ const char* ItemBagFamilyRec::GetFilename() {
     return "DBFilesClient\\ItemBagFamily.dbc";
 }
 
+int32_t ItemBagFamilyRec::GetNumColumns() {
+    return 18;
+}
+
+int32_t ItemBagFamilyRec::GetRowSize() {
+    return 72;
+}
+
+bool ItemBagFamilyRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t ItemBagFamilyRec::GetID() {
     return this->m_ID;
+}
+
+void ItemBagFamilyRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool ItemBagFamilyRec::Read(SFile* f, const char* stringBuffer) {

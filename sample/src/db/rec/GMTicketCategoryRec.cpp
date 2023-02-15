@@ -5,8 +5,24 @@ const char* GMTicketCategoryRec::GetFilename() {
     return "DBFilesClient\\GMTicketCategory.dbc";
 }
 
+int32_t GMTicketCategoryRec::GetNumColumns() {
+    return 18;
+}
+
+int32_t GMTicketCategoryRec::GetRowSize() {
+    return 72;
+}
+
+bool GMTicketCategoryRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t GMTicketCategoryRec::GetID() {
     return this->m_ID;
+}
+
+void GMTicketCategoryRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool GMTicketCategoryRec::Read(SFile* f, const char* stringBuffer) {

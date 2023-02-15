@@ -5,8 +5,24 @@ const char* SpellCastingRequirementsRec::GetFilename() {
     return "DBFilesClient\\SpellCastingRequirements.dbc";
 }
 
+int32_t SpellCastingRequirementsRec::GetNumColumns() {
+    return 7;
+}
+
+int32_t SpellCastingRequirementsRec::GetRowSize() {
+    return 28;
+}
+
+bool SpellCastingRequirementsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SpellCastingRequirementsRec::GetID() {
     return this->m_ID;
+}
+
+void SpellCastingRequirementsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SpellCastingRequirementsRec::Read(SFile* f, const char* stringBuffer) {

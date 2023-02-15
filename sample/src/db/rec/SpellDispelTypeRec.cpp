@@ -5,8 +5,24 @@ const char* SpellDispelTypeRec::GetFilename() {
     return "DBFilesClient\\SpellDispelType.dbc";
 }
 
+int32_t SpellDispelTypeRec::GetNumColumns() {
+    return 21;
+}
+
+int32_t SpellDispelTypeRec::GetRowSize() {
+    return 84;
+}
+
+bool SpellDispelTypeRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SpellDispelTypeRec::GetID() {
     return this->m_ID;
+}
+
+void SpellDispelTypeRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SpellDispelTypeRec::Read(SFile* f, const char* stringBuffer) {

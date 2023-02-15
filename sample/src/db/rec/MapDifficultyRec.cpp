@@ -5,8 +5,24 @@ const char* MapDifficultyRec::GetFilename() {
     return "DBFilesClient\\MapDifficulty.dbc";
 }
 
+int32_t MapDifficultyRec::GetNumColumns() {
+    return 23;
+}
+
+int32_t MapDifficultyRec::GetRowSize() {
+    return 92;
+}
+
+bool MapDifficultyRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t MapDifficultyRec::GetID() {
     return this->m_ID;
+}
+
+void MapDifficultyRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool MapDifficultyRec::Read(SFile* f, const char* stringBuffer) {

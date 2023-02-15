@@ -5,8 +5,24 @@ const char* SpellVisualKitAreaModelRec::GetFilename() {
     return "DBFilesClient\\SpellVisualKitAreaModel.dbc";
 }
 
+int32_t SpellVisualKitAreaModelRec::GetNumColumns() {
+    return 3;
+}
+
+int32_t SpellVisualKitAreaModelRec::GetRowSize() {
+    return 12;
+}
+
+bool SpellVisualKitAreaModelRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SpellVisualKitAreaModelRec::GetID() {
     return this->m_ID;
+}
+
+void SpellVisualKitAreaModelRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SpellVisualKitAreaModelRec::Read(SFile* f, const char* stringBuffer) {

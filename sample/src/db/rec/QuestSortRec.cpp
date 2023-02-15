@@ -5,8 +5,24 @@ const char* QuestSortRec::GetFilename() {
     return "DBFilesClient\\QuestSort.dbc";
 }
 
+int32_t QuestSortRec::GetNumColumns() {
+    return 18;
+}
+
+int32_t QuestSortRec::GetRowSize() {
+    return 72;
+}
+
+bool QuestSortRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t QuestSortRec::GetID() {
     return this->m_ID;
+}
+
+void QuestSortRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool QuestSortRec::Read(SFile* f, const char* stringBuffer) {

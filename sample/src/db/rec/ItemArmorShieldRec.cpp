@@ -5,8 +5,24 @@ const char* ItemArmorShieldRec::GetFilename() {
     return "DBFilesClient\\ItemArmorShield.dbc";
 }
 
+int32_t ItemArmorShieldRec::GetNumColumns() {
+    return 9;
+}
+
+int32_t ItemArmorShieldRec::GetRowSize() {
+    return 36;
+}
+
+bool ItemArmorShieldRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t ItemArmorShieldRec::GetID() {
     return this->m_ID;
+}
+
+void ItemArmorShieldRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool ItemArmorShieldRec::Read(SFile* f, const char* stringBuffer) {

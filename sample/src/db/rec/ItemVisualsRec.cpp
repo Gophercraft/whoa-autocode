@@ -5,8 +5,24 @@ const char* ItemVisualsRec::GetFilename() {
     return "DBFilesClient\\ItemVisuals.dbc";
 }
 
+int32_t ItemVisualsRec::GetNumColumns() {
+    return 6;
+}
+
+int32_t ItemVisualsRec::GetRowSize() {
+    return 24;
+}
+
+bool ItemVisualsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t ItemVisualsRec::GetID() {
     return this->m_ID;
+}
+
+void ItemVisualsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool ItemVisualsRec::Read(SFile* f, const char* stringBuffer) {

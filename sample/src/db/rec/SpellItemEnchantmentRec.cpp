@@ -5,8 +5,24 @@ const char* SpellItemEnchantmentRec::GetFilename() {
     return "DBFilesClient\\SpellItemEnchantment.dbc";
 }
 
+int32_t SpellItemEnchantmentRec::GetNumColumns() {
+    return 38;
+}
+
+int32_t SpellItemEnchantmentRec::GetRowSize() {
+    return 152;
+}
+
+bool SpellItemEnchantmentRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SpellItemEnchantmentRec::GetID() {
     return this->m_ID;
+}
+
+void SpellItemEnchantmentRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SpellItemEnchantmentRec::Read(SFile* f, const char* stringBuffer) {

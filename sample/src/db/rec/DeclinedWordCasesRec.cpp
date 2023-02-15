@@ -5,8 +5,24 @@ const char* DeclinedWordCasesRec::GetFilename() {
     return "DBFilesClient\\DeclinedWordCases.dbc";
 }
 
+int32_t DeclinedWordCasesRec::GetNumColumns() {
+    return 4;
+}
+
+int32_t DeclinedWordCasesRec::GetRowSize() {
+    return 16;
+}
+
+bool DeclinedWordCasesRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t DeclinedWordCasesRec::GetID() {
     return this->m_ID;
+}
+
+void DeclinedWordCasesRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool DeclinedWordCasesRec::Read(SFile* f, const char* stringBuffer) {

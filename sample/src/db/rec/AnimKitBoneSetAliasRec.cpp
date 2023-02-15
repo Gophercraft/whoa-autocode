@@ -5,8 +5,24 @@ const char* AnimKitBoneSetAliasRec::GetFilename() {
     return "DBFilesClient\\AnimKitBoneSetAlias.dbc";
 }
 
+int32_t AnimKitBoneSetAliasRec::GetNumColumns() {
+    return 3;
+}
+
+int32_t AnimKitBoneSetAliasRec::GetRowSize() {
+    return 12;
+}
+
+bool AnimKitBoneSetAliasRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t AnimKitBoneSetAliasRec::GetID() {
     return this->m_ID;
+}
+
+void AnimKitBoneSetAliasRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool AnimKitBoneSetAliasRec::Read(SFile* f, const char* stringBuffer) {

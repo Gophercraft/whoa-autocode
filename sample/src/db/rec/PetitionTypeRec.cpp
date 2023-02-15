@@ -5,8 +5,24 @@ const char* PetitionTypeRec::GetFilename() {
     return "DBFilesClient\\PetitionType.dbc";
 }
 
+int32_t PetitionTypeRec::GetNumColumns() {
+    return 3;
+}
+
+int32_t PetitionTypeRec::GetRowSize() {
+    return 12;
+}
+
+bool PetitionTypeRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t PetitionTypeRec::GetID() {
     return this->m_ID;
+}
+
+void PetitionTypeRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool PetitionTypeRec::Read(SFile* f, const char* stringBuffer) {

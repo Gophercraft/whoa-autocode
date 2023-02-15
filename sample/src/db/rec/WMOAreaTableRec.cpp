@@ -5,8 +5,24 @@ const char* WMOAreaTableRec::GetFilename() {
     return "DBFilesClient\\WMOAreaTable.dbc";
 }
 
+int32_t WMOAreaTableRec::GetNumColumns() {
+    return 28;
+}
+
+int32_t WMOAreaTableRec::GetRowSize() {
+    return 112;
+}
+
+bool WMOAreaTableRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t WMOAreaTableRec::GetID() {
     return this->m_ID;
+}
+
+void WMOAreaTableRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool WMOAreaTableRec::Read(SFile* f, const char* stringBuffer) {

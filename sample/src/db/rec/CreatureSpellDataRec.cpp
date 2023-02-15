@@ -5,8 +5,24 @@ const char* CreatureSpellDataRec::GetFilename() {
     return "DBFilesClient\\CreatureSpellData.dbc";
 }
 
+int32_t CreatureSpellDataRec::GetNumColumns() {
+    return 9;
+}
+
+int32_t CreatureSpellDataRec::GetRowSize() {
+    return 36;
+}
+
+bool CreatureSpellDataRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t CreatureSpellDataRec::GetID() {
     return this->m_ID;
+}
+
+void CreatureSpellDataRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool CreatureSpellDataRec::Read(SFile* f, const char* stringBuffer) {

@@ -5,8 +5,24 @@ const char* PhaseShiftZoneSoundsRec::GetFilename() {
     return "DBFilesClient\\PhaseShiftZoneSounds.dbc";
 }
 
+int32_t PhaseShiftZoneSoundsRec::GetNumColumns() {
+    return 14;
+}
+
+int32_t PhaseShiftZoneSoundsRec::GetRowSize() {
+    return 56;
+}
+
+bool PhaseShiftZoneSoundsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t PhaseShiftZoneSoundsRec::GetID() {
     return this->m_ID;
+}
+
+void PhaseShiftZoneSoundsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool PhaseShiftZoneSoundsRec::Read(SFile* f, const char* stringBuffer) {

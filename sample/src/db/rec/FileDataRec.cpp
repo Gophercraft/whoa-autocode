@@ -5,8 +5,24 @@ const char* FileDataRec::GetFilename() {
     return "DBFilesClient\\FileData.dbc";
 }
 
+int32_t FileDataRec::GetNumColumns() {
+    return 3;
+}
+
+int32_t FileDataRec::GetRowSize() {
+    return 12;
+}
+
+bool FileDataRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t FileDataRec::GetID() {
     return this->m_ID;
+}
+
+void FileDataRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool FileDataRec::Read(SFile* f, const char* stringBuffer) {

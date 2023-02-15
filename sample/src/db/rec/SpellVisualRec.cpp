@@ -5,8 +5,24 @@ const char* SpellVisualRec::GetFilename() {
     return "DBFilesClient\\SpellVisual.dbc";
 }
 
+int32_t SpellVisualRec::GetNumColumns() {
+    return 32;
+}
+
+int32_t SpellVisualRec::GetRowSize() {
+    return 128;
+}
+
+bool SpellVisualRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SpellVisualRec::GetID() {
     return this->m_ID;
+}
+
+void SpellVisualRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SpellVisualRec::Read(SFile* f, const char* stringBuffer) {

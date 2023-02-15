@@ -5,8 +5,24 @@ const char* SpellShapeshiftFormRec::GetFilename() {
     return "DBFilesClient\\SpellShapeshiftForm.dbc";
 }
 
+int32_t SpellShapeshiftFormRec::GetNumColumns() {
+    return 35;
+}
+
+int32_t SpellShapeshiftFormRec::GetRowSize() {
+    return 140;
+}
+
+bool SpellShapeshiftFormRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SpellShapeshiftFormRec::GetID() {
     return this->m_ID;
+}
+
+void SpellShapeshiftFormRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SpellShapeshiftFormRec::Read(SFile* f, const char* stringBuffer) {

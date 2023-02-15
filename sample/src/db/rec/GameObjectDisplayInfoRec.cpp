@@ -5,8 +5,24 @@ const char* GameObjectDisplayInfoRec::GetFilename() {
     return "DBFilesClient\\GameObjectDisplayInfo.dbc";
 }
 
+int32_t GameObjectDisplayInfoRec::GetNumColumns() {
+    return 19;
+}
+
+int32_t GameObjectDisplayInfoRec::GetRowSize() {
+    return 76;
+}
+
+bool GameObjectDisplayInfoRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t GameObjectDisplayInfoRec::GetID() {
     return this->m_ID;
+}
+
+void GameObjectDisplayInfoRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool GameObjectDisplayInfoRec::Read(SFile* f, const char* stringBuffer) {

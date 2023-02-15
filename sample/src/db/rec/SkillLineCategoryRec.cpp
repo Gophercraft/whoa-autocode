@@ -5,8 +5,24 @@ const char* SkillLineCategoryRec::GetFilename() {
     return "DBFilesClient\\SkillLineCategory.dbc";
 }
 
+int32_t SkillLineCategoryRec::GetNumColumns() {
+    return 19;
+}
+
+int32_t SkillLineCategoryRec::GetRowSize() {
+    return 76;
+}
+
+bool SkillLineCategoryRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SkillLineCategoryRec::GetID() {
     return this->m_ID;
+}
+
+void SkillLineCategoryRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SkillLineCategoryRec::Read(SFile* f, const char* stringBuffer) {

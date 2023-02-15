@@ -5,8 +5,24 @@ const char* QuestFactionRewardRec::GetFilename() {
     return "DBFilesClient\\QuestFactionReward.dbc";
 }
 
+int32_t QuestFactionRewardRec::GetNumColumns() {
+    return 11;
+}
+
+int32_t QuestFactionRewardRec::GetRowSize() {
+    return 44;
+}
+
+bool QuestFactionRewardRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t QuestFactionRewardRec::GetID() {
     return this->m_ID;
+}
+
+void QuestFactionRewardRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool QuestFactionRewardRec::Read(SFile* f, const char* stringBuffer) {

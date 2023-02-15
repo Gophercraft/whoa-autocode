@@ -5,8 +5,24 @@ const char* SkillTiersRec::GetFilename() {
     return "DBFilesClient\\SkillTiers.dbc";
 }
 
+int32_t SkillTiersRec::GetNumColumns() {
+    return 33;
+}
+
+int32_t SkillTiersRec::GetRowSize() {
+    return 132;
+}
+
+bool SkillTiersRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SkillTiersRec::GetID() {
     return this->m_ID;
+}
+
+void SkillTiersRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SkillTiersRec::Read(SFile* f, const char* stringBuffer) {

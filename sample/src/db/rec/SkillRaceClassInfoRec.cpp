@@ -5,8 +5,24 @@ const char* SkillRaceClassInfoRec::GetFilename() {
     return "DBFilesClient\\SkillRaceClassInfo.dbc";
 }
 
+int32_t SkillRaceClassInfoRec::GetNumColumns() {
+    return 8;
+}
+
+int32_t SkillRaceClassInfoRec::GetRowSize() {
+    return 32;
+}
+
+bool SkillRaceClassInfoRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SkillRaceClassInfoRec::GetID() {
     return this->m_ID;
+}
+
+void SkillRaceClassInfoRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SkillRaceClassInfoRec::Read(SFile* f, const char* stringBuffer) {

@@ -5,8 +5,24 @@ const char* ItemExtendedCostRec::GetFilename() {
     return "DBFilesClient\\ItemExtendedCost.dbc";
 }
 
+int32_t ItemExtendedCostRec::GetNumColumns() {
+    return 16;
+}
+
+int32_t ItemExtendedCostRec::GetRowSize() {
+    return 64;
+}
+
+bool ItemExtendedCostRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t ItemExtendedCostRec::GetID() {
     return this->m_ID;
+}
+
+void ItemExtendedCostRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool ItemExtendedCostRec::Read(SFile* f, const char* stringBuffer) {

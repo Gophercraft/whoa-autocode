@@ -5,8 +5,24 @@ const char* LockRec::GetFilename() {
     return "DBFilesClient\\Lock.dbc";
 }
 
+int32_t LockRec::GetNumColumns() {
+    return 33;
+}
+
+int32_t LockRec::GetRowSize() {
+    return 132;
+}
+
+bool LockRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t LockRec::GetID() {
     return this->m_ID;
+}
+
+void LockRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool LockRec::Read(SFile* f, const char* stringBuffer) {

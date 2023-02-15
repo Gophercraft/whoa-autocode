@@ -5,8 +5,24 @@ const char* UISoundLookupsRec::GetFilename() {
     return "DBFilesClient\\UISoundLookups.dbc";
 }
 
+int32_t UISoundLookupsRec::GetNumColumns() {
+    return 3;
+}
+
+int32_t UISoundLookupsRec::GetRowSize() {
+    return 12;
+}
+
+bool UISoundLookupsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t UISoundLookupsRec::GetID() {
     return this->m_ID;
+}
+
+void UISoundLookupsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool UISoundLookupsRec::Read(SFile* f, const char* stringBuffer) {

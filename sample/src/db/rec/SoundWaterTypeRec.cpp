@@ -5,8 +5,24 @@ const char* SoundWaterTypeRec::GetFilename() {
     return "DBFilesClient\\SoundWaterType.dbc";
 }
 
+int32_t SoundWaterTypeRec::GetNumColumns() {
+    return 4;
+}
+
+int32_t SoundWaterTypeRec::GetRowSize() {
+    return 16;
+}
+
+bool SoundWaterTypeRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SoundWaterTypeRec::GetID() {
     return this->m_ID;
+}
+
+void SoundWaterTypeRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SoundWaterTypeRec::Read(SFile* f, const char* stringBuffer) {

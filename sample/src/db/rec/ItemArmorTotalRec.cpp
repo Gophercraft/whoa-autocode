@@ -5,8 +5,24 @@ const char* ItemArmorTotalRec::GetFilename() {
     return "DBFilesClient\\ItemArmorTotal.dbc";
 }
 
+int32_t ItemArmorTotalRec::GetNumColumns() {
+    return 6;
+}
+
+int32_t ItemArmorTotalRec::GetRowSize() {
+    return 24;
+}
+
+bool ItemArmorTotalRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t ItemArmorTotalRec::GetID() {
     return this->m_ID;
+}
+
+void ItemArmorTotalRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool ItemArmorTotalRec::Read(SFile* f, const char* stringBuffer) {

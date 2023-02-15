@@ -5,8 +5,24 @@ const char* ItemSubClassMaskRec::GetFilename() {
     return "DBFilesClient\\ItemSubClassMask.dbc";
 }
 
+int32_t ItemSubClassMaskRec::GetNumColumns() {
+    return 19;
+}
+
+int32_t ItemSubClassMaskRec::GetRowSize() {
+    return 76;
+}
+
+bool ItemSubClassMaskRec::NeedIDAssigned() {
+    return true;
+}
+
 int32_t ItemSubClassMaskRec::GetID() {
     return this->m_generatedID;
+}
+
+void ItemSubClassMaskRec::SetID(int32_t id) {
+    this->m_generatedID = id;
 }
 
 bool ItemSubClassMaskRec::Read(SFile* f, const char* stringBuffer) {

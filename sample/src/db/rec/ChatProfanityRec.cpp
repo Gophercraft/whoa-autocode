@@ -5,8 +5,24 @@ const char* ChatProfanityRec::GetFilename() {
     return "DBFilesClient\\ChatProfanity.dbc";
 }
 
+int32_t ChatProfanityRec::GetNumColumns() {
+    return 3;
+}
+
+int32_t ChatProfanityRec::GetRowSize() {
+    return 12;
+}
+
+bool ChatProfanityRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t ChatProfanityRec::GetID() {
     return this->m_ID;
+}
+
+void ChatProfanityRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool ChatProfanityRec::Read(SFile* f, const char* stringBuffer) {

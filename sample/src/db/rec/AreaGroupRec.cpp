@@ -5,8 +5,24 @@ const char* AreaGroupRec::GetFilename() {
     return "DBFilesClient\\AreaGroup.dbc";
 }
 
+int32_t AreaGroupRec::GetNumColumns() {
+    return 8;
+}
+
+int32_t AreaGroupRec::GetRowSize() {
+    return 32;
+}
+
+bool AreaGroupRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t AreaGroupRec::GetID() {
     return this->m_ID;
+}
+
+void AreaGroupRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool AreaGroupRec::Read(SFile* f, const char* stringBuffer) {

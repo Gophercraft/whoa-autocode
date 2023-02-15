@@ -5,8 +5,24 @@ const char* DurabilityQualityRec::GetFilename() {
     return "DBFilesClient\\DurabilityQuality.dbc";
 }
 
+int32_t DurabilityQualityRec::GetNumColumns() {
+    return 2;
+}
+
+int32_t DurabilityQualityRec::GetRowSize() {
+    return 8;
+}
+
+bool DurabilityQualityRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t DurabilityQualityRec::GetID() {
     return this->m_ID;
+}
+
+void DurabilityQualityRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool DurabilityQualityRec::Read(SFile* f, const char* stringBuffer) {

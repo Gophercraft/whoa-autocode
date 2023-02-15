@@ -5,8 +5,24 @@ const char* TerrainTypeSoundsRec::GetFilename() {
     return "DBFilesClient\\TerrainTypeSounds.dbc";
 }
 
+int32_t TerrainTypeSoundsRec::GetNumColumns() {
+    return 1;
+}
+
+int32_t TerrainTypeSoundsRec::GetRowSize() {
+    return 4;
+}
+
+bool TerrainTypeSoundsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t TerrainTypeSoundsRec::GetID() {
     return this->m_ID;
+}
+
+void TerrainTypeSoundsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool TerrainTypeSoundsRec::Read(SFile* f, const char* stringBuffer) {

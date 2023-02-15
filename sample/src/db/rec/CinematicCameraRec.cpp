@@ -5,8 +5,24 @@ const char* CinematicCameraRec::GetFilename() {
     return "DBFilesClient\\CinematicCamera.dbc";
 }
 
+int32_t CinematicCameraRec::GetNumColumns() {
+    return 7;
+}
+
+int32_t CinematicCameraRec::GetRowSize() {
+    return 28;
+}
+
+bool CinematicCameraRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t CinematicCameraRec::GetID() {
     return this->m_ID;
+}
+
+void CinematicCameraRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool CinematicCameraRec::Read(SFile* f, const char* stringBuffer) {

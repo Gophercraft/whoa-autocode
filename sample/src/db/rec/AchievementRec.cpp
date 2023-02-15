@@ -5,8 +5,24 @@ const char* AchievementRec::GetFilename() {
     return "DBFilesClient\\Achievement.dbc";
 }
 
+int32_t AchievementRec::GetNumColumns() {
+    return 62;
+}
+
+int32_t AchievementRec::GetRowSize() {
+    return 248;
+}
+
+bool AchievementRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t AchievementRec::GetID() {
     return this->m_ID;
+}
+
+void AchievementRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool AchievementRec::Read(SFile* f, const char* stringBuffer) {

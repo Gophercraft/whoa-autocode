@@ -5,8 +5,24 @@ const char* VehicleUIIndicatorRec::GetFilename() {
     return "DBFilesClient\\VehicleUIIndicator.dbc";
 }
 
+int32_t VehicleUIIndicatorRec::GetNumColumns() {
+    return 2;
+}
+
+int32_t VehicleUIIndicatorRec::GetRowSize() {
+    return 8;
+}
+
+bool VehicleUIIndicatorRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t VehicleUIIndicatorRec::GetID() {
     return this->m_ID;
+}
+
+void VehicleUIIndicatorRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool VehicleUIIndicatorRec::Read(SFile* f, const char* stringBuffer) {

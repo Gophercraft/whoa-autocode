@@ -7,10 +7,6 @@
 
 class FactionRec {
     public:
-        static constexpr uint32_t columnCount = 57;
-        static constexpr uint32_t rowSize = 228;
-        static constexpr bool indexIsID = false;
-
         int32_t m_ID;
         int32_t m_reputationIndex;
         int32_t m_reputationRaceMask[4];
@@ -24,7 +20,11 @@ class FactionRec {
         const char* m_description;
 
         static const char* GetFilename();
+        static int32_t GetNumColumns();
+        static int32_t GetRowSize();
+        static bool NeedIDAssigned();
         int32_t GetID();
+        void SetID(int32_t id);
         bool Read(SFile* f, const char* stringBuffer);
 };
 

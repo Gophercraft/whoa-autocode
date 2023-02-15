@@ -5,8 +5,24 @@ const char* CreatureDisplayInfoExtraRec::GetFilename() {
     return "DBFilesClient\\CreatureDisplayInfoExtra.dbc";
 }
 
+int32_t CreatureDisplayInfoExtraRec::GetNumColumns() {
+    return 21;
+}
+
+int32_t CreatureDisplayInfoExtraRec::GetRowSize() {
+    return 84;
+}
+
+bool CreatureDisplayInfoExtraRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t CreatureDisplayInfoExtraRec::GetID() {
     return this->m_ID;
+}
+
+void CreatureDisplayInfoExtraRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool CreatureDisplayInfoExtraRec::Read(SFile* f, const char* stringBuffer) {

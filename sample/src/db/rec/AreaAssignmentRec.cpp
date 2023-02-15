@@ -5,8 +5,24 @@ const char* AreaAssignmentRec::GetFilename() {
     return "DBFilesClient\\AreaAssignment.dbc";
 }
 
+int32_t AreaAssignmentRec::GetNumColumns() {
+    return 5;
+}
+
+int32_t AreaAssignmentRec::GetRowSize() {
+    return 20;
+}
+
+bool AreaAssignmentRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t AreaAssignmentRec::GetID() {
     return this->m_ID;
+}
+
+void AreaAssignmentRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool AreaAssignmentRec::Read(SFile* f, const char* stringBuffer) {

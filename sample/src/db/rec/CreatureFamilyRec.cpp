@@ -5,8 +5,24 @@ const char* CreatureFamilyRec::GetFilename() {
     return "DBFilesClient\\CreatureFamily.dbc";
 }
 
+int32_t CreatureFamilyRec::GetNumColumns() {
+    return 28;
+}
+
+int32_t CreatureFamilyRec::GetRowSize() {
+    return 112;
+}
+
+bool CreatureFamilyRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t CreatureFamilyRec::GetID() {
     return this->m_ID;
+}
+
+void CreatureFamilyRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool CreatureFamilyRec::Read(SFile* f, const char* stringBuffer) {

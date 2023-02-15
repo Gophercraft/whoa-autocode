@@ -5,8 +5,24 @@ const char* AreaPOIRec::GetFilename() {
     return "DBFilesClient\\AreaPOI.dbc";
 }
 
+int32_t AreaPOIRec::GetNumColumns() {
+    return 54;
+}
+
+int32_t AreaPOIRec::GetRowSize() {
+    return 216;
+}
+
+bool AreaPOIRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t AreaPOIRec::GetID() {
     return this->m_ID;
+}
+
+void AreaPOIRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool AreaPOIRec::Read(SFile* f, const char* stringBuffer) {

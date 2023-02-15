@@ -5,8 +5,24 @@ const char* SoundEntriesRec::GetFilename() {
     return "DBFilesClient\\SoundEntries.dbc";
 }
 
+int32_t SoundEntriesRec::GetNumColumns() {
+    return 30;
+}
+
+int32_t SoundEntriesRec::GetRowSize() {
+    return 120;
+}
+
+bool SoundEntriesRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SoundEntriesRec::GetID() {
     return this->m_ID;
+}
+
+void SoundEntriesRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SoundEntriesRec::Read(SFile* f, const char* stringBuffer) {

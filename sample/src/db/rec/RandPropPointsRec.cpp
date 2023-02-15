@@ -5,8 +5,24 @@ const char* RandPropPointsRec::GetFilename() {
     return "DBFilesClient\\RandPropPoints.dbc";
 }
 
+int32_t RandPropPointsRec::GetNumColumns() {
+    return 16;
+}
+
+int32_t RandPropPointsRec::GetRowSize() {
+    return 64;
+}
+
+bool RandPropPointsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t RandPropPointsRec::GetID() {
     return this->m_ID;
+}
+
+void RandPropPointsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool RandPropPointsRec::Read(SFile* f, const char* stringBuffer) {

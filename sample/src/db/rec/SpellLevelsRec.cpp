@@ -5,8 +5,24 @@ const char* SpellLevelsRec::GetFilename() {
     return "DBFilesClient\\SpellLevels.dbc";
 }
 
+int32_t SpellLevelsRec::GetNumColumns() {
+    return 4;
+}
+
+int32_t SpellLevelsRec::GetRowSize() {
+    return 16;
+}
+
+bool SpellLevelsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SpellLevelsRec::GetID() {
     return this->m_ID;
+}
+
+void SpellLevelsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SpellLevelsRec::Read(SFile* f, const char* stringBuffer) {

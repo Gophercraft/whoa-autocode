@@ -5,8 +5,24 @@ const char* DungeonEncounterRec::GetFilename() {
     return "DBFilesClient\\DungeonEncounter.dbc";
 }
 
+int32_t DungeonEncounterRec::GetNumColumns() {
+    return 23;
+}
+
+int32_t DungeonEncounterRec::GetRowSize() {
+    return 92;
+}
+
+bool DungeonEncounterRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t DungeonEncounterRec::GetID() {
     return this->m_ID;
+}
+
+void DungeonEncounterRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool DungeonEncounterRec::Read(SFile* f, const char* stringBuffer) {

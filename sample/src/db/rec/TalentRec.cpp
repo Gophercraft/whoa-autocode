@@ -5,8 +5,24 @@ const char* TalentRec::GetFilename() {
     return "DBFilesClient\\Talent.dbc";
 }
 
+int32_t TalentRec::GetNumColumns() {
+    return 23;
+}
+
+int32_t TalentRec::GetRowSize() {
+    return 92;
+}
+
+bool TalentRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t TalentRec::GetID() {
     return this->m_ID;
+}
+
+void TalentRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool TalentRec::Read(SFile* f, const char* stringBuffer) {

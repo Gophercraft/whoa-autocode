@@ -5,8 +5,24 @@ const char* NameGenRec::GetFilename() {
     return "DBFilesClient\\NameGen.dbc";
 }
 
+int32_t NameGenRec::GetNumColumns() {
+    return 4;
+}
+
+int32_t NameGenRec::GetRowSize() {
+    return 16;
+}
+
+bool NameGenRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t NameGenRec::GetID() {
     return this->m_ID;
+}
+
+void NameGenRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool NameGenRec::Read(SFile* f, const char* stringBuffer) {

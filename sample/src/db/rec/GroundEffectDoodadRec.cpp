@@ -5,8 +5,24 @@ const char* GroundEffectDoodadRec::GetFilename() {
     return "DBFilesClient\\GroundEffectDoodad.dbc";
 }
 
+int32_t GroundEffectDoodadRec::GetNumColumns() {
+    return 3;
+}
+
+int32_t GroundEffectDoodadRec::GetRowSize() {
+    return 12;
+}
+
+bool GroundEffectDoodadRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t GroundEffectDoodadRec::GetID() {
     return this->m_ID;
+}
+
+void GroundEffectDoodadRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool GroundEffectDoodadRec::Read(SFile* f, const char* stringBuffer) {

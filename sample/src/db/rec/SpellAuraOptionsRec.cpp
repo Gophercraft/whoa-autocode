@@ -5,8 +5,24 @@ const char* SpellAuraOptionsRec::GetFilename() {
     return "DBFilesClient\\SpellAuraOptions.dbc";
 }
 
+int32_t SpellAuraOptionsRec::GetNumColumns() {
+    return 5;
+}
+
+int32_t SpellAuraOptionsRec::GetRowSize() {
+    return 20;
+}
+
+bool SpellAuraOptionsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SpellAuraOptionsRec::GetID() {
     return this->m_ID;
+}
+
+void SpellAuraOptionsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SpellAuraOptionsRec::Read(SFile* f, const char* stringBuffer) {

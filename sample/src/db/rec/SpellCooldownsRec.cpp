@@ -5,8 +5,24 @@ const char* SpellCooldownsRec::GetFilename() {
     return "DBFilesClient\\SpellCooldowns.dbc";
 }
 
+int32_t SpellCooldownsRec::GetNumColumns() {
+    return 4;
+}
+
+int32_t SpellCooldownsRec::GetRowSize() {
+    return 16;
+}
+
+bool SpellCooldownsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SpellCooldownsRec::GetID() {
     return this->m_ID;
+}
+
+void SpellCooldownsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SpellCooldownsRec::Read(SFile* f, const char* stringBuffer) {

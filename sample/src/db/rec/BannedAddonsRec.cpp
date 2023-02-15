@@ -5,8 +5,24 @@ const char* BannedAddonsRec::GetFilename() {
     return "DBFilesClient\\BannedAddons.dbc";
 }
 
+int32_t BannedAddonsRec::GetNumColumns() {
+    return 11;
+}
+
+int32_t BannedAddonsRec::GetRowSize() {
+    return 44;
+}
+
+bool BannedAddonsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t BannedAddonsRec::GetID() {
     return this->m_ID;
+}
+
+void BannedAddonsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool BannedAddonsRec::Read(SFile* f, const char* stringBuffer) {

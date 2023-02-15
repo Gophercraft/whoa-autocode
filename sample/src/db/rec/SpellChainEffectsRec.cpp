@@ -5,8 +5,24 @@ const char* SpellChainEffectsRec::GetFilename() {
     return "DBFilesClient\\SpellChainEffects.dbc";
 }
 
+int32_t SpellChainEffectsRec::GetNumColumns() {
+    return 48;
+}
+
+int32_t SpellChainEffectsRec::GetRowSize() {
+    return 177;
+}
+
+bool SpellChainEffectsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SpellChainEffectsRec::GetID() {
     return this->m_ID;
+}
+
+void SpellChainEffectsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SpellChainEffectsRec::Read(SFile* f, const char* stringBuffer) {

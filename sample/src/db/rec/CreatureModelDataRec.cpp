@@ -5,8 +5,24 @@ const char* CreatureModelDataRec::GetFilename() {
     return "DBFilesClient\\CreatureModelData.dbc";
 }
 
+int32_t CreatureModelDataRec::GetNumColumns() {
+    return 28;
+}
+
+int32_t CreatureModelDataRec::GetRowSize() {
+    return 112;
+}
+
+bool CreatureModelDataRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t CreatureModelDataRec::GetID() {
     return this->m_ID;
+}
+
+void CreatureModelDataRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool CreatureModelDataRec::Read(SFile* f, const char* stringBuffer) {

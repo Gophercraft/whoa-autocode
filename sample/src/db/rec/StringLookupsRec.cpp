@@ -5,8 +5,24 @@ const char* StringLookupsRec::GetFilename() {
     return "DBFilesClient\\StringLookups.dbc";
 }
 
+int32_t StringLookupsRec::GetNumColumns() {
+    return 2;
+}
+
+int32_t StringLookupsRec::GetRowSize() {
+    return 8;
+}
+
+bool StringLookupsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t StringLookupsRec::GetID() {
     return this->m_ID;
+}
+
+void StringLookupsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool StringLookupsRec::Read(SFile* f, const char* stringBuffer) {

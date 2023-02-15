@@ -5,8 +5,24 @@ const char* ItemRandomSuffixRec::GetFilename() {
     return "DBFilesClient\\ItemRandomSuffix.dbc";
 }
 
+int32_t ItemRandomSuffixRec::GetNumColumns() {
+    return 29;
+}
+
+int32_t ItemRandomSuffixRec::GetRowSize() {
+    return 116;
+}
+
+bool ItemRandomSuffixRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t ItemRandomSuffixRec::GetID() {
     return this->m_ID;
+}
+
+void ItemRandomSuffixRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool ItemRandomSuffixRec::Read(SFile* f, const char* stringBuffer) {

@@ -5,8 +5,24 @@ const char* ResearchBranchRec::GetFilename() {
     return "DBFilesClient\\ResearchBranch.dbc";
 }
 
+int32_t ResearchBranchRec::GetNumColumns() {
+    return 22;
+}
+
+int32_t ResearchBranchRec::GetRowSize() {
+    return 88;
+}
+
+bool ResearchBranchRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t ResearchBranchRec::GetID() {
     return this->m_ID;
+}
+
+void ResearchBranchRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool ResearchBranchRec::Read(SFile* f, const char* stringBuffer) {

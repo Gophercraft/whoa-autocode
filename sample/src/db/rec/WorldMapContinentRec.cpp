@@ -5,8 +5,24 @@ const char* WorldMapContinentRec::GetFilename() {
     return "DBFilesClient\\WorldMapContinent.dbc";
 }
 
+int32_t WorldMapContinentRec::GetNumColumns() {
+    return 14;
+}
+
+int32_t WorldMapContinentRec::GetRowSize() {
+    return 56;
+}
+
+bool WorldMapContinentRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t WorldMapContinentRec::GetID() {
     return this->m_ID;
+}
+
+void WorldMapContinentRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool WorldMapContinentRec::Read(SFile* f, const char* stringBuffer) {

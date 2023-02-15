@@ -5,8 +5,24 @@ const char* LightFloatBandRec::GetFilename() {
     return "DBFilesClient\\LightFloatBand.dbc";
 }
 
+int32_t LightFloatBandRec::GetNumColumns() {
+    return 34;
+}
+
+int32_t LightFloatBandRec::GetRowSize() {
+    return 136;
+}
+
+bool LightFloatBandRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t LightFloatBandRec::GetID() {
     return this->m_ID;
+}
+
+void LightFloatBandRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool LightFloatBandRec::Read(SFile* f, const char* stringBuffer) {

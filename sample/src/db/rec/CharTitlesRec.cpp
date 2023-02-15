@@ -5,8 +5,24 @@ const char* CharTitlesRec::GetFilename() {
     return "DBFilesClient\\CharTitles.dbc";
 }
 
+int32_t CharTitlesRec::GetNumColumns() {
+    return 37;
+}
+
+int32_t CharTitlesRec::GetRowSize() {
+    return 148;
+}
+
+bool CharTitlesRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t CharTitlesRec::GetID() {
     return this->m_ID;
+}
+
+void CharTitlesRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool CharTitlesRec::Read(SFile* f, const char* stringBuffer) {

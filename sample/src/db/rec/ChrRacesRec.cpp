@@ -5,8 +5,24 @@ const char* ChrRacesRec::GetFilename() {
     return "DBFilesClient\\ChrRaces.dbc";
 }
 
+int32_t ChrRacesRec::GetNumColumns() {
+    return 69;
+}
+
+int32_t ChrRacesRec::GetRowSize() {
+    return 276;
+}
+
+bool ChrRacesRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t ChrRacesRec::GetID() {
     return this->m_ID;
+}
+
+void ChrRacesRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool ChrRacesRec::Read(SFile* f, const char* stringBuffer) {

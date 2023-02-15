@@ -5,8 +5,24 @@ const char* SpellDurationRec::GetFilename() {
     return "DBFilesClient\\SpellDuration.dbc";
 }
 
+int32_t SpellDurationRec::GetNumColumns() {
+    return 4;
+}
+
+int32_t SpellDurationRec::GetRowSize() {
+    return 16;
+}
+
+bool SpellDurationRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SpellDurationRec::GetID() {
     return this->m_ID;
+}
+
+void SpellDurationRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SpellDurationRec::Read(SFile* f, const char* stringBuffer) {

@@ -5,8 +5,24 @@ const char* ZoneLightRec::GetFilename() {
     return "DBFilesClient\\ZoneLight.dbc";
 }
 
+int32_t ZoneLightRec::GetNumColumns() {
+    return 4;
+}
+
+int32_t ZoneLightRec::GetRowSize() {
+    return 16;
+}
+
+bool ZoneLightRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t ZoneLightRec::GetID() {
     return this->m_ID;
+}
+
+void ZoneLightRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool ZoneLightRec::Read(SFile* f, const char* stringBuffer) {

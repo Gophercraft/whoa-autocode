@@ -7,10 +7,6 @@
 
 class CreatureSoundDataRec {
     public:
-        static constexpr uint32_t columnCount = 38;
-        static constexpr uint32_t rowSize = 152;
-        static constexpr bool indexIsID = false;
-
         int32_t m_ID;
         int32_t m_soundExertionID;
         int32_t m_soundExertionCriticalID;
@@ -44,7 +40,11 @@ class CreatureSoundDataRec {
         int32_t m_creatureSoundDataIdpet;
 
         static const char* GetFilename();
+        static int32_t GetNumColumns();
+        static int32_t GetRowSize();
+        static bool NeedIDAssigned();
         int32_t GetID();
+        void SetID(int32_t id);
         bool Read(SFile* f, const char* stringBuffer);
 };
 

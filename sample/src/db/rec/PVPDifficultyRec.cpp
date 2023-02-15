@@ -5,8 +5,24 @@ const char* PVPDifficultyRec::GetFilename() {
     return "DBFilesClient\\PVPDifficulty.dbc";
 }
 
+int32_t PVPDifficultyRec::GetNumColumns() {
+    return 6;
+}
+
+int32_t PVPDifficultyRec::GetRowSize() {
+    return 24;
+}
+
+bool PVPDifficultyRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t PVPDifficultyRec::GetID() {
     return this->m_ID;
+}
+
+void PVPDifficultyRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool PVPDifficultyRec::Read(SFile* f, const char* stringBuffer) {

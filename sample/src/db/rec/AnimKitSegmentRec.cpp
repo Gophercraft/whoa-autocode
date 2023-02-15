@@ -5,8 +5,24 @@ const char* AnimKitSegmentRec::GetFilename() {
     return "DBFilesClient\\AnimKitSegment.dbc";
 }
 
+int32_t AnimKitSegmentRec::GetNumColumns() {
+    return 16;
+}
+
+int32_t AnimKitSegmentRec::GetRowSize() {
+    return 64;
+}
+
+bool AnimKitSegmentRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t AnimKitSegmentRec::GetID() {
     return this->m_ID;
+}
+
+void AnimKitSegmentRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool AnimKitSegmentRec::Read(SFile* f, const char* stringBuffer) {

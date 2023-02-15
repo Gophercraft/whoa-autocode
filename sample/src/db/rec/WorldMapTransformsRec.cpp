@@ -5,8 +5,24 @@ const char* WorldMapTransformsRec::GetFilename() {
     return "DBFilesClient\\WorldMapTransforms.dbc";
 }
 
+int32_t WorldMapTransformsRec::GetNumColumns() {
+    return 10;
+}
+
+int32_t WorldMapTransformsRec::GetRowSize() {
+    return 40;
+}
+
+bool WorldMapTransformsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t WorldMapTransformsRec::GetID() {
     return this->m_ID;
+}
+
+void WorldMapTransformsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool WorldMapTransformsRec::Read(SFile* f, const char* stringBuffer) {

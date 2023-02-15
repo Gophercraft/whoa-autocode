@@ -5,8 +5,24 @@ const char* SpellVisualKitModelAttachRec::GetFilename() {
     return "DBFilesClient\\SpellVisualKitModelAttach.dbc";
 }
 
+int32_t SpellVisualKitModelAttachRec::GetNumColumns() {
+    return 10;
+}
+
+int32_t SpellVisualKitModelAttachRec::GetRowSize() {
+    return 40;
+}
+
+bool SpellVisualKitModelAttachRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SpellVisualKitModelAttachRec::GetID() {
     return this->m_ID;
+}
+
+void SpellVisualKitModelAttachRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SpellVisualKitModelAttachRec::Read(SFile* f, const char* stringBuffer) {

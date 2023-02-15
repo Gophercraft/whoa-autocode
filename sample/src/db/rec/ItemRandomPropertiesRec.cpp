@@ -5,8 +5,24 @@ const char* ItemRandomPropertiesRec::GetFilename() {
     return "DBFilesClient\\ItemRandomProperties.dbc";
 }
 
+int32_t ItemRandomPropertiesRec::GetNumColumns() {
+    return 24;
+}
+
+int32_t ItemRandomPropertiesRec::GetRowSize() {
+    return 96;
+}
+
+bool ItemRandomPropertiesRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t ItemRandomPropertiesRec::GetID() {
     return this->m_ID;
+}
+
+void ItemRandomPropertiesRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool ItemRandomPropertiesRec::Read(SFile* f, const char* stringBuffer) {

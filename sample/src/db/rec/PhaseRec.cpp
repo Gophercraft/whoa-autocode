@@ -5,8 +5,24 @@ const char* PhaseRec::GetFilename() {
     return "DBFilesClient\\Phase.dbc";
 }
 
+int32_t PhaseRec::GetNumColumns() {
+    return 6;
+}
+
+int32_t PhaseRec::GetRowSize() {
+    return 24;
+}
+
+bool PhaseRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t PhaseRec::GetID() {
     return this->m_ID;
+}
+
+void PhaseRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool PhaseRec::Read(SFile* f, const char* stringBuffer) {

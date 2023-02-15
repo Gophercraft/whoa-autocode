@@ -5,8 +5,24 @@ const char* StableSlotPricesRec::GetFilename() {
     return "DBFilesClient\\StableSlotPrices.dbc";
 }
 
+int32_t StableSlotPricesRec::GetNumColumns() {
+    return 2;
+}
+
+int32_t StableSlotPricesRec::GetRowSize() {
+    return 8;
+}
+
+bool StableSlotPricesRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t StableSlotPricesRec::GetID() {
     return this->m_ID;
+}
+
+void StableSlotPricesRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool StableSlotPricesRec::Read(SFile* f, const char* stringBuffer) {

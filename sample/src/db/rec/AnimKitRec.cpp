@@ -5,8 +5,24 @@ const char* AnimKitRec::GetFilename() {
     return "DBFilesClient\\AnimKit.dbc";
 }
 
+int32_t AnimKitRec::GetNumColumns() {
+    return 3;
+}
+
+int32_t AnimKitRec::GetRowSize() {
+    return 12;
+}
+
+bool AnimKitRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t AnimKitRec::GetID() {
     return this->m_ID;
+}
+
+void AnimKitRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool AnimKitRec::Read(SFile* f, const char* stringBuffer) {

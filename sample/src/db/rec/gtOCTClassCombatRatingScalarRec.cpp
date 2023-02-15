@@ -5,8 +5,24 @@ const char* gtOCTClassCombatRatingScalarRec::GetFilename() {
     return "DBFilesClient\\gtOCTClassCombatRatingScalar.dbc";
 }
 
+int32_t gtOCTClassCombatRatingScalarRec::GetNumColumns() {
+    return 2;
+}
+
+int32_t gtOCTClassCombatRatingScalarRec::GetRowSize() {
+    return 8;
+}
+
+bool gtOCTClassCombatRatingScalarRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t gtOCTClassCombatRatingScalarRec::GetID() {
     return this->m_ID;
+}
+
+void gtOCTClassCombatRatingScalarRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool gtOCTClassCombatRatingScalarRec::Read(SFile* f, const char* stringBuffer) {

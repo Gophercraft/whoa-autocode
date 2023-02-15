@@ -7,10 +7,6 @@
 
 class BattlemasterListRec {
     public:
-        static constexpr uint32_t columnCount = 32;
-        static constexpr uint32_t rowSize = 128;
-        static constexpr bool indexIsID = false;
-
         int32_t m_ID;
         int32_t m_mapID[8];
         int32_t m_instanceType;
@@ -22,7 +18,11 @@ class BattlemasterListRec {
         int32_t m_maxLevel;
 
         static const char* GetFilename();
+        static int32_t GetNumColumns();
+        static int32_t GetRowSize();
+        static bool NeedIDAssigned();
         int32_t GetID();
+        void SetID(int32_t id);
         bool Read(SFile* f, const char* stringBuffer);
 };
 

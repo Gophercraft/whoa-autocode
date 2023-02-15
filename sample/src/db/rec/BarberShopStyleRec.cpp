@@ -5,8 +5,24 @@ const char* BarberShopStyleRec::GetFilename() {
     return "DBFilesClient\\BarberShopStyle.dbc";
 }
 
+int32_t BarberShopStyleRec::GetNumColumns() {
+    return 40;
+}
+
+int32_t BarberShopStyleRec::GetRowSize() {
+    return 160;
+}
+
+bool BarberShopStyleRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t BarberShopStyleRec::GetID() {
     return this->m_ID;
+}
+
+void BarberShopStyleRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool BarberShopStyleRec::Read(SFile* f, const char* stringBuffer) {

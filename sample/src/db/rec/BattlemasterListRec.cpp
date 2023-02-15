@@ -5,8 +5,24 @@ const char* BattlemasterListRec::GetFilename() {
     return "DBFilesClient\\BattlemasterList.dbc";
 }
 
+int32_t BattlemasterListRec::GetNumColumns() {
+    return 32;
+}
+
+int32_t BattlemasterListRec::GetRowSize() {
+    return 128;
+}
+
+bool BattlemasterListRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t BattlemasterListRec::GetID() {
     return this->m_ID;
+}
+
+void BattlemasterListRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool BattlemasterListRec::Read(SFile* f, const char* stringBuffer) {

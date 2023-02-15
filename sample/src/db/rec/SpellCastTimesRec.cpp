@@ -5,8 +5,24 @@ const char* SpellCastTimesRec::GetFilename() {
     return "DBFilesClient\\SpellCastTimes.dbc";
 }
 
+int32_t SpellCastTimesRec::GetNumColumns() {
+    return 4;
+}
+
+int32_t SpellCastTimesRec::GetRowSize() {
+    return 16;
+}
+
+bool SpellCastTimesRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SpellCastTimesRec::GetID() {
     return this->m_ID;
+}
+
+void SpellCastTimesRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SpellCastTimesRec::Read(SFile* f, const char* stringBuffer) {

@@ -5,8 +5,24 @@ const char* ScreenEffectRec::GetFilename() {
     return "DBFilesClient\\ScreenEffect.dbc";
 }
 
+int32_t ScreenEffectRec::GetNumColumns() {
+    return 10;
+}
+
+int32_t ScreenEffectRec::GetRowSize() {
+    return 40;
+}
+
+bool ScreenEffectRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t ScreenEffectRec::GetID() {
     return this->m_ID;
+}
+
+void ScreenEffectRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool ScreenEffectRec::Read(SFile* f, const char* stringBuffer) {

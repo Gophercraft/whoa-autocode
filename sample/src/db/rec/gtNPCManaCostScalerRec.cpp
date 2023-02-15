@@ -5,8 +5,24 @@ const char* gtNPCManaCostScalerRec::GetFilename() {
     return "DBFilesClient\\gtNPCManaCostScaler.dbc";
 }
 
+int32_t gtNPCManaCostScalerRec::GetNumColumns() {
+    return 1;
+}
+
+int32_t gtNPCManaCostScalerRec::GetRowSize() {
+    return 4;
+}
+
+bool gtNPCManaCostScalerRec::NeedIDAssigned() {
+    return true;
+}
+
 int32_t gtNPCManaCostScalerRec::GetID() {
     return this->m_generatedID;
+}
+
+void gtNPCManaCostScalerRec::SetID(int32_t id) {
+    this->m_generatedID = id;
 }
 
 bool gtNPCManaCostScalerRec::Read(SFile* f, const char* stringBuffer) {

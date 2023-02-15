@@ -5,8 +5,24 @@ const char* PackageRec::GetFilename() {
     return "DBFilesClient\\Package.dbc";
 }
 
+int32_t PackageRec::GetNumColumns() {
+    return 20;
+}
+
+int32_t PackageRec::GetRowSize() {
+    return 80;
+}
+
+bool PackageRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t PackageRec::GetID() {
     return this->m_ID;
+}
+
+void PackageRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool PackageRec::Read(SFile* f, const char* stringBuffer) {

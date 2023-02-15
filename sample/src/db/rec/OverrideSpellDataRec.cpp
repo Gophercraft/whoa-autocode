@@ -5,8 +5,24 @@ const char* OverrideSpellDataRec::GetFilename() {
     return "DBFilesClient\\OverrideSpellData.dbc";
 }
 
+int32_t OverrideSpellDataRec::GetNumColumns() {
+    return 12;
+}
+
+int32_t OverrideSpellDataRec::GetRowSize() {
+    return 48;
+}
+
+bool OverrideSpellDataRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t OverrideSpellDataRec::GetID() {
     return this->m_ID;
+}
+
+void OverrideSpellDataRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool OverrideSpellDataRec::Read(SFile* f, const char* stringBuffer) {

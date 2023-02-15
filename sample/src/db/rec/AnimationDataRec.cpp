@@ -5,8 +5,24 @@ const char* AnimationDataRec::GetFilename() {
     return "DBFilesClient\\AnimationData.dbc";
 }
 
+int32_t AnimationDataRec::GetNumColumns() {
+    return 8;
+}
+
+int32_t AnimationDataRec::GetRowSize() {
+    return 32;
+}
+
+bool AnimationDataRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t AnimationDataRec::GetID() {
     return this->m_ID;
+}
+
+void AnimationDataRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool AnimationDataRec::Read(SFile* f, const char* stringBuffer) {

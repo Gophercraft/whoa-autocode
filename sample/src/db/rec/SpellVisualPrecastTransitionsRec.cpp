@@ -5,8 +5,24 @@ const char* SpellVisualPrecastTransitionsRec::GetFilename() {
     return "DBFilesClient\\SpellVisualPrecastTransitions.dbc";
 }
 
+int32_t SpellVisualPrecastTransitionsRec::GetNumColumns() {
+    return 3;
+}
+
+int32_t SpellVisualPrecastTransitionsRec::GetRowSize() {
+    return 12;
+}
+
+bool SpellVisualPrecastTransitionsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SpellVisualPrecastTransitionsRec::GetID() {
     return this->m_ID;
+}
+
+void SpellVisualPrecastTransitionsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SpellVisualPrecastTransitionsRec::Read(SFile* f, const char* stringBuffer) {

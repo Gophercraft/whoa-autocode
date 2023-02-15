@@ -5,8 +5,24 @@ const char* WorldMapOverlayRec::GetFilename() {
     return "DBFilesClient\\WorldMapOverlay.dbc";
 }
 
+int32_t WorldMapOverlayRec::GetNumColumns() {
+    return 17;
+}
+
+int32_t WorldMapOverlayRec::GetRowSize() {
+    return 68;
+}
+
+bool WorldMapOverlayRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t WorldMapOverlayRec::GetID() {
     return this->m_ID;
+}
+
+void WorldMapOverlayRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool WorldMapOverlayRec::Read(SFile* f, const char* stringBuffer) {

@@ -5,8 +5,24 @@ const char* TransportRotationRec::GetFilename() {
     return "DBFilesClient\\TransportRotation.dbc";
 }
 
+int32_t TransportRotationRec::GetNumColumns() {
+    return 7;
+}
+
+int32_t TransportRotationRec::GetRowSize() {
+    return 28;
+}
+
+bool TransportRotationRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t TransportRotationRec::GetID() {
     return this->m_ID;
+}
+
+void TransportRotationRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool TransportRotationRec::Read(SFile* f, const char* stringBuffer) {

@@ -5,8 +5,24 @@ const char* HolidayDescriptionsRec::GetFilename() {
     return "DBFilesClient\\HolidayDescriptions.dbc";
 }
 
+int32_t HolidayDescriptionsRec::GetNumColumns() {
+    return 18;
+}
+
+int32_t HolidayDescriptionsRec::GetRowSize() {
+    return 72;
+}
+
+bool HolidayDescriptionsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t HolidayDescriptionsRec::GetID() {
     return this->m_ID;
+}
+
+void HolidayDescriptionsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool HolidayDescriptionsRec::Read(SFile* f, const char* stringBuffer) {

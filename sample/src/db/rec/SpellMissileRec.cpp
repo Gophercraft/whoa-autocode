@@ -5,8 +5,24 @@ const char* SpellMissileRec::GetFilename() {
     return "DBFilesClient\\SpellMissile.dbc";
 }
 
+int32_t SpellMissileRec::GetNumColumns() {
+    return 15;
+}
+
+int32_t SpellMissileRec::GetRowSize() {
+    return 60;
+}
+
+bool SpellMissileRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SpellMissileRec::GetID() {
     return this->m_ID;
+}
+
+void SpellMissileRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SpellMissileRec::Read(SFile* f, const char* stringBuffer) {

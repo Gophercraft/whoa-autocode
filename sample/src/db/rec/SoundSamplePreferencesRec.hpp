@@ -7,10 +7,6 @@
 
 class SoundSamplePreferencesRec {
     public:
-        static constexpr uint32_t columnCount = 17;
-        static constexpr uint32_t rowSize = 68;
-        static constexpr bool indexIsID = false;
-
         int32_t m_ID;
         int32_t m_field_0_6_0_3592_001; // unconfirmed
         int32_t m_field_0_6_0_3592_002; // unconfirmed
@@ -30,7 +26,11 @@ class SoundSamplePreferencesRec {
         int32_t m_field_0_6_0_3592_016; // unconfirmed
 
         static const char* GetFilename();
+        static int32_t GetNumColumns();
+        static int32_t GetRowSize();
+        static bool NeedIDAssigned();
         int32_t GetID();
+        void SetID(int32_t id);
         bool Read(SFile* f, const char* stringBuffer);
 };
 

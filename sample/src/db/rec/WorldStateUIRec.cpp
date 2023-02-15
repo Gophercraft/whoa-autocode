@@ -5,8 +5,24 @@ const char* WorldStateUIRec::GetFilename() {
     return "DBFilesClient\\WorldStateUI.dbc";
 }
 
+int32_t WorldStateUIRec::GetNumColumns() {
+    return 63;
+}
+
+int32_t WorldStateUIRec::GetRowSize() {
+    return 252;
+}
+
+bool WorldStateUIRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t WorldStateUIRec::GetID() {
     return this->m_ID;
+}
+
+void WorldStateUIRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool WorldStateUIRec::Read(SFile* f, const char* stringBuffer) {

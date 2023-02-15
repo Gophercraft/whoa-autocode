@@ -5,8 +5,24 @@ const char* ItemPetFoodRec::GetFilename() {
     return "DBFilesClient\\ItemPetFood.dbc";
 }
 
+int32_t ItemPetFoodRec::GetNumColumns() {
+    return 18;
+}
+
+int32_t ItemPetFoodRec::GetRowSize() {
+    return 72;
+}
+
+bool ItemPetFoodRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t ItemPetFoodRec::GetID() {
     return this->m_ID;
+}
+
+void ItemPetFoodRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool ItemPetFoodRec::Read(SFile* f, const char* stringBuffer) {

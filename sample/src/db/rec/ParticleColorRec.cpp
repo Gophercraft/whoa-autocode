@@ -5,8 +5,24 @@ const char* ParticleColorRec::GetFilename() {
     return "DBFilesClient\\ParticleColor.dbc";
 }
 
+int32_t ParticleColorRec::GetNumColumns() {
+    return 10;
+}
+
+int32_t ParticleColorRec::GetRowSize() {
+    return 40;
+}
+
+bool ParticleColorRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t ParticleColorRec::GetID() {
     return this->m_ID;
+}
+
+void ParticleColorRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool ParticleColorRec::Read(SFile* f, const char* stringBuffer) {

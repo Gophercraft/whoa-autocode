@@ -5,8 +5,24 @@ const char* VehicleSeatRec::GetFilename() {
     return "DBFilesClient\\VehicleSeat.dbc";
 }
 
+int32_t VehicleSeatRec::GetNumColumns() {
+    return 58;
+}
+
+int32_t VehicleSeatRec::GetRowSize() {
+    return 232;
+}
+
+bool VehicleSeatRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t VehicleSeatRec::GetID() {
     return this->m_ID;
+}
+
+void VehicleSeatRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool VehicleSeatRec::Read(SFile* f, const char* stringBuffer) {

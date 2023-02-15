@@ -5,8 +5,24 @@ const char* SpellRadiusRec::GetFilename() {
     return "DBFilesClient\\SpellRadius.dbc";
 }
 
+int32_t SpellRadiusRec::GetNumColumns() {
+    return 4;
+}
+
+int32_t SpellRadiusRec::GetRowSize() {
+    return 16;
+}
+
+bool SpellRadiusRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SpellRadiusRec::GetID() {
     return this->m_ID;
+}
+
+void SpellRadiusRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SpellRadiusRec::Read(SFile* f, const char* stringBuffer) {

@@ -5,8 +5,24 @@ const char* SoundProviderPreferencesRec::GetFilename() {
     return "DBFilesClient\\SoundProviderPreferences.dbc";
 }
 
+int32_t SoundProviderPreferencesRec::GetNumColumns() {
+    return 24;
+}
+
+int32_t SoundProviderPreferencesRec::GetRowSize() {
+    return 96;
+}
+
+bool SoundProviderPreferencesRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SoundProviderPreferencesRec::GetID() {
     return this->m_ID;
+}
+
+void SoundProviderPreferencesRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SoundProviderPreferencesRec::Read(SFile* f, const char* stringBuffer) {

@@ -5,8 +5,24 @@ const char* ObjectEffectGroupRec::GetFilename() {
     return "DBFilesClient\\ObjectEffectGroup.dbc";
 }
 
+int32_t ObjectEffectGroupRec::GetNumColumns() {
+    return 2;
+}
+
+int32_t ObjectEffectGroupRec::GetRowSize() {
+    return 8;
+}
+
+bool ObjectEffectGroupRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t ObjectEffectGroupRec::GetID() {
     return this->m_ID;
+}
+
+void ObjectEffectGroupRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool ObjectEffectGroupRec::Read(SFile* f, const char* stringBuffer) {

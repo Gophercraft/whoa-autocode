@@ -5,8 +5,24 @@ const char* LightIntBandRec::GetFilename() {
     return "DBFilesClient\\LightIntBand.dbc";
 }
 
+int32_t LightIntBandRec::GetNumColumns() {
+    return 34;
+}
+
+int32_t LightIntBandRec::GetRowSize() {
+    return 136;
+}
+
+bool LightIntBandRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t LightIntBandRec::GetID() {
     return this->m_ID;
+}
+
+void LightIntBandRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool LightIntBandRec::Read(SFile* f, const char* stringBuffer) {

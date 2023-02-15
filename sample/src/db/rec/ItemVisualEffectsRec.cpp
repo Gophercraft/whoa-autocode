@@ -5,8 +5,24 @@ const char* ItemVisualEffectsRec::GetFilename() {
     return "DBFilesClient\\ItemVisualEffects.dbc";
 }
 
+int32_t ItemVisualEffectsRec::GetNumColumns() {
+    return 2;
+}
+
+int32_t ItemVisualEffectsRec::GetRowSize() {
+    return 8;
+}
+
+bool ItemVisualEffectsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t ItemVisualEffectsRec::GetID() {
     return this->m_ID;
+}
+
+void ItemVisualEffectsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool ItemVisualEffectsRec::Read(SFile* f, const char* stringBuffer) {

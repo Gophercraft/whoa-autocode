@@ -5,8 +5,24 @@ const char* TransportAnimationRec::GetFilename() {
     return "DBFilesClient\\TransportAnimation.dbc";
 }
 
+int32_t TransportAnimationRec::GetNumColumns() {
+    return 7;
+}
+
+int32_t TransportAnimationRec::GetRowSize() {
+    return 28;
+}
+
+bool TransportAnimationRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t TransportAnimationRec::GetID() {
     return this->m_ID;
+}
+
+void TransportAnimationRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool TransportAnimationRec::Read(SFile* f, const char* stringBuffer) {

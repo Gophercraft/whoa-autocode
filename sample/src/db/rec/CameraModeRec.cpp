@@ -5,8 +5,24 @@ const char* CameraModeRec::GetFilename() {
     return "DBFilesClient\\CameraMode.dbc";
 }
 
+int32_t CameraModeRec::GetNumColumns() {
+    return 17;
+}
+
+int32_t CameraModeRec::GetRowSize() {
+    return 68;
+}
+
+bool CameraModeRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t CameraModeRec::GetID() {
     return this->m_ID;
+}
+
+void CameraModeRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool CameraModeRec::Read(SFile* f, const char* stringBuffer) {

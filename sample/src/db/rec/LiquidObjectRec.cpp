@@ -5,8 +5,24 @@ const char* LiquidObjectRec::GetFilename() {
     return "DBFilesClient\\LiquidObject.dbc";
 }
 
+int32_t LiquidObjectRec::GetNumColumns() {
+    return 6;
+}
+
+int32_t LiquidObjectRec::GetRowSize() {
+    return 24;
+}
+
+bool LiquidObjectRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t LiquidObjectRec::GetID() {
     return this->m_ID;
+}
+
+void LiquidObjectRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool LiquidObjectRec::Read(SFile* f, const char* stringBuffer) {

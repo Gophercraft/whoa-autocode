@@ -5,8 +5,24 @@ const char* GameTablesRec::GetFilename() {
     return "DBFilesClient\\GameTables.dbc";
 }
 
+int32_t GameTablesRec::GetNumColumns() {
+    return 3;
+}
+
+int32_t GameTablesRec::GetRowSize() {
+    return 12;
+}
+
+bool GameTablesRec::NeedIDAssigned() {
+    return true;
+}
+
 int32_t GameTablesRec::GetID() {
     return this->m_generatedID;
+}
+
+void GameTablesRec::SetID(int32_t id) {
+    this->m_generatedID = id;
 }
 
 bool GameTablesRec::Read(SFile* f, const char* stringBuffer) {

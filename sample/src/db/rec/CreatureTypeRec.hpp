@@ -7,16 +7,16 @@
 
 class CreatureTypeRec {
     public:
-        static constexpr uint32_t columnCount = 19;
-        static constexpr uint32_t rowSize = 76;
-        static constexpr bool indexIsID = false;
-
         int32_t m_ID;
         const char* m_name;
         int32_t m_flags;
 
         static const char* GetFilename();
+        static int32_t GetNumColumns();
+        static int32_t GetRowSize();
+        static bool NeedIDAssigned();
         int32_t GetID();
+        void SetID(int32_t id);
         bool Read(SFile* f, const char* stringBuffer);
 };
 

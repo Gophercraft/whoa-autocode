@@ -5,8 +5,24 @@ const char* CharSectionsRec::GetFilename() {
     return "DBFilesClient\\CharSections.dbc";
 }
 
+int32_t CharSectionsRec::GetNumColumns() {
+    return 10;
+}
+
+int32_t CharSectionsRec::GetRowSize() {
+    return 40;
+}
+
+bool CharSectionsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t CharSectionsRec::GetID() {
     return this->m_ID;
+}
+
+void CharSectionsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool CharSectionsRec::Read(SFile* f, const char* stringBuffer) {

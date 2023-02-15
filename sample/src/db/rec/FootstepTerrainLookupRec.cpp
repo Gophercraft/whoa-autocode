@@ -5,8 +5,24 @@ const char* FootstepTerrainLookupRec::GetFilename() {
     return "DBFilesClient\\FootstepTerrainLookup.dbc";
 }
 
+int32_t FootstepTerrainLookupRec::GetNumColumns() {
+    return 5;
+}
+
+int32_t FootstepTerrainLookupRec::GetRowSize() {
+    return 20;
+}
+
+bool FootstepTerrainLookupRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t FootstepTerrainLookupRec::GetID() {
     return this->m_ID;
+}
+
+void FootstepTerrainLookupRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool FootstepTerrainLookupRec::Read(SFile* f, const char* stringBuffer) {

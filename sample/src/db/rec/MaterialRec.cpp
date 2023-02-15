@@ -5,8 +5,24 @@ const char* MaterialRec::GetFilename() {
     return "DBFilesClient\\Material.dbc";
 }
 
+int32_t MaterialRec::GetNumColumns() {
+    return 5;
+}
+
+int32_t MaterialRec::GetRowSize() {
+    return 20;
+}
+
+bool MaterialRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t MaterialRec::GetID() {
     return this->m_ID;
+}
+
+void MaterialRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool MaterialRec::Read(SFile* f, const char* stringBuffer) {

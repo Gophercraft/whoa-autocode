@@ -7,10 +7,6 @@
 
 class CreatureModelDataRec {
     public:
-        static constexpr uint32_t columnCount = 28;
-        static constexpr uint32_t rowSize = 112;
-        static constexpr bool indexIsID = false;
-
         int32_t m_ID;
         int32_t m_flags;
         const char* m_modelName;
@@ -41,7 +37,11 @@ class CreatureModelDataRec {
         float m_missileCollisionRaise;
 
         static const char* GetFilename();
+        static int32_t GetNumColumns();
+        static int32_t GetRowSize();
+        static bool NeedIDAssigned();
         int32_t GetID();
+        void SetID(int32_t id);
         bool Read(SFile* f, const char* stringBuffer);
 };
 

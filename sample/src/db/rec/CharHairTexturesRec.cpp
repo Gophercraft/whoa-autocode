@@ -5,8 +5,24 @@ const char* CharHairTexturesRec::GetFilename() {
     return "DBFilesClient\\CharHairTextures.dbc";
 }
 
+int32_t CharHairTexturesRec::GetNumColumns() {
+    return 8;
+}
+
+int32_t CharHairTexturesRec::GetRowSize() {
+    return 32;
+}
+
+bool CharHairTexturesRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t CharHairTexturesRec::GetID() {
     return this->m_ID;
+}
+
+void CharHairTexturesRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool CharHairTexturesRec::Read(SFile* f, const char* stringBuffer) {

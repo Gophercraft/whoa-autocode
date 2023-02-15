@@ -5,8 +5,24 @@ const char* LoadingScreensRec::GetFilename() {
     return "DBFilesClient\\LoadingScreens.dbc";
 }
 
+int32_t LoadingScreensRec::GetNumColumns() {
+    return 4;
+}
+
+int32_t LoadingScreensRec::GetRowSize() {
+    return 16;
+}
+
+bool LoadingScreensRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t LoadingScreensRec::GetID() {
     return this->m_ID;
+}
+
+void LoadingScreensRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool LoadingScreensRec::Read(SFile* f, const char* stringBuffer) {

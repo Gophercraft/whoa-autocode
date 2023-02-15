@@ -5,8 +5,24 @@ const char* TerrainTypeRec::GetFilename() {
     return "DBFilesClient\\TerrainType.dbc";
 }
 
+int32_t TerrainTypeRec::GetNumColumns() {
+    return 6;
+}
+
+int32_t TerrainTypeRec::GetRowSize() {
+    return 24;
+}
+
+bool TerrainTypeRec::NeedIDAssigned() {
+    return true;
+}
+
 int32_t TerrainTypeRec::GetID() {
     return this->m_generatedID;
+}
+
+void TerrainTypeRec::SetID(int32_t id) {
+    this->m_generatedID = id;
 }
 
 bool TerrainTypeRec::Read(SFile* f, const char* stringBuffer) {

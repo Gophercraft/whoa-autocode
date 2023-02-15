@@ -5,8 +5,24 @@ const char* ItemSetRec::GetFilename() {
     return "DBFilesClient\\ItemSet.dbc";
 }
 
+int32_t ItemSetRec::GetNumColumns() {
+    return 53;
+}
+
+int32_t ItemSetRec::GetRowSize() {
+    return 212;
+}
+
+bool ItemSetRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t ItemSetRec::GetID() {
     return this->m_ID;
+}
+
+void ItemSetRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool ItemSetRec::Read(SFile* f, const char* stringBuffer) {

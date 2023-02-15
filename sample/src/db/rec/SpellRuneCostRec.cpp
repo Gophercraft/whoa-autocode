@@ -5,8 +5,24 @@ const char* SpellRuneCostRec::GetFilename() {
     return "DBFilesClient\\SpellRuneCost.dbc";
 }
 
+int32_t SpellRuneCostRec::GetNumColumns() {
+    return 5;
+}
+
+int32_t SpellRuneCostRec::GetRowSize() {
+    return 20;
+}
+
+bool SpellRuneCostRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SpellRuneCostRec::GetID() {
     return this->m_ID;
+}
+
+void SpellRuneCostRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SpellRuneCostRec::Read(SFile* f, const char* stringBuffer) {

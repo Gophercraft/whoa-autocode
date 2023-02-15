@@ -5,8 +5,24 @@ const char* ItemLimitCategoryRec::GetFilename() {
     return "DBFilesClient\\ItemLimitCategory.dbc";
 }
 
+int32_t ItemLimitCategoryRec::GetNumColumns() {
+    return 20;
+}
+
+int32_t ItemLimitCategoryRec::GetRowSize() {
+    return 80;
+}
+
+bool ItemLimitCategoryRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t ItemLimitCategoryRec::GetID() {
     return this->m_ID;
+}
+
+void ItemLimitCategoryRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool ItemLimitCategoryRec::Read(SFile* f, const char* stringBuffer) {

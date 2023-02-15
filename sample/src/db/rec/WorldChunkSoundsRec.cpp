@@ -5,8 +5,24 @@ const char* WorldChunkSoundsRec::GetFilename() {
     return "DBFilesClient\\WorldChunkSounds.dbc";
 }
 
+int32_t WorldChunkSoundsRec::GetNumColumns() {
+    return 9;
+}
+
+int32_t WorldChunkSoundsRec::GetRowSize() {
+    return 36;
+}
+
+bool WorldChunkSoundsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t WorldChunkSoundsRec::GetID() {
     return this->m_ID;
+}
+
+void WorldChunkSoundsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool WorldChunkSoundsRec::Read(SFile* f, const char* stringBuffer) {

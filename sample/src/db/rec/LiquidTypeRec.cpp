@@ -5,8 +5,24 @@ const char* LiquidTypeRec::GetFilename() {
     return "DBFilesClient\\LiquidType.dbc";
 }
 
+int32_t LiquidTypeRec::GetNumColumns() {
+    return 45;
+}
+
+int32_t LiquidTypeRec::GetRowSize() {
+    return 180;
+}
+
+bool LiquidTypeRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t LiquidTypeRec::GetID() {
     return this->m_ID;
+}
+
+void LiquidTypeRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool LiquidTypeRec::Read(SFile* f, const char* stringBuffer) {

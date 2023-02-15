@@ -5,8 +5,24 @@ const char* CharacterFacialHairStylesRec::GetFilename() {
     return "DBFilesClient\\CharacterFacialHairStyles.dbc";
 }
 
+int32_t CharacterFacialHairStylesRec::GetNumColumns() {
+    return 8;
+}
+
+int32_t CharacterFacialHairStylesRec::GetRowSize() {
+    return 32;
+}
+
+bool CharacterFacialHairStylesRec::NeedIDAssigned() {
+    return true;
+}
+
 int32_t CharacterFacialHairStylesRec::GetID() {
     return this->m_generatedID;
+}
+
+void CharacterFacialHairStylesRec::SetID(int32_t id) {
+    this->m_generatedID = id;
 }
 
 bool CharacterFacialHairStylesRec::Read(SFile* f, const char* stringBuffer) {

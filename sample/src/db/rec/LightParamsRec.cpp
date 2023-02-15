@@ -5,8 +5,24 @@ const char* LightParamsRec::GetFilename() {
     return "DBFilesClient\\LightParams.dbc";
 }
 
+int32_t LightParamsRec::GetNumColumns() {
+    return 9;
+}
+
+int32_t LightParamsRec::GetRowSize() {
+    return 36;
+}
+
+bool LightParamsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t LightParamsRec::GetID() {
     return this->m_ID;
+}
+
+void LightParamsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool LightParamsRec::Read(SFile* f, const char* stringBuffer) {

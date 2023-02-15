@@ -7,17 +7,17 @@
 
 class WorldSafeLocsRec {
     public:
-        static constexpr uint32_t columnCount = 22;
-        static constexpr uint32_t rowSize = 88;
-        static constexpr bool indexIsID = false;
-
         int32_t m_ID;
         int32_t m_continent;
         float m_loc[3];
         const char* m_areaName;
 
         static const char* GetFilename();
+        static int32_t GetNumColumns();
+        static int32_t GetRowSize();
+        static bool NeedIDAssigned();
         int32_t GetID();
+        void SetID(int32_t id);
         bool Read(SFile* f, const char* stringBuffer);
 };
 

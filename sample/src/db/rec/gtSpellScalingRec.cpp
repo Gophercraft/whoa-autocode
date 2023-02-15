@@ -5,8 +5,24 @@ const char* gtSpellScalingRec::GetFilename() {
     return "DBFilesClient\\gtSpellScaling.dbc";
 }
 
+int32_t gtSpellScalingRec::GetNumColumns() {
+    return 2;
+}
+
+int32_t gtSpellScalingRec::GetRowSize() {
+    return 8;
+}
+
+bool gtSpellScalingRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t gtSpellScalingRec::GetID() {
     return this->m_ID;
+}
+
+void gtSpellScalingRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool gtSpellScalingRec::Read(SFile* f, const char* stringBuffer) {

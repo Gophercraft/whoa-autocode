@@ -5,8 +5,24 @@ const char* TaxiNodesRec::GetFilename() {
     return "DBFilesClient\\TaxiNodes.dbc";
 }
 
+int32_t TaxiNodesRec::GetNumColumns() {
+    return 24;
+}
+
+int32_t TaxiNodesRec::GetRowSize() {
+    return 96;
+}
+
+bool TaxiNodesRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t TaxiNodesRec::GetID() {
     return this->m_ID;
+}
+
+void TaxiNodesRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool TaxiNodesRec::Read(SFile* f, const char* stringBuffer) {

@@ -5,8 +5,24 @@ const char* Cfg_CategoriesRec::GetFilename() {
     return "DBFilesClient\\Cfg_Categories.dbc";
 }
 
+int32_t Cfg_CategoriesRec::GetNumColumns() {
+    return 21;
+}
+
+int32_t Cfg_CategoriesRec::GetRowSize() {
+    return 84;
+}
+
+bool Cfg_CategoriesRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t Cfg_CategoriesRec::GetID() {
     return this->m_ID;
+}
+
+void Cfg_CategoriesRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool Cfg_CategoriesRec::Read(SFile* f, const char* stringBuffer) {

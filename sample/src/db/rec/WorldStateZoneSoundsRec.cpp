@@ -5,8 +5,24 @@ const char* WorldStateZoneSoundsRec::GetFilename() {
     return "DBFilesClient\\WorldStateZoneSounds.dbc";
 }
 
+int32_t WorldStateZoneSoundsRec::GetNumColumns() {
+    return 8;
+}
+
+int32_t WorldStateZoneSoundsRec::GetRowSize() {
+    return 32;
+}
+
+bool WorldStateZoneSoundsRec::NeedIDAssigned() {
+    return true;
+}
+
 int32_t WorldStateZoneSoundsRec::GetID() {
     return this->m_generatedID;
+}
+
+void WorldStateZoneSoundsRec::SetID(int32_t id) {
+    this->m_generatedID = id;
 }
 
 bool WorldStateZoneSoundsRec::Read(SFile* f, const char* stringBuffer) {

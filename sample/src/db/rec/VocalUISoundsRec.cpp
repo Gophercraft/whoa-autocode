@@ -5,8 +5,24 @@ const char* VocalUISoundsRec::GetFilename() {
     return "DBFilesClient\\VocalUISounds.dbc";
 }
 
+int32_t VocalUISoundsRec::GetNumColumns() {
+    return 7;
+}
+
+int32_t VocalUISoundsRec::GetRowSize() {
+    return 28;
+}
+
+bool VocalUISoundsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t VocalUISoundsRec::GetID() {
     return this->m_ID;
+}
+
+void VocalUISoundsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool VocalUISoundsRec::Read(SFile* f, const char* stringBuffer) {

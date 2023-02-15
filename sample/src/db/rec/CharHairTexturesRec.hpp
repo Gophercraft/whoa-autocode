@@ -7,10 +7,6 @@
 
 class CharHairTexturesRec {
     public:
-        static constexpr uint32_t columnCount = 8;
-        static constexpr uint32_t rowSize = 32;
-        static constexpr bool indexIsID = false;
-
         int32_t m_ID;
         int32_t m_field_0_5_3_3368_001_race; // unconfirmed
         int32_t m_field_0_5_3_3368_002_gender; // unconfirmed
@@ -21,7 +17,11 @@ class CharHairTexturesRec {
         int32_t m_field_0_5_3_3368_007; // unconfirmed
 
         static const char* GetFilename();
+        static int32_t GetNumColumns();
+        static int32_t GetRowSize();
+        static bool NeedIDAssigned();
         int32_t GetID();
+        void SetID(int32_t id);
         bool Read(SFile* f, const char* stringBuffer);
 };
 

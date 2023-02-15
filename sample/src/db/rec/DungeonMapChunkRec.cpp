@@ -5,8 +5,24 @@ const char* DungeonMapChunkRec::GetFilename() {
     return "DBFilesClient\\DungeonMapChunk.dbc";
 }
 
+int32_t DungeonMapChunkRec::GetNumColumns() {
+    return 5;
+}
+
+int32_t DungeonMapChunkRec::GetRowSize() {
+    return 20;
+}
+
+bool DungeonMapChunkRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t DungeonMapChunkRec::GetID() {
     return this->m_ID;
+}
+
+void DungeonMapChunkRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool DungeonMapChunkRec::Read(SFile* f, const char* stringBuffer) {

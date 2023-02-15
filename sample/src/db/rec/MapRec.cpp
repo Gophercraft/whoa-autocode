@@ -5,8 +5,24 @@ const char* MapRec::GetFilename() {
     return "DBFilesClient\\Map.dbc";
 }
 
+int32_t MapRec::GetNumColumns() {
+    return 66;
+}
+
+int32_t MapRec::GetRowSize() {
+    return 264;
+}
+
+bool MapRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t MapRec::GetID() {
     return this->m_ID;
+}
+
+void MapRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool MapRec::Read(SFile* f, const char* stringBuffer) {

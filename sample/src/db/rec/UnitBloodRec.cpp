@@ -5,8 +5,24 @@ const char* UnitBloodRec::GetFilename() {
     return "DBFilesClient\\UnitBlood.dbc";
 }
 
+int32_t UnitBloodRec::GetNumColumns() {
+    return 10;
+}
+
+int32_t UnitBloodRec::GetRowSize() {
+    return 40;
+}
+
+bool UnitBloodRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t UnitBloodRec::GetID() {
     return this->m_ID;
+}
+
+void UnitBloodRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool UnitBloodRec::Read(SFile* f, const char* stringBuffer) {

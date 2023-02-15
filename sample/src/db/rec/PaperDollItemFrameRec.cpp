@@ -5,8 +5,24 @@ const char* PaperDollItemFrameRec::GetFilename() {
     return "DBFilesClient\\PaperDollItemFrame.dbc";
 }
 
+int32_t PaperDollItemFrameRec::GetNumColumns() {
+    return 3;
+}
+
+int32_t PaperDollItemFrameRec::GetRowSize() {
+    return 12;
+}
+
+bool PaperDollItemFrameRec::NeedIDAssigned() {
+    return true;
+}
+
 int32_t PaperDollItemFrameRec::GetID() {
     return this->m_generatedID;
+}
+
+void PaperDollItemFrameRec::SetID(int32_t id) {
+    this->m_generatedID = id;
 }
 
 bool PaperDollItemFrameRec::Read(SFile* f, const char* stringBuffer) {

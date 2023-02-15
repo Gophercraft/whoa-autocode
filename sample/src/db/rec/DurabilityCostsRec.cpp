@@ -5,8 +5,24 @@ const char* DurabilityCostsRec::GetFilename() {
     return "DBFilesClient\\DurabilityCosts.dbc";
 }
 
+int32_t DurabilityCostsRec::GetNumColumns() {
+    return 30;
+}
+
+int32_t DurabilityCostsRec::GetRowSize() {
+    return 120;
+}
+
+bool DurabilityCostsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t DurabilityCostsRec::GetID() {
     return this->m_ID;
+}
+
+void DurabilityCostsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool DurabilityCostsRec::Read(SFile* f, const char* stringBuffer) {

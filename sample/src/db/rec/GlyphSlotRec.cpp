@@ -5,8 +5,24 @@ const char* GlyphSlotRec::GetFilename() {
     return "DBFilesClient\\GlyphSlot.dbc";
 }
 
+int32_t GlyphSlotRec::GetNumColumns() {
+    return 3;
+}
+
+int32_t GlyphSlotRec::GetRowSize() {
+    return 12;
+}
+
+bool GlyphSlotRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t GlyphSlotRec::GetID() {
     return this->m_ID;
+}
+
+void GlyphSlotRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool GlyphSlotRec::Read(SFile* f, const char* stringBuffer) {

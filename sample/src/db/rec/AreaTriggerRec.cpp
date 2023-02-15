@@ -5,8 +5,24 @@ const char* AreaTriggerRec::GetFilename() {
     return "DBFilesClient\\AreaTrigger.dbc";
 }
 
+int32_t AreaTriggerRec::GetNumColumns() {
+    return 10;
+}
+
+int32_t AreaTriggerRec::GetRowSize() {
+    return 40;
+}
+
+bool AreaTriggerRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t AreaTriggerRec::GetID() {
     return this->m_ID;
+}
+
+void AreaTriggerRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool AreaTriggerRec::Read(SFile* f, const char* stringBuffer) {

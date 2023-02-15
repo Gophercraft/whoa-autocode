@@ -5,8 +5,24 @@ const char* PageTextMaterialRec::GetFilename() {
     return "DBFilesClient\\PageTextMaterial.dbc";
 }
 
+int32_t PageTextMaterialRec::GetNumColumns() {
+    return 2;
+}
+
+int32_t PageTextMaterialRec::GetRowSize() {
+    return 8;
+}
+
+bool PageTextMaterialRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t PageTextMaterialRec::GetID() {
     return this->m_ID;
+}
+
+void PageTextMaterialRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool PageTextMaterialRec::Read(SFile* f, const char* stringBuffer) {

@@ -5,8 +5,24 @@ const char* GlyphPropertiesRec::GetFilename() {
     return "DBFilesClient\\GlyphProperties.dbc";
 }
 
+int32_t GlyphPropertiesRec::GetNumColumns() {
+    return 4;
+}
+
+int32_t GlyphPropertiesRec::GetRowSize() {
+    return 16;
+}
+
+bool GlyphPropertiesRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t GlyphPropertiesRec::GetID() {
     return this->m_ID;
+}
+
+void GlyphPropertiesRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool GlyphPropertiesRec::Read(SFile* f, const char* stringBuffer) {

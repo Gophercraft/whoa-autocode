@@ -5,8 +5,24 @@ const char* StationeryRec::GetFilename() {
     return "DBFilesClient\\Stationery.dbc";
 }
 
+int32_t StationeryRec::GetNumColumns() {
+    return 4;
+}
+
+int32_t StationeryRec::GetRowSize() {
+    return 16;
+}
+
+bool StationeryRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t StationeryRec::GetID() {
     return this->m_ID;
+}
+
+void StationeryRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool StationeryRec::Read(SFile* f, const char* stringBuffer) {

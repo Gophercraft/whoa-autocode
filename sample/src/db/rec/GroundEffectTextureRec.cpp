@@ -5,8 +5,24 @@ const char* GroundEffectTextureRec::GetFilename() {
     return "DBFilesClient\\GroundEffectTexture.dbc";
 }
 
+int32_t GroundEffectTextureRec::GetNumColumns() {
+    return 11;
+}
+
+int32_t GroundEffectTextureRec::GetRowSize() {
+    return 44;
+}
+
+bool GroundEffectTextureRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t GroundEffectTextureRec::GetID() {
     return this->m_ID;
+}
+
+void GroundEffectTextureRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool GroundEffectTextureRec::Read(SFile* f, const char* stringBuffer) {

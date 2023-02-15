@@ -5,8 +5,24 @@ const char* TeamContributionPointsRec::GetFilename() {
     return "DBFilesClient\\TeamContributionPoints.dbc";
 }
 
+int32_t TeamContributionPointsRec::GetNumColumns() {
+    return 2;
+}
+
+int32_t TeamContributionPointsRec::GetRowSize() {
+    return 8;
+}
+
+bool TeamContributionPointsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t TeamContributionPointsRec::GetID() {
     return this->m_ID;
+}
+
+void TeamContributionPointsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool TeamContributionPointsRec::Read(SFile* f, const char* stringBuffer) {

@@ -5,8 +5,24 @@ const char* LiquidMaterialRec::GetFilename() {
     return "DBFilesClient\\LiquidMaterial.dbc";
 }
 
+int32_t LiquidMaterialRec::GetNumColumns() {
+    return 3;
+}
+
+int32_t LiquidMaterialRec::GetRowSize() {
+    return 12;
+}
+
+bool LiquidMaterialRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t LiquidMaterialRec::GetID() {
     return this->m_ID;
+}
+
+void LiquidMaterialRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool LiquidMaterialRec::Read(SFile* f, const char* stringBuffer) {

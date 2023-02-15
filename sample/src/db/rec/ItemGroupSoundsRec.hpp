@@ -7,15 +7,15 @@
 
 class ItemGroupSoundsRec {
     public:
-        static constexpr uint32_t columnCount = 5;
-        static constexpr uint32_t rowSize = 20;
-        static constexpr bool indexIsID = false;
-
         int32_t m_ID;
         int32_t m_sound[4];
 
         static const char* GetFilename();
+        static int32_t GetNumColumns();
+        static int32_t GetRowSize();
+        static bool NeedIDAssigned();
         int32_t GetID();
+        void SetID(int32_t id);
         bool Read(SFile* f, const char* stringBuffer);
 };
 

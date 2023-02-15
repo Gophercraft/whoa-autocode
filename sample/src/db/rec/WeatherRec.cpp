@@ -5,8 +5,24 @@ const char* WeatherRec::GetFilename() {
     return "DBFilesClient\\Weather.dbc";
 }
 
+int32_t WeatherRec::GetNumColumns() {
+    return 8;
+}
+
+int32_t WeatherRec::GetRowSize() {
+    return 32;
+}
+
+bool WeatherRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t WeatherRec::GetID() {
     return this->m_ID;
+}
+
+void WeatherRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool WeatherRec::Read(SFile* f, const char* stringBuffer) {

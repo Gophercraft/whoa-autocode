@@ -5,8 +5,24 @@ const char* NamesProfanityRec::GetFilename() {
     return "DBFilesClient\\NamesProfanity.dbc";
 }
 
+int32_t NamesProfanityRec::GetNumColumns() {
+    return 3;
+}
+
+int32_t NamesProfanityRec::GetRowSize() {
+    return 12;
+}
+
+bool NamesProfanityRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t NamesProfanityRec::GetID() {
     return this->m_ID;
+}
+
+void NamesProfanityRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool NamesProfanityRec::Read(SFile* f, const char* stringBuffer) {

@@ -5,8 +5,24 @@ const char* SpellInterruptsRec::GetFilename() {
     return "DBFilesClient\\SpellInterrupts.dbc";
 }
 
+int32_t SpellInterruptsRec::GetNumColumns() {
+    return 6;
+}
+
+int32_t SpellInterruptsRec::GetRowSize() {
+    return 24;
+}
+
+bool SpellInterruptsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SpellInterruptsRec::GetID() {
     return this->m_ID;
+}
+
+void SpellInterruptsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SpellInterruptsRec::Read(SFile* f, const char* stringBuffer) {

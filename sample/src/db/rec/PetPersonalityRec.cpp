@@ -5,8 +5,24 @@ const char* PetPersonalityRec::GetFilename() {
     return "DBFilesClient\\PetPersonality.dbc";
 }
 
+int32_t PetPersonalityRec::GetNumColumns() {
+    return 24;
+}
+
+int32_t PetPersonalityRec::GetRowSize() {
+    return 96;
+}
+
+bool PetPersonalityRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t PetPersonalityRec::GetID() {
     return this->m_ID;
+}
+
+void PetPersonalityRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool PetPersonalityRec::Read(SFile* f, const char* stringBuffer) {

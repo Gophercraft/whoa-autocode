@@ -5,8 +5,24 @@ const char* AnimKitPriorityRec::GetFilename() {
     return "DBFilesClient\\AnimKitPriority.dbc";
 }
 
+int32_t AnimKitPriorityRec::GetNumColumns() {
+    return 2;
+}
+
+int32_t AnimKitPriorityRec::GetRowSize() {
+    return 8;
+}
+
+bool AnimKitPriorityRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t AnimKitPriorityRec::GetID() {
     return this->m_ID;
+}
+
+void AnimKitPriorityRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool AnimKitPriorityRec::Read(SFile* f, const char* stringBuffer) {

@@ -5,8 +5,24 @@ const char* MovieFileDataRec::GetFilename() {
     return "DBFilesClient\\MovieFileData.dbc";
 }
 
+int32_t MovieFileDataRec::GetNumColumns() {
+    return 2;
+}
+
+int32_t MovieFileDataRec::GetRowSize() {
+    return 8;
+}
+
+bool MovieFileDataRec::NeedIDAssigned() {
+    return true;
+}
+
 int32_t MovieFileDataRec::GetID() {
     return this->m_generatedID;
+}
+
+void MovieFileDataRec::SetID(int32_t id) {
+    this->m_generatedID = id;
 }
 
 bool MovieFileDataRec::Read(SFile* f, const char* stringBuffer) {

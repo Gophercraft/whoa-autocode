@@ -7,10 +7,6 @@
 
 class WorldMapAreaRec {
     public:
-        static constexpr uint32_t columnCount = 11;
-        static constexpr uint32_t rowSize = 44;
-        static constexpr bool indexIsID = false;
-
         int32_t m_ID;
         int32_t m_mapID;
         int32_t m_areaID;
@@ -24,7 +20,11 @@ class WorldMapAreaRec {
         int32_t m_parentWorldMapID;
 
         static const char* GetFilename();
+        static int32_t GetNumColumns();
+        static int32_t GetRowSize();
+        static bool NeedIDAssigned();
         int32_t GetID();
+        void SetID(int32_t id);
         bool Read(SFile* f, const char* stringBuffer);
 };
 

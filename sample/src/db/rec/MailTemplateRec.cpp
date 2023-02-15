@@ -5,8 +5,24 @@ const char* MailTemplateRec::GetFilename() {
     return "DBFilesClient\\MailTemplate.dbc";
 }
 
+int32_t MailTemplateRec::GetNumColumns() {
+    return 35;
+}
+
+int32_t MailTemplateRec::GetRowSize() {
+    return 140;
+}
+
+bool MailTemplateRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t MailTemplateRec::GetID() {
     return this->m_ID;
+}
+
+void MailTemplateRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool MailTemplateRec::Read(SFile* f, const char* stringBuffer) {

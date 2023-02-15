@@ -5,8 +5,24 @@ const char* ExhaustionRec::GetFilename() {
     return "DBFilesClient\\Exhaustion.dbc";
 }
 
+int32_t ExhaustionRec::GetNumColumns() {
+    return 23;
+}
+
+int32_t ExhaustionRec::GetRowSize() {
+    return 92;
+}
+
+bool ExhaustionRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t ExhaustionRec::GetID() {
     return this->m_ID;
+}
+
+void ExhaustionRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool ExhaustionRec::Read(SFile* f, const char* stringBuffer) {

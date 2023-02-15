@@ -5,8 +5,24 @@ const char* FootprintTexturesRec::GetFilename() {
     return "DBFilesClient\\FootprintTextures.dbc";
 }
 
+int32_t FootprintTexturesRec::GetNumColumns() {
+    return 2;
+}
+
+int32_t FootprintTexturesRec::GetRowSize() {
+    return 8;
+}
+
+bool FootprintTexturesRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t FootprintTexturesRec::GetID() {
     return this->m_ID;
+}
+
+void FootprintTexturesRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool FootprintTexturesRec::Read(SFile* f, const char* stringBuffer) {

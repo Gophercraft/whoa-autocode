@@ -5,8 +5,24 @@ const char* SpellTotemsRec::GetFilename() {
     return "DBFilesClient\\SpellTotems.dbc";
 }
 
+int32_t SpellTotemsRec::GetNumColumns() {
+    return 5;
+}
+
+int32_t SpellTotemsRec::GetRowSize() {
+    return 20;
+}
+
+bool SpellTotemsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SpellTotemsRec::GetID() {
     return this->m_ID;
+}
+
+void SpellTotemsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SpellTotemsRec::Read(SFile* f, const char* stringBuffer) {

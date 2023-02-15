@@ -5,8 +5,24 @@ const char* gtBarberShopCostBaseRec::GetFilename() {
     return "DBFilesClient\\gtBarberShopCostBase.dbc";
 }
 
+int32_t gtBarberShopCostBaseRec::GetNumColumns() {
+    return 1;
+}
+
+int32_t gtBarberShopCostBaseRec::GetRowSize() {
+    return 4;
+}
+
+bool gtBarberShopCostBaseRec::NeedIDAssigned() {
+    return true;
+}
+
 int32_t gtBarberShopCostBaseRec::GetID() {
     return this->m_generatedID;
+}
+
+void gtBarberShopCostBaseRec::SetID(int32_t id) {
+    this->m_generatedID = id;
 }
 
 bool gtBarberShopCostBaseRec::Read(SFile* f, const char* stringBuffer) {

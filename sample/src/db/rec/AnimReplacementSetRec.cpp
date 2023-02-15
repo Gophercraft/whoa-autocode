@@ -5,8 +5,24 @@ const char* AnimReplacementSetRec::GetFilename() {
     return "DBFilesClient\\AnimReplacementSet.dbc";
 }
 
+int32_t AnimReplacementSetRec::GetNumColumns() {
+    return 2;
+}
+
+int32_t AnimReplacementSetRec::GetRowSize() {
+    return 8;
+}
+
+bool AnimReplacementSetRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t AnimReplacementSetRec::GetID() {
     return this->m_ID;
+}
+
+void AnimReplacementSetRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool AnimReplacementSetRec::Read(SFile* f, const char* stringBuffer) {

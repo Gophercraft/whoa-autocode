@@ -5,8 +5,24 @@ const char* WorldSafeLocsRec::GetFilename() {
     return "DBFilesClient\\WorldSafeLocs.dbc";
 }
 
+int32_t WorldSafeLocsRec::GetNumColumns() {
+    return 22;
+}
+
+int32_t WorldSafeLocsRec::GetRowSize() {
+    return 88;
+}
+
+bool WorldSafeLocsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t WorldSafeLocsRec::GetID() {
     return this->m_ID;
+}
+
+void WorldSafeLocsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool WorldSafeLocsRec::Read(SFile* f, const char* stringBuffer) {

@@ -5,8 +5,24 @@ const char* VehicleRec::GetFilename() {
     return "DBFilesClient\\Vehicle.dbc";
 }
 
+int32_t VehicleRec::GetNumColumns() {
+    return 40;
+}
+
+int32_t VehicleRec::GetRowSize() {
+    return 160;
+}
+
+bool VehicleRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t VehicleRec::GetID() {
     return this->m_ID;
+}
+
+void VehicleRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool VehicleRec::Read(SFile* f, const char* stringBuffer) {

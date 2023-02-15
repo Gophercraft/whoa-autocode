@@ -5,8 +5,24 @@ const char* gtChanceToMeleeCritRec::GetFilename() {
     return "DBFilesClient\\gtChanceToMeleeCrit.dbc";
 }
 
+int32_t gtChanceToMeleeCritRec::GetNumColumns() {
+    return 1;
+}
+
+int32_t gtChanceToMeleeCritRec::GetRowSize() {
+    return 4;
+}
+
+bool gtChanceToMeleeCritRec::NeedIDAssigned() {
+    return true;
+}
+
 int32_t gtChanceToMeleeCritRec::GetID() {
     return this->m_generatedID;
+}
+
+void gtChanceToMeleeCritRec::SetID(int32_t id) {
+    this->m_generatedID = id;
 }
 
 bool gtChanceToMeleeCritRec::Read(SFile* f, const char* stringBuffer) {

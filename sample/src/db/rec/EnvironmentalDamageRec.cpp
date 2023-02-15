@@ -5,8 +5,24 @@ const char* EnvironmentalDamageRec::GetFilename() {
     return "DBFilesClient\\EnvironmentalDamage.dbc";
 }
 
+int32_t EnvironmentalDamageRec::GetNumColumns() {
+    return 3;
+}
+
+int32_t EnvironmentalDamageRec::GetRowSize() {
+    return 12;
+}
+
+bool EnvironmentalDamageRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t EnvironmentalDamageRec::GetID() {
     return this->m_ID;
+}
+
+void EnvironmentalDamageRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool EnvironmentalDamageRec::Read(SFile* f, const char* stringBuffer) {

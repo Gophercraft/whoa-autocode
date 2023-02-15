@@ -5,8 +5,24 @@ const char* VideoHardwareRec::GetFilename() {
     return "DBFilesClient\\VideoHardware.dbc";
 }
 
+int32_t VideoHardwareRec::GetNumColumns() {
+    return 23;
+}
+
+int32_t VideoHardwareRec::GetRowSize() {
+    return 92;
+}
+
+bool VideoHardwareRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t VideoHardwareRec::GetID() {
     return this->m_ID;
+}
+
+void VideoHardwareRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool VideoHardwareRec::Read(SFile* f, const char* stringBuffer) {

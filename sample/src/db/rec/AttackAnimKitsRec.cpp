@@ -5,8 +5,24 @@ const char* AttackAnimKitsRec::GetFilename() {
     return "DBFilesClient\\AttackAnimKits.dbc";
 }
 
+int32_t AttackAnimKitsRec::GetNumColumns() {
+    return 5;
+}
+
+int32_t AttackAnimKitsRec::GetRowSize() {
+    return 20;
+}
+
+bool AttackAnimKitsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t AttackAnimKitsRec::GetID() {
     return this->m_ID;
+}
+
+void AttackAnimKitsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool AttackAnimKitsRec::Read(SFile* f, const char* stringBuffer) {

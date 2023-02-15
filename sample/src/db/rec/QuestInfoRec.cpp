@@ -5,8 +5,24 @@ const char* QuestInfoRec::GetFilename() {
     return "DBFilesClient\\QuestInfo.dbc";
 }
 
+int32_t QuestInfoRec::GetNumColumns() {
+    return 18;
+}
+
+int32_t QuestInfoRec::GetRowSize() {
+    return 72;
+}
+
+bool QuestInfoRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t QuestInfoRec::GetID() {
     return this->m_ID;
+}
+
+void QuestInfoRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool QuestInfoRec::Read(SFile* f, const char* stringBuffer) {

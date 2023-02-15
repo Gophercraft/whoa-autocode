@@ -5,8 +5,24 @@ const char* SpellEquippedItemsRec::GetFilename() {
     return "DBFilesClient\\SpellEquippedItems.dbc";
 }
 
+int32_t SpellEquippedItemsRec::GetNumColumns() {
+    return 4;
+}
+
+int32_t SpellEquippedItemsRec::GetRowSize() {
+    return 16;
+}
+
+bool SpellEquippedItemsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SpellEquippedItemsRec::GetID() {
     return this->m_ID;
+}
+
+void SpellEquippedItemsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SpellEquippedItemsRec::Read(SFile* f, const char* stringBuffer) {

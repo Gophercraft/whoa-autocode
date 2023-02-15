@@ -5,8 +5,24 @@ const char* SpellDifficultyRec::GetFilename() {
     return "DBFilesClient\\SpellDifficulty.dbc";
 }
 
+int32_t SpellDifficultyRec::GetNumColumns() {
+    return 5;
+}
+
+int32_t SpellDifficultyRec::GetRowSize() {
+    return 20;
+}
+
+bool SpellDifficultyRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SpellDifficultyRec::GetID() {
     return this->m_ID;
+}
+
+void SpellDifficultyRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SpellDifficultyRec::Read(SFile* f, const char* stringBuffer) {

@@ -5,8 +5,24 @@ const char* FactionGroupRec::GetFilename() {
     return "DBFilesClient\\FactionGroup.dbc";
 }
 
+int32_t FactionGroupRec::GetNumColumns() {
+    return 20;
+}
+
+int32_t FactionGroupRec::GetRowSize() {
+    return 80;
+}
+
+bool FactionGroupRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t FactionGroupRec::GetID() {
     return this->m_ID;
+}
+
+void FactionGroupRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool FactionGroupRec::Read(SFile* f, const char* stringBuffer) {

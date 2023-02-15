@@ -5,8 +5,24 @@ const char* gtChanceToSpellCritRec::GetFilename() {
     return "DBFilesClient\\gtChanceToSpellCrit.dbc";
 }
 
+int32_t gtChanceToSpellCritRec::GetNumColumns() {
+    return 1;
+}
+
+int32_t gtChanceToSpellCritRec::GetRowSize() {
+    return 4;
+}
+
+bool gtChanceToSpellCritRec::NeedIDAssigned() {
+    return true;
+}
+
 int32_t gtChanceToSpellCritRec::GetID() {
     return this->m_generatedID;
+}
+
+void gtChanceToSpellCritRec::SetID(int32_t id) {
+    this->m_generatedID = id;
 }
 
 bool gtChanceToSpellCritRec::Read(SFile* f, const char* stringBuffer) {

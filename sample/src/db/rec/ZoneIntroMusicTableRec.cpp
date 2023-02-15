@@ -5,8 +5,24 @@ const char* ZoneIntroMusicTableRec::GetFilename() {
     return "DBFilesClient\\ZoneIntroMusicTable.dbc";
 }
 
+int32_t ZoneIntroMusicTableRec::GetNumColumns() {
+    return 5;
+}
+
+int32_t ZoneIntroMusicTableRec::GetRowSize() {
+    return 20;
+}
+
+bool ZoneIntroMusicTableRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t ZoneIntroMusicTableRec::GetID() {
     return this->m_ID;
+}
+
+void ZoneIntroMusicTableRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool ZoneIntroMusicTableRec::Read(SFile* f, const char* stringBuffer) {

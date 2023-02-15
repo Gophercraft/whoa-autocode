@@ -5,8 +5,24 @@ const char* LockTypeRec::GetFilename() {
     return "DBFilesClient\\LockType.dbc";
 }
 
+int32_t LockTypeRec::GetNumColumns() {
+    return 53;
+}
+
+int32_t LockTypeRec::GetRowSize() {
+    return 212;
+}
+
+bool LockTypeRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t LockTypeRec::GetID() {
     return this->m_ID;
+}
+
+void LockTypeRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool LockTypeRec::Read(SFile* f, const char* stringBuffer) {

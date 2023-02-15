@@ -5,8 +5,24 @@ const char* DeclinedWordRec::GetFilename() {
     return "DBFilesClient\\DeclinedWord.dbc";
 }
 
+int32_t DeclinedWordRec::GetNumColumns() {
+    return 2;
+}
+
+int32_t DeclinedWordRec::GetRowSize() {
+    return 8;
+}
+
+bool DeclinedWordRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t DeclinedWordRec::GetID() {
     return this->m_ID;
+}
+
+void DeclinedWordRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool DeclinedWordRec::Read(SFile* f, const char* stringBuffer) {

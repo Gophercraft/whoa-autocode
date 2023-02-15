@@ -5,8 +5,24 @@ const char* SoundAmbienceRec::GetFilename() {
     return "DBFilesClient\\SoundAmbience.dbc";
 }
 
+int32_t SoundAmbienceRec::GetNumColumns() {
+    return 3;
+}
+
+int32_t SoundAmbienceRec::GetRowSize() {
+    return 12;
+}
+
+bool SoundAmbienceRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SoundAmbienceRec::GetID() {
     return this->m_ID;
+}
+
+void SoundAmbienceRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SoundAmbienceRec::Read(SFile* f, const char* stringBuffer) {

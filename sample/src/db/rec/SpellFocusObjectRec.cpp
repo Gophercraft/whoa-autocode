@@ -5,8 +5,24 @@ const char* SpellFocusObjectRec::GetFilename() {
     return "DBFilesClient\\SpellFocusObject.dbc";
 }
 
+int32_t SpellFocusObjectRec::GetNumColumns() {
+    return 18;
+}
+
+int32_t SpellFocusObjectRec::GetRowSize() {
+    return 72;
+}
+
+bool SpellFocusObjectRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SpellFocusObjectRec::GetID() {
     return this->m_ID;
+}
+
+void SpellFocusObjectRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SpellFocusObjectRec::Read(SFile* f, const char* stringBuffer) {

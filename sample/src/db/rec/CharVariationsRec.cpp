@@ -5,8 +5,24 @@ const char* CharVariationsRec::GetFilename() {
     return "DBFilesClient\\CharVariations.dbc";
 }
 
+int32_t CharVariationsRec::GetNumColumns() {
+    return 6;
+}
+
+int32_t CharVariationsRec::GetRowSize() {
+    return 24;
+}
+
+bool CharVariationsRec::NeedIDAssigned() {
+    return true;
+}
+
 int32_t CharVariationsRec::GetID() {
     return this->m_generatedID;
+}
+
+void CharVariationsRec::SetID(int32_t id) {
+    this->m_generatedID = id;
 }
 
 bool CharVariationsRec::Read(SFile* f, const char* stringBuffer) {

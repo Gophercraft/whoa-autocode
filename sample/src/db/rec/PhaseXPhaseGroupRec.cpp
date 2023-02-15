@@ -5,8 +5,24 @@ const char* PhaseXPhaseGroupRec::GetFilename() {
     return "DBFilesClient\\PhaseXPhaseGroup.dbc";
 }
 
+int32_t PhaseXPhaseGroupRec::GetNumColumns() {
+    return 3;
+}
+
+int32_t PhaseXPhaseGroupRec::GetRowSize() {
+    return 12;
+}
+
+bool PhaseXPhaseGroupRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t PhaseXPhaseGroupRec::GetID() {
     return this->m_ID;
+}
+
+void PhaseXPhaseGroupRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool PhaseXPhaseGroupRec::Read(SFile* f, const char* stringBuffer) {

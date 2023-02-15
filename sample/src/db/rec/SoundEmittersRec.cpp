@@ -5,8 +5,24 @@ const char* SoundEmittersRec::GetFilename() {
     return "DBFilesClient\\SoundEmitters.dbc";
 }
 
+int32_t SoundEmittersRec::GetNumColumns() {
+    return 10;
+}
+
+int32_t SoundEmittersRec::GetRowSize() {
+    return 40;
+}
+
+bool SoundEmittersRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SoundEmittersRec::GetID() {
     return this->m_ID;
+}
+
+void SoundEmittersRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SoundEmittersRec::Read(SFile* f, const char* stringBuffer) {

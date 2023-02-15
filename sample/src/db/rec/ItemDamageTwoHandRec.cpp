@@ -5,8 +5,24 @@ const char* ItemDamageTwoHandRec::GetFilename() {
     return "DBFilesClient\\ItemDamageTwoHand.dbc";
 }
 
+int32_t ItemDamageTwoHandRec::GetNumColumns() {
+    return 9;
+}
+
+int32_t ItemDamageTwoHandRec::GetRowSize() {
+    return 36;
+}
+
+bool ItemDamageTwoHandRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t ItemDamageTwoHandRec::GetID() {
     return this->m_ID;
+}
+
+void ItemDamageTwoHandRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool ItemDamageTwoHandRec::Read(SFile* f, const char* stringBuffer) {

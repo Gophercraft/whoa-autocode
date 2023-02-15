@@ -5,8 +5,24 @@ const char* AuctionHouseRec::GetFilename() {
     return "DBFilesClient\\AuctionHouse.dbc";
 }
 
+int32_t AuctionHouseRec::GetNumColumns() {
+    return 21;
+}
+
+int32_t AuctionHouseRec::GetRowSize() {
+    return 84;
+}
+
+bool AuctionHouseRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t AuctionHouseRec::GetID() {
     return this->m_ID;
+}
+
+void AuctionHouseRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool AuctionHouseRec::Read(SFile* f, const char* stringBuffer) {

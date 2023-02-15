@@ -5,8 +5,24 @@ const char* ItemDamageThrownRec::GetFilename() {
     return "DBFilesClient\\ItemDamageThrown.dbc";
 }
 
+int32_t ItemDamageThrownRec::GetNumColumns() {
+    return 9;
+}
+
+int32_t ItemDamageThrownRec::GetRowSize() {
+    return 36;
+}
+
+bool ItemDamageThrownRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t ItemDamageThrownRec::GetID() {
     return this->m_ID;
+}
+
+void ItemDamageThrownRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool ItemDamageThrownRec::Read(SFile* f, const char* stringBuffer) {

@@ -5,8 +5,24 @@ const char* FactionTemplateRec::GetFilename() {
     return "DBFilesClient\\FactionTemplate.dbc";
 }
 
+int32_t FactionTemplateRec::GetNumColumns() {
+    return 14;
+}
+
+int32_t FactionTemplateRec::GetRowSize() {
+    return 56;
+}
+
+bool FactionTemplateRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t FactionTemplateRec::GetID() {
     return this->m_ID;
+}
+
+void FactionTemplateRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool FactionTemplateRec::Read(SFile* f, const char* stringBuffer) {

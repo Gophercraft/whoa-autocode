@@ -7,17 +7,17 @@
 
 class GameTablesRec {
     public:
-        static constexpr uint32_t columnCount = 3;
-        static constexpr uint32_t rowSize = 12;
-        static constexpr bool indexIsID = true;
-
         const char* m_name;
         int32_t m_numRows;
         int32_t m_numColumns;
         int32_t m_generatedID;
 
         static const char* GetFilename();
+        static int32_t GetNumColumns();
+        static int32_t GetRowSize();
+        static bool NeedIDAssigned();
         int32_t GetID();
+        void SetID(int32_t id);
         bool Read(SFile* f, const char* stringBuffer);
 };
 

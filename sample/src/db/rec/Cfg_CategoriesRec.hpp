@@ -7,10 +7,6 @@
 
 class Cfg_CategoriesRec {
     public:
-        static constexpr uint32_t columnCount = 21;
-        static constexpr uint32_t rowSize = 84;
-        static constexpr bool indexIsID = false;
-
         int32_t m_ID;
         int32_t m_localeMask;
         int32_t m_createCharsetMask;
@@ -18,7 +14,11 @@ class Cfg_CategoriesRec {
         const char* m_name;
 
         static const char* GetFilename();
+        static int32_t GetNumColumns();
+        static int32_t GetRowSize();
+        static bool NeedIDAssigned();
         int32_t GetID();
+        void SetID(int32_t id);
         bool Read(SFile* f, const char* stringBuffer);
 };
 

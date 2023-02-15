@@ -5,8 +5,24 @@ const char* LightRec::GetFilename() {
     return "DBFilesClient\\Light.dbc";
 }
 
+int32_t LightRec::GetNumColumns() {
+    return 15;
+}
+
+int32_t LightRec::GetRowSize() {
+    return 60;
+}
+
+bool LightRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t LightRec::GetID() {
     return this->m_ID;
+}
+
+void LightRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool LightRec::Read(SFile* f, const char* stringBuffer) {

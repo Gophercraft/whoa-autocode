@@ -5,8 +5,24 @@ const char* ItemPurchaseGroupRec::GetFilename() {
     return "DBFilesClient\\ItemPurchaseGroup.dbc";
 }
 
+int32_t ItemPurchaseGroupRec::GetNumColumns() {
+    return 26;
+}
+
+int32_t ItemPurchaseGroupRec::GetRowSize() {
+    return 104;
+}
+
+bool ItemPurchaseGroupRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t ItemPurchaseGroupRec::GetID() {
     return this->m_ID;
+}
+
+void ItemPurchaseGroupRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool ItemPurchaseGroupRec::Read(SFile* f, const char* stringBuffer) {

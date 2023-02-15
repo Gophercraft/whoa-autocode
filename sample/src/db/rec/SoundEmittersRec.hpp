@@ -7,10 +7,6 @@
 
 class SoundEmittersRec {
     public:
-        static constexpr uint32_t columnCount = 10;
-        static constexpr uint32_t rowSize = 40;
-        static constexpr bool indexIsID = false;
-
         int32_t m_ID;
         float m_position[3];
         float m_direction[3];
@@ -19,7 +15,11 @@ class SoundEmittersRec {
         const char* m_name;
 
         static const char* GetFilename();
+        static int32_t GetNumColumns();
+        static int32_t GetRowSize();
+        static bool NeedIDAssigned();
         int32_t GetID();
+        void SetID(int32_t id);
         bool Read(SFile* f, const char* stringBuffer);
 };
 

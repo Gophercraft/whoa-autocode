@@ -5,8 +5,24 @@ const char* ItemDamageRangedRec::GetFilename() {
     return "DBFilesClient\\ItemDamageRanged.dbc";
 }
 
+int32_t ItemDamageRangedRec::GetNumColumns() {
+    return 9;
+}
+
+int32_t ItemDamageRangedRec::GetRowSize() {
+    return 36;
+}
+
+bool ItemDamageRangedRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t ItemDamageRangedRec::GetID() {
     return this->m_ID;
+}
+
+void ItemDamageRangedRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool ItemDamageRangedRec::Read(SFile* f, const char* stringBuffer) {

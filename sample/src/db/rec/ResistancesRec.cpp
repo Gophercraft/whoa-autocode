@@ -5,8 +5,24 @@ const char* ResistancesRec::GetFilename() {
     return "DBFilesClient\\Resistances.dbc";
 }
 
+int32_t ResistancesRec::GetNumColumns() {
+    return 20;
+}
+
+int32_t ResistancesRec::GetRowSize() {
+    return 80;
+}
+
+bool ResistancesRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t ResistancesRec::GetID() {
     return this->m_ID;
+}
+
+void ResistancesRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool ResistancesRec::Read(SFile* f, const char* stringBuffer) {

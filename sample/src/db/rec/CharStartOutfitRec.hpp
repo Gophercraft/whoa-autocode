@@ -7,10 +7,6 @@
 
 class CharStartOutfitRec {
     public:
-        static constexpr uint32_t columnCount = 77;
-        static constexpr uint32_t rowSize = 296;
-        static constexpr bool indexIsID = false;
-
         int32_t m_ID;
         int8_t m_raceID;
         int8_t m_classID;
@@ -21,7 +17,11 @@ class CharStartOutfitRec {
         int32_t m_inventoryType[24];
 
         static const char* GetFilename();
+        static int32_t GetNumColumns();
+        static int32_t GetRowSize();
+        static bool NeedIDAssigned();
         int32_t GetID();
+        void SetID(int32_t id);
         bool Read(SFile* f, const char* stringBuffer);
 };
 

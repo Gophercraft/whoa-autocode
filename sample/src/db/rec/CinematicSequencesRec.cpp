@@ -5,8 +5,24 @@ const char* CinematicSequencesRec::GetFilename() {
     return "DBFilesClient\\CinematicSequences.dbc";
 }
 
+int32_t CinematicSequencesRec::GetNumColumns() {
+    return 10;
+}
+
+int32_t CinematicSequencesRec::GetRowSize() {
+    return 40;
+}
+
+bool CinematicSequencesRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t CinematicSequencesRec::GetID() {
     return this->m_ID;
+}
+
+void CinematicSequencesRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool CinematicSequencesRec::Read(SFile* f, const char* stringBuffer) {

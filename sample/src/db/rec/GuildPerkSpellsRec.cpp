@@ -5,8 +5,24 @@ const char* GuildPerkSpellsRec::GetFilename() {
     return "DBFilesClient\\GuildPerkSpells.dbc";
 }
 
+int32_t GuildPerkSpellsRec::GetNumColumns() {
+    return 3;
+}
+
+int32_t GuildPerkSpellsRec::GetRowSize() {
+    return 12;
+}
+
+bool GuildPerkSpellsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t GuildPerkSpellsRec::GetID() {
     return this->m_ID;
+}
+
+void GuildPerkSpellsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool GuildPerkSpellsRec::Read(SFile* f, const char* stringBuffer) {

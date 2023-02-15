@@ -5,8 +5,24 @@ const char* GMSurveyCurrentSurveyRec::GetFilename() {
     return "DBFilesClient\\GMSurveyCurrentSurvey.dbc";
 }
 
+int32_t GMSurveyCurrentSurveyRec::GetNumColumns() {
+    return 2;
+}
+
+int32_t GMSurveyCurrentSurveyRec::GetRowSize() {
+    return 8;
+}
+
+bool GMSurveyCurrentSurveyRec::NeedIDAssigned() {
+    return true;
+}
+
 int32_t GMSurveyCurrentSurveyRec::GetID() {
     return this->m_generatedID;
+}
+
+void GMSurveyCurrentSurveyRec::SetID(int32_t id) {
+    this->m_generatedID = id;
 }
 
 bool GMSurveyCurrentSurveyRec::Read(SFile* f, const char* stringBuffer) {

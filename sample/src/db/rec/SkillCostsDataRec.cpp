@@ -5,8 +5,24 @@ const char* SkillCostsDataRec::GetFilename() {
     return "DBFilesClient\\SkillCostsData.dbc";
 }
 
+int32_t SkillCostsDataRec::GetNumColumns() {
+    return 5;
+}
+
+int32_t SkillCostsDataRec::GetRowSize() {
+    return 20;
+}
+
+bool SkillCostsDataRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SkillCostsDataRec::GetID() {
     return this->m_ID;
+}
+
+void SkillCostsDataRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SkillCostsDataRec::Read(SFile* f, const char* stringBuffer) {

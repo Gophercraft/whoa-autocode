@@ -5,8 +5,24 @@ const char* ChatChannelsRec::GetFilename() {
     return "DBFilesClient\\ChatChannels.dbc";
 }
 
+int32_t ChatChannelsRec::GetNumColumns() {
+    return 37;
+}
+
+int32_t ChatChannelsRec::GetRowSize() {
+    return 148;
+}
+
+bool ChatChannelsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t ChatChannelsRec::GetID() {
     return this->m_ID;
+}
+
+void ChatChannelsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool ChatChannelsRec::Read(SFile* f, const char* stringBuffer) {

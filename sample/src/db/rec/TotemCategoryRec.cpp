@@ -5,8 +5,24 @@ const char* TotemCategoryRec::GetFilename() {
     return "DBFilesClient\\TotemCategory.dbc";
 }
 
+int32_t TotemCategoryRec::GetNumColumns() {
+    return 20;
+}
+
+int32_t TotemCategoryRec::GetRowSize() {
+    return 80;
+}
+
+bool TotemCategoryRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t TotemCategoryRec::GetID() {
     return this->m_ID;
+}
+
+void TotemCategoryRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool TotemCategoryRec::Read(SFile* f, const char* stringBuffer) {

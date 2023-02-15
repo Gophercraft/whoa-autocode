@@ -5,8 +5,24 @@ const char* ItemCondExtCostsRec::GetFilename() {
     return "DBFilesClient\\ItemCondExtCosts.dbc";
 }
 
+int32_t ItemCondExtCostsRec::GetNumColumns() {
+    return 4;
+}
+
+int32_t ItemCondExtCostsRec::GetRowSize() {
+    return 16;
+}
+
+bool ItemCondExtCostsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t ItemCondExtCostsRec::GetID() {
     return this->m_ID;
+}
+
+void ItemCondExtCostsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool ItemCondExtCostsRec::Read(SFile* f, const char* stringBuffer) {

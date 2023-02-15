@@ -7,10 +7,6 @@
 
 class SheatheSoundLookupsRec {
     public:
-        static constexpr uint32_t columnCount = 7;
-        static constexpr uint32_t rowSize = 28;
-        static constexpr bool indexIsID = false;
-
         int32_t m_ID;
         int32_t m_classID;
         int32_t m_subclassID;
@@ -20,7 +16,11 @@ class SheatheSoundLookupsRec {
         int32_t m_unsheatheSound;
 
         static const char* GetFilename();
+        static int32_t GetNumColumns();
+        static int32_t GetRowSize();
+        static bool NeedIDAssigned();
         int32_t GetID();
+        void SetID(int32_t id);
         bool Read(SFile* f, const char* stringBuffer);
 };
 

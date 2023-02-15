@@ -5,8 +5,24 @@ const char* EmotesTextDataRec::GetFilename() {
     return "DBFilesClient\\EmotesTextData.dbc";
 }
 
+int32_t EmotesTextDataRec::GetNumColumns() {
+    return 18;
+}
+
+int32_t EmotesTextDataRec::GetRowSize() {
+    return 72;
+}
+
+bool EmotesTextDataRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t EmotesTextDataRec::GetID() {
     return this->m_ID;
+}
+
+void EmotesTextDataRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool EmotesTextDataRec::Read(SFile* f, const char* stringBuffer) {

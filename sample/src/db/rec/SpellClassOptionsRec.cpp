@@ -5,8 +5,24 @@ const char* SpellClassOptionsRec::GetFilename() {
     return "DBFilesClient\\SpellClassOptions.dbc";
 }
 
+int32_t SpellClassOptionsRec::GetNumColumns() {
+    return 6;
+}
+
+int32_t SpellClassOptionsRec::GetRowSize() {
+    return 24;
+}
+
+bool SpellClassOptionsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SpellClassOptionsRec::GetID() {
     return this->m_ID;
+}
+
+void SpellClassOptionsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SpellClassOptionsRec::Read(SFile* f, const char* stringBuffer) {

@@ -5,8 +5,24 @@ const char* ChrClassesRec::GetFilename() {
     return "DBFilesClient\\ChrClasses.dbc";
 }
 
+int32_t ChrClassesRec::GetNumColumns() {
+    return 60;
+}
+
+int32_t ChrClassesRec::GetRowSize() {
+    return 240;
+}
+
+bool ChrClassesRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t ChrClassesRec::GetID() {
     return this->m_ID;
+}
+
+void ChrClassesRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool ChrClassesRec::Read(SFile* f, const char* stringBuffer) {

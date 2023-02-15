@@ -5,8 +5,24 @@ const char* SoundSamplePreferencesRec::GetFilename() {
     return "DBFilesClient\\SoundSamplePreferences.dbc";
 }
 
+int32_t SoundSamplePreferencesRec::GetNumColumns() {
+    return 17;
+}
+
+int32_t SoundSamplePreferencesRec::GetRowSize() {
+    return 68;
+}
+
+bool SoundSamplePreferencesRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SoundSamplePreferencesRec::GetID() {
     return this->m_ID;
+}
+
+void SoundSamplePreferencesRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SoundSamplePreferencesRec::Read(SFile* f, const char* stringBuffer) {

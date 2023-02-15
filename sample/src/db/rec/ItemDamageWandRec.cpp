@@ -5,8 +5,24 @@ const char* ItemDamageWandRec::GetFilename() {
     return "DBFilesClient\\ItemDamageWand.dbc";
 }
 
+int32_t ItemDamageWandRec::GetNumColumns() {
+    return 9;
+}
+
+int32_t ItemDamageWandRec::GetRowSize() {
+    return 36;
+}
+
+bool ItemDamageWandRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t ItemDamageWandRec::GetID() {
     return this->m_ID;
+}
+
+void ItemDamageWandRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool ItemDamageWandRec::Read(SFile* f, const char* stringBuffer) {

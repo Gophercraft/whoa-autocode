@@ -5,8 +5,24 @@ const char* BankBagSlotPricesRec::GetFilename() {
     return "DBFilesClient\\BankBagSlotPrices.dbc";
 }
 
+int32_t BankBagSlotPricesRec::GetNumColumns() {
+    return 2;
+}
+
+int32_t BankBagSlotPricesRec::GetRowSize() {
+    return 8;
+}
+
+bool BankBagSlotPricesRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t BankBagSlotPricesRec::GetID() {
     return this->m_ID;
+}
+
+void BankBagSlotPricesRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool BankBagSlotPricesRec::Read(SFile* f, const char* stringBuffer) {

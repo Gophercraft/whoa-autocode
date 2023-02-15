@@ -5,8 +5,24 @@ const char* TerrainMaterialRec::GetFilename() {
     return "DBFilesClient\\TerrainMaterial.dbc";
 }
 
+int32_t TerrainMaterialRec::GetNumColumns() {
+    return 4;
+}
+
+int32_t TerrainMaterialRec::GetRowSize() {
+    return 16;
+}
+
+bool TerrainMaterialRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t TerrainMaterialRec::GetID() {
     return this->m_ID;
+}
+
+void TerrainMaterialRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool TerrainMaterialRec::Read(SFile* f, const char* stringBuffer) {

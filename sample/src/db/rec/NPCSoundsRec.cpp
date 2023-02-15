@@ -5,8 +5,24 @@ const char* NPCSoundsRec::GetFilename() {
     return "DBFilesClient\\NPCSounds.dbc";
 }
 
+int32_t NPCSoundsRec::GetNumColumns() {
+    return 5;
+}
+
+int32_t NPCSoundsRec::GetRowSize() {
+    return 20;
+}
+
+bool NPCSoundsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t NPCSoundsRec::GetID() {
     return this->m_ID;
+}
+
+void NPCSoundsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool NPCSoundsRec::Read(SFile* f, const char* stringBuffer) {

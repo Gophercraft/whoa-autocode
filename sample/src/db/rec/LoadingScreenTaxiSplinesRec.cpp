@@ -5,8 +5,24 @@ const char* LoadingScreenTaxiSplinesRec::GetFilename() {
     return "DBFilesClient\\LoadingScreenTaxiSplines.dbc";
 }
 
+int32_t LoadingScreenTaxiSplinesRec::GetNumColumns() {
+    return 19;
+}
+
+int32_t LoadingScreenTaxiSplinesRec::GetRowSize() {
+    return 76;
+}
+
+bool LoadingScreenTaxiSplinesRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t LoadingScreenTaxiSplinesRec::GetID() {
     return this->m_ID;
+}
+
+void LoadingScreenTaxiSplinesRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool LoadingScreenTaxiSplinesRec::Read(SFile* f, const char* stringBuffer) {

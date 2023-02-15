@@ -7,10 +7,6 @@
 
 class PowerDisplayRec {
     public:
-        static constexpr uint32_t columnCount = 6;
-        static constexpr uint32_t rowSize = 15;
-        static constexpr bool indexIsID = false;
-
         int32_t m_ID;
         int32_t m_actualType;
         const char* m_globalStringBaseTag;
@@ -19,7 +15,11 @@ class PowerDisplayRec {
         int8_t m_blue;
 
         static const char* GetFilename();
+        static int32_t GetNumColumns();
+        static int32_t GetRowSize();
+        static bool NeedIDAssigned();
         int32_t GetID();
+        void SetID(int32_t id);
         bool Read(SFile* f, const char* stringBuffer);
 };
 

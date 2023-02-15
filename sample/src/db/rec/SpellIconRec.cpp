@@ -5,8 +5,24 @@ const char* SpellIconRec::GetFilename() {
     return "DBFilesClient\\SpellIcon.dbc";
 }
 
+int32_t SpellIconRec::GetNumColumns() {
+    return 2;
+}
+
+int32_t SpellIconRec::GetRowSize() {
+    return 8;
+}
+
+bool SpellIconRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SpellIconRec::GetID() {
     return this->m_ID;
+}
+
+void SpellIconRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SpellIconRec::Read(SFile* f, const char* stringBuffer) {

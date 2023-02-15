@@ -5,8 +5,24 @@ const char* HelmetGeosetVisDataRec::GetFilename() {
     return "DBFilesClient\\HelmetGeosetVisData.dbc";
 }
 
+int32_t HelmetGeosetVisDataRec::GetNumColumns() {
+    return 8;
+}
+
+int32_t HelmetGeosetVisDataRec::GetRowSize() {
+    return 32;
+}
+
+bool HelmetGeosetVisDataRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t HelmetGeosetVisDataRec::GetID() {
     return this->m_ID;
+}
+
+void HelmetGeosetVisDataRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool HelmetGeosetVisDataRec::Read(SFile* f, const char* stringBuffer) {

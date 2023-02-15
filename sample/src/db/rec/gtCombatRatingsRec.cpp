@@ -5,8 +5,24 @@ const char* gtCombatRatingsRec::GetFilename() {
     return "DBFilesClient\\gtCombatRatings.dbc";
 }
 
+int32_t gtCombatRatingsRec::GetNumColumns() {
+    return 1;
+}
+
+int32_t gtCombatRatingsRec::GetRowSize() {
+    return 4;
+}
+
+bool gtCombatRatingsRec::NeedIDAssigned() {
+    return true;
+}
+
 int32_t gtCombatRatingsRec::GetID() {
     return this->m_generatedID;
+}
+
+void gtCombatRatingsRec::SetID(int32_t id) {
+    this->m_generatedID = id;
 }
 
 bool gtCombatRatingsRec::Read(SFile* f, const char* stringBuffer) {

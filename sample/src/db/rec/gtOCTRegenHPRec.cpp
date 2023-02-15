@@ -5,8 +5,24 @@ const char* gtOCTRegenHPRec::GetFilename() {
     return "DBFilesClient\\gtOCTRegenHP.dbc";
 }
 
+int32_t gtOCTRegenHPRec::GetNumColumns() {
+    return 1;
+}
+
+int32_t gtOCTRegenHPRec::GetRowSize() {
+    return 4;
+}
+
+bool gtOCTRegenHPRec::NeedIDAssigned() {
+    return true;
+}
+
 int32_t gtOCTRegenHPRec::GetID() {
     return this->m_generatedID;
+}
+
+void gtOCTRegenHPRec::SetID(int32_t id) {
+    this->m_generatedID = id;
 }
 
 bool gtOCTRegenHPRec::Read(SFile* f, const char* stringBuffer) {

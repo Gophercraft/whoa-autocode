@@ -5,8 +5,24 @@ const char* Achievement_CriteriaRec::GetFilename() {
     return "DBFilesClient\\Achievement_Criteria.dbc";
 }
 
+int32_t Achievement_CriteriaRec::GetNumColumns() {
+    return 31;
+}
+
+int32_t Achievement_CriteriaRec::GetRowSize() {
+    return 124;
+}
+
+bool Achievement_CriteriaRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t Achievement_CriteriaRec::GetID() {
     return this->m_ID;
+}
+
+void Achievement_CriteriaRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool Achievement_CriteriaRec::Read(SFile* f, const char* stringBuffer) {

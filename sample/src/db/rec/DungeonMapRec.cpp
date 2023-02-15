@@ -5,8 +5,24 @@ const char* DungeonMapRec::GetFilename() {
     return "DBFilesClient\\DungeonMap.dbc";
 }
 
+int32_t DungeonMapRec::GetNumColumns() {
+    return 8;
+}
+
+int32_t DungeonMapRec::GetRowSize() {
+    return 32;
+}
+
+bool DungeonMapRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t DungeonMapRec::GetID() {
     return this->m_ID;
+}
+
+void DungeonMapRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool DungeonMapRec::Read(SFile* f, const char* stringBuffer) {

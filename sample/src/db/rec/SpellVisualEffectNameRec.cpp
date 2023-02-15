@@ -5,8 +5,24 @@ const char* SpellVisualEffectNameRec::GetFilename() {
     return "DBFilesClient\\SpellVisualEffectName.dbc";
 }
 
+int32_t SpellVisualEffectNameRec::GetNumColumns() {
+    return 7;
+}
+
+int32_t SpellVisualEffectNameRec::GetRowSize() {
+    return 28;
+}
+
+bool SpellVisualEffectNameRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SpellVisualEffectNameRec::GetID() {
     return this->m_ID;
+}
+
+void SpellVisualEffectNameRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SpellVisualEffectNameRec::Read(SFile* f, const char* stringBuffer) {

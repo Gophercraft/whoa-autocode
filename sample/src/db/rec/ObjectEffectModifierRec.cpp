@@ -5,8 +5,24 @@ const char* ObjectEffectModifierRec::GetFilename() {
     return "DBFilesClient\\ObjectEffectModifier.dbc";
 }
 
+int32_t ObjectEffectModifierRec::GetNumColumns() {
+    return 8;
+}
+
+int32_t ObjectEffectModifierRec::GetRowSize() {
+    return 32;
+}
+
+bool ObjectEffectModifierRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t ObjectEffectModifierRec::GetID() {
     return this->m_ID;
+}
+
+void ObjectEffectModifierRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool ObjectEffectModifierRec::Read(SFile* f, const char* stringBuffer) {

@@ -5,8 +5,24 @@ const char* SpellTargetRestrictionsRec::GetFilename() {
     return "DBFilesClient\\SpellTargetRestrictions.dbc";
 }
 
+int32_t SpellTargetRestrictionsRec::GetNumColumns() {
+    return 5;
+}
+
+int32_t SpellTargetRestrictionsRec::GetRowSize() {
+    return 20;
+}
+
+bool SpellTargetRestrictionsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SpellTargetRestrictionsRec::GetID() {
     return this->m_ID;
+}
+
+void SpellTargetRestrictionsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SpellTargetRestrictionsRec::Read(SFile* f, const char* stringBuffer) {

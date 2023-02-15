@@ -5,8 +5,24 @@ const char* SpamMessagesRec::GetFilename() {
     return "DBFilesClient\\SpamMessages.dbc";
 }
 
+int32_t SpamMessagesRec::GetNumColumns() {
+    return 2;
+}
+
+int32_t SpamMessagesRec::GetRowSize() {
+    return 8;
+}
+
+bool SpamMessagesRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SpamMessagesRec::GetID() {
     return this->m_ID;
+}
+
+void SpamMessagesRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SpamMessagesRec::Read(SFile* f, const char* stringBuffer) {

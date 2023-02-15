@@ -5,8 +5,24 @@ const char* CreatureMovementInfoRec::GetFilename() {
     return "DBFilesClient\\CreatureMovementInfo.dbc";
 }
 
+int32_t CreatureMovementInfoRec::GetNumColumns() {
+    return 2;
+}
+
+int32_t CreatureMovementInfoRec::GetRowSize() {
+    return 8;
+}
+
+bool CreatureMovementInfoRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t CreatureMovementInfoRec::GetID() {
     return this->m_ID;
+}
+
+void CreatureMovementInfoRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool CreatureMovementInfoRec::Read(SFile* f, const char* stringBuffer) {

@@ -5,8 +5,24 @@ const char* LanguageWordsRec::GetFilename() {
     return "DBFilesClient\\LanguageWords.dbc";
 }
 
+int32_t LanguageWordsRec::GetNumColumns() {
+    return 3;
+}
+
+int32_t LanguageWordsRec::GetRowSize() {
+    return 12;
+}
+
+bool LanguageWordsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t LanguageWordsRec::GetID() {
     return this->m_ID;
+}
+
+void LanguageWordsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool LanguageWordsRec::Read(SFile* f, const char* stringBuffer) {

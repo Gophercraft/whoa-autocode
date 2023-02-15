@@ -5,8 +5,24 @@ const char* MountTypeRec::GetFilename() {
     return "DBFilesClient\\MountType.dbc";
 }
 
+int32_t MountTypeRec::GetNumColumns() {
+    return 9;
+}
+
+int32_t MountTypeRec::GetRowSize() {
+    return 36;
+}
+
+bool MountTypeRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t MountTypeRec::GetID() {
     return this->m_ID;
+}
+
+void MountTypeRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool MountTypeRec::Read(SFile* f, const char* stringBuffer) {

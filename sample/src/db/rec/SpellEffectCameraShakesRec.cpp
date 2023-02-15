@@ -5,8 +5,24 @@ const char* SpellEffectCameraShakesRec::GetFilename() {
     return "DBFilesClient\\SpellEffectCameraShakes.dbc";
 }
 
+int32_t SpellEffectCameraShakesRec::GetNumColumns() {
+    return 4;
+}
+
+int32_t SpellEffectCameraShakesRec::GetRowSize() {
+    return 16;
+}
+
+bool SpellEffectCameraShakesRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SpellEffectCameraShakesRec::GetID() {
     return this->m_ID;
+}
+
+void SpellEffectCameraShakesRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SpellEffectCameraShakesRec::Read(SFile* f, const char* stringBuffer) {

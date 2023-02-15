@@ -5,8 +5,24 @@ const char* ServerMessagesRec::GetFilename() {
     return "DBFilesClient\\ServerMessages.dbc";
 }
 
+int32_t ServerMessagesRec::GetNumColumns() {
+    return 18;
+}
+
+int32_t ServerMessagesRec::GetRowSize() {
+    return 72;
+}
+
+bool ServerMessagesRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t ServerMessagesRec::GetID() {
     return this->m_ID;
+}
+
+void ServerMessagesRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool ServerMessagesRec::Read(SFile* f, const char* stringBuffer) {

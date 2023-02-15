@@ -5,8 +5,24 @@ const char* SpellReagentsRec::GetFilename() {
     return "DBFilesClient\\SpellReagents.dbc";
 }
 
+int32_t SpellReagentsRec::GetNumColumns() {
+    return 17;
+}
+
+int32_t SpellReagentsRec::GetRowSize() {
+    return 68;
+}
+
+bool SpellReagentsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SpellReagentsRec::GetID() {
     return this->m_ID;
+}
+
+void SpellReagentsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SpellReagentsRec::Read(SFile* f, const char* stringBuffer) {

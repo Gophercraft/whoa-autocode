@@ -5,8 +5,24 @@ const char* WorldMapAreaRec::GetFilename() {
     return "DBFilesClient\\WorldMapArea.dbc";
 }
 
+int32_t WorldMapAreaRec::GetNumColumns() {
+    return 11;
+}
+
+int32_t WorldMapAreaRec::GetRowSize() {
+    return 44;
+}
+
+bool WorldMapAreaRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t WorldMapAreaRec::GetID() {
     return this->m_ID;
+}
+
+void WorldMapAreaRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool WorldMapAreaRec::Read(SFile* f, const char* stringBuffer) {

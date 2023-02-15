@@ -5,8 +5,24 @@ const char* gtRegenMPPerSptRec::GetFilename() {
     return "DBFilesClient\\gtRegenMPPerSpt.dbc";
 }
 
+int32_t gtRegenMPPerSptRec::GetNumColumns() {
+    return 1;
+}
+
+int32_t gtRegenMPPerSptRec::GetRowSize() {
+    return 4;
+}
+
+bool gtRegenMPPerSptRec::NeedIDAssigned() {
+    return true;
+}
+
 int32_t gtRegenMPPerSptRec::GetID() {
     return this->m_generatedID;
+}
+
+void gtRegenMPPerSptRec::SetID(int32_t id) {
+    this->m_generatedID = id;
 }
 
 bool gtRegenMPPerSptRec::Read(SFile* f, const char* stringBuffer) {

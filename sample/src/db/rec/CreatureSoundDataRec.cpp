@@ -5,8 +5,24 @@ const char* CreatureSoundDataRec::GetFilename() {
     return "DBFilesClient\\CreatureSoundData.dbc";
 }
 
+int32_t CreatureSoundDataRec::GetNumColumns() {
+    return 38;
+}
+
+int32_t CreatureSoundDataRec::GetRowSize() {
+    return 152;
+}
+
+bool CreatureSoundDataRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t CreatureSoundDataRec::GetID() {
     return this->m_ID;
+}
+
+void CreatureSoundDataRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool CreatureSoundDataRec::Read(SFile* f, const char* stringBuffer) {

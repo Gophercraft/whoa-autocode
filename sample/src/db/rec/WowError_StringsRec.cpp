@@ -5,8 +5,24 @@ const char* WowError_StringsRec::GetFilename() {
     return "DBFilesClient\\WowError_Strings.dbc";
 }
 
+int32_t WowError_StringsRec::GetNumColumns() {
+    return 19;
+}
+
+int32_t WowError_StringsRec::GetRowSize() {
+    return 76;
+}
+
+bool WowError_StringsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t WowError_StringsRec::GetID() {
     return this->m_ID;
+}
+
+void WowError_StringsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool WowError_StringsRec::Read(SFile* f, const char* stringBuffer) {

@@ -5,8 +5,24 @@ const char* PowerDisplayRec::GetFilename() {
     return "DBFilesClient\\PowerDisplay.dbc";
 }
 
+int32_t PowerDisplayRec::GetNumColumns() {
+    return 6;
+}
+
+int32_t PowerDisplayRec::GetRowSize() {
+    return 15;
+}
+
+bool PowerDisplayRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t PowerDisplayRec::GetID() {
     return this->m_ID;
+}
+
+void PowerDisplayRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool PowerDisplayRec::Read(SFile* f, const char* stringBuffer) {

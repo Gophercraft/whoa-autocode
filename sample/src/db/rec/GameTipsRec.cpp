@@ -5,8 +5,24 @@ const char* GameTipsRec::GetFilename() {
     return "DBFilesClient\\GameTips.dbc";
 }
 
+int32_t GameTipsRec::GetNumColumns() {
+    return 18;
+}
+
+int32_t GameTipsRec::GetRowSize() {
+    return 72;
+}
+
+bool GameTipsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t GameTipsRec::GetID() {
     return this->m_ID;
+}
+
+void GameTipsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool GameTipsRec::Read(SFile* f, const char* stringBuffer) {

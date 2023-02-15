@@ -5,8 +5,24 @@ const char* SpellMechanicRec::GetFilename() {
     return "DBFilesClient\\SpellMechanic.dbc";
 }
 
+int32_t SpellMechanicRec::GetNumColumns() {
+    return 18;
+}
+
+int32_t SpellMechanicRec::GetRowSize() {
+    return 72;
+}
+
+bool SpellMechanicRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SpellMechanicRec::GetID() {
     return this->m_ID;
+}
+
+void SpellMechanicRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SpellMechanicRec::Read(SFile* f, const char* stringBuffer) {

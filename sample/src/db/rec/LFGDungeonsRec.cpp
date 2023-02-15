@@ -5,8 +5,24 @@ const char* LFGDungeonsRec::GetFilename() {
     return "DBFilesClient\\LFGDungeons.dbc";
 }
 
+int32_t LFGDungeonsRec::GetNumColumns() {
+    return 49;
+}
+
+int32_t LFGDungeonsRec::GetRowSize() {
+    return 196;
+}
+
+bool LFGDungeonsRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t LFGDungeonsRec::GetID() {
     return this->m_ID;
+}
+
+void LFGDungeonsRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool LFGDungeonsRec::Read(SFile* f, const char* stringBuffer) {

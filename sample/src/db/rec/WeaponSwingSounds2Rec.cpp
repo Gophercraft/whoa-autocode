@@ -5,8 +5,24 @@ const char* WeaponSwingSounds2Rec::GetFilename() {
     return "DBFilesClient\\WeaponSwingSounds2.dbc";
 }
 
+int32_t WeaponSwingSounds2Rec::GetNumColumns() {
+    return 4;
+}
+
+int32_t WeaponSwingSounds2Rec::GetRowSize() {
+    return 16;
+}
+
+bool WeaponSwingSounds2Rec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t WeaponSwingSounds2Rec::GetID() {
     return this->m_ID;
+}
+
+void WeaponSwingSounds2Rec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool WeaponSwingSounds2Rec::Read(SFile* f, const char* stringBuffer) {

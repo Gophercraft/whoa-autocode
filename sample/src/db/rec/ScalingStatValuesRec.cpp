@@ -5,8 +5,24 @@ const char* ScalingStatValuesRec::GetFilename() {
     return "DBFilesClient\\ScalingStatValues.dbc";
 }
 
+int32_t ScalingStatValuesRec::GetNumColumns() {
+    return 24;
+}
+
+int32_t ScalingStatValuesRec::GetRowSize() {
+    return 96;
+}
+
+bool ScalingStatValuesRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t ScalingStatValuesRec::GetID() {
     return this->m_ID;
+}
+
+void ScalingStatValuesRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool ScalingStatValuesRec::Read(SFile* f, const char* stringBuffer) {

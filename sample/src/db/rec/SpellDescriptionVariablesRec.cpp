@@ -5,8 +5,24 @@ const char* SpellDescriptionVariablesRec::GetFilename() {
     return "DBFilesClient\\SpellDescriptionVariables.dbc";
 }
 
+int32_t SpellDescriptionVariablesRec::GetNumColumns() {
+    return 2;
+}
+
+int32_t SpellDescriptionVariablesRec::GetRowSize() {
+    return 8;
+}
+
+bool SpellDescriptionVariablesRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SpellDescriptionVariablesRec::GetID() {
     return this->m_ID;
+}
+
+void SpellDescriptionVariablesRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SpellDescriptionVariablesRec::Read(SFile* f, const char* stringBuffer) {

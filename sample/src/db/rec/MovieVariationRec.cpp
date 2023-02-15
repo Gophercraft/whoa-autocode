@@ -5,8 +5,24 @@ const char* MovieVariationRec::GetFilename() {
     return "DBFilesClient\\MovieVariation.dbc";
 }
 
+int32_t MovieVariationRec::GetNumColumns() {
+    return 3;
+}
+
+int32_t MovieVariationRec::GetRowSize() {
+    return 12;
+}
+
+bool MovieVariationRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t MovieVariationRec::GetID() {
     return this->m_ID;
+}
+
+void MovieVariationRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool MovieVariationRec::Read(SFile* f, const char* stringBuffer) {

@@ -5,8 +5,24 @@ const char* GameObjectArtKitRec::GetFilename() {
     return "DBFilesClient\\GameObjectArtKit.dbc";
 }
 
+int32_t GameObjectArtKitRec::GetNumColumns() {
+    return 8;
+}
+
+int32_t GameObjectArtKitRec::GetRowSize() {
+    return 32;
+}
+
+bool GameObjectArtKitRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t GameObjectArtKitRec::GetID() {
     return this->m_ID;
+}
+
+void GameObjectArtKitRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool GameObjectArtKitRec::Read(SFile* f, const char* stringBuffer) {

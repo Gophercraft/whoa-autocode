@@ -5,8 +5,24 @@ const char* SpellCategoryRec::GetFilename() {
     return "DBFilesClient\\SpellCategory.dbc";
 }
 
+int32_t SpellCategoryRec::GetNumColumns() {
+    return 2;
+}
+
+int32_t SpellCategoryRec::GetRowSize() {
+    return 8;
+}
+
+bool SpellCategoryRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SpellCategoryRec::GetID() {
     return this->m_ID;
+}
+
+void SpellCategoryRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SpellCategoryRec::Read(SFile* f, const char* stringBuffer) {

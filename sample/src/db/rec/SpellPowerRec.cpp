@@ -5,8 +5,24 @@ const char* SpellPowerRec::GetFilename() {
     return "DBFilesClient\\SpellPower.dbc";
 }
 
+int32_t SpellPowerRec::GetNumColumns() {
+    return 6;
+}
+
+int32_t SpellPowerRec::GetRowSize() {
+    return 24;
+}
+
+bool SpellPowerRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t SpellPowerRec::GetID() {
     return this->m_ID;
+}
+
+void SpellPowerRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool SpellPowerRec::Read(SFile* f, const char* stringBuffer) {

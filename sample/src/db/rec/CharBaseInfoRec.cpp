@@ -5,8 +5,24 @@ const char* CharBaseInfoRec::GetFilename() {
     return "DBFilesClient\\CharBaseInfo.dbc";
 }
 
+int32_t CharBaseInfoRec::GetNumColumns() {
+    return 2;
+}
+
+int32_t CharBaseInfoRec::GetRowSize() {
+    return 2;
+}
+
+bool CharBaseInfoRec::NeedIDAssigned() {
+    return true;
+}
+
 int32_t CharBaseInfoRec::GetID() {
     return this->m_generatedID;
+}
+
+void CharBaseInfoRec::SetID(int32_t id) {
+    this->m_generatedID = id;
 }
 
 bool CharBaseInfoRec::Read(SFile* f, const char* stringBuffer) {

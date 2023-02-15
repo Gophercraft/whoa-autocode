@@ -5,8 +5,24 @@ const char* AreaTableRec::GetFilename() {
     return "DBFilesClient\\AreaTable.dbc";
 }
 
+int32_t AreaTableRec::GetNumColumns() {
+    return 36;
+}
+
+int32_t AreaTableRec::GetRowSize() {
+    return 144;
+}
+
+bool AreaTableRec::NeedIDAssigned() {
+    return false;
+}
+
 int32_t AreaTableRec::GetID() {
     return this->m_ID;
+}
+
+void AreaTableRec::SetID(int32_t id) {
+    this->m_ID = id;
 }
 
 bool AreaTableRec::Read(SFile* f, const char* stringBuffer) {
