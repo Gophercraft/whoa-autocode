@@ -141,10 +141,10 @@ func (g *Generator) writeLayoutHeader(target *layoutTarget) error {
 	// rowSize := 0
 	indexIsID := target.Layout.Column("ID") == nil
 
-	rowSize, numColumns, err := calcLayoutSize(g.Build, target)
-	if err != nil {
-		return err
-	}
+	// rowSize, numColumns, err := calcLayoutSize(g.Build, target)
+	// if err != nil {
+	// 	return err
+	// }
 	// }
 
 	// // Calculate number of columns and size of row
@@ -188,11 +188,11 @@ func (g *Generator) writeLayoutHeader(target *layoutTarget) error {
 	file.Printf("class %sRec {\n", target.Definition.Name)
 	file.Printf("\tpublic:\n")
 
-	file.Printf("\t\tstatic constexpr uint32_t columnCount = %d;\n", numColumns)
-	file.Printf("\t\tstatic constexpr uint32_t rowSize = %d;\n", rowSize)
-	file.Printf("\t\tstatic constexpr bool indexIsID = %t;\n", indexIsID)
+	// file.Printf("\t\tstatic constexpr uint32_t columnCount = %d;\n", numColumns)
+	// file.Printf("\t\tstatic constexpr uint32_t rowSize = %d;\n", rowSize)
+	// file.Printf("\t\tstatic constexpr bool indexIsID = %t;\n", indexIsID)
 
-	file.Printf("\n")
+	// file.Printf("\n")
 
 	normalizedColumnNames := make([]string, len(target.Layout.Columns))
 
@@ -257,7 +257,11 @@ func (g *Generator) writeLayoutHeader(target *layoutTarget) error {
 
 	file.Printf("\n")
 	file.Printf("\t\tstatic const char* GetFilename();\n")
+	file.Printf("\t\tstatic int32_t GetNumColumns();\n")
+	file.Printf("\t\tstatic int32_t GetRowSize();\n")
+	file.Printf("\t\tstatic bool NeedIDAssigned();\n")
 	file.Printf("\t\tint32_t GetID();\n")
+	file.Printf("\t\tvoid SetID(int32_t id);\n")
 	file.Printf("\t\tbool Read(SFile* f, const char* stringBuffer);\n")
 
 	file.Printf("};\n")
@@ -272,6 +276,13 @@ func (g *Generator) writeLayoutSource(target *layoutTarget) error {
 	if err != nil {
 		return err
 	}
+
+	rowSize, numColumns, err := calcLayoutSize(g.Build, target)
+	if err != nil {
+		return err
+	}
+
+	indexIsID := target.Layout.Column("ID") == nil
 
 	file, err := g.NewPrinter(fmt.Sprintf("src/db/rec/%sRec.cpp", target.Definition.Name))
 	if err != nil {
@@ -295,16 +306,36 @@ func (g *Generator) writeLayoutSource(target *layoutTarget) error {
 	file.Printf("}\n")
 	file.Printf("\n")
 
+	file.Printf("int32_t %sRec::GetNumColumns() {\n", target.Definition.Name)
+	file.Printf("\treturn %d;\n", numColumns)
+	file.Printf("}\n")
+	file.Printf("\n")
+
+	file.Printf("int32_t %sRec::GetRowSize() {\n", target.Definition.Name)
+	file.Printf("\treturn %d;\n", rowSize)
+	file.Printf("}\n")
+	file.Printf("\n")
+
+	file.Printf("bool %sRec::NeedIDAssigned() {\n", target.Definition.Name)
+	file.Printf("\treturn %t;\n", indexIsID)
+	file.Printf("}\n")
+	file.Printf("\n")
+
 	file.Printf("int32_t %sRec::GetID() {\n", target.Definition.Name)
-
-	indexIsID := target.Layout.Column("ID") == nil
-
 	if indexIsID {
 		file.Printf("\treturn this->m_generatedID;\n")
 	} else {
 		file.Printf("\treturn this->m_ID;\n")
 	}
+	file.Printf("}\n")
+	file.Printf("\n")
 
+	file.Printf("void %sRec::SetID(int32_t id) {\n", target.Definition.Name)
+	if indexIsID {
+		file.Printf("\tthis->m_generatedID = id;\n")
+	} else {
+		file.Printf("\tthis->m_ID = id;\n")
+	}
 	file.Printf("}\n")
 	file.Printf("\n")
 
