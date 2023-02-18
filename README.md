@@ -2,7 +2,7 @@
 
 whoa-autocode is a Go tool that generates C++ class definitions based on information from the [WoWDBDefs project](https://github.com/wowdev/WoWDBDefs).
 
-This tool intended to provide code for the [Whoa client](https://github.com/whoahq/whoa) (which targets build 12340); however you may supply a `--build` flag to target a different build.
+This tool intended to provide code for the [Whoa client](https://github.com/whoahq/whoa) (which targets build 12340); however you may supply a `--build` flag to target a different build number.
 
 It also creates `WowClientDB` instances for each of the tables. Then, a function is created, `StaticDBLoadAll`. This will load every DB table at once, with some exclusions (see autocode/nonstatic_exclusions.go)
 
