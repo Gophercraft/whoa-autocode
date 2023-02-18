@@ -51,9 +51,17 @@ func init() {
 	// when this action is called directly.
 	rootCmd.Flags().StringP("location", "l", "", "The Whoa code directory")
 	rootCmd.Flags().Uint32P("build", "b", 12340, "The dbc format build")
+	rootCmd.Flags().BoolP("edit-warning", "e", true, "If true, show a DO NOT EDIT warning. This is to avoid robot code inadvertently replacing human code (which sucks!)")
+	rootCmd.Flags().BoolP("normalize-members", "n", true, "If true, class members are automatically edited to be more aesthetically suitable to the Whoa project.")
+	rootCmd.Flags().StringP("locale-offset-token", "i", "CURRENT_LANGUAGE", "Replaces the number (or macro of a number) of the localization offset to use.")
+	rootCmd.Flags().StringP("static-db-load-all-name", "k", "StaticDb", "Changes the name of the files in src/db/ that contains all the DBs.")
 	rootCmd.Flags().StringP("definitions", "d", "", "Optional: supply a definitions directory")
 	rootCmd.Flags().StringP("layout-header-localimports", "p", "", "Optional: inside record layout headers, replace local #include directives with comma separated list e.g. whoa-autocode --layout-header-localimports \"util/SFile.hpp,client/Console.hpp\"")
-	rootCmd.Flags().StringP("layout-header-stdimports", "c", "", "Optional: inside record layout headers, replace standard library #include directives with comma separated list e.g. whoa-autocode --layout-header-stdimports \"cstdint,storm/File.hpp\"")
+	rootCmd.Flags().StringP("layout-header-stdimports", "q", "cstdint", "Optional: inside record layout headers, replace standard library #include directives with comma separated list e.g. whoa-autocode --layout-header-stdimports \"cstdint,storm/File.hpp\"")
+	rootCmd.Flags().StringP("layout-source-localimports", "r", "util/SFile.hpp", "Sets local or quoted imports inside your source files")
+	rootCmd.Flags().StringP("layout-source-stdimports", "s", "", "Sets std or bracketed imports inside your source files")
+	rootCmd.Flags().StringP("layout-header-decls", "w", "class SFile", "Adds forward declarations to your header files")
+	rootCmd.Flags().StringP("layout-source-decls", "x", "", "Adds forward declarations to your source files")
 }
 
 func Run() {

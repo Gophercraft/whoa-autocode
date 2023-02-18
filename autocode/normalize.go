@@ -86,11 +86,23 @@ func shouldAlwaysUppercase(str string) bool {
 	return false
 }
 
+func (g *Generator) shouldNormalize() bool {
+	nm, err := g.Cmd.Flags().GetBool("normalize-members")
+	if err != nil {
+		panic(err)
+	}
+	return nm
+}
+
 // Examples: SomeInput_LikeThis -> someInputLikeThis
 //           ID -> ID
 //           Thingamajig_ID -> thingamajigID
 
-func normalizeFieldName(fieldName string) string {
+func (g *Generator) normalizeFieldName(fieldName string) string {
+	if !g.shouldNormalize() {
+		return fieldName
+	}
+
 	if strings.HasPrefix(fieldName, "Field_") {
 		return "f" + fieldName[1:]
 	}

@@ -15,14 +15,6 @@ type layoutTarget struct {
 	Layout     *dbd.Layout
 }
 
-func (g *Generator) isLayoutStatic(target *layoutTarget) bool {
-	if target.Definition.Name == "Startup_Strings" {
-		return false
-	}
-
-	return true
-}
-
 func (g *Generator) findLayoutTargets() error {
 	// fmt.Println(len(dbdefs.All))
 
@@ -82,24 +74,18 @@ func (g *Generator) writeLayoutHeader(target *layoutTarget) error {
 	file.Printf("#define %s\n", importGuardToken)
 	file.Printf("\n")
 
-	var localimports = []string{
-		"util/SFile.hpp",
-	}
-
-	var stdimports = []string{
-		"cstdint",
-	}
+	var (
+		localimports []string
+		stdimports   []string
+		decls        []string
+	)
 
 	overrideLocal, err := g.Cmd.Flags().GetString("layout-header-localimports")
 	if err != nil {
 		return err
 	}
 	if overrideLocal != "" {
-		if overrideLocal == "nil" {
-			localimports = nil
-		} else {
-			localimports = strings.Split(overrideLocal, ",")
-		}
+		localimports = strings.Split(overrideLocal, ",")
 	}
 
 	overrideStd, err := g.Cmd.Flags().GetString("layout-header-stdimports")
@@ -107,14 +93,19 @@ func (g *Generator) writeLayoutHeader(target *layoutTarget) error {
 		return err
 	}
 	if overrideStd != "" {
-		if overrideStd == "nil" {
-			stdimports = nil
-		} else {
-			stdimports = strings.Split(overrideStd, ",")
-		}
+		stdimports = strings.Split(overrideStd, ",")
 	}
 
-	indentImport := len(localimports) > 0 || len(stdimports) > 0
+	overrideDecl, err := g.Cmd.Flags().GetString("layout-header-decls")
+	if err != nil {
+		return err
+	}
+
+	if overrideDecl != "" {
+		decls = strings.Split(overrideDecl, ",")
+	}
+
+	indentImport := len(localimports) > 0 || len(stdimports) > 0 || len(decls) > 0
 
 	for _, localimport := range localimports {
 		file.Printf("#include \"%s\"\n", localimport)
@@ -128,76 +119,23 @@ func (g *Generator) writeLayoutHeader(target *layoutTarget) error {
 		file.Printf("\n")
 	}
 
-	// for _, layout := range g.layouts {
-	// 	if err := g.writeLayout(file, layout); err != nil {
-	// 		return err
-	// 	}
-	// }
+	if len(decls) > 0 {
+		for _, decl := range decls {
+			file.Printf("%s;\n", decl)
+		}
 
-	// file.Printf("\n")
-	// file.Printf("#endif")
+		file.Printf("\n")
+	}
 
-	// numColumns := 0
-	// rowSize := 0
 	indexIsID := target.Layout.Column("ID") == nil
-
-	// rowSize, numColumns, err := calcLayoutSize(g.Build, target)
-	// if err != nil {
-	// 	return err
-	// }
-	// }
-
-	// // Calculate number of columns and size of row
-
-	// for _, column := range target.Layout.Columns {
-	// 	columnDef := target.Definition.Column(column.Name)
-
-	// 	numColumnElements := 1
-
-	// 	if column.ArraySize > 0 {
-	// 		numColumnElements = column.ArraySize
-	// 	}
-
-	// 	columnSize := 0
-
-	// 	switch columnDef.Type {
-	// 	case dbd.LocString:
-	// 		columnSize = locSize * 4
-	// 	case dbd.Int, dbd.Uint:
-	// 		columnSize = (column.Bits / 8) * numColumnElements
-	// 	case dbd.Float:
-	// 		columnSize = (column.Bits / 8) * numColumnElements
-	// 	case dbd.String:
-	// 		columnSize = numColumnElements * 4
-	// 	default:
-	// 		panic("unknown type")
-	// 	}
-
-	// 	rowSize += columnSize
-
-	// 	if columnDef.Type == dbd.LocString {
-	// 		numColumns += locSize
-	// 		continue
-	// 	}
-
-	// 	numColumns += numColumnElements
-	// }
-
-	// Begin writing record definition
 
 	file.Printf("class %sRec {\n", target.Definition.Name)
 	file.Printf("\tpublic:\n")
 
-	// file.Printf("\t\tstatic constexpr uint32_t columnCount = %d;\n", numColumns)
-	// file.Printf("\t\tstatic constexpr uint32_t rowSize = %d;\n", rowSize)
-	// file.Printf("\t\tstatic constexpr bool indexIsID = %t;\n", indexIsID)
-
-	// file.Printf("\n")
-
 	normalizedColumnNames := make([]string, len(target.Layout.Columns))
 
 	for i := range target.Layout.Columns {
-		normalizedColumnNames[i] = normalizeFieldName(target.Layout.Columns[i].Name)
+		normalizedColumnNames[i] = g.normalizeFieldName(target.Layout.Columns[i].Name)
 	}
 
 	for i, column := range target.Layout.Columns {
@@ -245,10 +183,6 @@ func (g *Generator) writeLayoutHeader(target *layoutTarget) error {
 		}
 
 		file.Printf("\n")
-
-		// if columnDef.Type == dbd.LocString {
-		// 	file.Printf("\tuint32_t m_%s_bitmask;\n", memberName)
-		// }
 	}
 
 	if indexIsID {
@@ -257,8 +191,8 @@ func (g *Generator) writeLayoutHeader(target *layoutTarget) error {
 
 	file.Printf("\n")
 	file.Printf("\t\tstatic const char* GetFilename();\n")
-	file.Printf("\t\tstatic int32_t GetNumColumns();\n")
-	file.Printf("\t\tstatic int32_t GetRowSize();\n")
+	file.Printf("\t\tstatic uint32_t GetNumColumns();\n")
+	file.Printf("\t\tstatic uint32_t GetRowSize();\n")
 	file.Printf("\t\tstatic bool NeedIDAssigned();\n")
 	file.Printf("\t\tint32_t GetID();\n")
 	file.Printf("\t\tvoid SetID(int32_t id);\n")
@@ -289,15 +223,64 @@ func (g *Generator) writeLayoutSource(target *layoutTarget) error {
 		return err
 	}
 
-	localimports := []string{
+	var (
+		stdimports   []string
+		localimports []string
+		decls        []string
+	)
+
+	localimports = []string{
 		fmt.Sprintf("db/rec/%sRec.hpp", target.Definition.Name),
 	}
+
+	overrideLocal, err := g.Cmd.Flags().GetString("layout-source-localimports")
+	if err != nil {
+		return err
+	}
+
+	overrideStd, err := g.Cmd.Flags().GetString("layout-source-stdimports")
+	if err != nil {
+		return err
+	}
+
+	overrideDecl, err := g.Cmd.Flags().GetString("layout-source-decls")
+	if err != nil {
+		return err
+	}
+
+	if overrideDecl != "" {
+		decls = strings.Split(overrideDecl, ",")
+	}
+
+	if overrideLocal != "" {
+		locals := strings.Split(overrideLocal, ",")
+		localimports = append(localimports, locals...)
+	}
+
+	if overrideStd != "" {
+		stds := strings.Split(overrideStd, ",")
+		stdimports = append(stdimports, stds...)
+	}
+
+	indentImport := len(localimports) > 0 || len(stdimports) > 0 || len(decls) > 0
 
 	for _, localimport := range localimports {
 		file.Printf("#include \"%s\"\n", localimport)
 	}
 
-	if len(localimports) > 0 {
+	for _, stdimport := range stdimports {
+		file.Printf("#include <%s>\n", stdimport)
+	}
+
+	if indentImport {
+		file.Printf("\n")
+	}
+
+	if len(decls) > 0 {
+		for _, decl := range decls {
+			file.Printf("%s;\n", decl)
+		}
+
 		file.Printf("\n")
 	}
 
@@ -306,12 +289,12 @@ func (g *Generator) writeLayoutSource(target *layoutTarget) error {
 	file.Printf("}\n")
 	file.Printf("\n")
 
-	file.Printf("int32_t %sRec::GetNumColumns() {\n", target.Definition.Name)
+	file.Printf("uint32_t %sRec::GetNumColumns() {\n", target.Definition.Name)
 	file.Printf("\treturn %d;\n", numColumns)
 	file.Printf("}\n")
 	file.Printf("\n")
 
-	file.Printf("int32_t %sRec::GetRowSize() {\n", target.Definition.Name)
+	file.Printf("uint32_t %sRec::GetRowSize() {\n", target.Definition.Name)
 	file.Printf("\treturn %d;\n", rowSize)
 	file.Printf("}\n")
 	file.Printf("\n")
@@ -346,7 +329,7 @@ func (g *Generator) writeLayoutSource(target *layoutTarget) error {
 	normalizedColumnNames := make([]string, len(target.Layout.Columns))
 
 	for i := range target.Layout.Columns {
-		normalizedColumnNames[i] = normalizeFieldName(target.Layout.Columns[i].Name)
+		normalizedColumnNames[i] = g.normalizeFieldName(target.Layout.Columns[i].Name)
 	}
 
 	// Create string index arrays
@@ -461,84 +444,79 @@ func (g *Generator) writeLayoutSource(target *layoutTarget) error {
 	file.Printf("\t}\n")
 	file.Printf("\n")
 
-	// optimization
-	if !anyStrings {
-		// file.Printf("\telse\n\t{\n\t\tresult = true;\n")
-		goto done
+	currentLanguage, err := g.Cmd.Flags().GetString("locale-offset-token")
+	if err != nil {
+		return err
 	}
 
-	file.Printf("\tif (stringBuffer) {\n")
-	// file.Printf("\t\tresult = true;\n")
+	if anyStrings {
+		file.Printf("\tif (stringBuffer) {\n")
 
-	// Assign values from string buffer (if present)
-	for i, columnLayout := range target.Layout.Columns {
-		memberName := normalizedColumnNames[i]
+		// Assign values from string buffer (if present)
+		for i, columnLayout := range target.Layout.Columns {
+			memberName := normalizedColumnNames[i]
 
-		columnDef := target.Definition.Column(columnLayout.Name)
+			columnDef := target.Definition.Column(columnLayout.Name)
 
-		switch columnDef.Type {
-		case dbd.String:
-			isStringArray := columnLayout.ArraySize > -1
+			switch columnDef.Type {
+			case dbd.String:
+				isStringArray := columnLayout.ArraySize > -1
 
-			if isStringArray {
-				for e := 0; e < columnLayout.ArraySize; e++ {
-					file.Printf("\t\tthis->m_%s[%d] = &stringBuffer[%sOfs[%d]];\n", memberName, e, memberName, e)
+				if isStringArray {
+					for e := 0; e < columnLayout.ArraySize; e++ {
+						file.Printf("\t\tthis->m_%s[%d] = &stringBuffer[%sOfs[%d]];\n", memberName, e, memberName, e)
+					}
+				} else {
+					file.Printf("\t\tthis->m_%s = &stringBuffer[%sOfs];\n", memberName, memberName)
 				}
-			} else {
-				file.Printf("\t\tthis->m_%s = &stringBuffer[%sOfs];\n", memberName, memberName)
-			}
-		case dbd.LocString:
-			isLocArray := columnLayout.ArraySize > -1
+			case dbd.LocString:
+				isLocArray := columnLayout.ArraySize > -1
 
-			if isLocArray {
-				for e := 0; e < columnLayout.ArraySize; e++ {
-					file.Printf("\t\tthis->m_%s[%d] = &stringBuffer[%sOfs%d[CURRENT_LANGUAGE]];\n", memberName, e, memberName, e)
+				if isLocArray {
+					for e := 0; e < columnLayout.ArraySize; e++ {
+						file.Printf("\t\tthis->m_%s[%d] = &stringBuffer[%sOfs%d[%s]];\n", memberName, e, memberName, e, currentLanguage)
+					}
+				} else {
+					file.Printf("\t\tthis->m_%s = &stringBuffer[%sOfs[%s]];\n", memberName, memberName, currentLanguage)
 				}
-			} else {
-				file.Printf("\t\tthis->m_%s = &stringBuffer[%sOfs[CURRENT_LANGUAGE]];\n", memberName, memberName)
 			}
 		}
-	}
 
-	file.Printf("\t} else {\n")
+		file.Printf("\t} else {\n")
 
-	// \telse\n\t{\n")
-	// file.Printf("\t\tresult = true;\n")
+		// Assign empty string values if stringBuffer is not present.
+		for i, columnLayout := range target.Layout.Columns {
+			memberName := normalizedColumnNames[i]
 
-	// Assign empty string values if stringBuffer is not present.
-	for i, columnLayout := range target.Layout.Columns {
-		memberName := normalizedColumnNames[i]
+			columnDef := target.Definition.Column(columnLayout.Name)
 
-		columnDef := target.Definition.Column(columnLayout.Name)
+			switch columnDef.Type {
+			case dbd.String:
+				isStringArray := columnLayout.ArraySize > -1
 
-		switch columnDef.Type {
-		case dbd.String:
-			isStringArray := columnLayout.ArraySize > -1
-
-			if isStringArray {
-				for e := 0; e < columnLayout.ArraySize; e++ {
-					file.Printf("\t\tthis->m_%s[%d] = \"\";\n", memberName, e)
+				if isStringArray {
+					for e := 0; e < columnLayout.ArraySize; e++ {
+						file.Printf("\t\tthis->m_%s[%d] = \"\";\n", memberName, e)
+					}
+				} else {
+					file.Printf("\t\tthis->m_%s = \"\";\n", memberName)
 				}
-			} else {
-				file.Printf("\t\tthis->m_%s = \"\";\n", memberName)
-			}
-		case dbd.LocString:
-			isLocArray := columnLayout.ArraySize > -1
+			case dbd.LocString:
+				isLocArray := columnLayout.ArraySize > -1
 
-			if isLocArray {
-				for e := 0; e < columnLayout.ArraySize; e++ {
-					file.Printf("\t\tthis->m_%s[%d] = \"\";\n", memberName, e)
+				if isLocArray {
+					for e := 0; e < columnLayout.ArraySize; e++ {
+						file.Printf("\t\tthis->m_%s[%d] = \"\";\n", memberName, e)
+					}
+				} else {
+					file.Printf("\t\tthis->m_%s = \"\";\n", memberName)
 				}
-			} else {
-				file.Printf("\t\tthis->m_%s = \"\";\n", memberName)
 			}
 		}
+
+		file.Printf("\t}\n")
+		file.Printf("\n")
 	}
-
-	file.Printf("\t}\n")
-	file.Printf("\n")
-
-done:
 	file.Printf("\treturn true;\n")
 	file.Printf("}\n")
 

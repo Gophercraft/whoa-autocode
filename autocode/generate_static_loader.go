@@ -11,8 +11,16 @@ func (g *Generator) globalDBName(name string) string {
 	return string(gname)
 }
 
+func (g *Generator) getStaticDbFilename() string {
+	str, err := g.Cmd.Flags().GetString("static-db-load-all-name")
+	if err != nil {
+		panic(err)
+	}
+	return str
+}
+
 func (g *Generator) generateStaticDBHeader() error {
-	file, err := g.NewPrinter("src/db/StaticDB.hpp")
+	file, err := g.NewPrinter(fmt.Sprintf("src/db/%s.hpp", g.getStaticDbFilename()))
 	if err != nil {
 		return err
 	}
@@ -54,13 +62,13 @@ func (g *Generator) generateStaticDBHeader() error {
 }
 
 func (g *Generator) generateStaticDBLoader() error {
-	file, err := g.NewPrinter("src/db/StaticDB.cpp")
+	file, err := g.NewPrinter(fmt.Sprintf("src/db/%s.cpp", g.getStaticDbFilename()))
 	if err != nil {
 		return err
 	}
 
 	localimports := []string{
-		"db/StaticDB.hpp",
+		fmt.Sprintf("src/db/%s.hpp", g.getStaticDbFilename()),
 	}
 
 	for _, localimport := range localimports {
