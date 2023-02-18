@@ -2,8 +2,9 @@
 #ifndef DB_REC_WORLD_STATE_UI_REC_HPP
 #define DB_REC_WORLD_STATE_UI_REC_HPP
 
-#include "util/SFile.hpp"
 #include <cstdint>
+
+class SFile;
 
 class WorldStateUIRec {
     public:
@@ -22,8 +23,8 @@ class WorldStateUIRec {
         int32_t m_extendedUistateVariable[3];
 
         static const char* GetFilename();
-        static int32_t GetNumColumns();
-        static int32_t GetRowSize();
+        static uint32_t GetNumColumns();
+        static uint32_t GetRowSize();
         static bool NeedIDAssigned();
         int32_t GetID();
         void SetID(int32_t id);

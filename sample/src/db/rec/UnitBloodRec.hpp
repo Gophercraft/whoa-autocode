@@ -2,8 +2,9 @@
 #ifndef DB_REC_UNIT_BLOOD_REC_HPP
 #define DB_REC_UNIT_BLOOD_REC_HPP
 
-#include "util/SFile.hpp"
 #include <cstdint>
+
+class SFile;
 
 class UnitBloodRec {
     public:
@@ -13,8 +14,8 @@ class UnitBloodRec {
         const char* m_groundBlood[5];
 
         static const char* GetFilename();
-        static int32_t GetNumColumns();
-        static int32_t GetRowSize();
+        static uint32_t GetNumColumns();
+        static uint32_t GetRowSize();
         static bool NeedIDAssigned();
         int32_t GetID();
         void SetID(int32_t id);

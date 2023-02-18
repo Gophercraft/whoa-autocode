@@ -2,8 +2,9 @@
 #ifndef DB_REC_ANIMATION_DATA_REC_HPP
 #define DB_REC_ANIMATION_DATA_REC_HPP
 
-#include "util/SFile.hpp"
 #include <cstdint>
+
+class SFile;
 
 class AnimationDataRec {
     public:
@@ -17,8 +18,8 @@ class AnimationDataRec {
         int32_t m_behaviorTier;
 
         static const char* GetFilename();
-        static int32_t GetNumColumns();
-        static int32_t GetRowSize();
+        static uint32_t GetNumColumns();
+        static uint32_t GetRowSize();
         static bool NeedIDAssigned();
         int32_t GetID();
         void SetID(int32_t id);

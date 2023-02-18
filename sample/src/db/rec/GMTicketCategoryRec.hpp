@@ -2,8 +2,9 @@
 #ifndef DB_REC_GMTICKET_CATEGORY_REC_HPP
 #define DB_REC_GMTICKET_CATEGORY_REC_HPP
 
-#include "util/SFile.hpp"
 #include <cstdint>
+
+class SFile;
 
 class GMTicketCategoryRec {
     public:
@@ -11,8 +12,8 @@ class GMTicketCategoryRec {
         const char* m_category;
 
         static const char* GetFilename();
-        static int32_t GetNumColumns();
-        static int32_t GetRowSize();
+        static uint32_t GetNumColumns();
+        static uint32_t GetRowSize();
         static bool NeedIDAssigned();
         int32_t GetID();
         void SetID(int32_t id);

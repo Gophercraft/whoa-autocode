@@ -2,8 +2,9 @@
 #ifndef DB_REC_SPELL_DESCRIPTION_VARIABLES_REC_HPP
 #define DB_REC_SPELL_DESCRIPTION_VARIABLES_REC_HPP
 
-#include "util/SFile.hpp"
 #include <cstdint>
+
+class SFile;
 
 class SpellDescriptionVariablesRec {
     public:
@@ -11,8 +12,8 @@ class SpellDescriptionVariablesRec {
         const char* m_variables;
 
         static const char* GetFilename();
-        static int32_t GetNumColumns();
-        static int32_t GetRowSize();
+        static uint32_t GetNumColumns();
+        static uint32_t GetRowSize();
         static bool NeedIDAssigned();
         int32_t GetID();
         void SetID(int32_t id);

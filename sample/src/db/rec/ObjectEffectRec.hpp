@@ -2,8 +2,9 @@
 #ifndef DB_REC_OBJECT_EFFECT_REC_HPP
 #define DB_REC_OBJECT_EFFECT_REC_HPP
 
-#include "util/SFile.hpp"
 #include <cstdint>
+
+class SFile;
 
 class ObjectEffectRec {
     public:
@@ -19,8 +20,8 @@ class ObjectEffectRec {
         int32_t m_objectEffectModifierID;
 
         static const char* GetFilename();
-        static int32_t GetNumColumns();
-        static int32_t GetRowSize();
+        static uint32_t GetNumColumns();
+        static uint32_t GetRowSize();
         static bool NeedIDAssigned();
         int32_t GetID();
         void SetID(int32_t id);

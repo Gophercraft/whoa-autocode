@@ -2,8 +2,9 @@
 #ifndef DB_REC_LIQUID_TYPE_REC_HPP
 #define DB_REC_LIQUID_TYPE_REC_HPP
 
-#include "util/SFile.hpp"
 #include <cstdint>
+
+class SFile;
 
 class LiquidTypeRec {
     public:
@@ -28,8 +29,8 @@ class LiquidTypeRec {
         int32_t m_int[4];
 
         static const char* GetFilename();
-        static int32_t GetNumColumns();
-        static int32_t GetRowSize();
+        static uint32_t GetNumColumns();
+        static uint32_t GetRowSize();
         static bool NeedIDAssigned();
         int32_t GetID();
         void SetID(int32_t id);

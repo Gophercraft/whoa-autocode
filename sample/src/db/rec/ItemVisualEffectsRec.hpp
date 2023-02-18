@@ -2,8 +2,9 @@
 #ifndef DB_REC_ITEM_VISUAL_EFFECTS_REC_HPP
 #define DB_REC_ITEM_VISUAL_EFFECTS_REC_HPP
 
-#include "util/SFile.hpp"
 #include <cstdint>
+
+class SFile;
 
 class ItemVisualEffectsRec {
     public:
@@ -11,8 +12,8 @@ class ItemVisualEffectsRec {
         const char* m_model;
 
         static const char* GetFilename();
-        static int32_t GetNumColumns();
-        static int32_t GetRowSize();
+        static uint32_t GetNumColumns();
+        static uint32_t GetRowSize();
         static bool NeedIDAssigned();
         int32_t GetID();
         void SetID(int32_t id);

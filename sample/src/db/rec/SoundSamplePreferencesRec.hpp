@@ -2,8 +2,9 @@
 #ifndef DB_REC_SOUND_SAMPLE_PREFERENCES_REC_HPP
 #define DB_REC_SOUND_SAMPLE_PREFERENCES_REC_HPP
 
-#include "util/SFile.hpp"
 #include <cstdint>
+
+class SFile;
 
 class SoundSamplePreferencesRec {
     public:
@@ -26,8 +27,8 @@ class SoundSamplePreferencesRec {
         int32_t m_field_0_6_0_3592_016; // unconfirmed
 
         static const char* GetFilename();
-        static int32_t GetNumColumns();
-        static int32_t GetRowSize();
+        static uint32_t GetNumColumns();
+        static uint32_t GetRowSize();
         static bool NeedIDAssigned();
         int32_t GetID();
         void SetID(int32_t id);

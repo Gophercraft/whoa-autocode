@@ -2,8 +2,9 @@
 #ifndef DB_REC_GT_BARBER_SHOP_COST_BASE_REC_HPP
 #define DB_REC_GT_BARBER_SHOP_COST_BASE_REC_HPP
 
-#include "util/SFile.hpp"
 #include <cstdint>
+
+class SFile;
 
 class gtBarberShopCostBaseRec {
     public:
@@ -11,8 +12,8 @@ class gtBarberShopCostBaseRec {
         int32_t m_generatedID;
 
         static const char* GetFilename();
-        static int32_t GetNumColumns();
-        static int32_t GetRowSize();
+        static uint32_t GetNumColumns();
+        static uint32_t GetRowSize();
         static bool NeedIDAssigned();
         int32_t GetID();
         void SetID(int32_t id);

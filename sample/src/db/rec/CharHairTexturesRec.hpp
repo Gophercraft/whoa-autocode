@@ -2,8 +2,9 @@
 #ifndef DB_REC_CHAR_HAIR_TEXTURES_REC_HPP
 #define DB_REC_CHAR_HAIR_TEXTURES_REC_HPP
 
-#include "util/SFile.hpp"
 #include <cstdint>
+
+class SFile;
 
 class CharHairTexturesRec {
     public:
@@ -17,8 +18,8 @@ class CharHairTexturesRec {
         int32_t m_field_0_5_3_3368_007; // unconfirmed
 
         static const char* GetFilename();
-        static int32_t GetNumColumns();
-        static int32_t GetRowSize();
+        static uint32_t GetNumColumns();
+        static uint32_t GetRowSize();
         static bool NeedIDAssigned();
         int32_t GetID();
         void SetID(int32_t id);
