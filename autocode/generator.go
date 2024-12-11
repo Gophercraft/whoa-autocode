@@ -4,12 +4,12 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/Gophercraft/core/vsn"
+	"github.com/Gophercraft/core/version"
 	"github.com/spf13/cobra"
 )
 
 type Generator struct {
-	Build           vsn.Build
+	Build           version.Build
 	OutputDirectory string
 	DefsDirectory   string
 	Cmd             *cobra.Command
@@ -17,7 +17,7 @@ type Generator struct {
 	layouts []*layoutTarget
 }
 
-func NewGenerator(build vsn.Build) *Generator {
+func NewGenerator(build version.Build) *Generator {
 	g := new(Generator)
 	g.Build = build
 	return g
@@ -34,26 +34,6 @@ func (g *Generator) ensurePath(relpath string) error {
 
 	if _, err := os.Stat(dirContainingPath); err != nil {
 		return os.MkdirAll(dirContainingPath, 0700)
-	}
-
-	return nil
-}
-
-func (g *Generator) Generate() error {
-	if err := g.loadAlternativeDefs(); err != nil {
-		return err
-	}
-
-	if err := g.generateLayouts(); err != nil {
-		return err
-	}
-
-	// if err := g.generateLayoutReaders(); err != nil {
-	// 	return err
-	// }
-
-	if err := g.generateStaticLoader(); err != nil {
-		return err
 	}
 
 	return nil

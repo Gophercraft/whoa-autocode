@@ -5,10 +5,10 @@ import (
 
 	"github.com/Gophercraft/core/format/dbc"
 	"github.com/Gophercraft/core/format/dbc/dbd"
-	"github.com/Gophercraft/core/vsn"
+	"github.com/Gophercraft/core/version"
 )
 
-func calcLayoutSize(build vsn.Build, target *layoutTarget) (rowSize, numColumns int, err error) {
+func calcLayoutSize(build version.Build, target *layoutTarget) (rowSize, numColumns int, err error) {
 	var locSize int
 	locSize, err = dbc.LocStringSize(build)
 	if err != nil {
