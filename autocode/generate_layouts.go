@@ -62,7 +62,7 @@ func (g *Generator) findLayoutTargets() error {
 	return nil
 }
 
-func (g *Generator) writeLayoutHeader(target *layoutTarget) error {
+func (g *Generator) writeLayoutHeader(target *layoutTarget) (err error) {
 	file, err := g.NewPrinter(fmt.Sprintf("src/db/rec/%sRec.hpp", target.Definition.Name))
 	if err != nil {
 		return err
@@ -75,30 +75,33 @@ func (g *Generator) writeLayoutHeader(target *layoutTarget) error {
 	file.Printf("\n")
 
 	var (
-		localimports []string
-		stdimports   []string
-		decls        []string
+		localimports  []string
+		stdimports    []string
+		decls         []string
+		overrideLocal string
+		overrideStd   string
+		overrideDecl  string
 	)
 
-	overrideLocal, err := g.Cmd.Flags().GetString("layout-header-localimports")
+	overrideLocal, err = g.Cmd.Flags().GetString("layout-header-localimports")
 	if err != nil {
-		return err
+		return
 	}
 	if overrideLocal != "" {
 		localimports = strings.Split(overrideLocal, ",")
 	}
 
-	overrideStd, err := g.Cmd.Flags().GetString("layout-header-stdimports")
+	overrideStd, err = g.Cmd.Flags().GetString("layout-header-stdimports")
 	if err != nil {
-		return err
+		return
 	}
 	if overrideStd != "" {
 		stdimports = strings.Split(overrideStd, ",")
 	}
 
-	overrideDecl, err := g.Cmd.Flags().GetString("layout-header-decls")
+	overrideDecl, err = g.Cmd.Flags().GetString("layout-header-decls")
 	if err != nil {
-		return err
+		return
 	}
 
 	if overrideDecl != "" {
@@ -134,8 +137,12 @@ func (g *Generator) writeLayoutHeader(target *layoutTarget) error {
 
 	normalizedColumnNames := make([]string, len(target.Layout.Columns))
 
+	g.beginNormalization()
 	for i := range target.Layout.Columns {
-		normalizedColumnNames[i] = g.normalizeFieldName(target.Layout.Columns[i].Name)
+		normalizedColumnNames[i], err = g.normalizeFieldName(target.Layout.Columns[i].Name)
+		if err != nil {
+			return
+		}
 	}
 
 	for i, column := range target.Layout.Columns {
@@ -205,15 +212,18 @@ func (g *Generator) writeLayoutHeader(target *layoutTarget) error {
 	return file.Close()
 }
 
-func (g *Generator) writeLayoutSource(target *layoutTarget) error {
-	locSize, err := dbc.LocStringSize(g.Build)
+func (g *Generator) writeLayoutSource(target *layoutTarget) (err error) {
+	var locSize int
+	var rowSize int
+	var numColumns int
+	locSize, err = dbc.LocStringSize(g.Build)
 	if err != nil {
-		return err
+		return
 	}
 
-	rowSize, numColumns, err := calcLayoutSize(g.Build, target)
+	rowSize, numColumns, err = calcLayoutSize(g.Build, target)
 	if err != nil {
-		return err
+		return
 	}
 
 	indexIsID := target.Layout.Column("ID") == nil
@@ -233,19 +243,22 @@ func (g *Generator) writeLayoutSource(target *layoutTarget) error {
 		fmt.Sprintf("db/rec/%sRec.hpp", target.Definition.Name),
 	}
 
-	overrideLocal, err := g.Cmd.Flags().GetString("layout-source-localimports")
+	var overrideLocal string
+	overrideLocal, err = g.Cmd.Flags().GetString("layout-source-localimports")
 	if err != nil {
-		return err
+		return
 	}
 
-	overrideStd, err := g.Cmd.Flags().GetString("layout-source-stdimports")
+	var overrideStd string
+	overrideStd, err = g.Cmd.Flags().GetString("layout-source-stdimports")
 	if err != nil {
-		return err
+		return
 	}
 
-	overrideDecl, err := g.Cmd.Flags().GetString("layout-source-decls")
+	var overrideDecl string
+	overrideDecl, err = g.Cmd.Flags().GetString("layout-source-decls")
 	if err != nil {
-		return err
+		return
 	}
 
 	if overrideDecl != "" {
@@ -328,8 +341,12 @@ func (g *Generator) writeLayoutSource(target *layoutTarget) error {
 
 	normalizedColumnNames := make([]string, len(target.Layout.Columns))
 
+	g.beginNormalization()
 	for i := range target.Layout.Columns {
-		normalizedColumnNames[i] = g.normalizeFieldName(target.Layout.Columns[i].Name)
+		normalizedColumnNames[i], err = g.normalizeFieldName(target.Layout.Columns[i].Name)
+		if err != nil {
+			return
+		}
 	}
 
 	// Create string index arrays

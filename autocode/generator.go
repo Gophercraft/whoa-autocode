@@ -14,7 +14,8 @@ type Generator struct {
 	DefsDirectory   string
 	Cmd             *cobra.Command
 
-	layouts []*layoutTarget
+	layouts    []*layoutTarget
+	fieldNames []string
 }
 
 func NewGenerator(build version.Build) *Generator {

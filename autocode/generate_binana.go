@@ -13,8 +13,12 @@ func (g *Generator) binana_write_layout(file *Printer, target *layoutTarget) (er
 	file.Printf("struct %sRec {\n", target.Definition.Name)
 	normalizedColumnNames := make([]string, len(target.Layout.Columns))
 
+	g.beginNormalization()
 	for i := range target.Layout.Columns {
-		normalizedColumnNames[i] = g.normalizeFieldName(target.Layout.Columns[i].Name)
+		normalizedColumnNames[i], err = g.normalizeFieldName(target.Layout.Columns[i].Name)
+		if err != nil {
+			return
+		}
 	}
 
 	for i, column := range target.Layout.Columns {

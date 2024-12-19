@@ -1,6 +1,7 @@
 package autocode
 
 import (
+	"slices"
 	"strings"
 	"unicode"
 )
@@ -98,18 +99,38 @@ func (g *Generator) shouldNormalize() bool {
 //           ID -> ID
 //           Thingamajig_ID -> thingamajigID
 
-func (g *Generator) normalizeFieldName(fieldName string) string {
+func (g *Generator) beginNormalization() {
+	g.fieldNames = []string{}
+}
+
+func (g *Generator) normalizeFieldName(fieldName string) (s string, err error) {
+	defer func() {
+		if err == nil {
+			g.fieldNames = append(g.fieldNames, s)
+		}
+	}()
+
 	if !g.shouldNormalize() {
-		return fieldName
+		s = fieldName
+		return
 	}
 
 	if strings.HasPrefix(fieldName, "Field_") {
-		return "f" + fieldName[1:]
+		s = "f" + fieldName[1:]
+		return
 	}
+
+	langSuffix := false
 
 	langEnd := strings.LastIndex(fieldName, "_lang")
 	if langEnd > -1 {
-		fieldName = fieldName[:langEnd]
+		namePrefix := fieldName[:langEnd]
+		// if slices.Contains(g.fieldNames, namePrefix) {
+		// 	returnLang = true
+		// 	fmt.Println("got lang string", fieldName)
+		// }
+		fieldName = namePrefix
+		langSuffix = true
 	}
 
 	underscoreSplit := strings.Split(fieldName, "_")
@@ -118,9 +139,7 @@ func (g *Generator) normalizeFieldName(fieldName string) string {
 
 	for _, underscoreElement := range underscoreSplit {
 		caseSplit := splitByCaseChange(underscoreElement)
-		for _, caseElement := range caseSplit {
-			elements = append(elements, caseElement)
-		}
+		elements = append(elements, caseSplit...)
 	}
 
 	var trimElements []string
@@ -150,5 +169,11 @@ func (g *Generator) normalizeFieldName(fieldName string) string {
 		}
 	}
 
-	return strings.Join(caseElements, "")
+	s = strings.Join(caseElements, "")
+
+	if slices.Contains(g.fieldNames, s) && langSuffix {
+		s += "_lang"
+	}
+
+	return
 }
