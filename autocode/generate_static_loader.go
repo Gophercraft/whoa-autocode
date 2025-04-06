@@ -19,7 +19,7 @@ func (g *Generator) getStaticDbFilename() string {
 	return str
 }
 
-func (g *Generator) generateStaticDBHeader() error {
+func (g *Generator) generateStaticDBHeader(list []string) error {
 	file, err := g.NewPrinter(fmt.Sprintf("src/db/%s.hpp", g.getStaticDbFilename()))
 	if err != nil {
 		return err
@@ -34,10 +34,8 @@ func (g *Generator) generateStaticDBHeader() error {
 		"db/WowClientDB.hpp",
 	}
 
-	for _, item := range g.layouts {
-		if g.isLayoutStatic(item) {
-			localimports = append(localimports, fmt.Sprintf("db/rec/%sRec.hpp", item.Definition.Name))
-		}
+	for _, item := range list {
+		localimports = append(localimports, fmt.Sprintf("db/rec/%sRec.hpp", item))
 	}
 
 	for _, localimport := range localimports {
@@ -47,7 +45,7 @@ func (g *Generator) generateStaticDBHeader() error {
 	file.Printf("\n")
 
 	for _, target := range g.layouts {
-		file.Printf("extern WowClientDB<%sRec> %s;\n", target.Definition.Name, g.globalDBName(target.Definition.Name))
+		file.Printf("extern WowClientDB<%sRec> %s;\n", target, target)
 	}
 
 	file.Printf("\n")
@@ -61,14 +59,14 @@ func (g *Generator) generateStaticDBHeader() error {
 	return file.Close()
 }
 
-func (g *Generator) generateStaticDBLoader() error {
+func (g *Generator) generateStaticDBLoader(list []string) error {
 	file, err := g.NewPrinter(fmt.Sprintf("src/db/%s.cpp", g.getStaticDbFilename()))
 	if err != nil {
 		return err
 	}
 
 	localimports := []string{
-		fmt.Sprintf("src/db/%s.hpp", g.getStaticDbFilename()),
+		fmt.Sprintf("db/%s.hpp", g.getStaticDbFilename()),
 	}
 
 	for _, localimport := range localimports {
@@ -77,18 +75,16 @@ func (g *Generator) generateStaticDBLoader() error {
 
 	file.Printf("\n")
 
-	for _, target := range g.layouts {
-		file.Printf("WowClientDB<%sRec> %s;\n", target.Definition.Name, g.globalDBName(target.Definition.Name))
+	for _, target := range list {
+		file.Printf("WowClientDB<%sRec> %s;\n", target, g.globalDBName(target))
 	}
 
 	file.Printf("\n")
 
 	file.Printf("void StaticDBLoadAll(void (*loadFn)(WowClientDB_Base*, const char*, int32_t)) {\n")
 
-	for _, target := range g.layouts {
-		if g.isLayoutStatic(target) {
-			file.Printf("\tloadFn(&%s, __FILE__, __LINE__);\n", g.globalDBName(target.Definition.Name))
-		}
+	for _, target := range list {
+		file.Printf("\tloadFn(&%s, __FILE__, __LINE__);\n", g.globalDBName(target))
 	}
 
 	file.Printf("}\n")
@@ -97,11 +93,16 @@ func (g *Generator) generateStaticDBLoader() error {
 }
 
 func (g *Generator) generateStaticLoader() error {
-	if err := g.generateStaticDBHeader(); err != nil {
+	list, err := load_static_list(fmt.Sprintf("static/%d.txt", g.Build))
+	if err != nil {
 		return err
 	}
 
-	if err := g.generateStaticDBLoader(); err != nil {
+	if err := g.generateStaticDBHeader(list); err != nil {
+		return err
+	}
+
+	if err := g.generateStaticDBLoader(list); err != nil {
 		return err
 	}
 
