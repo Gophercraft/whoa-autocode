@@ -11,6 +11,7 @@ import (
 )
 
 type layoutTarget struct {
+	Name       string
 	Definition *dbd.Definition
 	Layout     *dbd.Layout
 }
@@ -33,6 +34,7 @@ func (g *Generator) findLayoutTargets() error {
 				for _, br := range layout.BuildRanges {
 					if br.Contains(g.Build) {
 						g.layouts = append(g.layouts, &layoutTarget{
+							Name:       g.normalize_table_name(def.Name),
 							Definition: def,
 							Layout:     layout,
 						})
@@ -47,6 +49,7 @@ func (g *Generator) findLayoutTargets() error {
 
 			if foundBuild {
 				g.layouts = append(g.layouts, &layoutTarget{
+					Name:       g.normalize_table_name(def.Name),
 					Definition: def,
 					Layout:     layout,
 				})
@@ -63,12 +66,12 @@ func (g *Generator) findLayoutTargets() error {
 }
 
 func (g *Generator) writeLayoutHeader(target *layoutTarget) (err error) {
-	file, err := g.NewPrinter(fmt.Sprintf("src/db/rec/%sRec.hpp", target.Definition.Name))
+	file, err := g.NewPrinter(fmt.Sprintf("src/db/rec/%sRec.hpp", target.Name))
 	if err != nil {
 		return err
 	}
 
-	importGuardToken := fmt.Sprintf("DB_REC_%s_REC_HPP", convertToScreamCase(target.Definition.Name))
+	importGuardToken := fmt.Sprintf("DB_REC_%s_REC_HPP", convertToScreamCase(target.Name))
 
 	file.Printf("#ifndef %s\n", importGuardToken)
 	file.Printf("#define %s\n", importGuardToken)
@@ -130,9 +133,9 @@ func (g *Generator) writeLayoutHeader(target *layoutTarget) (err error) {
 		file.Printf("\n")
 	}
 
-	indexIsID := target.Layout.Column("ID") == nil
+	indexIsID := target.Layout.IDColumn() == nil
 
-	file.Printf("class %sRec {\n", target.Definition.Name)
+	file.Printf("class %sRec {\n", target.Name)
 	file.Printf("\tpublic:\n")
 
 	normalizedColumnNames := make([]string, len(target.Layout.Columns))
@@ -226,9 +229,9 @@ func (g *Generator) writeLayoutSource(target *layoutTarget) (err error) {
 		return
 	}
 
-	indexIsID := target.Layout.Column("ID") == nil
+	indexIsID := target.Layout.IDColumn() == nil
 
-	file, err := g.NewPrinter(fmt.Sprintf("src/db/rec/%sRec.cpp", target.Definition.Name))
+	file, err := g.NewPrinter(fmt.Sprintf("src/db/rec/%sRec.cpp", target.Name))
 	if err != nil {
 		return err
 	}
@@ -240,7 +243,7 @@ func (g *Generator) writeLayoutSource(target *layoutTarget) (err error) {
 	)
 
 	localimports = []string{
-		fmt.Sprintf("db/rec/%sRec.hpp", target.Definition.Name),
+		fmt.Sprintf("db/rec/%sRec.hpp", target.Name),
 	}
 
 	var overrideLocal string
@@ -297,45 +300,49 @@ func (g *Generator) writeLayoutSource(target *layoutTarget) (err error) {
 		file.Printf("\n")
 	}
 
-	file.Printf("const char* %sRec::GetFilename() {\n", target.Definition.Name)
-	file.Printf("\treturn \"DBFilesClient\\\\%s.dbc\";\n", target.Definition.Name)
+	file.Printf("const char* %sRec::GetFilename() {\n", target.Name)
+	file.Printf("\treturn \"DBFilesClient\\\\%s.dbc\";\n", target.Name)
 	file.Printf("}\n")
 	file.Printf("\n")
 
-	file.Printf("uint32_t %sRec::GetNumColumns() {\n", target.Definition.Name)
+	file.Printf("uint32_t %sRec::GetNumColumns() {\n", target.Name)
 	file.Printf("\treturn %d;\n", numColumns)
 	file.Printf("}\n")
 	file.Printf("\n")
 
-	file.Printf("uint32_t %sRec::GetRowSize() {\n", target.Definition.Name)
+	file.Printf("uint32_t %sRec::GetRowSize() {\n", target.Name)
 	file.Printf("\treturn %d;\n", rowSize)
 	file.Printf("}\n")
 	file.Printf("\n")
 
-	file.Printf("bool %sRec::NeedIDAssigned() {\n", target.Definition.Name)
+	file.Printf("bool %sRec::NeedIDAssigned() {\n", target.Name)
 	file.Printf("\treturn %t;\n", indexIsID)
 	file.Printf("}\n")
 	file.Printf("\n")
 
-	file.Printf("int32_t %sRec::GetID() {\n", target.Definition.Name)
+	id_name := ""
+
 	if indexIsID {
-		file.Printf("\treturn this->m_generatedID;\n")
+		id_name = "generatedID"
 	} else {
-		file.Printf("\treturn this->m_ID;\n")
+		id_name, err = g.normalizeFieldName(target.Layout.IDColumn().Name)
+		if err != nil {
+			panic(err)
+		}
+		err = nil
 	}
+
+	file.Printf("int32_t %sRec::GetID() {\n", target.Name)
+	file.Printf("\treturn this->m_%s;\n", id_name)
 	file.Printf("}\n")
 	file.Printf("\n")
 
-	file.Printf("void %sRec::SetID(int32_t id) {\n", target.Definition.Name)
-	if indexIsID {
-		file.Printf("\tthis->m_generatedID = id;\n")
-	} else {
-		file.Printf("\tthis->m_ID = id;\n")
-	}
+	file.Printf("void %sRec::SetID(int32_t id) {\n", target.Name)
+	file.Printf("\tthis->m_%s = id;\n", id_name)
 	file.Printf("}\n")
 	file.Printf("\n")
 
-	file.Printf("bool %sRec::Read(SFile* f, const char* stringBuffer) {\n", target.Definition.Name)
+	file.Printf("bool %sRec::Read(SFile* f, const char* stringBuffer) {\n", target.Name)
 
 	anyStrings := false
 
@@ -456,7 +463,7 @@ func (g *Generator) writeLayoutSource(target *layoutTarget) (err error) {
 	}
 
 	file.Printf("\t) {\n")
-	// file.Printf("\t\tConsoleWrite(\"Error reading %s\", WARNING_COLOR);\n", target.Definition.Name)
+	// file.Printf("\t\tConsoleWrite(\"Error reading %s\", WARNING_COLOR);\n", target.Name)
 	file.Printf("\t\treturn false;\n")
 	file.Printf("\t}\n")
 	file.Printf("\n")

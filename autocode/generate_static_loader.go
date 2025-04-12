@@ -44,8 +44,8 @@ func (g *Generator) generateStaticDBHeader(list []string) error {
 
 	file.Printf("\n")
 
-	for _, target := range g.layouts {
-		file.Printf("extern WowClientDB<%sRec> %s;\n", target, target)
+	for _, target := range list {
+		file.Printf("extern WowClientDB<%sRec> %s;\n", target, g.globalDBName(target))
 	}
 
 	file.Printf("\n")
@@ -81,10 +81,10 @@ func (g *Generator) generateStaticDBLoader(list []string) error {
 
 	file.Printf("\n")
 
-	file.Printf("void StaticDBLoadAll(void (*loadFn)(WowClientDB_Base*, const char*, int32_t)) {\n")
+	file.Printf("void StaticDBLoadAll(void (*load)(WowClientDB_Base*, const char*, int32_t)) {\n")
 
 	for _, target := range list {
-		file.Printf("\tloadFn(&%s, __FILE__, __LINE__);\n", g.globalDBName(target))
+		file.Printf("\tload(&%s, __FILE__, __LINE__);\n", g.globalDBName(target))
 	}
 
 	file.Printf("}\n")

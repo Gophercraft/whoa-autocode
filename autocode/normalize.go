@@ -177,3 +177,10 @@ func (g *Generator) normalizeFieldName(fieldName string) (s string, err error) {
 
 	return
 }
+
+func (g *Generator) normalize_table_name(table_name string) string {
+	table_name = strings.ReplaceAll(table_name, "Addons", "AddOns")
+	table_name = strings.ReplaceAll(table_name, "LFG", "Lfg")
+	table_name = strings.ReplaceAll(table_name, "PVP", "Pvp")
+	return table_name
+}
