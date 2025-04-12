@@ -15,15 +15,15 @@ uint32_t MovieFileDataRec::GetRowSize() {
 }
 
 bool MovieFileDataRec::NeedIDAssigned() {
-    return true;
+    return false;
 }
 
 int32_t MovieFileDataRec::GetID() {
-    return this->m_generatedID;
+    return this->m_fileDataID;
 }
 
 void MovieFileDataRec::SetID(int32_t id) {
-    this->m_generatedID = id;
+    this->m_fileDataID = id;
 }
 
 bool MovieFileDataRec::Read(SFile* f, const char* stringBuffer) {

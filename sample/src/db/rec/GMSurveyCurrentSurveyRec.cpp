@@ -15,15 +15,15 @@ uint32_t GMSurveyCurrentSurveyRec::GetRowSize() {
 }
 
 bool GMSurveyCurrentSurveyRec::NeedIDAssigned() {
-    return true;
+    return false;
 }
 
 int32_t GMSurveyCurrentSurveyRec::GetID() {
-    return this->m_generatedID;
+    return this->m_langid;
 }
 
 void GMSurveyCurrentSurveyRec::SetID(int32_t id) {
-    this->m_generatedID = id;
+    this->m_langid = id;
 }
 
 bool GMSurveyCurrentSurveyRec::Read(SFile* f, const char* stringBuffer) {
