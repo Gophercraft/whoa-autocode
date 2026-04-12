@@ -10,7 +10,7 @@ import (
 func (g *Generator) binana_write_layout(file *Printer, target *layoutTarget) (err error) {
 	indexIsID := target.Layout.Column("ID") == nil
 
-	file.Printf("struct %sRec {\n", target.Definition.Name)
+	file.Printf("struct %sRec {\n", target.Name)
 	normalizedColumnNames := make([]string, len(target.Layout.Columns))
 
 	g.beginNormalization()
@@ -109,7 +109,7 @@ func (g *Generator) GenerateBinana(location string) (err error) {
 
 	// write layout forward declarations
 	for _, l := range g.layouts {
-		p.Printf("DECLARE_STRUCT(%sRec);\n", l.Definition.Name)
+		p.Printf("DECLARE_STRUCT(%sRec);\n", l.Name)
 	}
 	p.Printf("\n")
 
@@ -132,7 +132,7 @@ func (g *Generator) GenerateBinana(location string) (err error) {
 	// create template types for structures
 	// write layout structures
 	for _, l := range g.layouts {
-		p.Printf("DB_CLIENT_DB(%sRec);\n", l.Definition.Name)
+		p.Printf("DB_CLIENT_DB(%sRec);\n", l.Name)
 	}
 	p.Printf("\n")
 
