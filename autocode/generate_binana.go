@@ -121,14 +121,6 @@ func (g *Generator) GenerateBinana(location string) (err error) {
 	}
 	p.Printf("\n")
 
-	// write layout structures
-	for _, l := range g.layouts {
-		if err = g.binana_write_layout(p, l); err != nil {
-			return
-		}
-	}
-	p.Printf("\n")
-
 	// create template types for structures
 	// write layout structures
 	for _, l := range g.layouts {
